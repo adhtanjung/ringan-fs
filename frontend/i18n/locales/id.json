@@ -1,0 +1,108 @@
+{
+  "header": {
+    "aiCounselor": "AI Counselor",
+    "ready": "Siap membantu Anda",
+    "typing": "Sedang mengetik...",
+    "speechOn": "Speech ON",
+    "speech": "Speech",
+    "help": "Help",
+    "tips": "Tips",
+    "chat": "Chat",
+    "modeHelp": "Mode Bantuan",
+    "dailyTips": "Tips Harian",
+    "freeChat": "Ngobrol Bebas"
+  },
+  "menu": {
+    "clearHistory": "🗑️ Hapus Riwayat Chat",
+    "exportChat": "📤 Export Percakapan",
+    "viewTranscript": "📝 Lihat Transkrip",
+    "privacySettings": "🔒 Pengaturan Privasi",
+    "emergencyHelp": "🚨 Bantuan Darurat"
+  },
+  "modeDescriptions": {
+    "help": "Dapatkan bantuan dan dukungan untuk masalah kesehatan mental",
+    "tips": "Terima tips harian untuk meningkatkan kesejahteraan mental",
+    "chat": "Ngobrol bebas tentang apa saja yang ada di pikiran Anda"
+  },
+  "speechMode": {
+    "title": "AI Voice Counselor",
+    "autoMode": "Mode Otomatis Aktif",
+    "manualMode": "Mode Manual",
+    "autoOn": "Auto ON",
+    "manual": "Manual",
+    "end": "End",
+    "autoConversation": "Percakapan Otomatis",
+    "listening": "🎙️ Sedang Mendengarkan...",
+    "processing": "🤔 Memproses...",
+    "thinking": "💭 Memikirkan Respons...",
+    "ready": "👂 Siap Mendengarkan",
+    "pressToTalk": "Tekan untuk Bicara",
+    "listeningStatus": "Mendengarkan...",
+    "talk": "Talk",
+    "stop": "Stop",
+    "lastConversation": "Percakapan Terakhir",
+    "you": "Anda",
+    "ai": "AI",
+    "previewTranscript": "Preview Transkrip",
+    "pressToStart": "Tekan tombol mikrofon untuk mulai berbicara"
+  },
+  "transcript": {
+    "title": "Transkrip Percakapan",
+    "noTranscript": "Belum ada transkrip percakapan suara",
+    "export": "Export Transkrip",
+    "copyToChat": "Copy ke Chat"
+  },
+  "welcome": {
+    "greeting": "Halo! Saya di sini untuk Anda 💚",
+    "description": "Saya adalah AI Counselor yang siap mendengarkan dan membantu Anda. Semua percakapan bersifat rahasia."
+  },
+  "quickIntents": {
+    "feelingAnxious": "Saya merasa cemas dan tidak tahu harus berbuat apa",
+    "needMotivation": "Saya butuh motivasi untuk hari ini",
+    "feelingStressed": "Saya merasa stres dengan pekerjaan/sekolah",
+    "sleepProblems": "Saya mengalami masalah tidur",
+    "relationshipIssues": "Saya punya masalah dalam hubungan",
+    "dailyTips": "Berikan saya tips untuk hari ini"
+  },
+  "assessment": {
+    "availableTitle": "Assessment Terstruktur Tersedia",
+    "availableDescription": "Berdasarkan percakapan kita, saya dapat membantu Anda dengan assessment terstruktur untuk",
+    "problemYouFacing": "masalah yang Anda alami",
+    "startAssessment": "✓ Mulai Assessment",
+    "continueChat": "💬 Lanjut Chat",
+    "inProgress": "Assessment Sedang Berlangsung",
+    "question": "Pertanyaan",
+    "of": "dari",
+    "category": "Kategori",
+    "progress": "Progress",
+    "answer": "Jawab",
+    "next": "Selanjutnya",
+    "previous": "Sebelumnya",
+    "complete": "Selesai",
+    "completed": "Assessment Selesai!",
+    "results": "Hasil Assessment",
+    "score": "Skor",
+    "level": "Level",
+    "recommendations": "Rekomendasi",
+    "newAssessment": "Assessment Baru",
+    "backToChat": "Kembali ke Chat"
+  },
+  "input": {
+    "placeholder": "Ceritakan perasaan Anda...",
+    "send": "Kirim",
+    "recording": "Merekam...",
+    "stopRecording": "Berhenti Merekam"
+  },
+  "status": {
+    "connecting": "Menghubungkan...",
+    "connected": "Terhubung",
+    "disconnected": "Terputus",
+    "error": "Terjadi kesalahan",
+    "aiTyping": "AI sedang mengetik..."
+  },
+  "language": {
+    "switch": "Ganti Bahasa",
+    "english": "English",
+    "indonesian": "Bahasa Indonesia"
+  }
+}

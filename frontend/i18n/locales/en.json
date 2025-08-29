@@ -1,0 +1,122 @@
+{
+  "header": {
+    "aiCounselor": "AI Counselor",
+    "ready": "Ready to help you",
+    "typing": "Typing...",
+    "speechOn": "Speech ON",
+    "speech": "Speech",
+    "help": "Help",
+    "tips": "Tips",
+    "chat": "Chat",
+    "modeHelp": "Help Mode",
+    "dailyTips": "Daily Tips",
+    "freeChat": "Free Chat"
+  },
+  "menu": {
+    "clearHistory": "🗑️ Clear Chat History",
+    "exportChat": "📤 Export Conversation",
+    "viewTranscript": "📝 View Transcript",
+    "privacySettings": "🔒 Privacy Settings",
+    "emergencyHelp": "🚨 Emergency Help"
+  },
+  "modeDescriptions": {
+    "help": "Get help and support for mental health issues",
+    "tips": "Receive daily tips to improve your mental wellbeing",
+    "chat": "Chat freely about anything on your mind"
+  },
+  "speechMode": {
+    "title": "AI Voice Counselor",
+    "autoMode": "Auto Mode Active",
+    "manualMode": "Manual Mode",
+    "autoOn": "Auto ON",
+    "manual": "Manual",
+    "end": "End",
+    "autoConversation": "Auto Conversation",
+    "listening": "🎙️ Listening...",
+    "processing": "🤔 Processing...",
+    "thinking": "💭 Thinking Response...",
+    "ready": "👂 Ready to Listen",
+    "pressToTalk": "Press to Talk",
+    "listeningStatus": "Listening...",
+    "talk": "Talk",
+    "stop": "Stop",
+    "lastConversation": "Last Conversation",
+    "you": "You",
+    "ai": "AI",
+    "previewTranscript": "Preview Transcript",
+    "pressToStart": "Press the microphone button to start speaking"
+  },
+  "transcript": {
+    "title": "Conversation Transcript",
+    "noTranscript": "No voice conversation transcript yet",
+    "export": "Export Transcript",
+    "copyToChat": "Copy to Chat"
+  },
+  "welcome": {
+    "greeting": "Hello! I'm here for you 💚",
+    "description": "I am an AI Counselor ready to listen and help you. All conversations are confidential."
+  },
+  "quickIntents": {
+    "anxious": {
+      "label": "I'm feeling anxious...",
+      "message": "I'm feeling anxious and don't know what to do. Can you help me?"
+    },
+    "sad": {
+      "label": "I'm sad today",
+      "message": "I'm feeling sad today and need someone to talk to."
+    },
+    "tips": {
+      "label": "Tips for stress",
+      "message": "Can you give me some tips to manage stress?"
+    },
+    "chat": {
+      "label": "I want to share",
+      "message": "I want to share what's on my mind today."
+    }
+  },
+  "assessment": {
+    "availableTitle": "Structured Assessment Available",
+    "availableDescription": "Based on our conversation, I can help you with a structured assessment for",
+    "problemYouFacing": "the problem you're facing",
+    "startAssessment": "✓ Start Assessment",
+    "continueChat": "💬 Continue Chat",
+    "inProgress": "Assessment in Progress",
+    "question": "Question",
+    "of": "of",
+    "category": "Category",
+    "progress": "Progress",
+    "answer": "Answer",
+    "next": "Next",
+    "previous": "Previous",
+    "complete": "Complete",
+    "completed": "Assessment Completed!",
+    "results": "Assessment Results",
+    "score": "Score",
+    "level": "Level",
+    "recommendations": "Recommendations",
+    "newAssessment": "New Assessment",
+    "backToChat": "Back to Chat"
+  },
+  "input": {
+    "placeholder": "Tell me how you're feeling...",
+    "send": "Send",
+    "recording": "Recording...",
+    "stopRecording": "Stop Recording"
+  },
+  "status": {
+    "connecting": "Connecting...",
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "error": "An error occurred",
+    "typing": "AI is typing...",
+    "listening": "- Listening",
+    "processing": "- Processing",
+    "responding": "- Responding",
+    "ready": "- Ready"
+  },
+  "language": {
+    "switch": "Switch Language",
+    "english": "English",
+    "indonesian": "Bahasa Indonesia"
+  }
+}

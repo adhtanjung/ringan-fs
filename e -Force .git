@@ -1,0 +1,5 @@
+[33md8e2d9f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Remove hardcoded API keys and add environment example files
+[33m48aa3fc[m[33m ([m[1;32maudio[m[33m)[m Add comprehensive .gitignore files for full-stack project and reorganize project structure
+[33md4080f6[m Update .gitignore
+[33mf83a24c[m feat : rework kebijkan privasi syarat ketentuan dan demo
+[33mf1ce5cc[m feat : Chat ui responsive
