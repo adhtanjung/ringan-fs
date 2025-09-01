@@ -1,0 +1,1143 @@
+{
+  "timestamp": "2025-08-31T19:34:45.386434",
+  "dataset_coverage": {
+    "stress": {
+      "dataset": "stress",
+      "coverage_analysis": {
+        "problems": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        },
+        "assessments": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        },
+        "suggestions": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        },
+        "feedback": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        },
+        "training": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        }
+      },
+      "missing_content": {
+        "problems": [
+          "Emotional or psychological stress related to romantic, social, or interpersonal relationships.",
+          "Stress caused by conflicts, expectations, or emotional strain within family systems.",
+          "Stress reactions stemming from verbal, emotional, or physical bullying at school or in social settin...",
+          "Workplace-related stress due to pressure, workload, conflict, or role strain.",
+          "Inability to manage emotional responses effectively, leading to intense and rapidly shifting emotion..."
+        ],
+        "assessments": [
+          "How often do you feel emotionally overwhelmed in your close relationships?",
+          "What thoughts come up when you feel emotionally unsafe in a relationship?",
+          "How does your body react to emotional distance or perceived rejection?",
+          "Do you often fear abandonment, even in stable relationships?",
+          "How do you tend to respond when there\u2019s conflict in your relationship?"
+        ],
+        "suggestions": [
+          "Do a 'Needs Inventory' check after a relationship conflict. Ask yourself: What was I truly needing\u2014v...",
+          "Practice the 'Four Horsemen Reversal': Identify if you\u2019ve used one of the four negative conflict sty...",
+          "Do the 'Attachment Rewind': After a stressful interaction, journal or voice-record what deeper emoti...",
+          "Use a 'Repair Attempt' template: Send a short, gentle message like: \"I\u2019m sorry about our fight. I di...",
+          "Try 'Mentalizing' to reduce reactive stress: When conflict arises, pause and silently ask, \"What are..."
+        ],
+        "feedback": [],
+        "training": []
+      },
+      "vector_db_stats": {
+        "mental-health-suggestions": 150,
+        "mental_health_docs": 0,
+        "mental-health-feedback": 0,
+        "mental-health-problems": 15,
+        "mental-health-assessments": 240,
+        "mental-health-training": 0
+      }
+    },
+    "anxiety": {
+      "dataset": "anxiety",
+      "coverage_analysis": {
+        "problems": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        },
+        "assessments": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        },
+        "suggestions": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        }
+      },
+      "missing_content": {
+        "problems": [
+          "Marked fear or anxiety about social situations where the individual might be scrutinized",
+          "Marked as fear or having anxiety symptoms before tests and exams",
+          "Marked as anxious symptoms before or during major transitions like a new home, new school, divorce, ...",
+          "Recurrent unexpected panic attacks, followed by persistent concern about having more attacks or sign...",
+          "Excessive anxiety and worry about a number of events or activities, occurring more days than not for..."
+        ],
+        "assessments": [
+          "Do you worry a lot about what other people think of you?",
+          "What emotions come up for you in social situations?",
+          "Do you avoid speaking in class or in groups because you're afraid of embarrassment?",
+          "How does your body feel when you're about to talk in front of others?",
+          "Do you try to skip social events because they make you feel anxious?"
+        ],
+        "suggestions": [
+          "When you feel like everyone is judging you or thinking something negative about you, try using a met...",
+          "Start practicing exposure to small social fears instead of avoiding them. Avoidance keeps the anxiet...",
+          "Before entering a social situation, try \u201canchoring\u201d yourself with mindfulness techniques. For exampl...",
+          "Ask yourself: \u201cWhat would I do right now if I were acting based on my values, not fear?\u201d Social anxi...",
+          "Build your own \u201csocial fear ladder.\u201d Start by listing social situations that make you anxious, from ..."
+        ]
+      },
+      "vector_db_stats": {
+        "mental-health-suggestions": 150,
+        "mental_health_docs": 0,
+        "mental-health-feedback": 0,
+        "mental-health-problems": 15,
+        "mental-health-assessments": 240,
+        "mental-health-training": 0
+      }
+    },
+    "trauma": {
+      "dataset": "trauma",
+      "coverage_analysis": {
+        "problems": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        },
+        "assessments": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 1,
+          "coverage_percentage": 10.0
+        },
+        "suggestions": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        }
+      },
+      "missing_content": {
+        "problems": [
+          "Emotional and physical distress triggered by life changes or transitions.",
+          "Response to a single shocking or distressing event such as an accident or assault.",
+          "Ongoing symptoms after experiencing or witnessing a life-threatening event.",
+          "Long-term exposure to multiple, often interpersonal traumatic experiences.",
+          "Trauma rooted in early life adversity such as abuse, neglect, or household dysfunction."
+        ],
+        "assessments": [
+          "How much have you been struggling to adapt to a recent life change or event?",
+          "In the past two weeks, how often have you felt hopeless or stuck because of this change?",
+          "What specific situation triggered your current emotional distress?",
+          "On a scale from 1\u201310, how difficult has it been for you to carry out daily tasks since the change?",
+          "Describe the most difficult emotion you've been feeling related to this adjustment."
+        ],
+        "suggestions": [
+          "Identify one behavior that you\u2019ve stopped doing since the incident\u2014something that used to bring a se...",
+          "Take a recurring stress-related thought (e.g., \u201cI can\u2019t deal with anything anymore\u201d) and write it at...",
+          "Use the \u201cValues Compass\u201d: Identify one core value (e.g., stability, connection, growth). Ask: \u201cWhy d...",
+          "Write a values-based reflection letter to yourself about how you responded to the stressful incident...",
+          "Use the \u201cStress Puzzle\u201d method: Write down all aspects of your current adjustment challenge. Break t..."
+        ]
+      },
+      "vector_db_stats": {
+        "mental-health-suggestions": 150,
+        "mental_health_docs": 0,
+        "mental-health-feedback": 0,
+        "mental-health-problems": 15,
+        "mental-health-assessments": 240,
+        "mental-health-training": 0
+      }
+    },
+    "general": {
+      "dataset": "general",
+      "coverage_analysis": {
+        "problems": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 5,
+          "coverage_percentage": 50.0
+        },
+        "assessments": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 10,
+          "coverage_percentage": 100.0
+        },
+        "suggestions": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 10,
+          "coverage_percentage": 100.0
+        },
+        "feedback": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        },
+        "training": {
+          "total_samples_tested": 10,
+          "found_in_vector_db": 0,
+          "coverage_percentage": 0.0
+        }
+      },
+      "missing_content": {
+        "problems": [
+          "Exam Anxiety",
+          "Workplace Stress",
+          "Low Self-Esteem"
+        ],
+        "assessments": [],
+        "suggestions": [],
+        "feedback": [],
+        "training": []
+      },
+      "vector_db_stats": {
+        "mental-health-suggestions": 150,
+        "mental_health_docs": 0,
+        "mental-health-feedback": 0,
+        "mental-health-problems": 15,
+        "mental-health-assessments": 240,
+        "mental-health-training": 0
+      }
+    }
+  },
+  "rag_validation": {
+    "stress": {
+      "dataset": "stress",
+      "test_queries": [
+        {
+          "query": "I'm struggling with stress and need help",
+          "sources_found": 6,
+          "sources_from_dataset": 0,
+          "content_matches": [],
+          "source_details": [
+            {
+              "id": "3",
+              "score": 0.5975817,
+              "domain": "general",
+              "content_preview": "Stress Stress can be defined as a state of worry or mental tension caused by a difficult situation."
+            },
+            {
+              "id": "4",
+              "score": 0.5209501,
+              "domain": "general",
+              "content_preview": "Stress - panic atttack ?  nan"
+            },
+            {
+              "id": "26",
+              "score": 0.7122684,
+              "domain": "general",
+              "content_preview": "Sometimes stress comes from outside problems, like a deadline for a school project, family problems ..."
+            },
+            {
+              "id": "15",
+              "score": 0.6849837,
+              "domain": "general",
+              "content_preview": "IFS Tool: Meet the Part That\u2019s Stressed When you feel stress or worry, it\u2019s not all of you worrying ..."
+            },
+            {
+              "id": "2",
+              "score": 0.6767664,
+              "domain": "general",
+              "content_preview": "What are the main symptoms of your stress?"
+            },
+            {
+              "id": "7",
+              "score": 0.67406857,
+              "domain": "general",
+              "content_preview": "What helps you reduce your stress? "
+            }
+          ]
+        },
+        {
+          "query": "What are some stress management techniques?",
+          "sources_found": 6,
+          "sources_from_dataset": 0,
+          "content_matches": [],
+          "source_details": [
+            {
+              "id": "1",
+              "score": 0.6071459,
+              "domain": "general",
+              "content_preview": "Workplace Stress Stress experienced in professional settings."
+            },
+            {
+              "id": "3",
+              "score": 0.53693557,
+              "domain": "general",
+              "content_preview": "Stress Stress can be defined as a state of worry or mental tension caused by a difficult situation."
+            },
+            {
+              "id": "23",
+              "score": 0.595049,
+              "domain": "general",
+              "content_preview": "When something feels stressful, the easiest thing to do is to avoid it. You scroll, you sleep, you h..."
+            },
+            {
+              "id": "19",
+              "score": 0.5891317,
+              "domain": "general",
+              "content_preview": "When stress feels heavy, one of the best things you can do \u2014 whether you live in a busy city or a qu..."
+            },
+            {
+              "id": "7",
+              "score": 0.7405074,
+              "domain": "general",
+              "content_preview": "What helps you reduce your stress? "
+            },
+            {
+              "id": "47",
+              "score": 0.6231281,
+              "domain": "general",
+              "content_preview": "Are there specific situations that make your stress worse? "
+            }
+          ]
+        },
+        {
+          "query": "How do I cope with stress symptoms?",
+          "sources_found": 6,
+          "sources_from_dataset": 0,
+          "content_matches": [],
+          "source_details": [
+            {
+              "id": "3",
+              "score": 0.5467482,
+              "domain": "general",
+              "content_preview": "Stress Stress can be defined as a state of worry or mental tension caused by a difficult situation."
+            },
+            {
+              "id": "1",
+              "score": 0.49660486,
+              "domain": "general",
+              "content_preview": "Workplace Stress Stress experienced in professional settings."
+            },
+            {
+              "id": "19",
+              "score": 0.68423444,
+              "domain": "general",
+              "content_preview": "When stress feels heavy, one of the best things you can do \u2014 whether you live in a busy city or a qu..."
+            },
+            {
+              "id": "21",
+              "score": 0.6402182,
+              "domain": "general",
+              "content_preview": "If you're feeling stressed, one of the best things you can do is spend time near people who make you..."
+            },
+            {
+              "id": "2",
+              "score": 0.78095615,
+              "domain": "general",
+              "content_preview": "What are the main symptoms of your stress?"
+            },
+            {
+              "id": "104",
+              "score": 0.6756791,
+              "domain": "general",
+              "content_preview": "Do you avoid dealing with what causes your stress? How does that work out for you in the short run, ..."
+            }
+          ]
+        },
+        {
+          "query": "I need assessment questions for stress",
+          "sources_found": 6,
+          "sources_from_dataset": 0,
+          "content_matches": [],
+          "source_details": [
+            {
+              "id": "1",
+              "score": 0.55709,
+              "domain": "general",
+              "content_preview": "Workplace Stress Stress experienced in professional settings."
+            },
+            {
+              "id": "3",
+              "score": 0.55085504,
+              "domain": "general",
+              "content_preview": "Stress Stress can be defined as a state of worry or mental tension caused by a difficult situation."
+            },
+            {
+              "id": "26",
+              "score": 0.510537,
+              "domain": "general",
+              "content_preview": "Sometimes stress comes from outside problems, like a deadline for a school project, family problems ..."
+            },
+            {
+              "id": "4",
+              "score": 0.4934916,
+              "domain": "general",
+              "content_preview": "You can try using the \"accuracy and breakdown\" method. This is how it works: Make a list of 10 thing..."
+            },
+            {
+              "id": "2",
+              "score": 0.6747649,
+              "domain": "general",
+              "content_preview": "What are the main symptoms of your stress?"
+            },
+            {
+              "id": "39",
+              "score": 0.642494,
+              "domain": "general",
+              "content_preview": "Would you mind telling me a bit about your stress? What are you stressed about exactly? Can you tell..."
+            }
+          ]
+        },
+        {
+          "query": "Can you suggest interventions for stress?",
+          "sources_found": 6,
+          "sources_from_dataset": 0,
+          "content_matches": [],
+          "source_details": [
+            {
+              "id": "1",
+              "score": 0.55215394,
+              "domain": "general",
+              "content_preview": "Workplace Stress Stress experienced in professional settings."
+            },
+            {
+              "id": "4",
+              "score": 0.5035045,
+              "domain": "general",
+              "content_preview": "Stress - panic atttack ?  nan"
+            },
+            {
+              "id": "19",
+              "score": 0.6087808,
+              "domain": "general",
+              "content_preview": "When stress feels heavy, one of the best things you can do \u2014 whether you live in a busy city or a qu..."
+            },
+            {
+              "id": "15",
+              "score": 0.5844376,
+              "domain": "general",
+              "content_preview": "IFS Tool: Meet the Part That\u2019s Stressed When you feel stress or worry, it\u2019s not all of you worrying ..."
+            },
+            {
+              "id": "7",
+              "score": 0.7569049,
+              "domain": "general",
+              "content_preview": "What helps you reduce your stress? "
+            },
+            {
+              "id": "47",
+              "score": 0.6194049,
+              "domain": "general",
+              "content_preview": "Are there specific situations that make your stress worse? "
+            }
+          ]
+        }
+      ],
+      "rag_source_validation": {},
+      "content_traceability": {
+        "total_rag_sources": 30,
+        "sources_from_excel_dataset": 0,
+        "traceability_percentage": 0.0
+      }
+    },
+    "anxiety": {
+      "dataset": "anxiety",
+      "test_queries": [
+        {
+          "query": "I'm struggling with anxiety and need help",
+          "sources_found": 6,
+          "sources_from_dataset": 2,
+          "content_matches": [
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "How does your anxiety show up physically\u2014do you experience nausea, racing heart, trouble breathing, ..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 0.8421052631578947,
+              "excel_content_preview": "Do you ever feel like your anxiety is trying to protect you from something? If so, what might that b..."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "0",
+              "score": 0.51106083,
+              "domain": "general",
+              "content_preview": "Exam Anxiety Anxiety related to academic examinations."
+            },
+            {
+              "id": "9",
+              "score": 0.5098913,
+              "domain": "general",
+              "content_preview": "Anxiety nan"
+            },
+            {
+              "id": "78",
+              "score": 0.56422895,
+              "domain": "trauma",
+              "content_preview": "Understand Your Nervous System with the \u201cWindow of Tolerance.\u201d If your emotions feel unpredictable\u2014r..."
+            },
+            {
+              "id": "15",
+              "score": 0.553614,
+              "domain": "general",
+              "content_preview": "IFS Tool: Meet the Part That\u2019s Stressed When you feel stress or worry, it\u2019s not all of you worrying ..."
+            },
+            {
+              "id": "234",
+              "score": 0.60231924,
+              "domain": "anxiety",
+              "content_preview": "How does your anxiety show up physically\u2014do you experience nausea, racing heart, trouble breathing, ..."
+            },
+            {
+              "id": "236",
+              "score": 0.59780157,
+              "domain": "anxiety",
+              "content_preview": "Do you feel like your anxiety is trying to protect you from something? What might that be?"
+            }
+          ]
+        },
+        {
+          "query": "What are some anxiety management techniques?",
+          "sources_found": 6,
+          "sources_from_dataset": 2,
+          "content_matches": [
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "How does your anxiety show up physically\u2014do you experience nausea, racing heart, trouble breathing, ..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 0.8421052631578947,
+              "excel_content_preview": "Do you ever feel like your anxiety is trying to protect you from something? If so, what might that b..."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "0",
+              "score": 0.48380804,
+              "domain": "general",
+              "content_preview": "Exam Anxiety Anxiety related to academic examinations."
+            },
+            {
+              "id": "9",
+              "score": 0.47677487,
+              "domain": "general",
+              "content_preview": "Anxiety nan"
+            },
+            {
+              "id": "116",
+              "score": 0.54451,
+              "domain": "trauma",
+              "content_preview": "Use Visualization to Create a Safe Inner Place\\nMedical trauma often leaves people feeling exposed o..."
+            },
+            {
+              "id": "106",
+              "score": 0.52803934,
+              "domain": "trauma",
+              "content_preview": "Practice a Breathing Technique You Can Use Anywhere. Try this: Inhale slowly for 4 counts, hold for ..."
+            },
+            {
+              "id": "234",
+              "score": 0.5435618,
+              "domain": "anxiety",
+              "content_preview": "How does your anxiety show up physically\u2014do you experience nausea, racing heart, trouble breathing, ..."
+            },
+            {
+              "id": "236",
+              "score": 0.5435357,
+              "domain": "anxiety",
+              "content_preview": "Do you feel like your anxiety is trying to protect you from something? What might that be?"
+            }
+          ]
+        },
+        {
+          "query": "How do I cope with anxiety symptoms?",
+          "sources_found": 6,
+          "sources_from_dataset": 2,
+          "content_matches": [
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "How does your anxiety show up physically\u2014do you experience nausea, racing heart, trouble breathing, ..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 0.8421052631578947,
+              "excel_content_preview": "Do you ever feel like your anxiety is trying to protect you from something? If so, what might that b..."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "0",
+              "score": 0.45292503,
+              "domain": "general",
+              "content_preview": "Exam Anxiety Anxiety related to academic examinations."
+            },
+            {
+              "id": "9",
+              "score": 0.42620578,
+              "domain": "general",
+              "content_preview": "Anxiety nan"
+            },
+            {
+              "id": "78",
+              "score": 0.51208854,
+              "domain": "trauma",
+              "content_preview": "Understand Your Nervous System with the \u201cWindow of Tolerance.\u201d If your emotions feel unpredictable\u2014r..."
+            },
+            {
+              "id": "32",
+              "score": 0.48842847,
+              "domain": "general",
+              "content_preview": "Coping with Panic Attacks: When you feel like \u201cI\u2019m dying,\u201d remind yourself that panic is intense but..."
+            },
+            {
+              "id": "234",
+              "score": 0.67824304,
+              "domain": "anxiety",
+              "content_preview": "How does your anxiety show up physically\u2014do you experience nausea, racing heart, trouble breathing, ..."
+            },
+            {
+              "id": "236",
+              "score": 0.57908046,
+              "domain": "anxiety",
+              "content_preview": "Do you feel like your anxiety is trying to protect you from something? What might that be?"
+            }
+          ]
+        },
+        {
+          "query": "I need assessment questions for anxiety",
+          "sources_found": 6,
+          "sources_from_dataset": 1,
+          "content_matches": [
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "How does your anxiety show up physically\u2014do you experience nausea, racing heart, trouble breathing, ..."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "0",
+              "score": 0.5686426,
+              "domain": "general",
+              "content_preview": "Exam Anxiety Anxiety related to academic examinations."
+            },
+            {
+              "id": "9",
+              "score": 0.4683037,
+              "domain": "general",
+              "content_preview": "Anxiety nan"
+            },
+            {
+              "id": "22",
+              "score": 0.4824686,
+              "domain": "general",
+              "content_preview": "How about trying some deep breathing? Before your exam, take 5 minutes to do some deep breathing, li..."
+            },
+            {
+              "id": "66",
+              "score": 0.43100145,
+              "domain": "trauma",
+              "content_preview": "Make a \u201cTriggers & Tools\u201d Chart. When you start to understand your personal trauma triggers, you can..."
+            },
+            {
+              "id": "41",
+              "score": 0.57011354,
+              "domain": "general",
+              "content_preview": "What triggers your exam anxiety?"
+            },
+            {
+              "id": "234",
+              "score": 0.5607168,
+              "domain": "anxiety",
+              "content_preview": "How does your anxiety show up physically\u2014do you experience nausea, racing heart, trouble breathing, ..."
+            }
+          ]
+        },
+        {
+          "query": "Can you suggest interventions for anxiety?",
+          "sources_found": 6,
+          "sources_from_dataset": 1,
+          "content_matches": [
+            {
+              "content_type": "assessments",
+              "similarity": 0.8421052631578947,
+              "excel_content_preview": "Do you ever feel like your anxiety is trying to protect you from something? If so, what might that b..."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "9",
+              "score": 0.46862105,
+              "domain": "general",
+              "content_preview": "Anxiety nan"
+            },
+            {
+              "id": "0",
+              "score": 0.4480639,
+              "domain": "general",
+              "content_preview": "Exam Anxiety Anxiety related to academic examinations."
+            },
+            {
+              "id": "116",
+              "score": 0.5130699,
+              "domain": "trauma",
+              "content_preview": "Use Visualization to Create a Safe Inner Place\\nMedical trauma often leaves people feeling exposed o..."
+            },
+            {
+              "id": "34",
+              "score": 0.49841845,
+              "domain": "general",
+              "content_preview": "Coping with Fear of Public Speaking: If you freeze and forget what to say, gradual exposure and supp..."
+            },
+            {
+              "id": "178",
+              "score": 0.5787401,
+              "domain": "trauma",
+              "content_preview": "What helps you feel more grounded or supported when you're anxious about your health?"
+            },
+            {
+              "id": "236",
+              "score": 0.5442225,
+              "domain": "anxiety",
+              "content_preview": "Do you feel like your anxiety is trying to protect you from something? What might that be?"
+            }
+          ]
+        }
+      ],
+      "rag_source_validation": {},
+      "content_traceability": {
+        "total_rag_sources": 30,
+        "sources_from_excel_dataset": 8,
+        "traceability_percentage": 26.666666666666668
+      }
+    },
+    "trauma": {
+      "dataset": "trauma",
+      "test_queries": [
+        {
+          "query": "I'm struggling with trauma and need help",
+          "sources_found": 5,
+          "sources_from_dataset": 4,
+          "content_matches": [
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Begin a \u201cResource and Ally Map.\u201d Healing from complex trauma isn\u2019t a solo journey. Even if people ha..."
+            },
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Create a \u201cWho I Am\u201d Journal to Anchor Your Identity. Complex trauma can blur or even erase a person\u2019..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "Would it help to speak with someone about how these medical experiences have affected you emotionall..."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "7",
+              "score": 0.47846672,
+              "domain": "general",
+              "content_preview": "Trauma nan"
+            },
+            {
+              "id": "84",
+              "score": 0.6647016,
+              "domain": "trauma",
+              "content_preview": "Begin a \u201cResource and Ally Map.\u201d Healing from complex trauma isn\u2019t a solo journey. Even if people ha..."
+            },
+            {
+              "id": "76",
+              "score": 0.6589486,
+              "domain": "trauma",
+              "content_preview": "Create a \u201cWho I Am\u201d Journal to Anchor Your Identity. Complex trauma can blur or even erase a person\u2019..."
+            },
+            {
+              "id": "169",
+              "score": 0.636228,
+              "domain": "trauma",
+              "content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "id": "160",
+              "score": 0.46494478,
+              "domain": "trauma",
+              "content_preview": "Would it help to speak with someone about how these medical experiences have affected you emotionall..."
+            }
+          ]
+        },
+        {
+          "query": "What are some trauma management techniques?",
+          "sources_found": 5,
+          "sources_from_dataset": 4,
+          "content_matches": [
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Rebuild Emotional Safety with a Daily Grounding Ritual\\nComplex trauma can leave a person feeling un..."
+            },
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Make a \u201cTriggers & Tools\u201d Chart. When you start to understand your personal trauma triggers, you can..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "What helps you feel safer or more in control during medical appointments now?"
+            }
+          ],
+          "source_details": [
+            {
+              "id": "7",
+              "score": 0.46952763,
+              "domain": "general",
+              "content_preview": "Trauma nan"
+            },
+            {
+              "id": "70",
+              "score": 0.5722668,
+              "domain": "trauma",
+              "content_preview": "Rebuild Emotional Safety with a Daily Grounding Ritual\\nComplex trauma can leave a person feeling un..."
+            },
+            {
+              "id": "66",
+              "score": 0.56314313,
+              "domain": "trauma",
+              "content_preview": "Make a \u201cTriggers & Tools\u201d Chart. When you start to understand your personal trauma triggers, you can..."
+            },
+            {
+              "id": "169",
+              "score": 0.4676758,
+              "domain": "trauma",
+              "content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "id": "159",
+              "score": 0.46009594,
+              "domain": "trauma",
+              "content_preview": "What helps you feel safer or more in control during medical appointments now?"
+            }
+          ]
+        },
+        {
+          "query": "How do I cope with trauma symptoms?",
+          "sources_found": 4,
+          "sources_from_dataset": 4,
+          "content_matches": [
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Make a \u201cTriggers & Tools\u201d Chart. When you start to understand your personal trauma triggers, you can..."
+            },
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Trauma can make you feel like you've lost yourself. You might ask, \u201cWho am I now?\u201d But even in pain,..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "How do you usually react emotionally when you feel out of control or vulnerable in a medical context..."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "66",
+              "score": 0.62505984,
+              "domain": "trauma",
+              "content_preview": "Make a \u201cTriggers & Tools\u201d Chart. When you start to understand your personal trauma triggers, you can..."
+            },
+            {
+              "id": "58",
+              "score": 0.61922395,
+              "domain": "trauma",
+              "content_preview": "Trauma can make you feel like you've lost yourself. You might ask, \u201cWho am I now?\u201d But even in pain,..."
+            },
+            {
+              "id": "169",
+              "score": 0.631144,
+              "domain": "trauma",
+              "content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "id": "166",
+              "score": 0.5667722,
+              "domain": "trauma",
+              "content_preview": "How do you usually react emotionally when you feel out of control or vulnerable in a medical context..."
+            }
+          ]
+        },
+        {
+          "query": "I need assessment questions for trauma",
+          "sources_found": 5,
+          "sources_from_dataset": 4,
+          "content_matches": [
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Make a \u201cTriggers & Tools\u201d Chart. When you start to understand your personal trauma triggers, you can..."
+            },
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Reframe the Narrative: What Comes After Survival?\\nMedical trauma can leave people stuck in a cycle ..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "Would it help to speak with someone about how these medical experiences have affected you emotionall..."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "7",
+              "score": 0.47481686,
+              "domain": "general",
+              "content_preview": "Trauma nan"
+            },
+            {
+              "id": "66",
+              "score": 0.52250564,
+              "domain": "trauma",
+              "content_preview": "Make a \u201cTriggers & Tools\u201d Chart. When you start to understand your personal trauma triggers, you can..."
+            },
+            {
+              "id": "119",
+              "score": 0.5204485,
+              "domain": "trauma",
+              "content_preview": "Reframe the Narrative: What Comes After Survival?\\nMedical trauma can leave people stuck in a cycle ..."
+            },
+            {
+              "id": "169",
+              "score": 0.57062924,
+              "domain": "trauma",
+              "content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "id": "160",
+              "score": 0.4810505,
+              "domain": "trauma",
+              "content_preview": "Would it help to speak with someone about how these medical experiences have affected you emotionall..."
+            }
+          ]
+        },
+        {
+          "query": "Can you suggest interventions for trauma?",
+          "sources_found": 5,
+          "sources_from_dataset": 4,
+          "content_matches": [
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Reframe the Narrative: What Comes After Survival?\\nMedical trauma can leave people stuck in a cycle ..."
+            },
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Rebuild Emotional Safety with a Daily Grounding Ritual\\nComplex trauma can leave a person feeling un..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "content_type": "assessments",
+              "similarity": 1.0,
+              "excel_content_preview": "Would it help to speak with someone about how these medical experiences have affected you emotionall..."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "7",
+              "score": 0.5209203,
+              "domain": "general",
+              "content_preview": "Trauma nan"
+            },
+            {
+              "id": "119",
+              "score": 0.64792967,
+              "domain": "trauma",
+              "content_preview": "Reframe the Narrative: What Comes After Survival?\\nMedical trauma can leave people stuck in a cycle ..."
+            },
+            {
+              "id": "70",
+              "score": 0.61542654,
+              "domain": "trauma",
+              "content_preview": "Rebuild Emotional Safety with a Daily Grounding Ritual\\nComplex trauma can leave a person feeling un..."
+            },
+            {
+              "id": "169",
+              "score": 0.5896884,
+              "domain": "trauma",
+              "content_preview": "Do you feel like your experiences with medical trauma have impacted your relationships or how you as..."
+            },
+            {
+              "id": "160",
+              "score": 0.5138834,
+              "domain": "trauma",
+              "content_preview": "Would it help to speak with someone about how these medical experiences have affected you emotionall..."
+            }
+          ]
+        }
+      ],
+      "rag_source_validation": {},
+      "content_traceability": {
+        "total_rag_sources": 24,
+        "sources_from_excel_dataset": 20,
+        "traceability_percentage": 83.33333333333334
+      }
+    },
+    "general": {
+      "dataset": "general",
+      "test_queries": [
+        {
+          "query": "I'm struggling with general and need help",
+          "sources_found": 0,
+          "sources_from_dataset": 0,
+          "content_matches": [],
+          "source_details": []
+        },
+        {
+          "query": "What are some general management techniques?",
+          "sources_found": 1,
+          "sources_from_dataset": 1,
+          "content_matches": [
+            {
+              "content_type": "suggestions",
+              "similarity": 1.0,
+              "excel_content_preview": "Use time management techniques."
+            }
+          ],
+          "source_details": [
+            {
+              "id": "1",
+              "score": 0.51194215,
+              "domain": "general",
+              "content_preview": "Use time management techniques."
+            }
+          ]
+        },
+        {
+          "query": "How do I cope with general symptoms?",
+          "sources_found": 4,
+          "sources_from_dataset": 0,
+          "content_matches": [],
+          "source_details": [
+            {
+              "id": "54",
+              "score": 0.46543744,
+              "domain": "trauma",
+              "content_preview": "When everything feels too much, try starting small. Healing doesn\u2019t have to be loud or fast. Sometim..."
+            },
+            {
+              "id": "78",
+              "score": 0.43863794,
+              "domain": "trauma",
+              "content_preview": "Understand Your Nervous System with the \u201cWindow of Tolerance.\u201d If your emotions feel unpredictable\u2014r..."
+            },
+            {
+              "id": "119",
+              "score": 0.54934025,
+              "domain": "trauma",
+              "content_preview": "Would you say these symptoms are causing mild, moderate, or severe difficulty in daily life?"
+            },
+            {
+              "id": "161",
+              "score": 0.5409208,
+              "domain": "trauma",
+              "content_preview": "Have you experienced ongoing medical treatments or procedures that felt overwhelming or hard to cope..."
+            }
+          ]
+        },
+        {
+          "query": "I need assessment questions for general",
+          "sources_found": 0,
+          "sources_from_dataset": 0,
+          "content_matches": [],
+          "source_details": []
+        },
+        {
+          "query": "Can you suggest interventions for general?",
+          "sources_found": 4,
+          "sources_from_dataset": 0,
+          "content_matches": [],
+          "source_details": [
+            {
+              "id": "117",
+              "score": 0.45726633,
+              "domain": "trauma",
+              "content_preview": "Reclaim Your Sense of Control With Small Choices\\nDuring hospitalization or treatment, many people f..."
+            },
+            {
+              "id": "66",
+              "score": 0.41660532,
+              "domain": "trauma",
+              "content_preview": "Make a \u201cTriggers & Tools\u201d Chart. When you start to understand your personal trauma triggers, you can..."
+            },
+            {
+              "id": "168",
+              "score": 0.4974779,
+              "domain": "trauma",
+              "content_preview": "What would help you feel more prepared or empowered before a medical visit?"
+            },
+            {
+              "id": "159",
+              "score": 0.47148573,
+              "domain": "trauma",
+              "content_preview": "What helps you feel safer or more in control during medical appointments now?"
+            }
+          ]
+        }
+      ],
+      "rag_source_validation": {},
+      "content_traceability": {
+        "total_rag_sources": 9,
+        "sources_from_excel_dataset": 1,
+        "traceability_percentage": 11.11111111111111
+      }
+    }
+  },
+  "summary": {
+    "datasets_processed": 4,
+    "average_vector_db_coverage": 13.333333333333334,
+    "average_rag_traceability": 30.277777777777782,
+    "validation_passed": false
+  }
+}

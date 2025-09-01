@@ -244,7 +244,8 @@ class SemanticSearchService:
 
     async def search_feedback_prompts(
         self,
-        user_response: str,
+        user_response: Optional[str] = None,
+        context: Optional[str] = None,
         stage: Optional[str] = None,
         limit: int = 3,
         score_threshold: float = 0.6
@@ -253,8 +254,9 @@ class SemanticSearchService:
         try:
             start_time = time.time()
 
-            # Generate embedding for user response
-            query_embedding = await embedding_service.generate_embedding(user_response)
+            # Generate embedding for user response or context
+            query_text = user_response or context or "feedback prompt"
+            query_embedding = await embedding_service.generate_embedding(query_text)
             if not query_embedding:
                 return SearchResponse(
                     success=False,
@@ -298,6 +300,64 @@ class SemanticSearchService:
 
         except Exception as e:
             logger.error(f"❌ Feedback search failed: {str(e)}")
+            return SearchResponse(
+                success=False,
+                results=[],
+                total_found=0,
+                query_time=0.0,
+                error=str(e)
+            )
+
+    async def search_next_actions(
+        self,
+        feedback_context: str,
+        limit: int = 3,
+        score_threshold: float = 0.6
+    ) -> SearchResponse:
+        """Search for appropriate next actions based on feedback context"""
+        try:
+            start_time = time.time()
+
+            # Generate embedding for feedback context
+            query_embedding = await embedding_service.generate_embedding(feedback_context)
+            if not query_embedding:
+                return SearchResponse(
+                    success=False,
+                    results=[],
+                    total_found=0,
+                    query_time=time.time() - start_time,
+                    error="Failed to generate query embedding"
+                )
+
+            # Search in next_actions collection (fallback to suggestions if not available)
+            collection_name = self.collections.get("next_actions", self.collections["suggestions"])
+            search_results = await vector_service.search_similar(
+                collection_name=collection_name,
+                vector=query_embedding,
+                limit=limit,
+                score_threshold=score_threshold
+            )
+
+            # Convert to SearchResult objects
+            results = []
+            for result in search_results:
+                results.append(SearchResult(
+                    id=str(result["id"]),
+                    score=result["score"],
+                    payload=result["payload"]
+                ))
+
+            query_time = time.time() - start_time
+
+            return SearchResponse(
+                success=True,
+                results=results,
+                total_found=len(results),
+                query_time=query_time
+            )
+
+        except Exception as e:
+            logger.error(f"❌ Next actions search failed: {str(e)}")
             return SearchResponse(
                 success=False,
                 results=[],

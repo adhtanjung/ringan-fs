@@ -1,0 +1,752 @@
+{
+  "test_name": "Interactive Conversation Flow Test",
+  "timestamp": "2025-08-31T20:12:50.981510",
+  "test_scenarios": [
+    {
+      "scenario_name": "Work Stress Flow",
+      "domain": "stress",
+      "client_id": "test_stress_1756645975.735146",
+      "started_at": "2025-08-31T20:12:55.735146",
+      "stages_completed": [
+        "1.1 Problem Identification",
+        "1.2 Self-Assessment",
+        "1.3 Suggestions",
+        "1.4 Feedback",
+        "1.5 Next Action After Feedback"
+      ],
+      "conversation_log": [
+        {
+          "role": "user",
+          "message": "Saya merasa sangat stres dengan pekerjaan dan tidak tahu harus bagaimana",
+          "timestamp": "2025-08-31T20:12:56.850699"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya mengerti kamu merasa sangat stres dengan pekerjaan dan bingung harus bagaimana. 😔 Itu pasti berat sekali yang kamu rasakan.\n\nBolehkah kamu ceritakan sedikit tentang apa saja yang membuat perasaan stres ini muncul? Apakah ada hal spesifik yang membuatmu merasa tertekan, atau mungkin ada tantangan tertentu yang sedang kamu hadapi di tempat kerja?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:12:56.850699"
+        },
+        {
+          "role": "user",
+          "message": "Ya, saya siap untuk assessment dan pertanyaan lebih lanjut",
+          "timestamp": "2025-08-31T20:12:57.658925"
+        },
+        {
+          "role": "assistant",
+          "message": "Tentu saja, saya senang sekali kamu sudah siap! 😊 Mari kita mulai. Bisakah kamu ceritakan apa yang ada di pikiranmu saat ini? Apakah ada hal spesifik yang ingin kamu bicarakan, atau mungkin area tertentu yang ingin kamu jelajahi?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:12:57.658925"
+        },
+        {
+          "role": "user",
+          "message": "Ya",
+          "timestamp": "2025-08-31T20:12:59.088059"
+        },
+        {
+          "role": "assistant",
+          "message": "Baik, sekarang saya akan mengajukan beberapa pertanyaan untuk memahami situasi Anda lebih dalam.\n\nIf your stress is trying to protect you from something, what do you think it’s trying to prevent? yes/no\n\nSilakan berikan jawaban dalam skala 1-10 (1 = sangat rendah, 10 = sangat tinggi)",
+          "stage": "1.2 Self-Assessment",
+          "type": "assessment_started",
+          "timestamp": "2025-08-31T20:12:59.088059"
+        },
+        {
+          "role": "user",
+          "message": "8",
+          "timestamp": "2025-08-31T20:12:59.588428"
+        },
+        {
+          "role": "assistant",
+          "message": "What are you most afraid might happen if this stress stays the same?\n\nSilakan berikan jawaban Anda dengan bebas.",
+          "stage": "1.2 Self-Assessment",
+          "type": "assessment_continue",
+          "timestamp": "2025-08-31T20:12:59.588428"
+        },
+        {
+          "role": "user",
+          "message": "Ya",
+          "timestamp": "2025-08-31T20:13:00.093623"
+        },
+        {
+          "role": "assistant",
+          "message": "Is your stress related to school? Yes or no\n\nSilakan berikan jawaban dalam skala 1-10 (1 = sangat rendah, 10 = sangat tinggi)",
+          "stage": "1.2 Self-Assessment",
+          "type": "assessment_continue",
+          "timestamp": "2025-08-31T20:13:00.093623"
+        },
+        {
+          "role": "user",
+          "message": "7",
+          "timestamp": "2025-08-31T20:13:00.647076"
+        },
+        {
+          "role": "assistant",
+          "message": "Maaf, tidak dapat menemukan saran yang sesuai saat ini.",
+          "stage": "1.3 Suggestions",
+          "type": "error",
+          "timestamp": "2025-08-31T20:13:00.647076"
+        },
+        {
+          "role": "user",
+          "message": "Tidak",
+          "timestamp": "2025-08-31T20:13:01.162021"
+        },
+        {
+          "role": "assistant",
+          "message": "Terima kasih atas respons Anda. Untuk membantu saya memberikan dukungan yang lebih baik, bisakah Anda ceritakan bagaimana perasaan Anda setelah percakapan ini? Apakah ada hal yang membantu atau yang ingin Anda diskusikan lebih lanjut?",
+          "stage": "1.4 Feedback",
+          "type": "feedback_collection",
+          "timestamp": "2025-08-31T20:13:01.162021"
+        },
+        {
+          "role": "user",
+          "message": "9",
+          "timestamp": "2025-08-31T20:13:01.667383"
+        },
+        {
+          "role": "assistant",
+          "message": "Terima kasih telah berbagi. Berdasarkan percakapan kita, berikut adalah beberapa langkah yang bisa Anda pertimbangkan:\n\n\nApakah ada dari langkah-langkah ini yang ingin Anda coba atau diskusikan lebih lanjut?",
+          "stage": "1.5 Next Action After Feedback",
+          "type": "next_actions_provided",
+          "timestamp": "2025-08-31T20:13:01.667383"
+        }
+      ],
+      "stage_transitions": [
+        {
+          "stage": "1.1 Problem Identification",
+          "timestamp": "2025-08-31T20:12:56.851211",
+          "response_type": "clarification_needed"
+        },
+        {
+          "stage": "1.2 Self-Assessment",
+          "timestamp": "2025-08-31T20:12:59.088059",
+          "response_type": "assessment_started"
+        },
+        {
+          "stage": "1.3 Suggestions",
+          "timestamp": "2025-08-31T20:13:00.647585",
+          "response_type": "error"
+        },
+        {
+          "stage": "1.4 Feedback",
+          "timestamp": "2025-08-31T20:13:01.162606",
+          "response_type": "feedback_collection"
+        },
+        {
+          "stage": "1.5 Next Action After Feedback",
+          "timestamp": "2025-08-31T20:13:01.667966",
+          "response_type": "next_actions_provided"
+        }
+      ],
+      "errors": [
+        {
+          "step": 5,
+          "error_message": "Maaf, tidak dapat menemukan saran yang sesuai saat ini.",
+          "timestamp": "2025-08-31T20:13:00.647585"
+        }
+      ],
+      "success": true,
+      "flow_summary": {
+        "client_id": "test_stress_1756645975.735146",
+        "duration": 0.1,
+        "stages_completed": [
+          "1.1 Problem Identification",
+          "1.2 Self-Assessment",
+          "1.3 Suggestions",
+          "1.4 Feedback"
+        ],
+        "problems_identified": 1,
+        "suggestions_provided": 0,
+        "feedback_collected": 1,
+        "next_actions_count": 0,
+        "conversation_length": 7
+      },
+      "final_flow_status": {
+        "client_id": "test_stress_1756645975.735146",
+        "current_stage": "1.5 Next Action After Feedback",
+        "stage_progress": {
+          "1.1 Problem Identification": {
+            "status": "completed",
+            "data": {
+              "problems_found": 1,
+              "top_problem": {
+                "problem_id": "",
+                "sub_category_id": "",
+                "category": "nan",
+                "problem_text": "?  nan",
+                "domain": "general",
+                "score": 0.33359957,
+                "suggestions_available": true
+              }
+            }
+          },
+          "1.2 Self-Assessment": {
+            "status": "completed",
+            "data": {
+              "type": "assessment_complete",
+              "session_id": "test_stress_1756645975.735146",
+              "summary": "Assessment untuk nan telah selesai dengan 3 pertanyaan dijawab dalam 1 menit.",
+              "score": "7.5/10",
+              "analysis": "Analisis menunjukkan kondisi Anda terkait nan relatif stabil dengan skor rata-rata 7.5. Fokus pada pemeliharaan kesehatan mental dan pencegahan akan sangat bermanfaat.",
+              "insights": [
+                "Sebagian besar respons Anda menunjukkan tingkat kesulitan yang tinggi, menandakan perlunya perhatian segera.",
+                "Assessment diselesaikan dengan cepat, menunjukkan kemungkinan sudah memiliki pemahaman yang baik tentang kondisi diri."
+              ],
+              "recommendations": [],
+              "detailed_results": {
+                "total_questions": 3,
+                "problem_category": "nan",
+                "average_score": 7.5,
+                "completed_at": "2025-08-31T20:13:00.618225",
+                "duration_minutes": 1,
+                "scale_responses_count": 2,
+                "text_responses_count": 1
+              },
+              "message": "🎯 **Assessment Selesai**\n\nHasil assessment menunjukkan kondisi Anda relatif stabil dengan beberapa area yang bisa ditingkatkan.\n\n**Kategori**: nan\n**Skor Rata-rata**: 7.5/10 (baik)\n\nBerikut adalah beberapa rekomendasi yang dapat membantu Anda:"
+            }
+          },
+          "1.3 Suggestions": {
+            "status": "completed",
+            "data": {
+              "user_feedback": {
+                "sentiment": "negative",
+                "feedback_text": "Tidak",
+                "suggestions_count": 0
+              }
+            }
+          },
+          "1.4 Feedback": {
+            "status": "completed",
+            "data": {
+              "collected_feedback": {
+                "feedback_text": "9",
+                "timestamp": "2025-08-31T20:13:01.667383",
+                "sentiment": "neutral"
+              }
+            }
+          },
+          "1.5 Next Action After Feedback": {
+            "status": "in_progress",
+            "data": {
+              "recommended_actions": []
+            }
+          }
+        },
+        "started_at": "2025-08-31T20:12:55.735146",
+        "conversation_length": 7
+      },
+      "completed_at": "2025-08-31T20:13:01.667966"
+    },
+    {
+      "scenario_name": "Anxiety Support Flow",
+      "domain": "anxiety",
+      "client_id": "test_anxiety_1756645981.667966",
+      "started_at": "2025-08-31T20:13:01.667966",
+      "stages_completed": [
+        "1.1 Problem Identification",
+        "1.2 Self-Assessment",
+        "1.3 Suggestions",
+        "1.4 Feedback",
+        "1.5 Next Action After Feedback"
+      ],
+      "conversation_log": [
+        {
+          "role": "user",
+          "message": "Saya sering merasa cemas dan khawatir berlebihan tentang masa depan",
+          "timestamp": "2025-08-31T20:13:02.675487"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya sangat menyesal mendengar bahwa kamu sedang mengalami pikiran-pikiran yang mengganggu seperti itu 😔 Itu adalah hal yang sangat berat untuk dihadapi, dan saya ingin kamu tahu bahwa kamu tidak sendirian. \n\nSaya di sini untuk mendengarkan tanpa menghakimi. Apakah kamu terbuka untuk melakukan asesmen lebih lanjut untuk membantu kita memahami situasi ini lebih dalam? 🙏\n",
+          "stage": "1.1 Problem Identification",
+          "type": "problem_identified",
+          "timestamp": "2025-08-31T20:13:02.675487"
+        },
+        {
+          "role": "user",
+          "message": "Iya, saya mau ikut assessment dan evaluasi lebih detail",
+          "timestamp": "2025-08-31T20:13:03.570432"
+        },
+        {
+          "role": "assistant",
+          "message": "Tentu saja, saya senang sekali bisa membantu Anda lebih jauh. 🌻 Untuk memulai, bisakah Anda ceritakan sedikit tentang apa yang membuat Anda ingin melakukan assessment dan evaluasi ini? Apakah ada hal spesifik yang ingin Anda pahami lebih dalam, atau mungkin area tertentu yang ingin Anda fokuskan?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:13:03.570432"
+        },
+        {
+          "role": "user",
+          "message": "Ya",
+          "timestamp": "2025-08-31T20:13:04.932076"
+        },
+        {
+          "role": "assistant",
+          "message": "Baik, sekarang saya akan mengajukan beberapa pertanyaan untuk memahami situasi Anda lebih dalam.\n\nIf your stress is trying to protect you from something, what do you think it’s trying to prevent? yes/no\n\nSilakan berikan jawaban dalam skala 1-10 (1 = sangat rendah, 10 = sangat tinggi)",
+          "stage": "1.2 Self-Assessment",
+          "type": "assessment_started",
+          "timestamp": "2025-08-31T20:13:04.932076"
+        },
+        {
+          "role": "user",
+          "message": "6",
+          "timestamp": "2025-08-31T20:13:05.439997"
+        },
+        {
+          "role": "assistant",
+          "message": "What are you most afraid might happen if this stress stays the same?\n\nSilakan berikan jawaban Anda dengan bebas.",
+          "stage": "1.2 Self-Assessment",
+          "type": "assessment_continue",
+          "timestamp": "2025-08-31T20:13:05.439997"
+        },
+        {
+          "role": "user",
+          "message": "Tidak",
+          "timestamp": "2025-08-31T20:13:05.946557"
+        },
+        {
+          "role": "assistant",
+          "message": "Is your stress related to school? Yes or no\n\nSilakan berikan jawaban dalam skala 1-10 (1 = sangat rendah, 10 = sangat tinggi)",
+          "stage": "1.2 Self-Assessment",
+          "type": "assessment_continue",
+          "timestamp": "2025-08-31T20:13:05.946557"
+        },
+        {
+          "role": "user",
+          "message": "8",
+          "timestamp": "2025-08-31T20:13:06.483606"
+        },
+        {
+          "role": "assistant",
+          "message": "Maaf, tidak dapat menemukan saran yang sesuai saat ini.",
+          "stage": "1.3 Suggestions",
+          "type": "error",
+          "timestamp": "2025-08-31T20:13:06.483606"
+        },
+        {
+          "role": "user",
+          "message": "Ya",
+          "timestamp": "2025-08-31T20:13:06.984255"
+        },
+        {
+          "role": "assistant",
+          "message": "Terima kasih atas respons Anda. Untuk membantu saya memberikan dukungan yang lebih baik, bisakah Anda ceritakan bagaimana perasaan Anda setelah percakapan ini? Apakah ada hal yang membantu atau yang ingin Anda diskusikan lebih lanjut?",
+          "stage": "1.4 Feedback",
+          "type": "feedback_collection",
+          "timestamp": "2025-08-31T20:13:06.984255"
+        },
+        {
+          "role": "user",
+          "message": "5",
+          "timestamp": "2025-08-31T20:13:07.486062"
+        },
+        {
+          "role": "assistant",
+          "message": "Terima kasih telah berbagi. Berdasarkan percakapan kita, berikut adalah beberapa langkah yang bisa Anda pertimbangkan:\n\n\nApakah ada dari langkah-langkah ini yang ingin Anda coba atau diskusikan lebih lanjut?",
+          "stage": "1.5 Next Action After Feedback",
+          "type": "next_actions_provided",
+          "timestamp": "2025-08-31T20:13:07.486062"
+        }
+      ],
+      "stage_transitions": [
+        {
+          "stage": "1.1 Problem Identification",
+          "timestamp": "2025-08-31T20:13:02.675487",
+          "response_type": "problem_identified"
+        },
+        {
+          "stage": "1.2 Self-Assessment",
+          "timestamp": "2025-08-31T20:13:04.932076",
+          "response_type": "assessment_started"
+        },
+        {
+          "stage": "1.3 Suggestions",
+          "timestamp": "2025-08-31T20:13:06.483606",
+          "response_type": "error"
+        },
+        {
+          "stage": "1.4 Feedback",
+          "timestamp": "2025-08-31T20:13:06.984255",
+          "response_type": "feedback_collection"
+        },
+        {
+          "stage": "1.5 Next Action After Feedback",
+          "timestamp": "2025-08-31T20:13:07.486062",
+          "response_type": "next_actions_provided"
+        }
+      ],
+      "errors": [
+        {
+          "step": 5,
+          "error_message": "Maaf, tidak dapat menemukan saran yang sesuai saat ini.",
+          "timestamp": "2025-08-31T20:13:06.483606"
+        }
+      ],
+      "success": true,
+      "flow_summary": {
+        "client_id": "test_anxiety_1756645981.667966",
+        "duration": 0.1,
+        "stages_completed": [
+          "1.1 Problem Identification",
+          "1.2 Self-Assessment",
+          "1.3 Suggestions",
+          "1.4 Feedback"
+        ],
+        "problems_identified": 1,
+        "suggestions_provided": 0,
+        "feedback_collected": 1,
+        "next_actions_count": 0,
+        "conversation_length": 7
+      },
+      "final_flow_status": {
+        "client_id": "test_anxiety_1756645981.667966",
+        "current_stage": "1.5 Next Action After Feedback",
+        "stage_progress": {
+          "1.1 Problem Identification": {
+            "status": "completed",
+            "data": {
+              "problems_found": 1,
+              "top_problem": {
+                "problem_id": "",
+                "sub_category_id": "",
+                "category": "nan",
+                "problem_text": "?  nan",
+                "domain": "general",
+                "score": 0.33359957,
+                "suggestions_available": true
+              }
+            }
+          },
+          "1.2 Self-Assessment": {
+            "status": "completed",
+            "data": {
+              "type": "assessment_complete",
+              "session_id": "test_anxiety_1756645981.667966",
+              "summary": "Assessment untuk nan telah selesai dengan 3 pertanyaan dijawab dalam 1 menit.",
+              "score": "7.0/10",
+              "analysis": "Analisis menunjukkan kondisi Anda terkait nan relatif stabil dengan skor rata-rata 7.0. Fokus pada pemeliharaan kesehatan mental dan pencegahan akan sangat bermanfaat.",
+              "insights": [
+                "Respons Anda menunjukkan variasi yang menandakan beberapa area memerlukan perhatian lebih.",
+                "Assessment diselesaikan dengan cepat, menunjukkan kemungkinan sudah memiliki pemahaman yang baik tentang kondisi diri."
+              ],
+              "recommendations": [],
+              "detailed_results": {
+                "total_questions": 3,
+                "problem_category": "nan",
+                "average_score": 7.0,
+                "completed_at": "2025-08-31T20:13:06.458822",
+                "duration_minutes": 1,
+                "scale_responses_count": 2,
+                "text_responses_count": 1
+              },
+              "message": "🎯 **Assessment Selesai**\n\nHasil assessment menunjukkan kondisi Anda relatif stabil dengan beberapa area yang bisa ditingkatkan.\n\n**Kategori**: nan\n**Skor Rata-rata**: 7.0/10 (baik)\n\nBerikut adalah beberapa rekomendasi yang dapat membantu Anda:"
+            }
+          },
+          "1.3 Suggestions": {
+            "status": "completed",
+            "data": {
+              "user_feedback": {
+                "sentiment": "positive",
+                "feedback_text": "Ya",
+                "suggestions_count": 0
+              }
+            }
+          },
+          "1.4 Feedback": {
+            "status": "completed",
+            "data": {
+              "collected_feedback": {
+                "feedback_text": "5",
+                "timestamp": "2025-08-31T20:13:07.485485",
+                "sentiment": "neutral"
+              }
+            }
+          },
+          "1.5 Next Action After Feedback": {
+            "status": "in_progress",
+            "data": {
+              "recommended_actions": []
+            }
+          }
+        },
+        "started_at": "2025-08-31T20:13:01.667966",
+        "conversation_length": 7
+      },
+      "completed_at": "2025-08-31T20:13:07.486062"
+    },
+    {
+      "scenario_name": "General Mental Health Flow",
+      "domain": "general",
+      "client_id": "test_general_1756645987.486062",
+      "started_at": "2025-08-31T20:13:07.486062",
+      "stages_completed": [
+        "1.1 Problem Identification",
+        "1.2 Self-Assessment",
+        "1.3 Suggestions",
+        "1.4 Feedback",
+        "1.5 Next Action After Feedback"
+      ],
+      "conversation_log": [
+        {
+          "role": "user",
+          "message": "Saya merasa down dan tidak termotivasi akhir-akhir ini",
+          "timestamp": "2025-08-31T20:13:08.728719"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya sangat menyesal mendengar bahwa kamu mengalami hal yang begitu berat. Trauma bisa meninggalkan bekas yang mendalam, dan penting untuk mengakui dan memprosesnya 😔 Saya di sini untukmu.\n\nBolehkah saya bertanya, apa yang membuatmu merasa perlu untuk membicarakannya dengan saya saat ini? Apakah kamu ingin kita mulai dengan melakukan assessment untuk memahami situasi ini lebih dalam?",
+          "stage": "1.1 Problem Identification",
+          "type": "problem_identified",
+          "timestamp": "2025-08-31T20:13:08.728719"
+        },
+        {
+          "role": "user",
+          "message": "Baik, saya siap menjawab pertanyaan dan assessment",
+          "timestamp": "2025-08-31T20:13:09.582644"
+        },
+        {
+          "role": "assistant",
+          "message": "Halo! Senang sekali bisa berbicara dengan Anda hari ini 😊. Untuk memulai, bolehkah Anda bercerita sedikit tentang apa yang sedang Anda rasakan atau pikirkan saat ini? Apakah ada hal spesifik yang ingin Anda bahas, atau mungkin ada area tertentu yang ingin Anda jelajahi?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:13:09.582644"
+        },
+        {
+          "role": "user",
+          "message": "Tidak",
+          "timestamp": "2025-08-31T20:13:10.848105"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya sangat menyesal mendengar bahwa kamu mengalami hal yang sulit 😔 Itu pasti terasa berat sekali. Terima kasih sudah berbagi dengan saya.\n\nBolehkah saya tanyakan, apa yang membuatmu memutuskan untuk melakukan assessment ini saat ini?",
+          "stage": "1.1 Problem Identification",
+          "type": "problem_identified",
+          "timestamp": "2025-08-31T20:13:10.848105"
+        },
+        {
+          "role": "user",
+          "message": "4",
+          "timestamp": "2025-08-31T20:13:12.180692"
+        },
+        {
+          "role": "assistant",
+          "message": "Halo! Saya senang kamu ada di sini. Ketika kamu mengatakan \"4\", apakah itu berarti kamu sedang merasa ada sesuatu yang ingin kamu ceritakan atau jelaskan? 🤔 Boleh kamu bercerita sedikit tentang apa yang ada di pikiranmu saat ini?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:13:12.180692"
+        },
+        {
+          "role": "user",
+          "message": "Ya",
+          "timestamp": "2025-08-31T20:13:13.515100"
+        },
+        {
+          "role": "assistant",
+          "message": "Baik, sekarang saya akan mengajukan beberapa pertanyaan untuk memahami situasi Anda lebih dalam.\n\nIf your stress is trying to protect you from something, what do you think it’s trying to prevent? yes/no\n\nSilakan berikan jawaban dalam skala 1-10 (1 = sangat rendah, 10 = sangat tinggi)",
+          "stage": "1.2 Self-Assessment",
+          "type": "assessment_started",
+          "timestamp": "2025-08-31T20:13:13.515100"
+        },
+        {
+          "role": "user",
+          "message": "7",
+          "timestamp": "2025-08-31T20:13:14.030652"
+        },
+        {
+          "role": "assistant",
+          "message": "What are you most afraid might happen if this stress stays the same?\n\nSilakan berikan jawaban Anda dengan bebas.",
+          "stage": "1.2 Self-Assessment",
+          "type": "assessment_continue",
+          "timestamp": "2025-08-31T20:13:14.030652"
+        },
+        {
+          "role": "user",
+          "message": "Tidak",
+          "timestamp": "2025-08-31T20:13:14.534833"
+        },
+        {
+          "role": "assistant",
+          "message": "Is your stress related to school? Yes or no\n\nSilakan berikan jawaban dalam skala 1-10 (1 = sangat rendah, 10 = sangat tinggi)",
+          "stage": "1.2 Self-Assessment",
+          "type": "assessment_continue",
+          "timestamp": "2025-08-31T20:13:14.534833"
+        },
+        {
+          "role": "user",
+          "message": "6",
+          "timestamp": "2025-08-31T20:13:15.084235"
+        },
+        {
+          "role": "assistant",
+          "message": "Maaf, tidak dapat menemukan saran yang sesuai saat ini.",
+          "stage": "1.3 Suggestions",
+          "type": "error",
+          "timestamp": "2025-08-31T20:13:15.084235"
+        },
+        {
+          "role": "user",
+          "message": "Ya, saya siap untuk mendapat saran",
+          "timestamp": "2025-08-31T20:13:15.599590"
+        },
+        {
+          "role": "assistant",
+          "message": "Terima kasih atas respons Anda. Untuk membantu saya memberikan dukungan yang lebih baik, bisakah Anda ceritakan bagaimana perasaan Anda setelah percakapan ini? Apakah ada hal yang membantu atau yang ingin Anda diskusikan lebih lanjut?",
+          "stage": "1.4 Feedback",
+          "type": "feedback_collection",
+          "timestamp": "2025-08-31T20:13:15.599590"
+        },
+        {
+          "role": "user",
+          "message": "Saran untuk olahraga ringan terdengar bagus, terima kasih",
+          "timestamp": "2025-08-31T20:13:16.102365"
+        },
+        {
+          "role": "assistant",
+          "message": "Terima kasih telah berbagi. Berdasarkan percakapan kita, berikut adalah beberapa langkah yang bisa Anda pertimbangkan:\n\n\nApakah ada dari langkah-langkah ini yang ingin Anda coba atau diskusikan lebih lanjut?",
+          "stage": "1.5 Next Action After Feedback",
+          "type": "next_actions_provided",
+          "timestamp": "2025-08-31T20:13:16.102365"
+        }
+      ],
+      "stage_transitions": [
+        {
+          "stage": "1.1 Problem Identification",
+          "timestamp": "2025-08-31T20:13:08.728719",
+          "response_type": "problem_identified"
+        },
+        {
+          "stage": "1.2 Self-Assessment",
+          "timestamp": "2025-08-31T20:13:13.515607",
+          "response_type": "assessment_started"
+        },
+        {
+          "stage": "1.3 Suggestions",
+          "timestamp": "2025-08-31T20:13:15.084744",
+          "response_type": "error"
+        },
+        {
+          "stage": "1.4 Feedback",
+          "timestamp": "2025-08-31T20:13:15.599590",
+          "response_type": "feedback_collection"
+        },
+        {
+          "stage": "1.5 Next Action After Feedback",
+          "timestamp": "2025-08-31T20:13:16.102365",
+          "response_type": "next_actions_provided"
+        }
+      ],
+      "errors": [
+        {
+          "step": 7,
+          "error_message": "Maaf, tidak dapat menemukan saran yang sesuai saat ini.",
+          "timestamp": "2025-08-31T20:13:15.084744"
+        }
+      ],
+      "success": true,
+      "flow_summary": {
+        "client_id": "test_general_1756645987.486062",
+        "duration": 0.14,
+        "stages_completed": [
+          "1.1 Problem Identification",
+          "1.2 Self-Assessment",
+          "1.3 Suggestions",
+          "1.4 Feedback"
+        ],
+        "problems_identified": 1,
+        "suggestions_provided": 0,
+        "feedback_collected": 1,
+        "next_actions_count": 0,
+        "conversation_length": 9
+      },
+      "final_flow_status": {
+        "client_id": "test_general_1756645987.486062",
+        "current_stage": "1.5 Next Action After Feedback",
+        "stage_progress": {
+          "1.1 Problem Identification": {
+            "status": "completed",
+            "data": {
+              "problems_found": 1,
+              "top_problem": {
+                "problem_id": "",
+                "sub_category_id": "",
+                "category": "nan",
+                "problem_text": "?  nan",
+                "domain": "general",
+                "score": 0.33359957,
+                "suggestions_available": true
+              }
+            }
+          },
+          "1.2 Self-Assessment": {
+            "status": "completed",
+            "data": {
+              "type": "assessment_complete",
+              "session_id": "test_general_1756645987.486062",
+              "summary": "Assessment untuk nan telah selesai dengan 3 pertanyaan dijawab dalam 1 menit.",
+              "score": "6.5/10",
+              "analysis": "Analisis menunjukkan kondisi Anda terkait nan relatif stabil dengan skor rata-rata 6.5. Fokus pada pemeliharaan kesehatan mental dan pencegahan akan sangat bermanfaat.",
+              "insights": [
+                "Respons Anda menunjukkan variasi yang menandakan beberapa area memerlukan perhatian lebih.",
+                "Assessment diselesaikan dengan cepat, menunjukkan kemungkinan sudah memiliki pemahaman yang baik tentang kondisi diri."
+              ],
+              "recommendations": [],
+              "detailed_results": {
+                "total_questions": 3,
+                "problem_category": "nan",
+                "average_score": 6.5,
+                "completed_at": "2025-08-31T20:13:15.059577",
+                "duration_minutes": 1,
+                "scale_responses_count": 2,
+                "text_responses_count": 1
+              },
+              "message": "🎯 **Assessment Selesai**\n\nHasil assessment menunjukkan kondisi Anda relatif stabil dengan beberapa area yang bisa ditingkatkan.\n\n**Kategori**: nan\n**Skor Rata-rata**: 6.5/10 (baik)\n\nBerikut adalah beberapa rekomendasi yang dapat membantu Anda:"
+            }
+          },
+          "1.3 Suggestions": {
+            "status": "completed",
+            "data": {
+              "user_feedback": {
+                "sentiment": "positive",
+                "feedback_text": "Ya, saya siap untuk mendapat saran",
+                "suggestions_count": 0
+              }
+            }
+          },
+          "1.4 Feedback": {
+            "status": "completed",
+            "data": {
+              "collected_feedback": {
+                "feedback_text": "Saran untuk olahraga ringan terdengar bagus, terima kasih",
+                "timestamp": "2025-08-31T20:13:16.102365",
+                "sentiment": "positive"
+              }
+            }
+          },
+          "1.5 Next Action After Feedback": {
+            "status": "in_progress",
+            "data": {
+              "recommended_actions": []
+            }
+          }
+        },
+        "started_at": "2025-08-31T20:13:07.486062",
+        "conversation_length": 9
+      },
+      "completed_at": "2025-08-31T20:13:16.102365"
+    }
+  ],
+  "summary": {
+    "total_scenarios": 3,
+    "successful_scenarios": 3,
+    "success_rate": 100.0,
+    "total_errors": 3,
+    "stage_completion_counts": {
+      "1.1 Problem Identification": 3,
+      "1.2 Self-Assessment": 3,
+      "1.3 Suggestions": 3,
+      "1.4 Feedback": 3,
+      "1.5 Next Action After Feedback": 3
+    },
+    "test_status": "PASSED"
+  }
+}

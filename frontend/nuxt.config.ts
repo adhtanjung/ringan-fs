@@ -63,7 +63,7 @@ export default defineNuxtConfig({
 				"http://localhost:8000/api/v1/chat",
 			customChatWsUrl:
 				process.env.NUXT_PUBLIC_CUSTOM_CHAT_WS_URL ||
-				"ws://localhost:8000/api/v1/chat/ws/chat/stream",
+				"ws://localhost:8000/api/v1/chat/ws",
 			customChatApiKey:
 				process.env.NUXT_PUBLIC_CUSTOM_CHAT_API_KEY || "your_jwt_token",
 

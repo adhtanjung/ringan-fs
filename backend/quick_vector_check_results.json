@@ -1,0 +1,81 @@
+{
+  "excel_data_counts": {
+    "stress": {
+      "1.1 Problems": 7,
+      "1.2 Self Assessment": 168,
+      "1.3 Suggestions": 139,
+      "1.4 Feedback Prompts": 44,
+      "1.5 Next Action After Feedback": 8,
+      "1.6 FineTuning Examples": 651,
+      "Clusters": 0
+    },
+    "anxiety": {
+      "1.1 Problems": 10,
+      "1.2 Self Assessment": 240,
+      "1.3 Suggestions": 104,
+      "1.4 Feedback Prompts": 0,
+      "1.5 Next Action After Feedback": 8,
+      "1.6 FineTuning Examples": 1,
+      "Clusters": 0
+    },
+    "trauma": {
+      "1.1 Problems": 7,
+      "1.2 Self Assessment": 212,
+      "1.3 Suggestions": 150,
+      "1.4 Feedback Prompts": 0,
+      "1.5 Next Action After Feedback": 8,
+      "1.6 FineTuning Examples": 1,
+      "Clusters": 0
+    },
+    "general": {
+      "1.1 Problems": 15,
+      "1.2 Self Assessment": 105,
+      "1.3 Suggestions": 50,
+      "1.4 Feedback Prompts": 44,
+      "1.5 Next Action After Feedback": 8,
+      "1.6 FineTuning Examples": 651,
+      "Clusters": 0
+    }
+  },
+  "vector_db_stats": {
+    "mental-health-suggestions": 150,
+    "mental_health_docs": 0,
+    "mental-health-feedback": 0,
+    "mental-health-problems": 15,
+    "mental-health-assessments": 240,
+    "mental-health-training": 0
+  },
+  "search_functionality": {
+    "stress": {
+      "problems_found": 2,
+      "assessments_found": 3,
+      "suggestions_found": 3,
+      "total_results": 8
+    },
+    "anxiety": {
+      "problems_found": 3,
+      "assessments_found": 1,
+      "suggestions_found": 3,
+      "total_results": 7
+    },
+    "trauma": {
+      "problems_found": 1,
+      "assessments_found": 0,
+      "suggestions_found": 3,
+      "total_results": 4
+    },
+    "general": {
+      "problems_found": 1,
+      "assessments_found": 0,
+      "suggestions_found": 3,
+      "total_results": 4
+    }
+  },
+  "summary": {
+    "total_excel_records": 2631,
+    "total_vector_records": 405,
+    "total_search_results": 23,
+    "data_import_success": true,
+    "search_functionality_working": true
+  }
+}

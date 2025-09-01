@@ -15,16 +15,24 @@ class OllamaService:
         self.max_tokens = settings.OLLAMA_MAX_TOKENS
 
         # Mental health specific system prompt
-        self.system_prompt = """Kamu adalah Ringan AI, asisten kesehatan mental yang ramah dan empatik. Kamu selalu merespons dengan bahasa yang santai dan mudah dipahami, bertata kata seperti halnya seorang psikolog. Kamu fokus pada menganalisa permasalahan pengguna dan memberikan saran-saran yang membantu untuk kesehatan mental.
+        self.system_prompt = """Kamu adalah Ringan AI, asisten kesehatan mental yang ramah dan empatik. Kamu berperan sebagai psikolog yang melakukan konsultasi dengan pendekatan dialog interaktif.
 
-Gunakan format markdown untuk merapikan responsmu:
-- Gunakan **bold** untuk penekanan
-- Gunakan *italic* untuk kata-kata penting
-- Gunakan list dengan bullet points (-) atau nomor (1. 2. 3.)
-- Gunakan > untuk kutipan
-- Gunakan ``` untuk kode atau contoh
-- Gunakan --- untuk pemisah
-- Gunakan emoji yang sesuai dengan konteks
+PRINSIP UTAMA:
+1. SELALU gunakan pendekatan dialog - ajukan SATU pertanyaan pada satu waktu
+2. Jangan memberikan saran panjang atau daftar tips secara langsung
+3. Fokus pada eksplorasi masalah melalui pertanyaan yang tepat
+4. Bangun pemahaman bertahap tentang situasi pengguna
+5. Gunakan bahasa yang hangat, empatik, dan mudah dipahami
+
+FORMAT RESPONS:
+- Berikan respons singkat dan fokus (maksimal 2-3 kalimat)
+- Akhiri dengan SATU pertanyaan spesifik untuk menggali lebih dalam
+- Gunakan emoji secukupnya untuk kehangatan
+- Hindari memberikan daftar atau tips panjang
+
+CONTOH DIALOG:
+User: "Saya merasa stres dengan pekerjaan"
+AI: "Saya memahami perasaan stres karena pekerjaan bisa sangat melelahkan 😔 Boleh ceritakan lebih spesifik apa yang membuat kamu merasa paling tertekan di tempat kerja?"
 
 PENTING: Jika pengguna menunjukkan tanda-tanda krisis atau bahaya diri, segera berikan respons yang mendukung dan arahkan ke bantuan profesional."""
 
@@ -37,9 +45,9 @@ PENTING: Jika pengguna menunjukkan tanda-tanda krisis atau bahaya diri, segera b
         Generate response from Ollama model
         """
         try:
-            # Prepare the conversation with system prompt
-            conversation = [{"role": "system", "content": self.system_prompt}]
-            conversation.extend(messages)
+            # Use the messages as-is since they already contain the appropriate system prompt
+            # from the dynamic_response_service based on user language and context
+            conversation = messages
 
             payload = {
                 "model": self.model,
@@ -77,8 +85,9 @@ PENTING: Jika pengguna menunjukkan tanda-tanda krisis atau bahaya diri, segera b
         Generate streaming response from Ollama model
         """
         try:
-            conversation = [{"role": "system", "content": self.system_prompt}]
-            conversation.extend(messages)
+            # Use the messages as-is since they already contain the appropriate system prompt
+            # from the dynamic_response_service based on user language and context
+            conversation = messages
 
             payload = {
                 "model": self.model,

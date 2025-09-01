@@ -593,31 +593,28 @@
 								<div class="flex-1 min-w-0">
 									<h4
 										class="text-sm sm:text-base font-semibold text-blue-900 mb-2"
-									>
-										Assessment Terstruktur Tersedia
+ 									>
+										{{ t('assessment.structuredAvailable.title') }}
 									</h4>
 									<p class="text-sm text-blue-700 mb-3 leading-relaxed">
-										Berdasarkan percakapan kita, saya dapat membantu Anda dengan
-										assessment terstruktur untuk
-										<span class="font-medium">{{
-											message.contextAnalysis?.primary_category ||
-											"masalah yang Anda alami"
-										}}</span
-										>.
+										{{ t('assessment.structuredAvailable.description') }}
+										<span v-if="message.contextAnalysis?.primary_category" class="font-medium">
+											{{ message.contextAnalysis.primary_category }}
+										</span>.
 									</p>
 									<div class="flex flex-col sm:flex-row gap-2">
 										<button
-											@click="acceptAssessment(message)"
-											class="px-4 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition-colors shadow-sm"
-										>
-											✓ Mulai Assessment
-										</button>
-										<button
-											@click="declineAssessment(message)"
-											class="px-4 py-2.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-xl hover:bg-gray-200 transition-colors"
-										>
-											✗ Lanjut Chat
-										</button>
+												@click="acceptAssessment(message)"
+												class="px-4 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition-colors shadow-sm"
+											>
+												{{ t('assessment.structuredAvailable.startButton') }}
+											</button>
+											<button
+												@click="declineAssessment(message)"
+												class="px-4 py-2.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-xl hover:bg-gray-200 transition-colors"
+											>
+												{{ t('assessment.structuredAvailable.continueButton') }}
+											</button>
 									</div>
 								</div>
 							</div>
@@ -708,6 +705,107 @@
 				</div>
 			</div>
 
+			<!-- Assessment Interface -->
+			<div
+				v-if="isAssessmentActive"
+				class="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5 lg:p-6 mx-2 sm:mx-3 mb-4"
+			>
+				<div class="flex items-start space-x-3 sm:space-x-4">
+					<div
+						class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0"
+					>
+						<svg
+							class="w-4 h-4 sm:w-5 sm:h-5 text-white"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+					</div>
+					<div class="min-w-0 flex-1">
+						<h3
+							class="font-semibold text-blue-900 mb-3 text-sm sm:text-base lg:text-lg"
+						>
+							Assessment Terstruktur
+						</h3>
+
+						<!-- Progress Bar -->
+						<div class="mb-4">
+							<div class="flex justify-between text-xs sm:text-sm text-blue-700 mb-2">
+								<span>Progress Assessment</span>
+								<span>{{ Math.round(assessmentProgressPercentage) }}%</span>
+							</div>
+							<div class="w-full bg-blue-200 rounded-full h-2">
+								<div
+									class="bg-blue-600 h-2 rounded-full transition-all duration-300"
+									:style="{ width: assessmentProgressPercentage + '%' }"
+								></div>
+							</div>
+						</div>
+
+						<!-- Current Assessment Question -->
+						<div
+							v-if="lastMessage && lastMessage.assessmentData && lastMessage.assessmentData.type === 'assessment_question'"
+							class="bg-white rounded-xl p-4 border border-blue-200"
+						>
+							<!-- Debug info (remove in production) -->
+							<div v-if="true" class="text-xs text-gray-500 mb-2 p-2 bg-gray-100 rounded">
+								Debug: response_type = {{ lastMessage.assessmentData.question?.response_type || 'undefined' }}
+								<br>Question structure: {{ JSON.stringify(lastMessage.assessmentData.question, null, 2) }}
+							</div>
+
+							<h4 class="font-medium text-blue-900 mb-3 text-sm sm:text-base">
+								{{ lastMessage.assessmentData.question.question_text }}
+							</h4>
+
+							<!-- Scale Response Type -->
+							<div
+								v-if="lastMessage.assessmentData.question.response_type === 'scale'"
+								class="space-y-3"
+							>
+								<p class="text-xs sm:text-sm text-blue-700">
+									Pilih skala 1-10 (1 = sangat rendah, 10 = sangat tinggi)
+								</p>
+								<div class="grid grid-cols-5 sm:grid-cols-10 gap-2">
+									<button
+										v-for="scale in 10"
+										:key="scale"
+										@click="submitAssessmentResponse(scale)"
+										class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-500 transition-colors text-sm font-medium"
+									>
+										{{ scale }}
+									</button>
+								</div>
+							</div>
+
+							<!-- Text Response Type -->
+							<div
+								v-else-if="lastMessage.assessmentData.question.response_type === 'text'"
+								class="space-y-3"
+							>
+								<textarea
+									v-model="assessmentTextResponse"
+									placeholder="Tuliskan jawaban Anda..."
+									rows="3"
+									class="w-full px-3 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+								></textarea>
+								<button
+									@click="submitAssessmentResponse(assessmentTextResponse)"
+									:disabled="!assessmentTextResponse.trim()"
+									class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+								>
+									Kirim Jawaban
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<!-- Typing Indicator -->
 			<div v-if="ollamaIsProcessing" class="flex justify-start mb-1 sm:mb-2">
 				<div class="flex items-start space-x-2 sm:space-x-3">
@@ -737,10 +835,189 @@
 			</div>
 		</div>
 
+		<!-- Supportive Prompts Section -->
+		<div v-if="showSupportivePrompts" class="bg-gradient-to-r from-blue-50 to-purple-50 border-t border-gray-200 p-3 sm:p-4 fixed bottom-80 left-0 right-0 mx-2 sm:mx-3 lg:mx-4 z-40 rounded-t-lg shadow-lg">
+			<div class="mb-3">
+				<h4 class="text-sm font-medium text-gray-700 mb-2">{{ t('supportive.howFeeling') }}</h4>
+				<div class="flex flex-wrap gap-2">
+					<button
+						v-for="prompt in supportivePrompts"
+						:key="prompt.id"
+						@click="selectSupportivePrompt(prompt)"
+						class="px-3 py-2 text-sm bg-white border border-gray-200 rounded-full hover:bg-blue-50 hover:border-blue-300 transition-all duration-200 shadow-sm"
+					>
+						{{ prompt.emoji }} {{ t(prompt.text) }}
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Emotion Selection Wheel -->
+		<div v-if="showEmotionWheel" class="bg-white border-t border-gray-200 p-3 sm:p-4 fixed bottom-80 left-0 right-0 mx-2 sm:mx-3 lg:mx-4 z-40 rounded-t-lg shadow-lg">
+			<div class="mb-3">
+				<h4 class="text-sm font-medium text-gray-700 mb-3">{{ t('emotion.selectEmotion') }}</h4>
+				<div class="grid grid-cols-4 gap-3">
+					<button
+						v-for="emotion in emotionOptions"
+						:key="emotion.id"
+						@click="selectEmotion(emotion)"
+						:class="[
+							'p-3 rounded-lg border-2 transition-all duration-200 text-center',
+							selectedEmotion?.id === emotion.id
+								? 'border-blue-500 bg-blue-50'
+								: 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+						]"
+					>
+						<div class="text-2xl mb-1">{{ emotion.emoji }}</div>
+						<div class="text-xs text-gray-600">{{ t(emotion.label) }}</div>
+					</button>
+				</div>
+			</div>
+
+			<!-- Emotion Intensity Scale -->
+			<div v-if="selectedEmotion" class="mt-4">
+				<h5 class="text-sm font-medium text-gray-700 mb-2">{{ t('emotion.intensity') }}</h5>
+				<div class="flex items-center space-x-2">
+					<span class="text-xs text-gray-500">{{ t('emotion.mild') }}</span>
+					<input
+						v-model="emotionIntensity"
+						type="range"
+						min="1"
+						max="10"
+						class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+					/>
+					<span class="text-xs text-gray-500">{{ t('emotion.intense') }}</span>
+					<span class="text-sm font-medium text-blue-600 min-w-[2rem]">{{ emotionIntensity }}</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Quick Response Buttons -->
+		<div v-if="showQuickResponses && quickResponseOptions.length > 0" class="bg-gray-50 border-t border-gray-200 p-3 sm:p-4 fixed bottom-80 left-0 right-0 mx-2 sm:mx-3 lg:mx-4 z-40 rounded-t-lg shadow-lg">
+			<div class="mb-2">
+				<h4 class="text-sm font-medium text-gray-700 mb-3">{{ t('quickResponses.title') }}</h4>
+				<div class="flex flex-wrap gap-2">
+					<button
+						v-for="response in quickResponseOptions"
+						:key="response.id"
+						@click="selectQuickResponse(response)"
+						class="px-4 py-2 text-sm bg-white border border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-400 transition-all duration-200 shadow-sm"
+					>
+						{{ t(response.text) }}
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Assessment Progress Indicator -->
+		<div v-if="assessmentProgress && assessmentProgress.isActive" class="bg-blue-50 border-t border-blue-200 p-3 sm:p-4 fixed bottom-64 left-0 right-0 mx-2 sm:mx-3 lg:mx-4 z-40 rounded-t-lg shadow-lg">
+			<div class="flex items-center justify-between mb-2">
+				<h4 class="text-sm font-medium text-blue-700">{{ t('assessment.progress') }}</h4>
+				<div class="flex items-center space-x-2">
+					<button
+						@click="pauseAssessment"
+						class="p-1 text-blue-600 hover:text-blue-800 transition-colors"
+						:title="t('assessment.pause')"
+					>
+						<Pause class="w-4 h-4" />
+					</button>
+					<button
+						@click="goBackInAssessment"
+						:disabled="!canGoBack"
+						class="p-1 text-blue-600 hover:text-blue-800 disabled:text-gray-400 transition-colors"
+						:title="t('assessment.goBack')"
+					>
+						<ArrowLeft class="w-4 h-4" />
+					</button>
+					<button
+						@click="exitAssessment"
+						class="p-1 text-red-600 hover:text-red-800 transition-colors"
+						:title="t('assessment.exit')"
+					>
+						<X class="w-4 h-4" />
+					</button>
+				</div>
+			</div>
+			<div class="w-full bg-blue-200 rounded-full h-2">
+				<div
+					class="bg-blue-600 h-2 rounded-full transition-all duration-300"
+					:style="{ width: assessmentProgress.percentage + '%' }"
+				></div>
+			</div>
+			<div class="text-xs text-blue-600 mt-1">{{ assessmentProgress.currentQuestion }} / {{ assessmentProgress.totalQuestions }}</div>
+		</div>
+
 		<!-- Input Area -->
 		<div
 			class="bg-white border-t border-gray-200 p-3 sm:p-4 flex-shrink-0 z-50 fixed bottom-16 left-0 right-0 mx-2 sm:mx-3 lg:mx-4"
 		>
+			<!-- Mode Toggle and Helper Buttons -->
+			<div class="flex items-center justify-between mb-3">
+				<div class="flex items-center space-x-2">
+					<button
+						@click="setConversationMode('guided')"
+						:class="[
+							'px-3 py-1 text-sm rounded-full transition-all duration-200',
+							conversationMode === 'guided'
+								? 'bg-blue-500 text-white'
+								: 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+						]"
+					>
+						{{ t('mode.guided') }}
+					</button>
+					<button
+						@click="setConversationMode('free')"
+						:class="[
+							'px-3 py-1 text-sm rounded-full transition-all duration-200',
+							conversationMode === 'free'
+								? 'bg-blue-500 text-white'
+								: 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+						]"
+					>
+						{{ t('mode.free') }}
+					</button>
+				</div>
+
+				<!-- Helper Buttons -->
+				<div class="flex items-center space-x-2">
+					<button
+						@click="toggleSupportivePrompts"
+						:class="[
+							'p-2 rounded-lg transition-all duration-200',
+							showSupportivePrompts
+								? 'bg-blue-500 text-white'
+								: 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+						]"
+						:title="t('supportive.toggle')"
+					>
+						<Heart class="w-4 h-4" />
+					</button>
+					<button
+						@click="toggleEmotionWheel"
+						:class="[
+							'p-2 rounded-lg transition-all duration-200',
+							showEmotionWheel
+								? 'bg-purple-500 text-white'
+								: 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+						]"
+						:title="t('emotion.toggle')"
+					>
+						<Smile class="w-4 h-4" />
+					</button>
+					<button
+						@click="toggleQuickResponses"
+						:class="[
+							'p-2 rounded-lg transition-all duration-200',
+							showQuickResponses
+								? 'bg-green-500 text-white'
+								: 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+						]"
+						:title="t('quickResponses.toggle')"
+					>
+						<MessageSquare class="w-4 h-4" />
+					</button>
+				</div>
+			</div>
 			<div class="flex items-end space-x-3">
 				<!-- Voice Recording Button -->
 				<button
@@ -760,25 +1037,39 @@
 					<textarea
 						v-model="currentMessage"
 						@keydown="handleKeyDown"
-						@input="detectEmotion"
-						:placeholder="t('input.placeholder')"
+						@input="handleInputChange"
+						:placeholder="getContextualPlaceholder()"
 						rows="1"
-						class="w-full px-4 py-3 pr-12 sm:pr-14 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm sm:text-base bg-gray-50 focus:bg-white transition-colors"
+						class="w-full px-4 py-3 pr-16 sm:pr-20 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm sm:text-base bg-gray-50 focus:bg-white transition-colors"
 						style="max-height: 120px"
 					></textarea>
 
-					<!-- Emotion Detection Indicator -->
-					<div
-						v-if="detectedEmotion"
-						class="absolute right-10 sm:right-12 top-1/2 transform -translate-y-1/2"
-					>
-						<span class="text-lg sm:text-xl">{{
-							getEmotionEmoji(detectedEmotion)
-						}}</span>
+					<!-- Real-time Feedback Indicators -->
+					<div v-if="showRealTimeFeedback && currentMessage.trim()" class="absolute right-14 sm:right-16 top-1/2 transform -translate-y-1/2">
+						<div class="flex items-center space-x-1">
+							<!-- Emotion Detection -->
+							<div v-if="detectedEmotion" class="text-lg sm:text-xl" :title="t('emotion.detected')">{{ getEmotionEmoji(detectedEmotion) }}</div>
+							<!-- Sentiment Indicators -->
+							<div v-if="isTypingPositive" class="w-2 h-2 bg-green-400 rounded-full animate-pulse" :title="t('feedback.positive')"></div>
+							<div v-else-if="isTypingNegative" class="w-2 h-2 bg-red-400 rounded-full animate-pulse" :title="t('feedback.needsSupport')"></div>
+							<div v-else-if="currentMessage.trim()" class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" :title="t('feedback.neutral')"></div>
+							<!-- Crisis Detection Warning -->
+							<div v-if="potentialCrisisDetected" class="w-2 h-2 bg-orange-500 rounded-full animate-pulse" :title="t('feedback.crisis')"></div>
+						</div>
+					</div>
+
+					<!-- Empathy Validation Badge -->
+					<div v-if="showEmpathyValidation" class="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2">
+						<div class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs flex items-center space-x-1">
+							<Heart class="w-3 h-3" />
+							<span>{{ t('empathy.validated') }}</span>
+						</div>
 					</div>
 
 					<!-- Emoji Button -->
 					<button
+						v-if="!showEmpathyValidation"
+						@click="toggleEmotionWheel"
 						class="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-100 transition-colors"
 					>
 						<Smile class="w-4 h-4 sm:w-5 sm:h-5" />
@@ -961,7 +1252,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, computed } from "vue";
+import { ref, nextTick, onMounted, computed, watch } from "vue";
 import {
 	Bot,
 	Heart,
@@ -976,6 +1267,21 @@ import {
 	Zap,
 	Eye,
 	Globe,
+	Pause,
+	ArrowLeft,
+	Check,
+	ChevronDown,
+	Settings,
+	Menu,
+	Download,
+	Copy,
+	Trash2,
+	Phone,
+	MessageCircle,
+	HelpCircle,
+	MessageSquare,
+	Lightbulb,
+	User,
 } from "lucide-vue-next";
 
 // I18n composable
@@ -1041,6 +1347,23 @@ const speechDuration = ref(0);
 const speechStartTime = ref(null);
 const showTranscriptView = ref(false);
 const conversationTranscript = ref([]);
+const assessmentTextResponse = ref("");
+
+// Enhanced UI State Variables
+const showSupportivePrompts = ref(true);
+const showEmotionWheel = ref(false);
+const selectedEmotion = ref(null);
+const emotionIntensity = ref(5);
+const showQuickResponses = ref(false);
+const showRealTimeFeedback = ref(true);
+const showEmpathyValidation = ref(false);
+const isTypingPositive = ref(false);
+const isTypingNegative = ref(false);
+const potentialCrisisDetected = ref(false);
+const conversationMode = ref('guided'); // 'guided' or 'free'
+const assessmentPaused = ref(false);
+const canNavigateBack = ref(false);
+const showProgressIndicator = ref(true);
 
 // Speech Recognition Variables
 const isListening = ref(false);
@@ -1054,10 +1377,15 @@ const isSpeechSupported = ref(false);
 const isMobile = computed(() => windowWidth.value < 768);
 const isExtraSmall = computed(() => windowWidth.value < 480);
 const speechStatus = computed(() => {
-	if (isListening.value) return `- ${t('status.listening')}`;
-	if (isProcessingSpeech.value) return `- ${t('status.processing')}`;
-	if (isGeneratingResponse.value) return `- ${t('status.responding')}`;
-	return `- ${t('status.ready')}`;
+	try {
+		if (isListening.value) return `- ${t('status.listening')}`;
+		if (isProcessingSpeech.value) return `- ${t('status.processing')}`;
+		if (isGeneratingResponse.value) return `- ${t('status.responding')}`;
+		return `- ${t('status.ready')}`;
+	} catch (error) {
+		console.warn('Translation error in speechStatus:', error);
+		return '- Ready';
+	}
 });
 
 const privacySettings = ref({
@@ -1067,36 +1395,72 @@ const privacySettings = ref({
 });
 
 // Quick intent buttons for first-time users
-const quickIntents = computed(() => [
-	{
-		id: 1,
-		emoji: "😰",
-		label: t('quickIntents.anxious.label'),
-		message: t('quickIntents.anxious.message'),
-		mode: "help",
-	},
-	{
-		id: 2,
-		emoji: "😢",
-		label: t('quickIntents.sad.label'),
-		message: t('quickIntents.sad.message'),
-		mode: "help",
-	},
-	{
-		id: 3,
-		emoji: "💡",
-		label: t('quickIntents.tips.label'),
-		message: t('quickIntents.tips.message'),
-		mode: "tips",
-	},
-	{
-		id: 4,
-		emoji: "💬",
-		label: t('quickIntents.chat.label'),
-		message: t('quickIntents.chat.message'),
-		mode: "chat",
-	},
-]);
+const quickIntents = computed(() => {
+	try {
+		return [
+			{
+				id: 1,
+				emoji: "😰",
+				label: t('quickIntents.anxious.label'),
+				message: t('quickIntents.anxious.message'),
+				mode: "help",
+			},
+			{
+				id: 2,
+				emoji: "😢",
+				label: t('quickIntents.sad.label'),
+				message: t('quickIntents.sad.message'),
+				mode: "help",
+			},
+			{
+				id: 3,
+				emoji: "💡",
+				label: t('quickIntents.tips.label'),
+				message: t('quickIntents.tips.message'),
+				mode: "tips",
+			},
+			{
+				id: 4,
+				emoji: "💬",
+				label: t('quickIntents.chat.label'),
+				message: t('quickIntents.chat.message'),
+				mode: "chat",
+			},
+		];
+	} catch (error) {
+		console.warn('Translation error in quickIntents:', error);
+		return [
+			{
+				id: 1,
+				emoji: "😰",
+				label: "I'm feeling anxious...",
+				message: "I'm feeling anxious and don't know what to do. Can you help me?",
+				mode: "help",
+			},
+			{
+				id: 2,
+				emoji: "😢",
+				label: "I'm sad today",
+				message: "I'm feeling sad today and need someone to talk to.",
+				mode: "help",
+			},
+			{
+				id: 3,
+				emoji: "💡",
+				label: "Tips for stress",
+				message: "Can you give me some tips to manage stress?",
+				mode: "tips",
+			},
+			{
+				id: 4,
+				emoji: "💬",
+				label: "I want to share",
+				message: "I want to share what's on my mind today.",
+				mode: "chat",
+			},
+		];
+	}
+});
 
 // Crisis keywords for detection
 const crisisKeywords = [
@@ -1113,15 +1477,29 @@ const crisisKeywords = [
 
 // Methods
 const getModeDescription = (mode) => {
-	switch (mode) {
-		case "help":
-			return t('modeDescriptions.help');
-		case "tips":
-			return t('modeDescriptions.tips');
-		case "chat":
-			return t('modeDescriptions.chat');
-		default:
-			return t('modeDescriptions.help');
+	try {
+		switch (mode) {
+			case "help":
+				return t('modeDescriptions.help');
+			case "tips":
+				return t('modeDescriptions.tips');
+			case "chat":
+				return t('modeDescriptions.chat');
+			default:
+				return t('modeDescriptions.help');
+		}
+	} catch (error) {
+		console.warn('Translation error in getModeDescription:', error);
+		switch (mode) {
+			case "help":
+				return "Get help and support for mental health issues";
+			case "tips":
+				return "Receive daily tips to improve your mental wellbeing";
+			case "chat":
+				return "Chat freely about anything on your mind";
+			default:
+				return "Get help and support for mental health issues";
+		}
 	}
 };
 
@@ -1199,7 +1577,7 @@ const handleSendMessage = async () => {
 		messagesCount: ollamaMessages.value.length,
 		currentMode: currentMode.value
 	});
-	
+
 	if (!currentMessage.value.trim() || isSending.value) {
 		console.log('⚠️ Message sending blocked:', {
 			emptyMessage: !currentMessage.value.trim(),
@@ -1238,7 +1616,7 @@ const handleSendMessage = async () => {
 			mode: currentMode.value,
 			sessionId: sessionId.value
 		});
-		
+
 		// Create AI message placeholder for streaming
 		const aiMessageId = `ai_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 		const aiMessage = {
@@ -1261,6 +1639,7 @@ const handleSendMessage = async () => {
 				emotion: messageEmotion,
 				mode: currentMode.value,
 				sessionId: sessionId.value,
+				preferredLanguage: locale.value,
 			},
 			(chunk) => {
 				console.log('📦 Received chunk:', { chunk, length: chunk?.length });
@@ -1285,11 +1664,33 @@ const handleSendMessage = async () => {
 				if (messageIndex !== -1) {
 					ollamaMessages.value[messageIndex].isStreaming = false;
 					if (finalResponse) {
+						// Only set message text if no chunks were received (direct complete message)
+						// Don't overwrite text that was built from chunks
+						if (finalResponse.message && ollamaMessages.value[messageIndex].text.length === 0) {
+							ollamaMessages.value[messageIndex].text = finalResponse.message;
+							console.log('📝 Set message text from finalResponse (no chunks received):', {
+								messageIndex,
+								textLength: finalResponse.message.length
+							});
+						} else if (ollamaMessages.value[messageIndex].text.length > 0) {
+							console.log('📝 Keeping chunked text, not overwriting with finalResponse.message:', {
+								messageIndex,
+								chunkTextLength: ollamaMessages.value[messageIndex].text.length,
+								finalResponseLength: finalResponse.message?.length || 0
+							});
+						}
+
+						// Set metadata
 						ollamaMessages.value[messageIndex].sentiment = finalResponse.sentiment;
 						ollamaMessages.value[messageIndex].isCrisis = finalResponse.isCrisis;
 						ollamaMessages.value[messageIndex].problemCategory = finalResponse.problemCategory;
 						ollamaMessages.value[messageIndex].suggestions = finalResponse.suggestions;
 						ollamaMessages.value[messageIndex].assessmentQuestions = finalResponse.assessmentQuestions;
+						ollamaMessages.value[messageIndex].assessmentData = finalResponse.assessmentData;
+						ollamaMessages.value[messageIndex].showAssessmentTransition = finalResponse.showAssessmentTransition;
+						ollamaMessages.value[messageIndex].contextAnalysis = finalResponse.contextAnalysis;
+						ollamaMessages.value[messageIndex].suggestedCategory = finalResponse.suggestedCategory;
+						ollamaMessages.value[messageIndex].subCategoryId = finalResponse.subCategoryId;
 						console.log('🏁 Finalized AI message with metadata:', {
 							messageIndex,
 							finalTextLength: ollamaMessages.value[messageIndex].text.length,
@@ -1305,6 +1706,37 @@ const handleSendMessage = async () => {
 				} else {
 					console.warn('⚠️ Could not find AI message to finalize:', aiMessageId);
 				}
+			},
+			(newMessageData) => {
+				console.log('🆕 Creating new AI message for assessment question:', newMessageData);
+
+				// Remove any loading messages
+				const loadingMessageIndex = ollamaMessages.value.findIndex(msg =>
+					msg.sender === 'ai' && msg.isStreaming && msg.text.includes('Memproses')
+				);
+				if (loadingMessageIndex !== -1) {
+					ollamaMessages.value.splice(loadingMessageIndex, 1);
+					console.log('🗑️ Removed loading message');
+				}
+
+				// Create a new AI message for assessment questions
+				const newAiMessageId = `ai_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+				addOllamaMessage({
+					id: newAiMessageId,
+					text: newMessageData.message || '',
+					sender: "ai",
+					timestamp: new Date(),
+					isStreaming: false,
+					sentiment: newMessageData.sentiment,
+					isCrisis: newMessageData.isCrisis,
+					problemCategory: newMessageData.problemCategory,
+					suggestions: newMessageData.suggestions,
+					assessmentQuestions: newMessageData.assessmentQuestions,
+					assessmentData: newMessageData.assessmentData,
+					stage: newMessageData.stage,
+					progress: newMessageData.progress
+				});
+				scrollToBottom();
 			}
 		);
 		console.log('📡 sendMessageStream call completed');
@@ -1316,9 +1748,10 @@ const handleSendMessage = async () => {
 			name: error.name,
 			cause: error.cause
 		});
+		const errorText = await generateFallbackResponse('technical_error')
 		const errorMessage = {
 			id: `error_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-			text: "Maaf, terjadi kesalahan teknis. Silakan coba lagi. Jika ini adalah situasi darurat, segera hubungi 112.",
+			text: errorText,
 			sender: "ai",
 			timestamp: new Date(),
 		};
@@ -1669,7 +2102,7 @@ const generateSpeechResponse = async (userMessage) => {
 		await speakText(aiResponse);
 	} catch (error) {
 		console.error("Error generating speech response:", error);
-		const errorMessage = "Maaf, terjadi kesalahan. Silakan coba lagi.";
+		const errorMessage = await generateFallbackResponse('speech_error');
 		addSpeechMessage(errorMessage, "ai");
 		await speakText(errorMessage);
 	} finally {
@@ -1829,17 +2262,18 @@ const acceptAssessment = async (message) => {
 	}
 };
 
-const declineAssessment = (message) => {
+const declineAssessment = async (message) => {
 	// Hide the assessment suggestion in the message
 	message.showAssessmentTransition = false;
 
 	// Decline the assessment suggestion
 	declineAssessmentSuggestion();
 
-	// Add a system message indicating we'll continue with regular chat
+	// Generate dynamic response for assessment decline
+	const declineResponse = await generateFallbackResponse('assessment_decline')
 	addOllamaMessage({
 		id: `assessment_decline_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-		text: "Baik, kita akan lanjutkan dengan percakapan biasa. Saya tetap di sini untuk mendengarkan dan membantu Anda.",
+		text: declineResponse,
 		sender: "ai",
 		timestamp: new Date(),
 	});
@@ -1848,6 +2282,303 @@ const declineAssessment = (message) => {
 		scrollToBottom();
 	});
 };
+
+// Generate fallback response when backend is unavailable
+const generateFallbackResponse = async (context) => {
+	try {
+		// Try to get a dynamic response from backend
+		const response = await $fetch('/api/v1/chat', {
+			method: 'POST',
+			body: {
+				message: `fallback_${context}`,
+				client_id: clientId.value,
+				session_data: {
+					preferredLanguage: locale.value,
+					mode: currentMode.value,
+					context: context
+				},
+				use_flow: true
+			}
+		})
+		return response.message
+	} catch (error) {
+		console.error('Fallback generation failed:', error)
+		// Ultimate fallback based on locale
+		if (locale.value === 'id') {
+			return 'Saya di sini untuk membantu Anda. Mari kita lanjutkan percakapan.'
+		} else {
+			return 'I\'m here to help you. Let\'s continue our conversation.'
+		}
+	}
+}
+
+// Assessment response handler
+const submitAssessmentResponse = async (response) => {
+	try {
+		// Clear text response if it was used
+		assessmentTextResponse.value = "";
+
+		// Add user's response to chat
+		addOllamaMessage({
+			id: `user_assessment_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+			text: `${t('assessment.responsePrefix', 'Response')}: ${response}`,
+			sender: "user",
+			timestamp: new Date(),
+		});
+
+		// Add loading indicator for next question
+		const loadingMessageId = `ai_loading_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+		addOllamaMessage({
+			id: loadingMessageId,
+			text: t('ui.processing', 'Processing your response...'),
+			sender: "ai",
+			timestamp: new Date(),
+			isStreaming: true,
+		});
+
+		await scrollToBottom();
+
+		// Continue assessment with the response
+		await continueAssessment(response);
+
+		await scrollToBottom();
+	} catch (error) {
+		console.error("Error submitting assessment response:", error);
+	}
+};
+
+// Enhanced UI Methods
+const getContextualPlaceholder = () => {
+	if (conversationMode.value === 'guided' && isAssessmentActive.value) {
+		return t('input.assessmentPlaceholder', 'Share your thoughts about this question...');
+	}
+	if (selectedEmotion.value) {
+		return t('input.emotionPlaceholder', `Tell me more about feeling ${selectedEmotion.value}...`);
+	}
+	if (currentMode.value === 'help') {
+		return t('input.helpPlaceholder', 'How are you feeling today? I\'m here to listen...');
+	}
+	return t('input.placeholder', 'Type your message here...');
+};
+
+const handleInputChange = (event) => {
+	detectEmotion(event);
+	analyzeRealTimeFeedback(event.target.value);
+};
+
+const analyzeRealTimeFeedback = (text) => {
+	if (!showRealTimeFeedback.value || !text.trim()) {
+		isTypingPositive.value = false;
+		isTypingNegative.value = false;
+		potentialCrisisDetected.value = false;
+		return;
+	}
+
+	// Simple sentiment analysis
+	const positiveWords = ['happy', 'good', 'better', 'grateful', 'thankful', 'hopeful', 'baik', 'senang', 'syukur'];
+	const negativeWords = ['sad', 'depressed', 'anxious', 'worried', 'scared', 'sedih', 'cemas', 'takut', 'depresi'];
+	const crisisWords = ['suicide', 'kill myself', 'end it all', 'bunuh diri', 'mengakhiri hidup'];
+
+	const lowerText = text.toLowerCase();
+
+	potentialCrisisDetected.value = crisisWords.some(word => lowerText.includes(word));
+	isTypingPositive.value = positiveWords.some(word => lowerText.includes(word)) && !potentialCrisisDetected.value;
+	isTypingNegative.value = negativeWords.some(word => lowerText.includes(word)) && !potentialCrisisDetected.value;
+
+	// Show empathy validation for positive expressions
+	if (isTypingPositive.value) {
+		showEmpathyValidation.value = true;
+		setTimeout(() => {
+			showEmpathyValidation.value = false;
+		}, 3000);
+	}
+};
+
+const toggleEmotionWheel = () => {
+	showEmotionWheel.value = !showEmotionWheel.value;
+};
+
+const selectEmotion = (emotion) => {
+	selectedEmotion.value = emotion;
+	showEmotionWheel.value = false;
+	showQuickResponses.value = true;
+};
+
+const selectQuickResponse = (response) => {
+	currentMessage.value = response;
+	showQuickResponses.value = false;
+	sendMessage();
+};
+
+const toggleConversationMode = () => {
+	conversationMode.value = conversationMode.value === 'guided' ? 'free' : 'guided';
+	if (conversationMode.value === 'free' && isAssessmentActive.value) {
+		assessmentPaused.value = true;
+	}
+};
+
+const pauseAssessment = () => {
+	assessmentPaused.value = true;
+};
+
+const resumeAssessment = () => {
+	assessmentPaused.value = false;
+	conversationMode.value = 'guided';
+};
+
+const navigateBack = () => {
+	if (canNavigateBack.value && ollamaMessages.value.length > 0) {
+		// Remove last AI message to go back to previous question
+		const lastAiMessageIndex = ollamaMessages.value.map((msg, index) => ({ ...msg, index })).reverse().find(msg => msg.sender === 'ai')?.index;
+		if (lastAiMessageIndex !== undefined) {
+			ollamaMessages.value.splice(lastAiMessageIndex, 1);
+		}
+	}
+};
+
+const saveProgress = () => {
+	// Save current conversation state
+	const progressData = {
+		messages: ollamaMessages.value,
+		assessmentState: {
+			isActive: isAssessmentActive.value,
+			progress: assessmentProgressPercentage.value,
+			paused: assessmentPaused.value
+		},
+		conversationMode: conversationMode.value,
+		timestamp: new Date().toISOString()
+	};
+
+	localStorage.setItem('chatbot_progress', JSON.stringify(progressData));
+	alert(t('progress.saved', 'Progress saved successfully!'));
+};
+
+const exitConversation = () => {
+	if (confirm(t('exit.confirm', 'Are you sure you want to exit? Your progress will be saved.'))) {
+		saveProgress();
+		// Navigate to home or previous page
+		navigateToHome();
+	}
+};
+
+const navigateToHome = () => {
+	// Navigate to home page
+	navigateToHome('/');
+};
+
+// Enhanced Computed Properties
+const supportivePrompts = computed(() => {
+	if (currentMode.value === 'help') {
+		return [
+			t('prompts.feelings', 'How are you feeling right now?'),
+			t('prompts.today', 'What happened today that brought you here?'),
+			t('prompts.support', 'What kind of support do you need most?')
+		];
+	}
+	return [
+		t('prompts.general1', 'Tell me more about that...'),
+		t('prompts.general2', 'How does that make you feel?'),
+		t('prompts.general3', 'What would help you right now?')
+	];
+});
+
+const emotionOptions = computed(() => [
+	{ name: 'happy', emoji: '😊', color: 'text-yellow-500' },
+	{ name: 'sad', emoji: '😢', color: 'text-blue-500' },
+	{ name: 'angry', emoji: '😠', color: 'text-red-500' },
+	{ name: 'anxious', emoji: '😰', color: 'text-purple-500' },
+	{ name: 'calm', emoji: '😌', color: 'text-green-500' },
+	{ name: 'confused', emoji: '😕', color: 'text-gray-500' },
+	{ name: 'excited', emoji: '🤗', color: 'text-orange-500' },
+	{ name: 'tired', emoji: '😴', color: 'text-indigo-500' }
+]);
+
+const quickResponseOptions = computed(() => {
+	if (!selectedEmotion.value) return [];
+
+	const responses = {
+		happy: [
+			t('responses.happy1', 'I\'m feeling really good today!'),
+			t('responses.happy2', 'Something wonderful happened.'),
+			t('responses.happy3', 'I want to share my joy.')
+		],
+		sad: [
+			t('responses.sad1', 'I\'ve been feeling down lately.'),
+			t('responses.sad2', 'Everything seems overwhelming.'),
+			t('responses.sad3', 'I need someone to talk to.')
+		],
+		anxious: [
+			t('responses.anxious1', 'I can\'t stop worrying about things.'),
+			t('responses.anxious2', 'My mind is racing with thoughts.'),
+			t('responses.anxious3', 'I feel like something bad will happen.')
+		]
+	};
+
+	return responses[selectedEmotion.value] || [];
+});
+
+// Additional Enhanced Methods
+const selectSupportivePrompt = (prompt) => {
+	currentMessage.value = prompt.text;
+	showSupportivePrompts.value = false;
+	sendMessage();
+};
+
+const toggleSupportivePrompts = () => {
+	showSupportivePrompts.value = !showSupportivePrompts.value;
+	if (showSupportivePrompts.value) {
+		showEmotionWheel.value = false;
+		showQuickResponses.value = false;
+	}
+};
+
+const toggleQuickResponses = () => {
+	showQuickResponses.value = !showQuickResponses.value;
+	if (showQuickResponses.value) {
+		showSupportivePrompts.value = false;
+		showEmotionWheel.value = false;
+	}
+};
+
+const setConversationMode = (mode) => {
+	conversationMode.value = mode;
+	if (mode === 'free' && isAssessmentActive.value) {
+		assessmentPaused.value = true;
+	} else if (mode === 'guided' && assessmentPaused.value) {
+		resumeAssessment();
+	}
+};
+
+const goBackInAssessment = () => {
+	navigateBack();
+};
+
+const exitAssessment = () => {
+	if (confirm(t('assessment.exitConfirm', 'Are you sure you want to exit the assessment?'))) {
+		saveProgress();
+		// Reset assessment state
+		assessmentPaused.value = false;
+		conversationMode.value = 'free';
+	}
+};
+
+
+
+// Enhanced computed properties for UI state
+const assessmentProgress = computed(() => {
+	if (!isAssessmentActive.value) return null;
+
+	return {
+		isActive: isAssessmentActive.value,
+		percentage: assessmentProgressPercentage.value,
+		currentQuestion: Math.floor(assessmentProgressPercentage.value / 10) + 1,
+		totalQuestions: 10
+	};
+});
+
+const canGoBack = computed(() => {
+	return canNavigateBack.value && ollamaMessages.value.length > 1;
+});
 
 onMounted(() => {
 	// Focus on input when component mounts

@@ -112,7 +112,9 @@ export const useCustomChat = () => {
 
 		const token =
 			localStorage.getItem("auth_token") || config.public.customChatApiKey;
-		const wsUrl = config.public.customChatWsUrl;
+		// Generate a unique client ID for this WebSocket connection
+		const clientId = sessionId.value || generateSessionId();
+		const wsUrl = `${config.public.customChatWsUrl}/${clientId}`;
 
 		console.log("Attempting to connect to WebSocket:", wsUrl);
 

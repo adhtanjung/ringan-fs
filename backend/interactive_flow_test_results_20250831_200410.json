@@ -1,0 +1,596 @@
+{
+  "test_name": "Interactive Conversation Flow Test",
+  "timestamp": "2025-08-31T20:03:28.603102",
+  "test_scenarios": [
+    {
+      "scenario_name": "Stress Management Flow",
+      "domain": "stress",
+      "client_id": "test_stress_1756645413.563356",
+      "started_at": "2025-08-31T20:03:33.563356",
+      "stages_completed": [
+        "1.1 Problem Identification",
+        "1.2 Self-Assessment"
+      ],
+      "conversation_log": [
+        {
+          "role": "user",
+          "message": "Saya merasa sangat stres dengan pekerjaan dan tidak tahu harus bagaimana",
+          "timestamp": "2025-08-31T20:03:34.566594"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya turut prihatin mendengar kamu merasa stres dengan pekerjaan 😔. Bisakah kamu ceritakan sedikit tentang apa saja yang membuatmu merasa begitu tertekan? Apakah ada hal spesifik yang kamu rasakan atau situasi tertentu yang memicu stres ini?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:34.566594"
+        },
+        {
+          "role": "user",
+          "message": "Ya, saya siap untuk assessment dan pertanyaan lebih lanjut",
+          "timestamp": "2025-08-31T20:03:35.487034"
+        },
+        {
+          "role": "assistant",
+          "message": "Tentu saja! Senang sekali kamu sudah siap untuk memulai. 🤔 \n\nBoleh tahu, apa yang ada di pikiranmu saat ini yang ingin kamu bahas lebih lanjut? Apakah ada hal spesifik yang ingin kamu ceritakan, atau mungkin ada area tertentu yang ingin kamu jelajahi?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:35.487034"
+        },
+        {
+          "role": "user",
+          "message": "Saya merasa stres setiap hari, terutama saat deadline",
+          "timestamp": "2025-08-31T20:03:36.849133"
+        },
+        {
+          "role": "assistant",
+          "message": "Tentu, saya mengerti. Rasanya tidak nyaman ketika stres datang setiap hari 😔. Bisakah kamu ceritakan sedikit lebih banyak tentang bagaimana perasaanmu saat deadline mendekat? Apa yang kamu rasakan secara fisik atau emosional?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:36.849133"
+        },
+        {
+          "role": "user",
+          "message": "Ya, saya ingin lanjut dengan assessment",
+          "timestamp": "2025-08-31T20:03:38.263415"
+        },
+        {
+          "role": "assistant",
+          "message": "Tentu, saya mengerti. Rasanya tidak nyaman ketika stres terus-menerus, terutama saat menghadapi deadline 😔. Bisakah Anda ceritakan lebih lanjut tentang bagaimana perasaan Anda saat deadline mendekat? Apakah ada hal spesifik yang Anda rasakan atau pikirkan?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:38.263415"
+        },
+        {
+          "role": "user",
+          "message": "Sekitar 8 dari 10, sangat tinggi",
+          "timestamp": "2025-08-31T20:03:39.663265"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya mengerti, merasa stres sepanjang waktu, terutama saat deadline, pasti sangat berat 😔. Bisakah kamu ceritakan sedikit lebih banyak tentang apa saja yang membuat kamu merasa sangat tertekan saat deadline? Apakah ada hal spesifik yang muncul saat itu?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:39.663265"
+        },
+        {
+          "role": "user",
+          "message": "Ya, saya siap untuk mendapat saran",
+          "timestamp": "2025-08-31T20:03:41.002605"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya senang kamu siap untuk menjelajahi hal ini lebih lanjut 😊. Ketika kamu mengatakan \"sangat tinggi\", apa yang paling terasa membebani dalam situasi tersebut? Apakah ada aspek spesifik yang ingin kamu ceritakan?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:41.002605"
+        },
+        {
+          "role": "user",
+          "message": "Saran nomor 2 terasa paling cocok untuk saya, terima kasih",
+          "timestamp": "2025-08-31T20:03:42.341109"
+        },
+        {
+          "role": "assistant",
+          "message": "Senang sekali mendengar saran nomor 2 terasa tepat untukmu 😊. Bisakah kamu ceritakan sedikit lebih banyak tentang apa yang membuat saran tersebut terasa cocok? Apa saja yang kamu rasakan atau pikirkan ketika memikirkannya?\n",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:42.341109"
+        },
+        {
+          "role": "user",
+          "message": "Saya setuju dengan saran ini",
+          "timestamp": "2025-08-31T20:03:43.767283"
+        },
+        {
+          "role": "assistant",
+          "message": "Tidak dapat menemukan pertanyaan assessment untuk kategori ini.",
+          "stage": "",
+          "type": "error",
+          "timestamp": "2025-08-31T20:03:43.767283"
+        },
+        {
+          "role": "user",
+          "message": "Saya merasa lebih tenang setelah mendapat saran ini",
+          "timestamp": "2025-08-31T20:03:44.273355"
+        },
+        {
+          "role": "assistant",
+          "message": "Session assessment tidak ditemukan. Memulai ulang...",
+          "stage": "1.2 Self-Assessment",
+          "type": "error",
+          "timestamp": "2025-08-31T20:03:44.273355"
+        },
+        {
+          "role": "user",
+          "message": "Saya ingin mencoba teknik pernapasan yang disarankan sebagai langkah selanjutnya",
+          "timestamp": "2025-08-31T20:03:44.775628"
+        },
+        {
+          "role": "assistant",
+          "message": "Session assessment tidak ditemukan. Memulai ulang...",
+          "stage": "1.2 Self-Assessment",
+          "type": "error",
+          "timestamp": "2025-08-31T20:03:44.775628"
+        }
+      ],
+      "stage_transitions": [
+        {
+          "stage": "1.1 Problem Identification",
+          "timestamp": "2025-08-31T20:03:34.566594",
+          "response_type": "clarification_needed"
+        },
+        {
+          "stage": "1.2 Self-Assessment",
+          "timestamp": "2025-08-31T20:03:44.273355",
+          "response_type": "error"
+        }
+      ],
+      "errors": [
+        {
+          "step": 7,
+          "error_message": "Tidak dapat menemukan pertanyaan assessment untuk kategori ini.",
+          "timestamp": "2025-08-31T20:03:43.767283"
+        },
+        {
+          "step": 8,
+          "error_message": "Session assessment tidak ditemukan. Memulai ulang...",
+          "timestamp": "2025-08-31T20:03:44.273355"
+        },
+        {
+          "step": 9,
+          "error_message": "Session assessment tidak ditemukan. Memulai ulang...",
+          "timestamp": "2025-08-31T20:03:44.775628"
+        }
+      ],
+      "success": false,
+      "flow_summary": {},
+      "final_flow_status": {
+        "client_id": "test_stress_1756645413.563356",
+        "current_stage": "1.2 Self-Assessment",
+        "stage_progress": {
+          "1.1 Problem Identification": {
+            "status": "completed",
+            "data": {
+              "problems_found": 1,
+              "top_problem": {
+                "problem_id": "",
+                "sub_category_id": "",
+                "category": "nan",
+                "problem_text": "Trauma nan",
+                "domain": "general",
+                "score": 0.3206861,
+                "suggestions_available": true
+              }
+            }
+          },
+          "1.2 Self-Assessment": {
+            "status": "in_progress",
+            "data": {}
+          },
+          "1.3 Suggestions": {
+            "status": "pending",
+            "data": {}
+          },
+          "1.4 Feedback": {
+            "status": "pending",
+            "data": {}
+          },
+          "1.5 Next Action After Feedback": {
+            "status": "pending",
+            "data": {}
+          }
+        },
+        "started_at": "2025-08-31T20:03:33.563356",
+        "conversation_length": 9
+      },
+      "completed_at": "2025-08-31T20:03:45.277829"
+    },
+    {
+      "scenario_name": "Anxiety Support Flow",
+      "domain": "anxiety",
+      "client_id": "test_anxiety_1756645425.278428",
+      "started_at": "2025-08-31T20:03:45.278428",
+      "stages_completed": [
+        "1.1 Problem Identification"
+      ],
+      "conversation_log": [
+        {
+          "role": "user",
+          "message": "Saya sering merasa cemas dan khawatir berlebihan tentang masa depan",
+          "timestamp": "2025-08-31T20:03:46.408108"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya turut prihatin mendengar kamu merasa cemas dan khawatir berlebihan tentang masa depan 😔 Itu pasti terasa berat sekali. Bisakah kamu ceritakan sedikit lebih banyak tentang apa saja yang membuatmu merasa khawatir tersebut? Apakah ada hal-hal tertentu yang kamu pikirkan, atau mungkin situasi yang membuatmu merasa tidak pasti?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:46.408108"
+        },
+        {
+          "role": "user",
+          "message": "Iya, saya mau ikut assessment dan evaluasi lebih detail",
+          "timestamp": "2025-08-31T20:03:47.363057"
+        },
+        {
+          "role": "assistant",
+          "message": "Tentu saja, saya senang sekali kamu ingin menggali lebih dalam 😊. Untuk memulai, bolehkah kamu ceritakan sedikit tentang apa yang ingin kamu evaluasi atau area mana yang ingin kamu fokuskan saat ini? Apakah ada perasaan tertentu yang ingin kamu bahas, atau mungkin situasi atau tantangan yang sedang kamu hadapi?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:47.363057"
+        },
+        {
+          "role": "user",
+          "message": "Kecemasan ini sudah berlangsung sekitar 3 bulan",
+          "timestamp": "2025-08-31T20:03:48.751463"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya turut prihatin mendengar hal ini. 😔 3 bulan adalah waktu yang cukup lama untuk mengalami kecemasan. Bisa ceritakan, apa saja yang kamu rasakan saat kecemasan itu muncul? Apakah ada situasi atau pemikiran tertentu yang memicunya?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:48.751463"
+        },
+        {
+          "role": "user",
+          "message": "Ya, saya ingin lanjut dengan pertanyaan assessment",
+          "timestamp": "2025-08-31T20:03:50.142995"
+        },
+        {
+          "role": "assistant",
+          "message": "Tentu, saya senang sekali kamu ingin menggali lebih dalam 😌. Bisa ceritakan lebih banyak tentang kecemasan ini? Apakah ada situasi atau perasaan tertentu yang sering muncul, atau mungkin ada hal spesifik yang memicu perasaan cemas tersebut?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:50.142995"
+        },
+        {
+          "role": "user",
+          "message": "Biasanya saya khawatir tentang karir dan hubungan",
+          "timestamp": "2025-08-31T20:03:51.410873"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya turut prihatin mendengar hal ini 😔 Bisa ceritakan lebih lanjut tentang kekhawatiran yang kamu rasakan terkait karir dan hubungan? Apa saja yang membuatmu merasa cemas dalam hal tersebut?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:51.410873"
+        },
+        {
+          "role": "user",
+          "message": "Ya, saya siap menerima saran",
+          "timestamp": "2025-08-31T20:03:52.735124"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya senang kamu terbuka tentang hal ini 😊. Bisakah kamu ceritakan sedikit lebih banyak tentang jenis kekhawatiran yang kamu miliki terkait karir dan hubungan? Apakah ada hal spesifik yang sering kamu pikirkan atau rasakan?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:52.735124"
+        },
+        {
+          "role": "user",
+          "message": "Semua saran terlihat membantu, terutama yang pertama, terima kasih",
+          "timestamp": "2025-08-31T20:03:54.148905"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya senang mendengar bahwa saran tersebut terasa membantu! 😊 Bisakah kamu ceritakan sedikit lebih banyak tentang apa yang membuatmu khawatir tentang karir dan hubungan? \n\nMisalnya, apakah ada situasi tertentu yang sedang kamu hadapi atau perasaan tertentu yang muncul ketika kamu memikirkannya?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:54.148905"
+        },
+        {
+          "role": "user",
+          "message": "Saya setuju dengan rekomendasi ini",
+          "timestamp": "2025-08-31T20:03:55.421475"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya senang mendengar bahwa saran tersebut terasa membantu! 😊 Bisakah kamu ceritakan sedikit lebih banyak tentang apa yang membuat kamu merasa seperti itu? Apakah ada aspek tertentu dari saran tersebut yang paling relevan dengan situasi kamu?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:55.421475"
+        },
+        {
+          "role": "user",
+          "message": "Terima kasih, saya merasa ada harapan sekarang",
+          "timestamp": "2025-08-31T20:03:56.679575"
+        },
+        {
+          "role": "assistant",
+          "message": "Senang sekali mendengar bahwa kamu merasa ada harapan 😊 Bisa ceritakan lebih lanjut tentang apa yang membuat kamu merasa ada harapan saat ini? Apakah ada aspek tertentu dari percakapan kita yang memberikanmu rasa positif?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:56.679575"
+        },
+        {
+          "role": "user",
+          "message": "Saya akan mulai dengan journaling seperti yang disarankan sebagai tindakan selanjutnya",
+          "timestamp": "2025-08-31T20:03:57.847550"
+        },
+        {
+          "role": "assistant",
+          "message": "Senang sekali mendengar kamu merasa ada harapan 😊. Bisa ceritakan lebih lanjut tentang journaling - apa yang ingin kamu tuliskan atau rasakan saat kamu mulai? 🤔",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:57.847550"
+        }
+      ],
+      "stage_transitions": [
+        {
+          "stage": "1.1 Problem Identification",
+          "timestamp": "2025-08-31T20:03:46.408108",
+          "response_type": "clarification_needed"
+        }
+      ],
+      "errors": [],
+      "success": false,
+      "flow_summary": {},
+      "final_flow_status": {
+        "client_id": "test_anxiety_1756645425.278428",
+        "current_stage": "1.1 Problem Identification",
+        "stage_progress": {
+          "1.1 Problem Identification": {
+            "status": "in_progress",
+            "data": {
+              "problems_found": 0,
+              "top_problem": null
+            }
+          },
+          "1.2 Self-Assessment": {
+            "status": "pending",
+            "data": {}
+          },
+          "1.3 Suggestions": {
+            "status": "pending",
+            "data": {}
+          },
+          "1.4 Feedback": {
+            "status": "pending",
+            "data": {}
+          },
+          "1.5 Next Action After Feedback": {
+            "status": "pending",
+            "data": {}
+          }
+        },
+        "started_at": "2025-08-31T20:03:45.278428",
+        "conversation_length": 9
+      },
+      "completed_at": "2025-08-31T20:03:58.356438"
+    },
+    {
+      "scenario_name": "General Mental Health Flow",
+      "domain": "general",
+      "client_id": "test_general_1756645438.35703",
+      "started_at": "2025-08-31T20:03:58.357030",
+      "stages_completed": [
+        "1.1 Problem Identification",
+        "1.2 Self-Assessment"
+      ],
+      "conversation_log": [
+        {
+          "role": "user",
+          "message": "Saya merasa down dan tidak termotivasi akhir-akhir ini",
+          "timestamp": "2025-08-31T20:03:59.257479"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya turut prihatin mendengar hal itu 😔 Saat kamu merasa down dan tidak termotivasi, bisakah kamu ceritakan sedikit tentang apa yang sedang kamu rasakan atau apa yang mungkin menjadi penyebabnya? Apakah ada hal spesifik yang terlintas dalam pikiranmu?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:03:59.257479"
+        },
+        {
+          "role": "user",
+          "message": "Baik, saya siap menjawab pertanyaan dan assessment",
+          "timestamp": "2025-08-31T20:04:00.140087"
+        },
+        {
+          "role": "assistant",
+          "message": "Senang sekali mendengar kamu siap untuk berbicara 😊.  Boleh kamu ceritakan sedikit tentang apa yang sedang kamu rasakan atau pikirkan saat ini? Apakah ada hal khusus yang ingin kamu bahas, atau mungkin ada perasaan tertentu yang ingin kamu bagi dengan saya?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:04:00.140087"
+        },
+        {
+          "role": "user",
+          "message": "Perasaan ini sudah berlangsung sekitar 2 minggu",
+          "timestamp": "2025-08-31T20:04:01.474383"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya turut prihatin mendengar hal ini 😔. Bisakah kamu ceritakan sedikit lebih banyak tentang perasaan yang kamu alami selama 2 minggu terakhir? Apakah ada hal spesifik yang kamu rasakan, atau mungkin situasi yang memicu perasaan ini?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:04:01.474383"
+        },
+        {
+          "role": "user",
+          "message": "Ya, saya ingin lanjut dengan assessment",
+          "timestamp": "2025-08-31T20:04:02.950407"
+        },
+        {
+          "role": "assistant",
+          "message": "Tentu, saya mengerti. Perasaan yang sudah berlangsung selama 2 minggu ini pasti cukup berat. 😔 Bisakah kamu ceritakan sedikit tentang bagaimana perasaan itu muncul, atau apa yang kamu rasakan ketika perasaan itu muncul? Apakah ada situasi atau pemikiran tertentu yang memicunya?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:04:02.950407"
+        },
+        {
+          "role": "user",
+          "message": "Saya kehilangan minat pada hal-hal yang biasanya saya sukai",
+          "timestamp": "2025-08-31T20:04:04.367621"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya turut prihatin mendengar hal ini. Kehilangan minat pada hal-hal yang dulu kamu sukai bisa jadi sangat menyakitkan 😔. Bisakah kamu ceritakan lebih lanjut, apa saja hal-hal yang biasanya kamu sukai yang kini tidak lagi menarik bagimu?",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:04:04.367621"
+        },
+        {
+          "role": "user",
+          "message": "Ya, saya siap untuk mendapat saran",
+          "timestamp": "2025-08-31T20:04:05.873671"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya senang kamu siap untuk menjelajahi ini lebih lanjut 😊. Ketika kehilangan minat pada hal-hal yang biasanya kamu sukai, itu bisa jadi tanda yang menarik untuk dieksplorasi.\n\nBolehkah saya bertanya, apa yang pertama kali membuatmu menyadari bahwa kamu merasa seperti ini? 🌻\n",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:04:05.873671"
+        },
+        {
+          "role": "user",
+          "message": "Saran untuk olahraga ringan terdengar bagus, terima kasih",
+          "timestamp": "2025-08-31T20:04:07.342716"
+        },
+        {
+          "role": "assistant",
+          "message": "Saya mengerti bahwa kamu merasa kehilangan minat pada hal-hal yang biasanya kamu sukai. Itu pasti terasa sangat mengecewakan 😔. Bisakah kamu ceritakan sedikit lebih banyak tentang apa yang membuat kamu merasa seperti ini? Apakah ada hal tertentu yang kamu rasakan atau perubahan yang kamu perhatikan?\n",
+          "stage": "1.1 Problem Identification",
+          "type": "clarification_needed",
+          "timestamp": "2025-08-31T20:04:07.342716"
+        },
+        {
+          "role": "user",
+          "message": "Saya setuju dengan saran ini",
+          "timestamp": "2025-08-31T20:04:08.934052"
+        },
+        {
+          "role": "assistant",
+          "message": "Tidak dapat menemukan pertanyaan assessment untuk kategori ini.",
+          "stage": "",
+          "type": "error",
+          "timestamp": "2025-08-31T20:04:08.934052"
+        },
+        {
+          "role": "user",
+          "message": "Saya merasa sedikit lebih optimis setelah berbicara",
+          "timestamp": "2025-08-31T20:04:09.449219"
+        },
+        {
+          "role": "assistant",
+          "message": "Session assessment tidak ditemukan. Memulai ulang...",
+          "stage": "1.2 Self-Assessment",
+          "type": "error",
+          "timestamp": "2025-08-31T20:04:09.449219"
+        },
+        {
+          "role": "user",
+          "message": "Saya akan mencoba berjalan kaki setiap pagi sebagai langkah berikutnya",
+          "timestamp": "2025-08-31T20:04:09.954415"
+        },
+        {
+          "role": "assistant",
+          "message": "Session assessment tidak ditemukan. Memulai ulang...",
+          "stage": "1.2 Self-Assessment",
+          "type": "error",
+          "timestamp": "2025-08-31T20:04:09.954415"
+        }
+      ],
+      "stage_transitions": [
+        {
+          "stage": "1.1 Problem Identification",
+          "timestamp": "2025-08-31T20:03:59.257994",
+          "response_type": "clarification_needed"
+        },
+        {
+          "stage": "1.2 Self-Assessment",
+          "timestamp": "2025-08-31T20:04:09.449219",
+          "response_type": "error"
+        }
+      ],
+      "errors": [
+        {
+          "step": 7,
+          "error_message": "Tidak dapat menemukan pertanyaan assessment untuk kategori ini.",
+          "timestamp": "2025-08-31T20:04:08.934562"
+        },
+        {
+          "step": 8,
+          "error_message": "Session assessment tidak ditemukan. Memulai ulang...",
+          "timestamp": "2025-08-31T20:04:09.449219"
+        },
+        {
+          "step": 9,
+          "error_message": "Session assessment tidak ditemukan. Memulai ulang...",
+          "timestamp": "2025-08-31T20:04:09.954415"
+        }
+      ],
+      "success": false,
+      "flow_summary": {},
+      "final_flow_status": {
+        "client_id": "test_general_1756645438.35703",
+        "current_stage": "1.2 Self-Assessment",
+        "stage_progress": {
+          "1.1 Problem Identification": {
+            "status": "completed",
+            "data": {
+              "problems_found": 1,
+              "top_problem": {
+                "problem_id": "",
+                "sub_category_id": "",
+                "category": "nan",
+                "problem_text": "Trauma nan",
+                "domain": "general",
+                "score": 0.3206861,
+                "suggestions_available": true
+              }
+            }
+          },
+          "1.2 Self-Assessment": {
+            "status": "in_progress",
+            "data": {}
+          },
+          "1.3 Suggestions": {
+            "status": "pending",
+            "data": {}
+          },
+          "1.4 Feedback": {
+            "status": "pending",
+            "data": {}
+          },
+          "1.5 Next Action After Feedback": {
+            "status": "pending",
+            "data": {}
+          }
+        },
+        "started_at": "2025-08-31T20:03:58.357030",
+        "conversation_length": 9
+      },
+      "completed_at": "2025-08-31T20:04:10.458312"
+    }
+  ],
+  "summary": {
+    "total_scenarios": 3,
+    "successful_scenarios": 0,
+    "success_rate": 0.0,
+    "total_errors": 6,
+    "stage_completion_counts": {
+      "1.1 Problem Identification": 3,
+      "1.2 Self-Assessment": 2
+    },
+    "test_status": "FAILED"
+  }
+}

@@ -1,0 +1,1113 @@
+{
+  "timestamp": "2025-08-31T19:44:26.607821",
+  "dataset_validation": {
+    "stress": {
+      "dataset": "stress",
+      "file_exists": true,
+      "sheets": {
+        "1.1 Problems": {
+          "rows": 7,
+          "columns": [
+            "category",
+            "category_id",
+            "sub_category_id",
+            "problem_name",
+            "description"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.2 Self Assessment": {
+          "rows": 168,
+          "columns": [
+            "question_id",
+            "sub_category_id",
+            "batch_id",
+            "question_text",
+            "response_type",
+            "next_step",
+            "clusters"
+          ],
+          "has_required_columns": {
+            "response_type": true,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {
+            "response_type": {
+              "non_null_percentage": 100.0,
+              "unique_values": [
+                "scale (0–4)",
+                "text"
+              ]
+            }
+          }
+        },
+        "1.3 Suggestions": {
+          "rows": 139,
+          "columns": [
+            "suggestion_id",
+            "sub_category_id",
+            "cluster",
+            "suggestion_text",
+            "resource_link",
+            "Unnamed: 5"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.4 Feedback Prompts": {
+          "rows": 47,
+          "columns": [
+            "prompt_id",
+            "stage",
+            "prompt_text",
+            "next_action"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": true,
+            "next_action": true
+          },
+          "stage_distribution": {
+            "post_suggestion": 4,
+            "ongoing": 4
+          },
+          "data_quality": {
+            "stage": {
+              "non_null_percentage": 17.02127659574468,
+              "unique_values": [
+                "post_suggestion",
+                "ongoing"
+              ]
+            },
+            "next_action": {
+              "non_null_percentage": 63.829787234042556,
+              "unique_values": [
+                "continue_same",
+                "show_problem_menu",
+                "[yes]A01, [no] Continue coaching within the same problem module (e.g., suggest another tip, ask deeper follow-up).",
+                "[general] offer resources, [try to do diet] continue coanching,  [reduce screen time] continue coaching within the same problem module,  [sleep before 9pm] end session",
+                "[more of the same]offer more of the same resources, [try something else] offer different resources",
+                "[Lower] Continue same [Same] Show problem menu [Higher] Show problem menu",
+                "[Yes] Show problem menu [No] Continue same",
+                "[Yes] Continue same [No] Show problem menu",
+                "[None] Show problem menu [A little] Show problem menu [A moderate amount] Continue coaching within the same problem model [A lot] Continue coaching within the same problem model",
+                "[Several seconds] Try something else [Several minutes] Continue coaching within the same problem module [Several hours] Continue coaching within the same problem module [Several days] Continue coaching within the same problem module",
+                "[Yes] End session [No] Offer different resources",
+                "[Too short] Ask follow-up questions [Too long] End session [Just right] End session",
+                "[Not helpful] Offer different technique [A little helpful] Ask deeper follow-up questions [Moderately helpful] Continue coaching within the same problem module[Extremely helpful] Continue coaching within the same problem module",
+                "[Yes] Continue coaching within the same problem module [No] Offer different prompts",
+                "[Yes] Continue coaching within the same problem module [No] Offer different resources"
+              ]
+            }
+          }
+        },
+        "1.5 Next Action After Feedback": {
+          "rows": 8,
+          "columns": [
+            "action_id",
+            "label",
+            "description"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.6 FineTuning Examples": {
+          "rows": 778,
+          "columns": [
+            "id",
+            "problem",
+            "ConversationID",
+            "prompt",
+            "completion",
+            "Unnamed: 5",
+            "Unnamed: 6",
+            "Unnamed: 7",
+            "Unnamed: 8"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "Clusters": {
+          "rows": 0,
+          "columns": [],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        }
+      },
+      "required_columns": {},
+      "data_integrity": {},
+      "stage_coverage": {}
+    },
+    "anxiety": {
+      "dataset": "anxiety",
+      "file_exists": true,
+      "sheets": {
+        "1.1 Problems": {
+          "rows": 10,
+          "columns": [
+            "category",
+            "category_id",
+            "sub_category_id",
+            "problem_name",
+            "description"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.2 Self Assessment": {
+          "rows": 263,
+          "columns": [
+            "question_id",
+            "sub_category_id",
+            "batch_id",
+            "question_text",
+            "response_type",
+            "response_type.1",
+            "response_type.2"
+          ],
+          "has_required_columns": {
+            "response_type": true,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {
+            "response_type": {
+              "non_null_percentage": 91.25475285171103,
+              "unique_values": [
+                "scale (0–4)",
+                "text",
+                "Q062",
+                "Q072",
+                "scale",
+                "Likert scale (1–5)",
+                "Open text",
+                "scale_1_5",
+                "open_text",
+                "yes/no + text",
+                "scale (1–5)"
+              ]
+            }
+          }
+        },
+        "1.3 Suggestions": {
+          "rows": 104,
+          "columns": [
+            "suggestion_id",
+            "sub_category_id",
+            "cluster",
+            "suggestion_text",
+            "resource_link"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.4 Feedback Prompts": {
+          "rows": 0,
+          "columns": [
+            "prompt_id",
+            "stage",
+            "prompt_text",
+            "next_action"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": true,
+            "next_action": true
+          },
+          "stage_distribution": {},
+          "data_quality": {
+            "stage": {
+              "non_null_percentage": 0,
+              "unique_values": []
+            },
+            "next_action": {
+              "non_null_percentage": 0,
+              "unique_values": []
+            }
+          }
+        },
+        "1.5 Next Action After Feedback": {
+          "rows": 8,
+          "columns": [
+            "action_id",
+            "label",
+            "description"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.6 FineTuning Examples": {
+          "rows": 28,
+          "columns": [
+            "id",
+            "problem",
+            "ConversationID",
+            "prompt",
+            "completion",
+            "Unnamed: 5",
+            "Unnamed: 6",
+            "Unnamed: 7",
+            "Unnamed: 8"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "Clusters": {
+          "rows": 0,
+          "columns": [],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        }
+      },
+      "required_columns": {},
+      "data_integrity": {},
+      "stage_coverage": {}
+    },
+    "trauma": {
+      "dataset": "trauma",
+      "file_exists": true,
+      "sheets": {
+        "1.1 Problems": {
+          "rows": 7,
+          "columns": [
+            "category",
+            "category_id",
+            "sub_category_id",
+            "problem_name",
+            "description"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.2 Self Assessment": {
+          "rows": 232,
+          "columns": [
+            "question_id",
+            "sub_category_id",
+            "batch_id",
+            "question_text",
+            "response_type",
+            "next_step",
+            "clusters"
+          ],
+          "has_required_columns": {
+            "response_type": true,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {
+            "response_type": {
+              "non_null_percentage": 91.37931034482759,
+              "unique_values": [
+                "scale (0–4)",
+                "text",
+                "yes_no",
+                "scale (0–10)",
+                "multi_choice",
+                "date",
+                "yes/no"
+              ]
+            }
+          }
+        },
+        "1.3 Suggestions": {
+          "rows": 150,
+          "columns": [
+            "suggestion_id",
+            "sub_category_id",
+            "cluster",
+            "suggestion_text",
+            "Unnamed: 4"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.4 Feedback Prompts": {
+          "rows": 0,
+          "columns": [
+            "prompt_id",
+            "stage",
+            "prompt_text",
+            "next_action"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": true,
+            "next_action": true
+          },
+          "stage_distribution": {},
+          "data_quality": {
+            "stage": {
+              "non_null_percentage": 0,
+              "unique_values": []
+            },
+            "next_action": {
+              "non_null_percentage": 0,
+              "unique_values": []
+            }
+          }
+        },
+        "1.5 Next Action After Feedback": {
+          "rows": 8,
+          "columns": [
+            "action_id",
+            "label",
+            "description"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.6 FineTuning Examples": {
+          "rows": 28,
+          "columns": [
+            "id",
+            "problem",
+            "ConversationID",
+            "prompt",
+            "completion",
+            "Unnamed: 5",
+            "Unnamed: 6",
+            "Unnamed: 7",
+            "Unnamed: 8"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "Clusters": {
+          "rows": 0,
+          "columns": [],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        }
+      },
+      "required_columns": {},
+      "data_integrity": {},
+      "stage_coverage": {}
+    },
+    "general": {
+      "dataset": "general",
+      "file_exists": true,
+      "sheets": {
+        "1.1 Problems": {
+          "rows": 15,
+          "columns": [
+            "category",
+            "problem_id",
+            "problem_name",
+            "description"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.2 Self Assessment": {
+          "rows": 106,
+          "columns": [
+            "question_id",
+            "problem_id",
+            "question_text",
+            "response_type",
+            "next_step",
+            "clusters"
+          ],
+          "has_required_columns": {
+            "response_type": true,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {
+            "response_type": {
+              "non_null_percentage": 99.05660377358491,
+              "unique_values": [
+                "scale",
+                "text"
+              ]
+            }
+          }
+        },
+        "1.3 Suggestions": {
+          "rows": 51,
+          "columns": [
+            "suggestion_id",
+            "problem_id",
+            "cluster",
+            "suggestion_text",
+            "resource_link"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.4 Feedback Prompts": {
+          "rows": 47,
+          "columns": [
+            "prompt_id",
+            "stage",
+            "prompt_text",
+            "next_action"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": true,
+            "next_action": true
+          },
+          "stage_distribution": {
+            "post_suggestion": 4,
+            "ongoing": 4
+          },
+          "data_quality": {
+            "stage": {
+              "non_null_percentage": 17.02127659574468,
+              "unique_values": [
+                "post_suggestion",
+                "ongoing"
+              ]
+            },
+            "next_action": {
+              "non_null_percentage": 63.829787234042556,
+              "unique_values": [
+                "continue_same",
+                "show_problem_menu",
+                "[yes]A01, [no] Continue coaching within the same problem module (e.g., suggest another tip, ask deeper follow-up).",
+                "[general] offer resources, [try to do diet] continue coanching,  [reduce screen time] continue coaching within the same problem module,  [sleep before 9pm] end session",
+                "[more of the same]offer more of the same resources, [try something else] offer different resources",
+                "[Lower] Continue same [Same] Show problem menu [Higher] Show problem menu",
+                "[Yes] Show problem menu [No] Continue same",
+                "[Yes] Continue same [No] Show problem menu",
+                "[None] Show problem menu [A little] Show problem menu [A moderate amount] Continue coaching within the same problem model [A lot] Continue coaching within the same problem model",
+                "[Several seconds] Try something else [Several minutes] Continue coaching within the same problem module [Several hours] Continue coaching within the same problem module [Several days] Continue coaching within the same problem module",
+                "[Yes] End session [No] Offer different resources",
+                "[Too short] Ask follow-up questions [Too long] End session [Just right] End session",
+                "[Not helpful] Offer different technique [A little helpful] Ask deeper follow-up questions [Moderately helpful] Continue coaching within the same problem module[Extremely helpful] Continue coaching within the same problem module",
+                "[Yes] Continue coaching within the same problem module [No] Offer different prompts",
+                "[Yes] Continue coaching within the same problem module [No] Offer different resources"
+              ]
+            }
+          }
+        },
+        "1.5 Next Action After Feedback": {
+          "rows": 8,
+          "columns": [
+            "action_id",
+            "label",
+            "description"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "1.6 FineTuning Examples": {
+          "rows": 778,
+          "columns": [
+            "id",
+            "problem",
+            "ConversationID",
+            "prompt",
+            "completion",
+            "Unnamed: 5",
+            "Unnamed: 6",
+            "Unnamed: 7",
+            "Unnamed: 8"
+          ],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        },
+        "Clusters": {
+          "rows": 0,
+          "columns": [],
+          "has_required_columns": {
+            "response_type": false,
+            "stage": false,
+            "next_action": false
+          },
+          "stage_distribution": {},
+          "data_quality": {}
+        }
+      },
+      "required_columns": {},
+      "data_integrity": {},
+      "stage_coverage": {}
+    }
+  },
+  "vector_db_validation": {
+    "collections": {
+      "mental-health-suggestions": {
+        "count": 150,
+        "has_data": true
+      },
+      "mental_health_docs": {
+        "count": 0,
+        "has_data": false
+      },
+      "mental-health-feedback": {
+        "count": 0,
+        "has_data": false
+      },
+      "mental-health-problems": {
+        "count": 15,
+        "has_data": true
+      },
+      "mental-health-assessments": {
+        "count": 240,
+        "has_data": true
+      },
+      "mental-health-training": {
+        "count": 0,
+        "has_data": false
+      }
+    },
+    "data_coverage": {},
+    "search_functionality": {
+      "stress": {
+        "problems_found": 1,
+        "assessments_found": 2,
+        "suggestions_found": 5,
+        "total_results": 8,
+        "problems_success": true,
+        "assessments_success": true,
+        "suggestions_success": true
+      },
+      "anxiety": {
+        "problems_found": 3,
+        "assessments_found": 0,
+        "suggestions_found": 5,
+        "total_results": 8,
+        "problems_success": true,
+        "assessments_success": true,
+        "suggestions_success": true
+      },
+      "trauma": {
+        "problems_found": 1,
+        "assessments_found": 0,
+        "suggestions_found": 5,
+        "total_results": 6,
+        "problems_success": true,
+        "assessments_success": true,
+        "suggestions_success": true
+      },
+      "general": {
+        "problems_found": 1,
+        "assessments_found": 0,
+        "suggestions_found": 5,
+        "total_results": 6,
+        "problems_success": true,
+        "assessments_success": true,
+        "suggestions_success": true
+      }
+    }
+  },
+  "conversation_flows": {
+    "stress": [
+      {
+        "user_question": "I'm feeling overwhelmed with work and can't seem to manage my stress levels",
+        "domain": "stress",
+        "stages": {
+          "1.1 Problem Identification": {
+            "stage": "1.1 Problem Identification",
+            "user_input": "I'm feeling overwhelmed with work and can't seem to manage my stress levels",
+            "system_response": "Saya mengerti, merasa kewalahan dengan pekerjaan memang bisa sangat berat 😔. Bisakah Anda ceritakan sedikit tentang jenis pekerjaan apa yang Anda lakukan?",
+            "rag_sources": [
+              {
+                "id": "1",
+                "score": 0.53804046,
+                "content": "Workplace Stress Stress experienced in professional settings.",
+                "domain": "general",
+                "category": "Stress"
+              },
+              {
+                "id": "3",
+                "score": 0.4699018,
+                "content": "Stress Stress can be defined as a state of worry or mental tension caused by a difficult situation.",
+                "domain": "general",
+                "category": "Stress"
+              },
+              {
+                "id": "23",
+                "score": 0.6143136,
+                "content": "When something feels stressful, the easiest thing to do is to avoid it. You scroll, you sleep, you hang out, you do anything except deal with the thing you need to. It seems like in the short term, avoiding stuff works. You feel better. Less pressure. More space to breathe. However, over time, the things you avoided don’t actually go away. It’s like stuffing dirty laundry under your bed — you don’t see it for a while, but eventually it smells and starts affecting your whole room. The truth is that avoiding stress is like pressing “snooze” on an alarm clock. The noise stops for now, but you still need to get up on time and get to school or work. Instead of avoiding, try this: Take one small step toward the stressful thing — even if it’s just writing down what you need to deal with onto a paper. Set a timer for 10 minutes and work on it just a little until the 10 minutes is up. You don’t have to do it all at once. But when you face even a small piece of what’s stressing you, you show yourself that it is doable, in small chunks. Keep taking small steps until you feel  more in control of your needs.",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "17",
+                "score": 0.6135776,
+                "content": "When you're feeling stressed or overwhelmed, try using these three soothing phrases: \"This is a tough moment,\" to remind yourself it’s okay to struggle; \"I’m not alone — other people feel this way too,\" to remember that stress is part of being human; and \"Let me be kind to myself right now,\" to choose caring for yourself instead of self-criticism and smashing yourself. Then do one small kind thing for yourself — take a deep breath, stretch, get a drink of water, or say something supportive to yourself. Being kind to yourself doesn’t make you weak — it helps you stay steady and strong, even when things are hard.",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "42",
+                "score": 0.6868142,
+                "content": "How often do you feel overwhelmed at work?",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "16",
+                "score": 0.6040772,
+                "content": "Does your stress ever stop you from doing what you need to get done, or from things you love to do? ",
+                "domain": "general",
+                "category": ""
+              }
+            ],
+            "next_stage": null,
+            "validation_passed": true
+          }
+        },
+        "rag_validation": {},
+        "data_integrity": true,
+        "conversation_id": "test_stress_20250831_194430",
+        "client_id": "test_client_stress_20250831_194430"
+      },
+      {
+        "user_question": "How can I deal with constant pressure and deadlines?",
+        "domain": "stress",
+        "stages": {
+          "1.1 Problem Identification": {
+            "stage": "1.1 Problem Identification",
+            "user_input": "How can I deal with constant pressure and deadlines?",
+            "system_response": "Saya mengerti bahwa tekanan dan tenggat waktu yang konstan bisa sangat berat. 😔 Bisakah Anda ceritakan lebih lanjut tentang bagaimana perasaan Anda ketika menghadapi situasi seperti itu?",
+            "rag_sources": [
+              {
+                "id": "1",
+                "score": 0.5302681,
+                "content": "Use time management techniques.",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "36",
+                "score": 0.5049993,
+                "content": "Coping with the Pressure to Be Perfect. If you think, “I have to be perfect all the time,” you may be stuck in rigid thinking. Try these steps to challenge those thoughts in order to reduce anxiety and increase self-compassion.\nStep 1: Spot All-or-Nothing Thinking:  Perfectionism often shows up as extreme, black-and-white thoughts. For example: “If I make one mistake, I’m a failure.” “I have to get it exactly right or it doesn’t count.”\nStep 2: Replace with Balanced Thoughts: Challenge those extremes and offer yourself a more realistic mindset. For example, Say to yourself:  “I can do my best without being perfect.”  “Mistakes help me learn—they don’t define my worth.”\nStep 3: What Could Go Wrong? — Make a Plan. Perfectionistic habits are tough to break. Plan for common challenges. What Might Go Wrong / What I’ll Do If It Happens\nI obsess over details - Set a time limit and stop when the timer rings\nI avoid starting because it's not perfect - Remind myself: “Done is better than perfect”\nI criticize myself for small errors - Pause and say: “This is growth, not failure”\nI compare myself to others - Unfollow triggering accounts, refocus on my personal progress\nYou don’t have to be perfect to be valuable. Being human is enough.\n",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "42",
+                "score": 0.47168994,
+                "content": "How often do you feel overwhelmed at work?",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "55",
+                "score": 0.43905663,
+                "content": "Do you feel that your tasks are too much to handle? Yes or no",
+                "domain": "general",
+                "category": ""
+              }
+            ],
+            "next_stage": null,
+            "validation_passed": true
+          }
+        },
+        "rag_validation": {},
+        "data_integrity": true,
+        "conversation_id": "test_stress_20250831_194440",
+        "client_id": "test_client_stress_20250831_194440"
+      }
+    ],
+    "anxiety": [
+      {
+        "user_question": "I have constant worry and can't stop anxious thoughts",
+        "domain": "anxiety",
+        "stages": {
+          "1.1 Problem Identification": {
+            "stage": "1.1 Problem Identification",
+            "user_input": "I have constant worry and can't stop anxious thoughts",
+            "system_response": "Saya mengerti, memiliki pikiran-pikiran yang terus-menerus dan perasaan cemas bisa sangat berat 😔. Bisakah Anda ceritakan lebih lanjut tentang jenis pikiran atau situasi yang paling sering muncul dalam benak Anda saat ini?",
+            "rag_sources": [
+              {
+                "id": "9",
+                "score": 0.5084387,
+                "content": "Anxiety nan",
+                "domain": "general",
+                "category": "nan"
+              },
+              {
+                "id": "0",
+                "score": 0.4685118,
+                "content": "Exam Anxiety Anxiety related to academic examinations.",
+                "domain": "general",
+                "category": "Anxiety"
+              },
+              {
+                "id": "13",
+                "score": 0.65486956,
+                "content": "Imagine your mind is like a radio that won’t stop playing scary or stressful news. Your constant worrying thoughts are like the content of the radio program. You didn’t choose the station — it just turned on without even asking you. The more you try to fight it or smash the radio, the louder the radio seems to get! Try this instead: what if you just let the radio play in the background of your daily tasks — and focus on what matters to you right now? On whatever you need to be doing if you weren’t worrying? Your radio radio might still make lots of noise, but by not wrestling with it, it doesn’t control you. Instead, you can carry this annoying radio of worrisome thoughts it with you and still move forward, going about your tasks while it plays faintly in the background. Instead of eliminating worrisome thoughts we learn to not let them hijack our focus. Instead, we keep jumping back into whatever we were doing in the present moment and accomplishing what matters to us.",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "3",
+                "score": 0.61918455,
+                "content": "You can try fill out the \"worry and control circle\". In the \"worry\" circle, write all of the things that are currently worrying you. In the \"control\" circle, write down the elements that are in your control. Press this link to help you understand what this all means ",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "236",
+                "score": 0.5605801,
+                "content": "Do you feel like your anxiety is trying to protect you from something? What might that be?",
+                "domain": "anxiety",
+                "category": ""
+              },
+              {
+                "id": "178",
+                "score": 0.54270464,
+                "content": "What helps you feel more grounded or supported when you're anxious about your health?",
+                "domain": "trauma",
+                "category": ""
+              }
+            ],
+            "next_stage": null,
+            "validation_passed": true
+          }
+        },
+        "rag_validation": {},
+        "data_integrity": true,
+        "conversation_id": "test_anxiety_20250831_194451",
+        "client_id": "test_client_anxiety_20250831_194451"
+      },
+      {
+        "user_question": "How do I manage panic attacks when they happen?",
+        "domain": "anxiety",
+        "stages": {
+          "1.1 Problem Identification": {
+            "stage": "1.1 Problem Identification",
+            "user_input": "How do I manage panic attacks when they happen?",
+            "system_response": "Panic attacks can be incredibly frightening 😟 It’s good you’re asking about how to manage them. Could you tell me a little bit about what you experience during a panic attack – for example, what physical sensations do you notice?",
+            "rag_sources": [
+              {
+                "id": "4",
+                "score": 0.4134311,
+                "content": "Stress - panic atttack ?  nan",
+                "domain": "general",
+                "category": "Stress"
+              },
+              {
+                "id": "32",
+                "score": 0.73735106,
+                "content": "Coping with Panic Attacks: When you feel like “I’m dying,” remind yourself that panic is intense but not dangerous. Use calming techniques to ground yourself.\nStep 1: Use Diaphragmatic Breathing, slow, deep breathing can help reset your body’s stress response. How to breathe: Inhale slowly through your nose, Let your belly expand, exhale slowly through your mouth, Repeat for at least one minute\nStep 2: Reframe the thought gently and give it a temporary time frame by talking back to the panic with a calming, realistic statement. Say to yourself:  “This is just panic. It feels scary, but it’s not dangerous. It will pass, I will feel better in 10 minutes.”\nStep 3: Stay Present and focus on what you can control in the moment—your breath, your posture, or naming things around you.\nStep 4: What usually helps me? What is that one thing that usually helps me in these attacks? \nStep 5: Act on it, try and do one thing as a resistance to the panic feeling. Anything you do will help you create more control and calm the stress level. \n You don’t have to stop the panic immediately—you just need to ride the wave until it passes.\n",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "8",
+                "score": 0.7001778,
+                "content": "When having a panic attack, and you feel as if you can't breath (you may feel like you are suffocating), you can try to use the 4-7-8 vagal breathing exercise. This will decrease your stress levels and help you stabilise your body, before you go on to deal with your thoughts.  ",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "234",
+                "score": 0.49470276,
+                "content": "How does your anxiety show up physically—do you experience nausea, racing heart, trouble breathing, or something else?",
+                "domain": "anxiety",
+                "category": ""
+              },
+              {
+                "id": "236",
+                "score": 0.46820718,
+                "content": "Do you feel like your anxiety is trying to protect you from something? What might that be?",
+                "domain": "anxiety",
+                "category": ""
+              }
+            ],
+            "next_stage": null,
+            "validation_passed": true
+          }
+        },
+        "rag_validation": {},
+        "data_integrity": true,
+        "conversation_id": "test_anxiety_20250831_194501",
+        "client_id": "test_client_anxiety_20250831_194501"
+      }
+    ],
+    "trauma": [
+      {
+        "user_question": "I experienced something traumatic and can't stop thinking about it",
+        "domain": "trauma",
+        "stages": {
+          "1.1 Problem Identification": {
+            "stage": "1.1 Problem Identification",
+            "user_input": "I experienced something traumatic and can't stop thinking about it",
+            "system_response": "Saya turut prihatin mendengar hal ini. Sulit memang ketika pikiran terus menerus terbayang-bayang. 😔 Bisa ceritakan sedikit tentang apa yang Anda alami?",
+            "rag_sources": [
+              {
+                "id": "7",
+                "score": 0.4044072,
+                "content": "Trauma nan",
+                "domain": "general",
+                "category": "nan"
+              },
+              {
+                "id": "120",
+                "score": 0.68891954,
+                "content": "Sometimes your body remembers more than your mind. After medical trauma, even small things—like a smell, a tone of voice, or the flicker of fluorescent light—can bring up fear or tension. Begin gently tracking when you feel uncomfortable or anxious. Ask yourself: What just happened? Where do I feel this in my body? What thoughts came up? You can jot these down in a small notebook or an app. Over time, you may begin to recognize patterns and gently prepare for difficult moments. This helps increase body awareness and supports emotional regulation.",
+                "domain": "trauma",
+                "category": ""
+              },
+              {
+                "id": "33",
+                "score": 0.6598241,
+                "content": "Coping with Trauma Reminders: When something reminds you of the trauma and you freeze, focus first on grounding and then restore sense of reality: \nStep 1: Ground Yourself in the Present: Use the 5-4-3-2-1 grounding technique to reconnect with your surroundings: Name: 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, 1 thing you can taste\nStep 2: Restore sense of reality: ask yourself, from 0-10 how safe am I right now? What was it that reminded me of my trauma and is it creating danger for me right now? Chances are, if this is just a trigger, that you will be able to give feedback to your brain and body that you are safe. \nStep 3: Use the power of your thoughts by telling yourself that this is a false alarm. Tell yourself that your own trauma happened in a different time, and the situation was different and what you are feeling is the effort of your brain trying to alarm you when you don’t need it. \nStep 4; Thank your brain for wanting to help you by alarming you from danger, but say outloud or to yourself - I am safe, there is no danger now. \n",
+                "domain": "general",
+                "category": ""
+              },
+              {
+                "id": "182",
+                "score": 0.5615008,
+                "content": "What are some thoughts or memories that come up most often when you think about this loss?",
+                "domain": "trauma",
+                "category": ""
+              },
+              {
+                "id": "158",
+                "score": 0.5534356,
+                "content": "Do you ever have nightmares or intrusive thoughts related to a medical experience?",
+                "domain": "trauma",
+                "category": ""
+              }
+            ],
+            "next_stage": null,
+            "validation_passed": true
+          }
+        },
+        "rag_validation": {},
+        "data_integrity": true,
+        "conversation_id": "test_trauma_20250831_194513",
+        "client_id": "test_client_trauma_20250831_194513"
+      },
+      {
+        "user_question": "How do I cope with flashbacks and nightmares?",
+        "domain": "trauma",
+        "stages": {
+          "1.1 Problem Identification": {
+            "stage": "1.1 Problem Identification",
+            "user_input": "How do I cope with flashbacks and nightmares?",
+            "system_response": "Flashbacks and nightmares can be incredibly distressing experiences. It’s understandable that you’re seeking ways to manage them 😔. Could you tell me a little more about what these experiences are like for you?",
+            "rag_sources": [
+              {
+                "id": "65",
+                "score": 0.66546607,
+                "content": "Anchor Yourself to the Present with a Personal Object. When flashbacks or overwhelming thoughts pull you into the past, a small object can help bring you back. Choose something that feels safe and grounding—like a smooth stone, a photo, or a piece of fabric. Keep it with you and touch it when needed. Tell yourself, “This is now. I’m here. I’m safe.” Why it helps: This taps into sensory grounding and the brain’s ability to associate safety with concrete signals. It helps regulate the nervous system.",
+                "domain": "trauma",
+                "category": ""
+              },
+              {
+                "id": "80",
+                "score": 0.5747144,
+                "content": "Reflect on Moments That Shaped You. Complex trauma can make it hard to understand how the past has influenced who you are today. Instead of diving into painful memories, try this: Think of three moments from your life—any age—that stand out to you. They don’t have to be traumatic. They might be moments when you made a decision, felt something strongly, or learned something about yourself. Write a few words or draw something for each one. Ask: What did this moment show me about myself? What strengths helped me get through it? This gentle reflection can help you feel more connected to your story in a way that honors your growth. If you want to go deeper, consider doing this with a therapist who can support the process.",
+                "domain": "trauma",
+                "category": ""
+              },
+              {
+                "id": "158",
+                "score": 0.52670056,
+                "content": "Do you ever have nightmares or intrusive thoughts related to a medical experience?",
+                "domain": "trauma",
+                "category": ""
+              },
+              {
+                "id": "182",
+                "score": 0.4877624,
+                "content": "What are some thoughts or memories that come up most often when you think about this loss?",
+                "domain": "trauma",
+                "category": ""
+              }
+            ],
+            "next_stage": null,
+            "validation_passed": true
+          }
+        },
+        "rag_validation": {},
+        "data_integrity": true,
+        "conversation_id": "test_trauma_20250831_194522",
+        "client_id": "test_client_trauma_20250831_194522"
+      }
+    ],
+    "general": [
+      {
+        "user_question": "I'm not sure what type of mental health support I need",
+        "domain": "general",
+        "stages": {
+          "1.1 Problem Identification": {
+            "stage": "1.1 Problem Identification",
+            "user_input": "I'm not sure what type of mental health support I need",
+            "system_response": "Saya mengerti perasaan bingung Anda saat ini 😔. Mengeksplorasi kebutuhan dukungan kesehatan mental bisa jadi hal yang menantang. Bisakah Anda ceritakan sedikit tentang apa yang membuat Anda merasa tidak yakin?",
+            "rag_sources": [
+              {
+                "id": "102",
+                "score": 0.4280342,
+                "content": "Create a “Comfort List” of Safe People or Places. Think of three people, places, or objects that help you feel even a little bit calmer or safer. Write them down, draw them, or keep a picture on your phone. In moments of stress, look at this list as a reminder that safety and support are real and reachable. If you don’t feel like you have those supports right now, that’s okay—this is also a sign that it might be time to talk to someone who can help.",
+                "domain": "trauma",
+                "category": ""
+              },
+              {
+                "id": "84",
+                "score": 0.40526828,
+                "content": "Begin a “Resource and Ally Map.” Healing from complex trauma isn’t a solo journey. Even if people have let you down in the past, it’s possible to build a network of support. On a sheet of paper, write down names of people, services, or groups that offer even a small sense of safety or respect. This could include a friend, a trauma-informed therapist, a support group, or even a podcast or book that helps you feel less alone. Notice what’s missing too—and let that guide what you seek. Mapping your resources helps shift focus from isolation to connection. If this feels overwhelming, start with just one name. Healing relationships are built one safe connection at a time.",
+                "domain": "trauma",
+                "category": ""
+              }
+            ],
+            "next_stage": null,
+            "validation_passed": true
+          }
+        },
+        "rag_validation": {},
+        "data_integrity": true,
+        "conversation_id": "test_general_20250831_194533",
+        "client_id": "test_client_general_20250831_194533"
+      },
+      {
+        "user_question": "How do I know if I should seek professional help?",
+        "domain": "general",
+        "stages": {
+          "1.1 Problem Identification": {
+            "stage": "1.1 Problem Identification",
+            "user_input": "How do I know if I should seek professional help?",
+            "system_response": "Saya mengerti kamu bertanya tentang bagaimana cara mengetahui apakah kamu perlu mencari bantuan profesional. 🤔 Itu pertanyaan yang sangat penting.\n\nBolehkah saya tahu, apa yang membuatmu mempertimbangkan untuk mencari bantuan saat ini?",
+            "rag_sources": [
+              {
+                "id": "109",
+                "score": 0.49839824,
+                "content": "Identify One Supportive Adult You Can Talk To. Think of a teacher, family member, counselor, or neighbor who feels safe. Practice what you might say to them: “Can I tell you something that’s been bothering me?” You deserve to feel heard. If you don’t feel ready now, that’s okay. Keep this as an option for later. Getting help early makes a difference.",
+                "domain": "trauma",
+                "category": ""
+              },
+              {
+                "id": "114",
+                "score": 0.45725363,
+                "content": "Record a Voice Note to Your Future Self. Say something kind, encouraging, or hopeful, even if you don’t feel it yet. Play it back when you’re struggling. It can help you remember that healing is possible. You don’t need to do this alone. If your pain feels heavy, please get support from a counselor or trusted adult.",
+                "domain": "trauma",
+                "category": ""
+              },
+              {
+                "id": "169",
+                "score": 0.442582,
+                "content": "Do you feel like your experiences with medical trauma have impacted your relationships or how you ask for help?",
+                "domain": "trauma",
+                "category": ""
+              }
+            ],
+            "next_stage": null,
+            "validation_passed": true
+          }
+        },
+        "rag_validation": {},
+        "data_integrity": true,
+        "conversation_id": "test_general_20250831_194542",
+        "client_id": "test_client_general_20250831_194542"
+      }
+    ]
+  },
+  "summary": {
+    "datasets_validated": 4,
+    "datasets_passed": 4,
+    "vector_collections_with_data": 3,
+    "total_conversations_tested": 8,
+    "conversations_completed": 8,
+    "rag_validation_success_rate": 100.0,
+    "overall_success_rate": 100.0
+  }
+}

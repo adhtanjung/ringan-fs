@@ -319,7 +319,8 @@ export const useOllamaChat = () => {
 		message: string,
 		sessionData?: any,
 		onChunk?: (chunk: string) => void,
-		onComplete?: (fullResponse: any) => void
+		onComplete?: (fullResponse: any) => void,
+		onNewMessage?: (messageData: any) => void
 	) => {
 		console.log('🔄 sendMessageStream called with:', {
 			message,
@@ -382,8 +383,16 @@ export const useOllamaChat = () => {
 					console.log('📋 Parsed message data:', data);
 
 					if (data.type === "chunk") {
-						console.log('📦 Processing chunk:', { content: data.content, length: data.content?.length });
+						console.log('📦 Processing chunk:', { content: data.content, length: data.content?.length, isAssessmentSuggestion: data.is_assessment_suggestion });
 						fullResponse += data.content;
+						
+						// Store assessment suggestion flag for later use
+						if (data.is_assessment_suggestion) {
+							responseData.is_assessment_suggestion = true;
+							responseData.suggested_category = data.suggested_category;
+							responseData.sub_category_id = data.sub_category_id;
+						}
+						
 						if (typeof onChunk === 'function') {
 							console.log('📤 Calling onChunk callback with:', data.content);
 							onChunk(data.content);
@@ -391,27 +400,92 @@ export const useOllamaChat = () => {
 							console.warn('⚠️ onChunk callback not provided or not a function');
 						}
 					} else if (data.type === "complete") {
-						console.log('✅ Processing complete message:', { fullResponseLength: fullResponse.length });
-						const htmlContent = convertMarkdownToHtml(fullResponse);
+						console.log('✅ Processing complete message:', { fullResponseLength: fullResponse.length, dataContentLength: data.content?.length });
+						// Use data.content if fullResponse is empty (direct complete message)
+						const messageContent = fullResponse || data.content || "";
+						const htmlContent = convertMarkdownToHtml(messageContent);
 
 						const result = {
 							message: htmlContent,
-							sentiment: responseData.sentiment,
-							isCrisis: responseData.is_crisis,
+							sentiment: data.sentiment || responseData.sentiment,
+							isCrisis: data.is_crisis || responseData.is_crisis,
 							timestamp: new Date(),
 							conversationId: conversationId.value,
-							problemCategory: responseData.problem_category,
-							suggestions: responseData.suggestions,
-							assessmentQuestions: responseData.assessment_questions,
-							contextAnalysis: responseData.context_analysis,
-							assessmentRecommendations: responseData.assessment_recommendations,
+							problemCategory: data.problem_category || responseData.problem_category,
+							suggestions: data.suggestions || responseData.suggestions,
+							assessmentQuestions: data.assessment_questions || responseData.assessment_questions,
+							contextAnalysis: data.context_analysis || responseData.context_analysis,
+							assessmentRecommendations: data.assessment_recommendations || responseData.assessment_recommendations,
+							assessmentData: data.assessment_data,
+							stage: data.stage,
+							progress: data.progress,
+							responseType: data.type,
+							showAssessmentTransition: responseData.is_assessment_suggestion || false,
+							suggestedCategory: responseData.suggested_category,
+							subCategoryId: responseData.sub_category_id
 						};
 
 						// Update detected problem category and assessment suggestion state
-						if (responseData.context_analysis) {
-							detectedProblemCategory.value = responseData.context_analysis.primary_category || "";
-							shouldShowAssessmentSuggestion.value = responseData.context_analysis.should_suggest_assessment || false;
+						if (data.context_analysis || responseData.context_analysis) {
+							const contextAnalysis = data.context_analysis || responseData.context_analysis;
+							detectedProblemCategory.value = contextAnalysis.primary_category || "";
+							shouldShowAssessmentSuggestion.value = contextAnalysis.should_suggest_assessment || false;
 						}
+
+						// Update assessment progress if assessment data is present
+					if (data.assessment_data && data.assessment_data.type === "assessment_question") {
+						const progressData = data.assessment_data.progress || {};
+						const completedCount = progressData.completed_questions || 0;
+						const currentStep = progressData.current_step || 1;
+						const totalQuestions = progressData.total_estimated || 10;
+						
+						// Create array of completed question IDs based on completed count
+						const completedQuestions = [];
+						for (let i = 0; i < completedCount; i++) {
+							completedQuestions.push(`completed_${i}`);
+						}
+						
+						assessmentProgress.value = {
+							isActive: true,
+							currentQuestion: data.assessment_data.question,
+							completedQuestions: completedQuestions,
+							totalQuestions: totalQuestions,
+							currentStep: currentStep,
+							sessionId: data.assessment_data.session_id || sessionId.value,
+							responses: assessmentProgress.value.responses || {},
+						};
+						
+						console.log('📊 Updated assessment progress:', {
+							completedCount,
+							currentStep,
+							totalQuestions,
+							progressPercentage: Math.round((completedCount / totalQuestions) * 100)
+						});
+						
+						// For assessment questions, create a new result with the complete message content
+						// Use data.content directly for assessment questions to ensure full content
+						const assessmentMessageContent = data.content || messageContent;
+						const assessmentHtmlContent = convertMarkdownToHtml(assessmentMessageContent);
+						
+						const assessmentResult = {
+							...result,
+							message: assessmentHtmlContent,
+							assessmentData: data.assessment_data,
+							stage: data.stage,
+							progress: data.progress
+						};
+						
+						if (typeof onNewMessage === 'function') {
+							console.log('📤 Creating new message for assessment question:', {
+								messageLength: assessmentMessageContent.length,
+								htmlLength: assessmentHtmlContent.length,
+								assessmentData: data.assessment_data,
+								result: assessmentResult
+							});
+							onNewMessage(assessmentResult);
+							return; // Don't call onComplete for assessment questions
+						}
+					}
 
 						if (typeof onComplete === 'function') {
 							console.log('📤 Calling onComplete callback with result:', result);
@@ -420,13 +494,48 @@ export const useOllamaChat = () => {
 							console.warn('⚠️ onComplete callback not provided or not a function');
 						}
 					} else if (data.type === "error") {
-						console.error('❌ Received error message:', data.message);
-						error.value = data.message || "WebSocket error occurred";
-					} else {
-						console.log('📋 Storing additional response data:', data);
-						// Store additional response data
-						responseData = { ...responseData, ...data };
+					console.error('❌ Received error message:', data.message);
+					error.value = data.message || "WebSocket error occurred";
+				} else if (data.type === "problem_identified" || data.type === "assessment_question" || data.type === "suggestion_provided" || data.type === "clarification_needed") {
+					console.log('📋 Processing structured response:', data.type);
+					// For structured responses, treat the message as complete
+					const htmlContent = convertMarkdownToHtml(data.message || "");
+
+					const result = {
+						message: htmlContent,
+						sentiment: data.sentiment,
+						isCrisis: data.is_crisis,
+						timestamp: new Date(),
+						conversationId: conversationId.value,
+						problemCategory: data.problem_category,
+						suggestions: data.suggestions,
+						assessmentQuestions: data.assessment_questions,
+						contextAnalysis: data.context_analysis,
+						assessmentRecommendations: data.assessment_recommendations,
+						responseType: data.type,
+						stage: data.stage,
+						identifiedProblems: data.identified_problems,
+						nextStageAvailable: data.next_stage_available,
+						transitionPrompt: data.transition_prompt
+					};
+
+					// Update detected problem category and assessment suggestion state
+					if (data.context_analysis) {
+						detectedProblemCategory.value = data.context_analysis.primary_category || "";
+						shouldShowAssessmentSuggestion.value = data.context_analysis.should_suggest_assessment || false;
 					}
+
+					if (typeof onComplete === 'function') {
+						console.log('📤 Calling onComplete callback with structured result:', result);
+						onComplete(result);
+					} else {
+						console.warn('⚠️ onComplete callback not provided or not a function');
+					}
+				} else {
+					console.log('📋 Storing additional response data:', data);
+					// Store additional response data
+					responseData = { ...responseData, ...data };
+				}
 				} catch (err) {
 					console.error("❌ Error parsing WebSocket message:", err, 'Raw data:', event.data);
 				}
@@ -466,6 +575,13 @@ export const useOllamaChat = () => {
 			const token =
 				localStorage.getItem("auth_token") || config.public.customChatApiKey;
 
+			// Handle empty or invalid problem categories
+			let validProblemCategory = problemCategory;
+			if (!problemCategory || problemCategory.trim() === "" || problemCategory.toLowerCase() === "nan") {
+				console.warn(`Invalid problem category: '${problemCategory}'. Using default 'general mental health'.`);
+				validProblemCategory = "general mental health";
+			}
+
 			const response = await fetch(
 				`${config.public.customChatApiUrl}/assessment/start`,
 				{
@@ -475,7 +591,7 @@ export const useOllamaChat = () => {
 						Authorization: `Bearer ${token}`,
 					},
 					body: JSON.stringify({
-						problem_category: problemCategory,
+						problem_category: validProblemCategory,
 						sub_category_id: subCategoryId,
 						session_data: sessionData || {},
 					}),
@@ -490,16 +606,34 @@ export const useOllamaChat = () => {
 			
 			if (result.type === "assessment_question") {
 				// Update assessment progress with backend data
+				const progressData = result.progress || {};
+				const completedCount = progressData.completed_questions || 0;
+				const currentStep = progressData.current_step || 1;
+				const totalQuestions = progressData.total_estimated || 10;
+				
+				// Create array of completed question IDs based on completed count
+				const completedQuestions = [];
+				for (let i = 0; i < completedCount; i++) {
+					completedQuestions.push(`completed_${i}`);
+				}
+				
 				assessmentProgress.value = {
 					isActive: true,
 					currentQuestion: result.question,
-					completedQuestions: [],
-					totalQuestions: result.progress?.total_estimated || 10,
-					currentStep: result.progress?.current_step || 1,
+					completedQuestions: completedQuestions,
+					totalQuestions: totalQuestions,
+					currentStep: currentStep,
 					sessionId: result.session_id || sessionId.value,
 					responses: {},
 				};
-				currentProblemCategory.value = problemCategory;
+				
+				console.log('📊 Started assessment with progress:', {
+					completedCount,
+					currentStep,
+					totalQuestions,
+					progressPercentage: Math.round((completedCount / totalQuestions) * 100)
+				});
+				currentProblemCategory.value = validProblemCategory;
 				
 				// Add AI message with the question
 				const aiMessage = {
@@ -533,83 +667,39 @@ export const useOllamaChat = () => {
 				throw new Error("No current question found");
 			}
 
-			const token =
-				localStorage.getItem("auth_token") || config.public.customChatApiKey;
-
-			const response = await fetch(
-				`${config.public.customChatApiUrl}/assessment/respond`,
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${token}`,
-					},
-					body: JSON.stringify({
-						response: answer,
-						question_id: questionId || currentQuestion.question_id,
-					}),
-				}
-			);
-
-			if (!response.ok) {
-				throw new Error(`HTTP error! status: ${response.status}`);
-			}
-
-			const result = await response.json();
-			
 			// Store the user's response
 			assessmentProgress.value.responses[currentQuestion.question_id] = {
 				question: currentQuestion,
 				answer: answer,
 				timestamp: new Date().toISOString(),
 			};
-			
-			// Add user message
-			const userMessage = {
-				id: generateSessionId(),
-				text: answer,
-				sender: "user" as const,
-				timestamp: new Date(),
-			};
-			messages.value.push(userMessage);
 
-			if (result.type === "assessment_question") {
-				// Continue with next question
-				assessmentProgress.value.currentQuestion = result.question;
-				assessmentProgress.value.currentStep = result.progress?.current_step || assessmentProgress.value.currentStep + 1;
-				assessmentProgress.value.completedQuestions.push(currentQuestion);
-				
-				// Add AI message with next question
-				const aiMessage = {
-				id: generateSessionId(),
-				text: result.message,
-				sender: "ai" as const,
-				timestamp: new Date(),
-				assessmentQuestion: result.question,
-				assessmentProgress: result.progress,
+			// Send assessment response through WebSocket
+			const assessmentResponseMessage = {
+				type: "assessment_response",
+				response: answer,
+				question_id: questionId || currentQuestion.question_id,
+				session_id: assessmentProgress.value.sessionId,
+				timestamp: new Date().toISOString()
 			};
-				messages.value.push(aiMessage);
-				
-			} else if (result.type === "assessment_complete") {
-				// Assessment completed
-				assessmentProgress.value.isActive = false;
-				assessmentProgress.value.currentQuestion = null;
-				assessmentProgress.value.completedQuestions.push(currentQuestion);
-				
-				// Add completion message
-				const completionMessage = {
-				id: generateSessionId(),
-				text: result.message,
-				sender: "ai" as const,
-				timestamp: new Date(),
-				assessmentComplete: true,
-				assessmentSummary: result.summary,
-				recommendations: result.recommendations,
-			};
-				messages.value.push(completionMessage);
+
+			console.log('📤 Sending assessment response via WebSocket:', assessmentResponseMessage);
+			
+			// Send through WebSocket if connected
+			if (ws && ws.readyState === WebSocket.OPEN) {
+				ws.send(JSON.stringify(assessmentResponseMessage));
+			} else {
+				console.warn('⚠️ WebSocket not connected, attempting to reconnect...');
+				ws = connectWebSocket();
+				// Wait a moment for connection then send
+				setTimeout(() => {
+					if (ws && ws.readyState === WebSocket.OPEN) {
+						ws.send(JSON.stringify(assessmentResponseMessage));
+					}
+				}, 1000);
 			}
 
-			return result;
+			return { success: true };
 		} catch (err) {
 			console.error("Continue Assessment Error:", err);
 			error.value = err instanceof Error ? err.message : "An error occurred";
@@ -619,11 +709,28 @@ export const useOllamaChat = () => {
 
 	// WebSocket connection for real-time chat
 	const connectWebSocket = () => {
-		const wsUrl = config.public.customChatWsUrl;
+		// Ensure we have a session ID
+		initializeSession();
+		
+		// Append session ID to WebSocket URL
+		const baseWsUrl = config.public.customChatWsUrl;
+		const wsUrl = `${baseWsUrl}/${sessionId.value}`;
 		console.log('🔌 Connecting to WebSocket:', {
-			url: wsUrl,
+			baseUrl: baseWsUrl,
+			fullUrl: wsUrl,
+			sessionId: sessionId.value,
 			configExists: !!config.public,
-			customChatWsUrl: config.public.customChatWsUrl
+			customChatWsUrl: config.public.customChatWsUrl,
+			envVar: process.env.NUXT_PUBLIC_CUSTOM_CHAT_WS_URL
+		});
+		
+		// Additional debug logging
+		console.log('🔍 Debug WebSocket URL construction:', {
+			'config.public': config.public,
+			'typeof baseWsUrl': typeof baseWsUrl,
+			'baseWsUrl length': baseWsUrl?.length,
+			'sessionId': sessionId.value,
+			'final wsUrl': wsUrl
 		});
 		
 		const newWs = new WebSocket(wsUrl);
@@ -896,15 +1003,33 @@ export const useOllamaChat = () => {
 			
 			if (result.active) {
 				// Sync local state with backend
+				const progressData = result.progress || {};
+				const completedCount = progressData.completed_questions || 0;
+				const currentStep = progressData.current_step || 1;
+				const totalQuestions = progressData.total_estimated || 10;
+				
+				// Create array of completed question IDs based on completed count
+				const completedQuestions = [];
+				for (let i = 0; i < completedCount; i++) {
+					completedQuestions.push(`completed_${i}`);
+				}
+				
 				assessmentProgress.value = {
 					isActive: true,
 					currentQuestion: result.current_question,
-					completedQuestions: [],
-					totalQuestions: result.progress?.total_estimated || 10,
-					currentStep: result.progress?.current_step || 1,
+					completedQuestions: completedQuestions,
+					totalQuestions: totalQuestions,
+					currentStep: currentStep,
 					sessionId: sessionId.value,
 					responses: {},
 				};
+				
+				console.log('📊 Synced assessment status with progress:', {
+					completedCount,
+					currentStep,
+					totalQuestions,
+					progressPercentage: Math.round((completedCount / totalQuestions) * 100)
+				});
 				currentProblemCategory.value = result.problem_category || "";
 			} else {
 				assessmentProgress.value.isActive = false;

@@ -1,0 +1,189 @@
+{
+  "timestamp": "2025-08-31T19:44:08.068961",
+  "validation_summary": {
+    "excel_data_analysis": {
+      "total_records_in_excel": 2631,
+      "records_imported_to_vector_db": 405,
+      "import_coverage_percentage": 15.39,
+      "import_status": "PARTIAL"
+    },
+    "vector_database_status": {
+      "mental-health-suggestions": 150,
+      "mental_health_docs": 0,
+      "mental-health-feedback": 0,
+      "mental-health-problems": 15,
+      "mental-health-assessments": 240,
+      "mental-health-training": 0
+    },
+    "search_functionality": {
+      "stress": {
+        "problems_found": 2,
+        "assessments_found": 3,
+        "suggestions_found": 3,
+        "total_results": 8
+      },
+      "anxiety": {
+        "problems_found": 3,
+        "assessments_found": 1,
+        "suggestions_found": 3,
+        "total_results": 7
+      },
+      "trauma": {
+        "problems_found": 1,
+        "assessments_found": 0,
+        "suggestions_found": 3,
+        "total_results": 4
+      },
+      "general": {
+        "problems_found": 1,
+        "assessments_found": 0,
+        "suggestions_found": 3,
+        "total_results": 4
+      }
+    },
+    "rag_response_validation": {
+      "total_test_queries": 5,
+      "successful_rag_responses": 5,
+      "rag_success_rate": 100.0,
+      "detailed_results": [
+        {
+          "query": "I'm feeling overwhelmed with work stress",
+          "response_received": false,
+          "semantic_sources_count": 6,
+          "sources_have_content": true,
+          "source_domains": [
+            "general"
+          ],
+          "average_score": 0.61430613
+        },
+        {
+          "query": "I have social anxiety in group settings",
+          "response_received": false,
+          "semantic_sources_count": 5,
+          "sources_have_content": true,
+          "source_domains": [
+            "general",
+            "anxiety"
+          ],
+          "average_score": 0.46178183200000006
+        },
+        {
+          "query": "I experienced trauma and need help coping",
+          "response_received": false,
+          "semantic_sources_count": 5,
+          "sources_have_content": true,
+          "source_domains": [
+            "general",
+            "trauma"
+          ],
+          "average_score": 0.6114176139999999
+        },
+        {
+          "query": "I need mental health assessment questions",
+          "response_received": false,
+          "semantic_sources_count": 2,
+          "sources_have_content": true,
+          "source_domains": [
+            "general",
+            "trauma"
+          ],
+          "average_score": 0.43401935999999997
+        },
+        {
+          "query": "What are some therapeutic suggestions for anxiety?",
+          "response_received": false,
+          "semantic_sources_count": 6,
+          "sources_have_content": true,
+          "source_domains": [
+            "general",
+            "anxiety",
+            "trauma"
+          ],
+          "average_score": 0.512392415
+        }
+      ]
+    }
+  },
+  "data_coverage_analysis": {
+    "excel_breakdown": {
+      "stress": {
+        "1.1 Problems": 7,
+        "1.2 Self Assessment": 168,
+        "1.3 Suggestions": 139,
+        "1.4 Feedback Prompts": 44,
+        "1.5 Next Action After Feedback": 8,
+        "1.6 FineTuning Examples": 651,
+        "Clusters": 0
+      },
+      "anxiety": {
+        "1.1 Problems": 10,
+        "1.2 Self Assessment": 240,
+        "1.3 Suggestions": 104,
+        "1.4 Feedback Prompts": 0,
+        "1.5 Next Action After Feedback": 8,
+        "1.6 FineTuning Examples": 1,
+        "Clusters": 0
+      },
+      "trauma": {
+        "1.1 Problems": 7,
+        "1.2 Self Assessment": 212,
+        "1.3 Suggestions": 150,
+        "1.4 Feedback Prompts": 0,
+        "1.5 Next Action After Feedback": 8,
+        "1.6 FineTuning Examples": 1,
+        "Clusters": 0
+      },
+      "general": {
+        "1.1 Problems": 15,
+        "1.2 Self Assessment": 105,
+        "1.3 Suggestions": 50,
+        "1.4 Feedback Prompts": 44,
+        "1.5 Next Action After Feedback": 8,
+        "1.6 FineTuning Examples": 651,
+        "Clusters": 0
+      }
+    },
+    "vector_db_collections": {
+      "mental-health-problems": {
+        "records": 15,
+        "expected_from_excel": 39
+      },
+      "mental-health-assessments": {
+        "records": 240,
+        "expected_from_excel": 725
+      },
+      "mental-health-suggestions": {
+        "records": 150,
+        "expected_from_excel": 443
+      }
+    }
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "Vector database is partially populated (15.4% coverage)",
+      "RAG system is functional but with limited data coverage",
+      "Search functionality is working across all domains",
+      "Assessment questions have good coverage (240 imported)",
+      "Problem categories need improvement (only 15 imported vs 39 expected)"
+    ],
+    "data_quality_issues": [
+      "Feedback prompts not imported (0 records in vector DB)",
+      "Training examples not imported (0 records in vector DB)",
+      "Some Excel sheets may have formatting issues preventing import",
+      "Data validation during import may be filtering out records"
+    ],
+    "next_steps": [
+      "Investigate data import filtering logic",
+      "Review Excel sheet formatting and column names",
+      "Implement more comprehensive data validation",
+      "Add logging to track import failures",
+      "Consider manual data verification for critical missing records"
+    ]
+  },
+  "overall_assessment": {
+    "rag_system_status": "FUNCTIONAL_WITH_LIMITATIONS",
+    "data_coverage_status": "PARTIAL_COVERAGE",
+    "search_functionality_status": "WORKING",
+    "recommendation": "System is operational but requires data import improvements for full coverage"
+  }
+}

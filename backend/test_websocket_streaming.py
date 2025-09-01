@@ -60,11 +60,11 @@ async def test_websocket_streaming():
 
             print(f"\n📝 Full response: {full_response}")
 
-    except websockets.exceptions.ConnectionRefused:
-        print("❌ Connection refused. Make sure the backend server is running on localhost:8000")
+    except websockets.exceptions.ConnectionClosed:
+        print("❌ Connection closed. Make sure the server is running on localhost:8000")
         return False
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"❌ WebSocket error: {str(e)}")
         return False
 
     return True

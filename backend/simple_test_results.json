@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-08-31T19:16:31.799487",
+  "conversations": {
+    "stress": {
+      "user_question": "I'm feeling very stressed and overwhelmed with work",
+      "domain": "stress",
+      "stages": {
+        "1.1 Problem Identification": {
+          "stage": "1.1 Problem Identification",
+          "user_input": "I'm feeling very stressed and overwhelmed with work",
+          "system_response": "Saya mengerti, merasa stres dan kewalahan dengan pekerjaan bisa sangat berat 😔. Bisakah Anda ceritakan lebih lanjut tentang jenis pekerjaan yang Anda lakukan?",
+          "validation_passed": true
+        }
+      },
+      "conversation_id": "test_stress_20250831_191631",
+      "client_id": "test_client_stress_20250831_191631",
+      "success": true
+    },
+    "anxiety": {
+      "user_question": "I have been experiencing anxiety attacks lately",
+      "domain": "anxiety",
+      "stages": {
+        "1.1 Problem Identification": {
+          "stage": "1.1 Problem Identification",
+          "user_input": "I have been experiencing anxiety attacks lately",
+          "system_response": "Saya turut prihatin mendengar hal ini. Serangan panik bisa menjadi pengalaman yang sangat menantang 😔. Bisakah Anda ceritakan sedikit lebih banyak tentang kapan dan bagaimana serangan panik ini biasanya terjadi?",
+          "validation_passed": true
+        }
+      },
+      "conversation_id": "test_anxiety_20250831_191649",
+      "client_id": "test_client_anxiety_20250831_191649",
+      "success": true
+    },
+    "general": {
+      "user_question": "I'm not feeling well mentally and need help",
+      "domain": "general",
+      "stages": {
+        "1.1 Problem Identification": {
+          "stage": "1.1 Problem Identification",
+          "user_input": "I'm not feeling well mentally and need help",
+          "system_response": "Saya turut prihatin mendengar bahwa Anda sedang mengalami kesulitan secara mental 😔. Bisakah Anda ceritakan sedikit tentang apa yang membuat Anda merasa tidak baik saat ini?",
+          "validation_passed": true
+        }
+      },
+      "conversation_id": "test_general_20250831_191706",
+      "client_id": "test_client_general_20250831_191706",
+      "success": true
+    }
+  },
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 3,
+    "success_rate": 1.0,
+    "timestamp": "2025-08-31T19:17:23.407344"
+  }
+}

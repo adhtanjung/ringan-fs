@@ -5,6 +5,8 @@ from datetime import datetime
 from app.services.ollama_service import OllamaService
 from app.services.semantic_search_service import semantic_search_service
 from app.services.assessment_service import assessment_service
+from app.services.conversation_flow_service import conversation_flow_service
+from app.services.dynamic_response_service import dynamic_response_service
 from app.services.language_service import language_service, Language
 from app.services.translation_service import translation_service
 from app.core.config import settings
@@ -16,6 +18,7 @@ class ChatService:
     def __init__(self):
         self.ollama_service = OllamaService()
         self.conversation_history: Dict[str, List[Dict]] = {}
+        self.assessment_state: Dict[str, Dict] = {}  # Track assessment progress per client
 
     async def _generate_semantic_context(self, message: str, translated_message: Optional[str] = None) -> List[Dict[str, Any]]:
         """
@@ -23,11 +26,10 @@ class ChatService:
         Uses translated message for better English vector database compatibility
         """
         try:
-            # Initialize semantic search service if needed
-            await semantic_search_service.initialize()
+            # Semantic search service should already be initialized
 
             context_results = []
-            
+
             # Use translated message for vector search if available, otherwise use original
             search_query = translated_message if translated_message else message
             logger.info(f"Searching with query: '{search_query}'")
@@ -68,6 +70,87 @@ class ChatService:
         except Exception as e:
             logger.error(f"Failed to generate semantic context: {str(e)}")
             return []
+
+    async def _get_next_assessment_question(self, client_id: str, user_message: str, detected_language: Language) -> Optional[Dict[str, Any]]:
+        """
+        Implement dialog-based assessment flow as per PRD requirements.
+        Retrieves one question at a time from vector database based on user's response.
+        """
+        try:
+            # Semantic search service should already be initialized
+
+            # Get or initialize assessment state for this client
+            if client_id not in self.assessment_state:
+                self.assessment_state[client_id] = {
+                    "current_problem_category": None,
+                    "sub_category_id": None,
+                    "questions_asked": [],
+                    "assessment_complete": False,
+                    "current_cluster": None
+                }
+
+            state = self.assessment_state[client_id]
+
+            # If this is the first interaction, identify the problem category
+            if not state["current_problem_category"]:
+                # Search for relevant problems to identify category
+                problems_search = await semantic_search_service.search_problems(
+                    query=user_message,
+                    limit=1,
+                    score_threshold=0.5
+                )
+
+                if problems_search.success and problems_search.results:
+                    problem_result = problems_search.results[0]
+                    state["current_problem_category"] = problem_result.payload.get("problem_name")
+                    state["sub_category_id"] = problem_result.payload.get("sub_category_id")
+                    logger.info(f"Identified problem category: {state['current_problem_category']}")
+
+            # Search for assessment questions based on the identified problem
+            if state["sub_category_id"]:
+                assessment_search = await semantic_search_service.search_assessment_questions(
+                    problem_description=user_message,
+                    sub_category_id=state["sub_category_id"],
+                    limit=5,
+                    score_threshold=0.4
+                )
+
+                if assessment_search.success and assessment_search.results:
+                    # Filter out already asked questions
+                    available_questions = [
+                        result for result in assessment_search.results
+                        if result.id not in state["questions_asked"]
+                    ]
+
+                    if available_questions:
+                        # Select the most relevant question
+                        next_question = available_questions[0]
+                        state["questions_asked"].append(next_question.id)
+
+                        question_text = next_question.payload.get("question_text", "")
+                        response_type = next_question.payload.get("response_type", "text")
+
+                        # Translate question if user is using Indonesian
+                        if detected_language == Language.INDONESIAN:
+                            question_text = await translation_service.translate_english_to_indonesian(question_text)
+
+                        return {
+                            "question_id": next_question.id,
+                            "question_text": question_text,
+                            "response_type": response_type,
+                            "problem_category": state["current_problem_category"],
+                            "is_assessment_question": True
+                        }
+                    else:
+                        # No more questions available, assessment complete
+                        state["assessment_complete"] = True
+                        return None
+
+            return None
+
+        except Exception as e:
+            logger.error(f"Error getting next assessment question: {str(e)}")
+            return None
 
     async def _get_relevant_resources(self, message: str, problem_category: Optional[str] = None) -> List[Dict[str, Any]]:
         """
@@ -158,7 +241,7 @@ class ChatService:
 
             detected_problems = []
             confidence_scores = []
-            
+
             if problem_search.success and problem_search.results:
                 for result in problem_search.results:
                     payload = result.payload
@@ -210,7 +293,7 @@ class ChatService:
             # Check for explicit distress indicators
             recent_messages = conversation_history[-3:] if conversation_history else []
             distress_keywords = ['help', 'stressed', 'anxious', 'depressed', 'overwhelmed', 'struggling', 'difficult']
-            
+
             for msg in recent_messages:
                 if msg.get('role') == 'user':
                     content = msg.get('content', '').lower()
@@ -244,13 +327,13 @@ class ChatService:
             # Step 1: Detect language of user input
             detected_language, confidence = await language_service.detect_language(message)
             logger.info(f"Detected language: {detected_language.value} (confidence: {confidence:.2f})")
-            
+
             # Step 2: Translate to English if needed for vector search
             translated_message = None
             if detected_language == Language.INDONESIAN:
                 translated_message = await translation_service.translate_indonesian_to_english(message)
                 logger.info(f"Translated for search: '{message}' -> '{translated_message}'")
-            
+
             # Step 3: Analyze sentiment (use original message for better accuracy)
             sentiment_analysis = await self.ollama_service.analyze_sentiment(message)
 
@@ -283,52 +366,68 @@ class ChatService:
                 assessment_progress
             )
 
-            # Step 5: Generate AI response
+            # Step 5: Implement dialog-based assessment flow as per PRD
             if is_crisis:
                 ai_response = await self._generate_crisis_response(message)
+                next_question = None
             else:
-                ai_response = await self.ollama_service.generate_response(conversation_messages)
+                # Get next assessment question from vector database
+                next_question = await self._get_next_assessment_question(client_id, message, detected_language)
+
+                if next_question:
+                    # Use the question from vector database as the AI response
+                    ai_response = next_question["question_text"]
+                    logger.info(f"Using assessment question: {next_question['question_id']}")
+                else:
+                    # Fallback to AI-generated response if no questions available
+                    ai_response = await self.ollama_service.generate_response(conversation_messages)
 
             # Get current conversation history
             current_history = self.conversation_history.get(client_id, [])
 
             # Analyze problem context using AI-powered analysis
             context_analysis = await self._analyze_problem_context(message, current_history)
-            
-            # Determine if we should suggest transitioning to structured assessment
-            should_transition = await self._should_transition_to_assessment(context_analysis, current_history)
+
+            # Assessment state info
+            assessment_state = self.assessment_state.get(client_id, {})
+            should_transition = not assessment_state.get("assessment_complete", False)
 
             # Use detected problem category if not explicitly provided
             if not problem_category and context_analysis.get('primary_category'):
                 problem_category = context_analysis.get('primary_category')
 
-            # Add context analysis to conversation for AI awareness
-            if context_analysis.get('detected_problems'):
+            # Add context analysis to conversation for AI awareness (only if not using assessment questions)
+            if not next_question and context_analysis.get('detected_problems'):
                 context_info = f"Detected potential concerns: {', '.join([p.get('category', '') for p in context_analysis['detected_problems'][:2]])}"
                 conversation_messages.insert(-1, {"role": "system", "content": context_info})
 
-            # Enhance AI response with assessment suggestion if appropriate
-            if should_transition and context_analysis.get('should_suggest_assessment'):
-                primary_problem = context_analysis.get('detected_problems', [{}])[0]
-                if detected_language == Language.INDONESIAN:
-                    assessment_suggestion = f"\n\nBerdasarkan percakapan kita, saya melihat Anda mungkin mengalami {primary_problem.get('category', 'masalah')}. Apakah Anda ingin melakukan assessment terstruktur untuk membantu memahami situasi Anda lebih baik?"
+            # Step 6: Handle response language based on user preference
+            # Check user's preferred language from session data
+            preferred_language = session_data.get('preferredLanguage', 'en') if session_data else 'en'
+            logger.info(f"User's preferred language: {preferred_language}")
+
+            # Only translate to Indonesian if user's preferred language is Indonesian
+            if preferred_language == 'id' and detected_language == Language.INDONESIAN and confidence > 0.7:
+                # Check if the user's message contains any English words that suggest they prefer English
+                english_indicators = ['english', 'in english', 'speak english', 'respond in english']
+                message_lower = message.lower()
+                wants_english = any(indicator in message_lower for indicator in english_indicators)
+
+                if not wants_english:
+                    # If the AI response is in English, translate it to Indonesian
+                    response_language, response_confidence = await language_service.detect_language(ai_response)
+                    if response_language == Language.ENGLISH and response_confidence > 0.3:
+                        ai_response = await translation_service.translate_english_to_indonesian(ai_response)
+                        logger.info(f"Translated response back to Indonesian (confidence: {confidence:.2f})")
                 else:
-                    assessment_suggestion = f"\n\nBased on our conversation, I see you might be experiencing {primary_problem.get('category', 'issues')}. Would you like to take a structured assessment to help understand your situation better?"
-                ai_response += assessment_suggestion
-            
-            # Step 6: Translate response back to user's language if needed
-            if detected_language == Language.INDONESIAN and confidence > 0.3:
-                # If the AI response is in English, translate it to Indonesian
-                # Check if response needs translation (simple heuristic)
-                response_language, response_confidence = await language_service.detect_language(ai_response)
-                if response_language == Language.ENGLISH and response_confidence > 0.3:
-                    ai_response = await translation_service.translate_english_to_indonesian(ai_response)
-                    logger.info(f"Translated response back to Indonesian")
+                    logger.info(f"User prefers English response despite Indonesian input")
+            else:
+                logger.info(f"Keeping response in English based on user preference: {preferred_language}")
 
             # Store conversation
             self._store_conversation(client_id, message, ai_response, sentiment_analysis)
 
-            # Prepare response with enhanced context
+            # Prepare response with enhanced context and assessment information
             response_data = {
                 "message": ai_response,
                 "sentiment": sentiment_analysis,
@@ -340,7 +439,10 @@ class ChatService:
                 "assessment_recommendations": assessment_recommendations,
                 "context_analysis": context_analysis,
                 "should_suggest_assessment": should_transition,
-                "detected_problem_category": problem_category
+                "detected_problem_category": problem_category,
+                "assessment_question": next_question,
+                "assessment_state": assessment_state,
+                "is_dialog_based_assessment": next_question is not None
             }
 
             return response_data
@@ -349,19 +451,35 @@ class ChatService:
             logger.error(f"Error processing message: {str(e)}")
             import traceback
             logger.error(f"Full traceback: {traceback.format_exc()}")
-            
-            # Provide error message in appropriate language
+
+            # Generate dynamic error message
             try:
                 # Try to detect language for error message
                 detected_language, _ = await language_service.detect_language(message)
-                if detected_language == Language.ENGLISH:
-                    error_message = "Sorry, a technical error occurred. Please try again. If this is an emergency, please contact 112 immediately."
-                else:
-                    error_message = "Maaf, terjadi kesalahan teknis. Silakan coba lagi. Jika ini adalah situasi darurat, segera hubungi 112."
+
+                error_prompt = f"""
+Generate a brief, empathetic error message for a technical failure.
+The message should:
+- Apologize for the technical difficulty
+- Suggest they try again
+- Include emergency contact information (112)
+- Maintain a supportive, caring tone
+
+Language: {'English' if detected_language == Language.ENGLISH else 'Indonesian'}
+Tone: Apologetic, supportive, helpful
+"""
+
+                from app.services.dynamic_response_service import DynamicResponseService
+                dynamic_service = DynamicResponseService()
+                error_message = await dynamic_service.generate_simple_response(
+                    error_prompt,
+                    user_language=detected_language,
+                    context_type="general"
+                )
             except:
-                # Fallback to Indonesian if language detection fails
+                # Fallback to basic message
                 error_message = "Maaf, terjadi kesalahan teknis. Silakan coba lagi. Jika ini adalah situasi darurat, segera hubungi 112."
-            
+
             return {
                 "message": error_message,
                 "sentiment": {
@@ -418,7 +536,7 @@ class ChatService:
 
             # Analyze problem context using AI-powered analysis
             context_analysis = await self._analyze_problem_context(message, current_history)
-            
+
             # Determine if we should suggest transitioning to structured assessment
             should_transition = await self._should_transition_to_assessment(context_analysis, current_history)
 
@@ -490,13 +608,21 @@ class ChatService:
                 # Add assessment suggestion if appropriate
                 if should_transition and context_analysis.get('should_suggest_assessment'):
                     primary_problem = context_analysis.get('detected_problems', [{}])[0]
-                    if detected_language == Language.INDONESIAN:
-                        assessment_suggestion = f"\n\nBerdasarkan percakapan kita, saya melihat Anda mungkin mengalami {primary_problem.get('category', 'masalah')}. Apakah Anda ingin melakukan assessment terstruktur untuk membantu memahami situasi Anda lebih baik?"
-                    else:
-                        assessment_suggestion = f"\n\nBased on our conversation, I see you might be experiencing {primary_problem.get('category', 'issues')}. Would you like to take a structured assessment to help understand your situation better?"
-                    
+
+                    # Generate dynamic assessment suggestion
+                    assessment_prompt = f"Generate a natural, empathetic suggestion for a structured assessment based on the detected problem category: {primary_problem.get('category', 'general concerns')}. Keep it conversational and supportive."
+
+                    assessment_response_data = await dynamic_response_service.generate_therapeutic_response(
+                        user_message=assessment_prompt,
+                        conversation_history=current_history[-3:],
+                        context_type="assessment",
+                        user_language=detected_language,
+                        session_data=session_data
+                    )
+
+                    assessment_suggestion = f"\n\n{assessment_response_data.get('response', '')}"
                     full_response += assessment_suggestion
-                    
+
                     # Send the assessment suggestion as a separate chunk
                     yield json.dumps({
                         "type": "chunk",
@@ -506,22 +632,37 @@ class ChatService:
                         "sub_category_id": primary_problem.get('sub_category_id', ''),
                         "timestamp": datetime.now().isoformat()
                     })
-                
-                # Translate response back to user's language if needed
-                if detected_language == Language.INDONESIAN and confidence > 0.3:
-                    # Check if response needs translation (simple heuristic)
-                    response_language, response_confidence = await language_service.detect_language(full_response)
-                    if response_language == Language.ENGLISH and response_confidence > 0.3:
-                        translated_response = await translation_service.translate_english_to_indonesian(full_response)
-                        logger.info(f"Translated streaming response back to Indonesian")
-                        # Send translated response as final chunk
-                        yield json.dumps({
-                            "type": "translation",
-                            "content": translated_response,
-                            "original_content": full_response,
-                            "timestamp": datetime.now().isoformat()
-                        })
-                        full_response = translated_response
+
+                # Handle response language based on user preference
+                # Check user's preferred language from session data
+                preferred_language = session_data.get('preferredLanguage', 'en') if session_data else 'en'
+                logger.info(f"User's preferred language in streaming: {preferred_language}")
+
+                # Only translate to Indonesian if user's preferred language is Indonesian
+                if preferred_language == 'id' and detected_language == Language.INDONESIAN and confidence > 0.7:
+                    # Check if the user's message contains any English words that suggest they prefer English
+                    english_indicators = ['english', 'in english', 'speak english', 'respond in english']
+                    message_lower = message.lower()
+                    wants_english = any(indicator in message_lower for indicator in english_indicators)
+
+                    if not wants_english:
+                        # Check if response needs translation (simple heuristic)
+                        response_language, response_confidence = await language_service.detect_language(full_response)
+                        if response_language == Language.ENGLISH and response_confidence > 0.3:
+                            translated_response = await translation_service.translate_english_to_indonesian(full_response)
+                            logger.info(f"Translated streaming response back to Indonesian (confidence: {confidence:.2f})")
+                            # Send translated response as final chunk
+                            yield json.dumps({
+                                "type": "translation",
+                                "content": translated_response,
+                                "original_content": full_response,
+                                "timestamp": datetime.now().isoformat()
+                            })
+                            full_response = translated_response
+                    else:
+                        logger.info(f"User prefers English response despite Indonesian input in streaming")
+                else:
+                    logger.info(f"Keeping streaming response in English based on user preference: {preferred_language}")
 
                 # Store conversation after completion
                 self._store_conversation(client_id, message, full_response, sentiment_analysis)
@@ -536,19 +677,35 @@ class ChatService:
 
         except Exception as e:
             logger.error(f"Error processing streaming message: {str(e)}")
-            
-            # Provide error message in appropriate language
+
+            # Generate dynamic error message
             try:
                 # Try to detect language for error message
                 detected_language, _ = await language_service.detect_language(message)
-                if detected_language == Language.ENGLISH:
-                    error_message = "Sorry, a technical error occurred. Please try again."
-                else:
-                    error_message = "Maaf, terjadi kesalahan teknis. Silakan coba lagi."
+
+                error_prompt = f"""
+Generate a brief, empathetic error message for a streaming message processing failure.
+The message should:
+- Apologize for the technical difficulty
+- Suggest they try again
+- Maintain a supportive, understanding tone
+- Be concise for streaming context
+
+Language: {'English' if detected_language == Language.ENGLISH else 'Indonesian'}
+Tone: Apologetic, supportive, brief
+"""
+
+                from app.services.dynamic_response_service import DynamicResponseService
+                dynamic_service = DynamicResponseService()
+                error_message = await dynamic_service.generate_simple_response(
+                    error_prompt,
+                    user_language=detected_language,
+                    context_type="general"
+                )
             except:
-                # Fallback to Indonesian if language detection fails
+                # Fallback to basic message
                 error_message = "Maaf, terjadi kesalahan teknis. Silakan coba lagi."
-            
+
             yield json.dumps({
                 "type": "error",
                 "content": error_message,
@@ -655,7 +812,7 @@ class ChatService:
             # Fallback to Indonesian if detection fails
             detected_language = Language.INDONESIAN
             confidence = 1.0
-        
+
         if detected_language == Language.ENGLISH and confidence > 0.3:
             crisis_response = f"""I care deeply about your safety. The feelings you're experiencing right now are very heavy, but you are not alone. It was right for you to share this with me.
 
@@ -699,25 +856,75 @@ Apakah Anda mau cerita lebih lanjut tentang apa yang membuat Anda merasa seperti
         """
         if client_id in self.conversation_history:
             del self.conversation_history[client_id]
+            # Also reset conversation flow if exists
+            conversation_flow_service.reset_flow(client_id)
+
+    def get_flow_status(self, client_id: str) -> Optional[Dict[str, Any]]:
+        """
+        Get conversation flow status for a client
+        """
+        return conversation_flow_service.get_flow_status(client_id)
+
+    def reset_flow(self, client_id: str) -> bool:
+        """
+        Reset conversation flow for a client
+        """
+        return conversation_flow_service.reset_flow(client_id)
+
+    def get_all_active_flows(self) -> List[str]:
+        """
+        Get all active conversation flows
+        """
+        return conversation_flow_service.get_all_active_flows()
+
+    async def process_message_with_flow(self, message: str, client_id: str,
+                                      session_data: Optional[Dict] = None,
+                                      use_flow: bool = True) -> Dict[str, Any]:
+        """
+        Process message with conversation flow integration
+        """
+        try:
+            if use_flow:
+                # Check if this is a new conversation or continuing flow
+                flow_status = conversation_flow_service.get_flow_status(client_id)
+
+                if flow_status is None:
+                    # Start new conversation flow
+                    flow_response = await conversation_flow_service.start_conversation_flow(client_id, message)
+                else:
+                    # Continue existing flow
+                    flow_response = await conversation_flow_service.process_flow_message(client_id, message)
+
+                # Store conversation in history
+                self._store_conversation(client_id, message, flow_response.get("message", ""), {})
+
+                return flow_response
+            else:
+                # Use original process_message method
+                return await self.process_message(message, client_id, session_data)
+
+        except Exception as e:
+            logger.error(f"Error processing message with flow: {str(e)}")
+            return await self.process_message(message, client_id, session_data)
 
     async def start_assessment(self, client_id: str, problem_category: str, sub_category_id: Optional[str] = None) -> Dict[str, Any]:
         """
         Start a structured assessment flow based on problem category
         """
         return await assessment_service.start_assessment(client_id, problem_category, sub_category_id)
-    
+
     async def process_assessment_response(self, client_id: str, response: str, question_id: str) -> Dict[str, Any]:
         """
         Process user response to assessment question
         """
         return await assessment_service.process_assessment_response(client_id, response, question_id)
-    
+
     def get_assessment_status(self, client_id: str) -> Optional[Dict]:
         """
         Get current assessment session status
         """
         return assessment_service.get_session_status(client_id)
-    
+
     def cancel_assessment(self, client_id: str) -> bool:
         """
         Cancel active assessment session
