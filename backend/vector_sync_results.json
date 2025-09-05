@@ -1,0 +1,16 @@
+{
+  "collections_synced": [],
+  "total_collections": 0,
+  "successful_collections": 0,
+  "failed_collections": 0,
+  "overall_stats": {
+    "total_documents": 0,
+    "total_embeddings": 0,
+    "successful_syncs": 0,
+    "failed_syncs": 0,
+    "embedding_time": 0.0,
+    "sync_time": 0.0,
+    "start_time": "2025-09-02 18:19:06.034133",
+    "end_time": "2025-09-02 18:19:06.047658"
+  }
+}

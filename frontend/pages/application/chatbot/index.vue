@@ -1,82 +1,84 @@
 <template>
-	<div class="flex flex-col h-screen overflow-hidden">
+	<div v-if="!isClient" class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+		<div class="text-center">
+			<div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+				<Bot class="w-8 h-8 text-white" />
+			</div>
+			<h1 class="text-xl font-semibold text-gray-900 mb-2">AI Counselor</h1>
+			<p class="text-gray-600">Loading...</p>
+		</div>
+	</div>
+	<div v-else class="flex flex-col h-screen overflow-hidden">
 		<!-- Header -->
 		<div
-			class="bg-white border-b border-gray-200 p-2 sm:p-3 lg:p-4 flex-shrink-0 z-10"
+			class="bg-white border-b border-gray-200 p-4 flex-shrink-0 z-10 sticky top-0"
 		>
 			<div class="flex items-center justify-between">
-				<div class="flex items-center space-x-2 sm:space-x-3">
+				<div class="flex items-center space-x-3 sm:space-x-4 min-w-0 flex-1">
 					<div
-						class="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center"
+						class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0"
 					>
-						<Bot class="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
+						<Bot class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
 					</div>
 					<div class="min-w-0 flex-1">
 						<h1
-							class="font-bold text-gray-900 text-xs sm:text-sm lg:text-base truncate"
+							class="font-bold text-gray-900 text-sm sm:text-base lg:text-lg truncate"
 						>
-							{{ t('header.aiCounselor') }}
+							{{ safeT('header.aiCounselor', 'AI Counselor') }}
 						</h1>
-						<p class="text-xs text-gray-500 hidden xs:block truncate">
-								{{ ollamaIsProcessing ? t('header.typing') : t('header.ready') }}
-							</p>
+						<p class="text-xs sm:text-sm text-gray-500 truncate">
+							{{ ollamaIsProcessing ? safeT('header.typing', 'Typing...') : safeT('header.ready', 'Ready to help you') }}
+						</p>
 					</div>
 				</div>
 
 				<div
-					class="flex items-center space-x-1 sm:space-x-2 relative flex-shrink-0"
+					class="flex items-center space-x-2 relative flex-shrink-0"
 					ref="menuContainer"
 				>
 					<!-- Speech Mode Toggle -->
 					<button
 						@click="toggleSpeechMode"
 						:class="[
-							'flex items-center space-x-1 px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs font-medium transition-all min-w-0',
+							'flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200',
 							isSpeechMode
-								? 'bg-green-500 text-white'
+								? 'bg-green-500 text-white shadow-sm'
 								: 'bg-gray-100 text-gray-600 hover:bg-gray-200',
 						]"
 					>
-						<Volume2 class="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-						<span class="hidden xs:inline truncate">{{
-							isSpeechMode ? t('header.speechOn') : t('header.speech')
+						<Volume2 class="w-4 h-4 flex-shrink-0" />
+						<span class="hidden sm:inline">{{
+							isSpeechMode ? safeT('header.speechOn', 'Speech ON') : safeT('header.speech', 'Speech')
 						}}</span>
-						<span class="xs:hidden">🎙️</span>
 					</button>
 
 					<!-- Intent Mode Selector -->
 					<select
 						v-model="currentMode"
 						@change="handleModeChange"
-						class="text-xs bg-gray-100 border-0 rounded-lg px-1.5 sm:px-2 py-1.5 sm:py-2 focus:ring-2 focus:ring-blue-500 min-w-0 max-w-16 sm:max-w-20 lg:max-w-none"
+						class="text-sm bg-gray-100 border-0 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
 					>
-						<option value="help">
-							{{ isMobile ? t('header.help') : t('header.modeHelp') }}
-						</option>
-						<option value="tips">
-							{{ isMobile ? t('header.tips') : t('header.dailyTips') }}
-						</option>
-						<option value="chat">
-							{{ isMobile ? t('header.chat') : t('header.freeChat') }}
-						</option>
+						<option value="help">{{ safeT('header.help', 'Help') }}</option>
+						<option value="tips">{{ safeT('header.tips', 'Tips') }}</option>
+						<option value="chat">{{ safeT('header.chat', 'Chat') }}</option>
 					</select>
 
 					<!-- Language Switcher -->
 					<button
 						@click="switchLanguage"
-						:title="t('language.switch')"
-						class="flex items-center space-x-1 px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs font-medium transition-all min-w-0 bg-gray-100 text-gray-600 hover:bg-gray-200"
+						:title="safeT('language.switch', 'Switch Language')"
+						class="flex items-center justify-center p-2 rounded-lg text-sm font-medium transition-all duration-200 bg-gray-100 text-gray-600 hover:bg-gray-200"
 					>
-						<Globe class="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-						<span class="hidden xs:inline truncate">{{ locale === 'id' ? 'EN' : 'ID' }}</span>
+						<Globe class="w-4 h-4" />
+						<span class="hidden lg:inline ml-1">{{ locale === 'id' ? 'EN' : 'ID' }}</span>
 					</button>
 
 					<!-- Menu Button -->
 					<button
 						@click="showMenu = !showMenu"
-						class="p-1.5 sm:p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors flex-shrink-0"
+						class="flex items-center justify-center p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
 					>
-						<MoreVertical class="w-3 h-3 sm:w-4 sm:h-4" />
+						<MoreVertical class="w-4 h-4" />
 					</button>
 
 					<!-- Menu Dropdown -->
@@ -91,7 +93,7 @@
 							"
 							class="w-full text-left px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg"
 						>
-							{{ t('menu.clearHistory') }}
+							{{ safeT('menu.clearHistory', '🗑️ Clear Chat History') }}
 						</button>
 						<button
 							@click="
@@ -100,7 +102,7 @@
 							"
 							class="w-full text-left px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-gray-700 hover:bg-gray-100"
 						>
-							{{ t('menu.exportChat') }}
+							{{ safeT('menu.exportChat', '📤 Export Conversation') }}
 						</button>
 						<button
 							@click="
@@ -110,7 +112,7 @@
 							v-if="conversationTranscript.length > 0"
 							class="w-full text-left px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-gray-700 hover:bg-gray-100"
 						>
-							{{ t('menu.viewTranscript') }}
+							{{ safeT('menu.viewTranscript', '📝 View Transcript') }}
 						</button>
 						<button
 							@click="
@@ -119,7 +121,7 @@
 							"
 							class="w-full text-left px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-gray-700 hover:bg-gray-100"
 						>
-							{{ t('menu.privacySettings') }}
+							{{ safeT('menu.privacySettings', '🔒 Privacy Settings') }}
 						</button>
 						<div class="border-t border-gray-200">
 							<button
@@ -129,7 +131,7 @@
 								"
 								class="w-full text-left px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-red-600 hover:bg-red-50 rounded-b-lg"
 							>
-								{{ t('menu.emergencyHelp') }}
+								{{ safeT('menu.emergencyHelp', '🚨 Emergency Help') }}
 							</button>
 						</div>
 					</div>
@@ -272,19 +274,19 @@
 					<h2 class="text-base sm:text-lg lg:text-2xl font-bold mb-2">
 					{{
 						isListening
-							? t('speechMode.listening')
+							? safeT('speechMode.listening', 'Listening...')
 							: isProcessingSpeech
-							? t('speechMode.processing')
+							? safeT('speechMode.processing', 'Processing...')
 							: isGeneratingResponse
-							? t('speechMode.thinking')
-							: t('speechMode.ready')
+							? safeT('speechMode.thinking', 'Thinking Response...')
+							: safeT('speechMode.ready', 'Ready to Listen')
 					}}
 				</h2>
 					<p
 					class="text-sm sm:text-base lg:text-lg opacity-75 max-w-xs sm:max-w-md lg:max-w-lg mx-auto"
 				>
 					{{
-						currentSpeechText || t('speechMode.instruction')
+						currentSpeechText || safeT('speechMode.instruction', 'Press the microphone button to start speaking')
 					}}
 				</p>
 				</div>
@@ -310,10 +312,10 @@
 					>
 						<Mic class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
 						<span class="hidden xs:inline truncate">{{
-						isListening ? t('speechMode.listeningButton') : t('speechMode.talkButton')
+						isListening ? safeT('speechMode.listeningButton', 'Listening...') : safeT('speechMode.talkButton', 'Press to Talk')
 					}}</span>
 					<span class="xs:hidden">{{
-						isListening ? t('speechMode.listeningShort') : t('speechMode.talkShort')
+						isListening ? safeT('speechMode.listeningShort', '🎙️') : safeT('speechMode.talkShort', '🎤')
 					}}</span>
 					</button>
 
@@ -375,7 +377,7 @@
 						class="flex items-center space-x-1 hover:opacity-75 p-1"
 					>
 						<Eye class="w-3 h-3 sm:w-4 sm:h-4" />
-						<span class="hidden xs:inline">{{ t('transcript.preview') }}</span>
+						<span class="hidden xs:inline">{{ safeT('transcript.preview', 'Preview Transcript') }}</span>
 						<span class="xs:hidden">📝</span>
 					</button>
 				</div>
@@ -394,7 +396,7 @@
 					<h3
 						class="text-sm sm:text-base lg:text-lg font-bold text-gray-900 truncate"
 					>
-						{{ t('transcript.title') }}
+						{{ safeT('transcript.title', 'Conversation Transcript') }}
 					</h3>
 					<button
 						@click="showTranscriptView = false"
@@ -412,7 +414,7 @@
 						class="text-center py-4 sm:py-6 lg:py-8 text-gray-500"
 					>
 						<p class="text-xs sm:text-sm lg:text-base">
-						{{ t('transcript.empty') }}
+						{{ safeT('transcript.empty', 'No voice conversation transcript yet') }}
 					</p>
 					</div>
 					<div v-else class="space-y-2 sm:space-y-3 lg:space-y-4">
@@ -471,13 +473,13 @@
 						@click="exportTranscript"
 						class="px-2 sm:px-3 lg:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-xs sm:text-sm flex-1 sm:flex-none"
 					>
-						{{ t('transcript.export') }}
+						{{ safeT('transcript.export', 'Export Transcript') }}
 				</button>
 				<button
 					@click="copyTranscriptToChat"
 					class="px-2 sm:px-3 lg:px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-xs sm:text-sm flex-1 sm:flex-none"
 				>
-					{{ t('transcript.copyToChat') }}
+					{{ safeT('transcript.copyToChat', 'Copy to Chat') }}
 					</button>
 				</div>
 			</div>
@@ -486,41 +488,41 @@
 		<!-- Messages Container -->
 		<div
 			ref="messagesContainer"
-			class="overflow-y-auto p-2 sm:p-3 lg:p-4 space-y-1 sm:space-y-2 lg:space-y-4 bg-gray-50 h-[calc(100vh-200px)] sm:h-[calc(100vh-200px)] lg:h-[calc(100vh-220px)] pb-32 sm:pb-32 lg:pb-36"
+			class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 pb-32"
 		>
 			<!-- Welcome Message -->
 			<div
 				v-if="ollamaMessages.length === 0"
-				class="text-center py-6 sm:py-8 lg:py-12"
+				class="text-center py-8 px-4"
 			>
 				<div
-					class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg"
+					class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
 				>
-					<Heart class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" />
+					<Heart class="w-8 h-8 sm:w-10 sm:h-10 text-white" />
 				</div>
 				<h3
-					class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4"
+					class="text-lg sm:text-xl font-bold text-gray-900 mb-4"
 				>
-					{{ t('welcome.greeting') }}
+					{{ safeT('welcome.greeting', 'Hello! I\'m here for you 💚') }}
 				</h3>
 				<p
-					class="text-gray-600 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 px-4 sm:px-6 max-w-sm sm:max-w-md mx-auto leading-relaxed"
+					class="text-gray-600 text-sm sm:text-base mb-8 max-w-md mx-auto"
 				>
-					{{ t('welcome.description') }}
+					{{ safeT('welcome.description', 'I am an AI Counselor ready to listen and help you. All conversations are confidential.') }}
 				</p>
 
 				<!-- Quick Intent Buttons -->
 				<div
-					class="grid grid-cols-1 gap-3 max-w-sm sm:max-w-md mx-auto px-4 sm:px-6"
+					class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg mx-auto"
 				>
 					<button
 						v-for="intent in quickIntents"
 						:key="intent.id"
 						@click="sendQuickMessage(intent.message, intent.mode)"
-						class="p-4 bg-white rounded-2xl border border-gray-200 text-sm sm:text-base text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 text-left shadow-sm hover:shadow-md"
+						class="p-4 bg-white rounded-xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 text-left shadow-sm hover:shadow-md"
 					>
 						<div class="flex items-center space-x-3">
-							<span class="text-xl sm:text-2xl flex-shrink-0">{{
+							<span class="text-xl flex-shrink-0">{{
 								intent.emoji
 							}}</span>
 							<span class="font-medium">{{ intent.label }}</span>
@@ -534,26 +536,26 @@
 				v-for="message in ollamaMessages"
 				:key="message.id"
 				:class="[
-					'flex mb-1 sm:mb-2',
+					'flex mb-4',
 					message.sender === 'user' ? 'justify-end' : 'justify-start',
 				]"
 			>
 				<!-- AI Message -->
 				<div
 					v-if="message.sender === 'ai'"
-					class="flex items-start space-x-2 sm:space-x-3 max-w-[88%] sm:max-w-xs lg:max-w-sm xl:max-w-md"
+					class="flex items-start space-x-3 max-w-[85%]"
 				>
 					<div
-						class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+						class="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
 					>
-						<Bot class="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 text-white" />
+						<Bot class="w-4 h-4 text-white" />
 					</div>
 					<div
-						class="bg-white rounded-3xl rounded-tl-md px-3 sm:px-4 lg:px-5 py-2 sm:py-2.5 lg:py-3 shadow-sm border border-gray-100"
+						class="bg-white rounded-2xl rounded-tl-lg px-4 py-3 shadow-sm border border-gray-100"
 					>
 						<div
 							v-html="message.text"
-							class="text-sm sm:text-base lg:text-base text-gray-900 whitespace-pre-wrap prose prose-sm max-w-none break-words leading-relaxed"
+							class="text-sm text-gray-900 whitespace-pre-wrap prose prose-sm max-w-none break-words"
 						></div>
 
 						<!-- Streaming Indicator -->
@@ -566,7 +568,7 @@
 								<div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
 								<div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
 							</div>
-							<span class="text-xs text-gray-500 ml-2">{{ t('status.typing') }}</span>
+							<span class="text-xs text-gray-500 ml-2">{{ safeT('status.typing', 'AI is typing...') }}</span>
 						</div>
 
 						<!-- Assessment Transition Suggestion -->
@@ -594,10 +596,10 @@
 									<h4
 										class="text-sm sm:text-base font-semibold text-blue-900 mb-2"
  									>
-										{{ t('assessment.structuredAvailable.title') }}
+										{{ safeT('assessment.structuredAvailable.title', 'Structured Assessment Available') }}
 									</h4>
 									<p class="text-sm text-blue-700 mb-3 leading-relaxed">
-										{{ t('assessment.structuredAvailable.description') }}
+										{{ safeT('assessment.structuredAvailable.description', 'Based on our conversation, I can help you with a structured assessment for') }}
 										<span v-if="message.contextAnalysis?.primary_category" class="font-medium">
 											{{ message.contextAnalysis.primary_category }}
 										</span>.
@@ -607,13 +609,13 @@
 												@click="acceptAssessment(message)"
 												class="px-4 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition-colors shadow-sm"
 											>
-												{{ t('assessment.structuredAvailable.startButton') }}
+												{{ safeT('assessment.structuredAvailable.startButton', 'Start Assessment') }}
 											</button>
 											<button
 												@click="declineAssessment(message)"
 												class="px-4 py-2.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-xl hover:bg-gray-200 transition-colors"
 											>
-												{{ t('assessment.structuredAvailable.continueButton') }}
+												{{ safeT('assessment.structuredAvailable.continueButton', 'Continue Chat') }}
 											</button>
 									</div>
 								</div>
@@ -635,12 +637,12 @@
 				</div>
 
 				<!-- User Message -->
-				<div v-else class="max-w-[88%] sm:max-w-xs lg:max-w-sm xl:max-w-md">
+				<div v-else class="max-w-[85%]">
 					<div
-						class="bg-blue-500 text-white rounded-3xl rounded-br-md px-3 sm:px-4 lg:px-5 py-2 sm:py-2.5 lg:py-3 shadow-sm"
+						class="bg-blue-500 text-white rounded-2xl rounded-br-lg px-4 py-3 shadow-sm"
 					>
 						<p
-							class="text-sm sm:text-base lg:text-base whitespace-pre-wrap break-words leading-relaxed"
+							class="text-sm whitespace-pre-wrap break-words"
 						>
 							{{ message.text }}
 						</p>
@@ -755,6 +757,9 @@
 							<!-- Debug info (remove in production) -->
 							<div v-if="true" class="text-xs text-gray-500 mb-2 p-2 bg-gray-100 rounded">
 								Debug: response_type = {{ lastMessage.assessmentData.question?.response_type || 'undefined' }}
+								<br>Is range question: {{ isRangeQuestion(lastMessage.assessmentData.question) }}
+								<br>Should show scale: {{ shouldShowScale(lastMessage.assessmentData.question) }}
+								<br>Question text: "{{ lastMessage.assessmentData.question.question_text }}"
 								<br>Question structure: {{ JSON.stringify(lastMessage.assessmentData.question, null, 2) }}
 							</div>
 
@@ -762,9 +767,9 @@
 								{{ lastMessage.assessmentData.question.question_text }}
 							</h4>
 
-							<!-- Scale Response Type -->
+							<!-- Scale Response Type (default for assessments unless explicitly text-only) -->
 							<div
-								v-if="lastMessage.assessmentData.question.response_type === 'scale'"
+								v-if="shouldShowScale(lastMessage.assessmentData.question)"
 								class="space-y-3"
 							>
 								<p class="text-xs sm:text-sm text-blue-700">
@@ -782,11 +787,24 @@
 								</div>
 							</div>
 
-							<!-- Text Response Type -->
+							<!-- Text Response Type (only for explicitly text-only questions) -->
 							<div
-								v-else-if="lastMessage.assessmentData.question.response_type === 'text'"
+								v-else-if="!shouldShowScale(lastMessage.assessmentData.question)"
 								class="space-y-3"
 							>
+								<p class="text-xs sm:text-sm text-blue-700 mb-3">
+									Atau pilih skala 1-10 jika relevan:
+								</p>
+								<div class="grid grid-cols-5 sm:grid-cols-10 gap-2 mb-4">
+									<button
+										v-for="scale in 10"
+										:key="scale"
+										@click="submitAssessmentResponse(scale)"
+										class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-gray-300 text-gray-600 hover:bg-blue-100 hover:border-blue-500 hover:text-blue-700 transition-colors text-sm font-medium"
+									>
+										{{ scale }}
+									</button>
+								</div>
 								<textarea
 									v-model="assessmentTextResponse"
 									placeholder="Tuliskan jawaban Anda..."
@@ -835,89 +853,121 @@
 			</div>
 		</div>
 
-		<!-- Supportive Prompts Section -->
-		<div v-if="showSupportivePrompts" class="bg-gradient-to-r from-blue-50 to-purple-50 border-t border-gray-200 p-3 sm:p-4 fixed bottom-80 left-0 right-0 mx-2 sm:mx-3 lg:mx-4 z-40 rounded-t-lg shadow-lg">
-			<div class="mb-3">
-				<h4 class="text-sm font-medium text-gray-700 mb-2">{{ t('supportive.howFeeling') }}</h4>
-				<div class="flex flex-wrap gap-2">
-					<button
-						v-for="prompt in supportivePrompts"
-						:key="prompt.id"
-						@click="selectSupportivePrompt(prompt)"
-						class="px-3 py-2 text-sm bg-white border border-gray-200 rounded-full hover:bg-blue-50 hover:border-blue-300 transition-all duration-200 shadow-sm"
-					>
-						{{ prompt.emoji }} {{ t(prompt.text) }}
-					</button>
-				</div>
-			</div>
-		</div>
+				<!-- Unified Floating Panel -->
+		<div v-if="showSupportivePrompts || showEmotionWheel || showQuickResponses"
+		     class="unified-panel fixed bottom-20 sm:bottom-24 left-2 right-2 sm:left-4 sm:right-4 lg:left-auto lg:right-4 lg:w-96 z-50 bg-white border border-gray-200 rounded-2xl shadow-2xl max-h-[60vh] sm:max-h-[65vh] lg:max-h-[70vh] flex flex-col">
 
-		<!-- Emotion Selection Wheel -->
-		<div v-if="showEmotionWheel" class="bg-white border-t border-gray-200 p-3 sm:p-4 fixed bottom-80 left-0 right-0 mx-2 sm:mx-3 lg:mx-4 z-40 rounded-t-lg shadow-lg">
-			<div class="mb-3">
-				<h4 class="text-sm font-medium text-gray-700 mb-3">{{ t('emotion.selectEmotion') }}</h4>
-				<div class="grid grid-cols-4 gap-3">
-					<button
-						v-for="emotion in emotionOptions"
-						:key="emotion.id"
-						@click="selectEmotion(emotion)"
-						:class="[
-							'p-3 rounded-lg border-2 transition-all duration-200 text-center',
-							selectedEmotion?.id === emotion.id
-								? 'border-blue-500 bg-blue-50'
-								: 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
-						]"
-					>
-						<div class="text-2xl mb-1">{{ emotion.emoji }}</div>
-						<div class="text-xs text-gray-600">{{ t(emotion.label) }}</div>
-					</button>
-				</div>
+			<!-- Header with Close Button -->
+			<div class="flex items-center justify-between border-b border-gray-100 px-4 py-2 flex-shrink-0">
+				<h3 class="text-sm font-semibold text-gray-800">{{ safeT('panel.title', 'Quick Actions') }}</h3>
+				<button @click="closeAllPanels" class="p-1 text-gray-400 hover:text-gray-600 transition-colors">
+					<X class="w-4 h-4" />
+				</button>
 			</div>
 
-			<!-- Emotion Intensity Scale -->
-			<div v-if="selectedEmotion" class="mt-4">
-				<h5 class="text-sm font-medium text-gray-700 mb-2">{{ t('emotion.intensity') }}</h5>
-				<div class="flex items-center space-x-2">
-					<span class="text-xs text-gray-500">{{ t('emotion.mild') }}</span>
-					<input
-						v-model="emotionIntensity"
-						type="range"
-						min="1"
-						max="10"
-						class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-					/>
-					<span class="text-xs text-gray-500">{{ t('emotion.intense') }}</span>
-					<span class="text-sm font-medium text-blue-600 min-w-[2rem]">{{ emotionIntensity }}</span>
-				</div>
+			<!-- Tab Navigation -->
+			<div class="flex border-b border-gray-100 flex-shrink-0">
+				<button @click="showSupportivePrompts = true; showEmotionWheel = false; showQuickResponses = false"
+						:class="['flex-1 py-3 px-4 text-sm font-medium transition-colors border-b-2',
+								 showSupportivePrompts ? 'text-blue-600 border-blue-600' : 'text-gray-500 hover:text-gray-700 border-transparent']">
+					💭 {{ safeT('tabs.prompts', 'Prompts') }}
+				</button>
+				<button @click="showEmotionWheel = true; showSupportivePrompts = false; showQuickResponses = false"
+						:class="['flex-1 py-3 px-4 text-sm font-medium transition-colors border-b-2',
+								 showEmotionWheel ? 'text-purple-600 border-purple-600' : 'text-gray-500 hover:text-gray-700 border-transparent']">
+					😊 {{ safeT('tabs.emotions', 'Emotions') }}
+				</button>
+				<button @click="showQuickResponses = true; showSupportivePrompts = false; showEmotionWheel = false"
+						:class="['flex-1 py-3 px-4 text-sm font-medium transition-colors border-b-2',
+								 showQuickResponses ? 'text-green-600 border-green-600' : 'text-gray-500 hover:text-gray-700 border-transparent']">
+					💬 {{ safeT('tabs.quick', 'Quick') }}
+				</button>
 			</div>
-		</div>
 
-		<!-- Quick Response Buttons -->
-		<div v-if="showQuickResponses && quickResponseOptions.length > 0" class="bg-gray-50 border-t border-gray-200 p-3 sm:p-4 fixed bottom-80 left-0 right-0 mx-2 sm:mx-3 lg:mx-4 z-40 rounded-t-lg shadow-lg">
-			<div class="mb-2">
-				<h4 class="text-sm font-medium text-gray-700 mb-3">{{ t('quickResponses.title') }}</h4>
-				<div class="flex flex-wrap gap-2">
-					<button
-						v-for="response in quickResponseOptions"
-						:key="response.id"
-						@click="selectQuickResponse(response)"
-						class="px-4 py-2 text-sm bg-white border border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-400 transition-all duration-200 shadow-sm"
-					>
-						{{ t(response.text) }}
-					</button>
+						<!-- Scrollable Content Area -->
+			<div class="flex-1 overflow-y-auto p-4 scroll-smooth overscroll-contain scroll-container">
+				<!-- Supportive Prompts -->
+				<div v-if="showSupportivePrompts" class="space-y-3">
+					<h4 class="text-sm font-medium text-gray-700">{{ safeT('supportive.howFeeling', 'How are you feeling right now?') }}</h4>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+						<button
+							v-for="prompt in supportivePrompts"
+							:key="prompt.id"
+							@click="selectSupportivePrompt(prompt)"
+							class="flex items-center space-x-2 px-3 py-3 text-sm bg-gray-50 border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-all duration-200 text-left"
+						>
+							<span class="text-lg flex-shrink-0">{{ prompt.emoji }}</span>
+							<span class="truncate">{{ prompt.text }}</span>
+						</button>
+					</div>
+				</div>
+
+				<!-- Emotion Wheel -->
+				<div v-if="showEmotionWheel" class="space-y-4">
+					<h4 class="text-sm font-medium text-gray-700">{{ safeT('emotion.selectEmotion', 'Select your emotion') }}</h4>
+					<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+						<button
+							v-for="emotion in emotionOptions"
+							:key="emotion.id"
+							@click="selectEmotion(emotion)"
+							:class="[
+								'p-3 rounded-lg border-2 transition-all duration-200 text-center hover:scale-105',
+								selectedEmotion?.id === emotion.id
+									? 'border-purple-500 bg-purple-50'
+									: 'border-gray-200 hover:border-purple-300 hover:bg-purple-50'
+							]"
+						>
+							<div class="text-2xl mb-1">{{ emotion.emoji }}</div>
+							<div class="text-xs text-gray-600">{{ emotion.label }}</div>
+						</button>
+					</div>
+
+					<!-- Emotion Intensity Scale -->
+					<div v-if="selectedEmotion" class="pt-3 border-t border-gray-100">
+						<h5 class="text-sm font-medium text-gray-700 mb-2">{{ safeT('emotion.intensity', 'How intense is this feeling?') }}</h5>
+						<div class="flex items-center space-x-2">
+							<span class="text-xs text-gray-500">{{ safeT('emotion.mild', 'Mild') }}</span>
+							<input
+								v-model="emotionIntensity"
+								type="range"
+								min="1"
+								max="10"
+								class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+							/>
+							<span class="text-xs text-gray-500">{{ safeT('emotion.intense', 'Intense') }}</span>
+							<span class="text-sm font-medium text-purple-600 min-w-[2rem]">{{ emotionIntensity }}</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Quick Responses -->
+				<div v-if="showQuickResponses" class="space-y-3">
+					<h4 class="text-sm font-medium text-gray-700">
+						{{ safeT('quickResponses.title', 'Quick Response Options') }}
+					</h4>
+					<div class="flex flex-wrap gap-2">
+						<button
+							v-for="response in quickResponseOptions"
+							:key="response.id"
+							@click="selectQuickResponse(response)"
+							class="px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg hover:bg-green-50 hover:border-green-300 transition-all duration-200"
+						>
+							{{ response.text }}
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- Assessment Progress Indicator -->
-		<div v-if="assessmentProgress && assessmentProgress.isActive" class="bg-blue-50 border-t border-blue-200 p-3 sm:p-4 fixed bottom-64 left-0 right-0 mx-2 sm:mx-3 lg:mx-4 z-40 rounded-t-lg shadow-lg">
-			<div class="flex items-center justify-between mb-2">
-				<h4 class="text-sm font-medium text-blue-700">{{ t('assessment.progress') }}</h4>
+		<div v-if="assessmentProgress && assessmentProgress.isActive" class="fixed bottom-32 sm:bottom-36 left-2 right-2 sm:left-4 sm:right-4 lg:left-auto lg:right-4 lg:w-96 z-40 bg-blue-50 border border-blue-200 rounded-2xl shadow-2xl p-4">
+			<div class="flex items-center justify-between mb-3">
+				<h4 class="text-sm font-medium text-blue-700">{{ safeT('assessment.progress', 'Assessment Progress') }}</h4>
 				<div class="flex items-center space-x-2">
 					<button
 						@click="pauseAssessment"
 						class="p-1 text-blue-600 hover:text-blue-800 transition-colors"
-						:title="t('assessment.pause')"
+						:title="safeT('assessment.pause', 'Pause')"
 					>
 						<Pause class="w-4 h-4" />
 					</button>
@@ -925,14 +975,14 @@
 						@click="goBackInAssessment"
 						:disabled="!canGoBack"
 						class="p-1 text-blue-600 hover:text-blue-800 disabled:text-gray-400 transition-colors"
-						:title="t('assessment.goBack')"
+						:title="safeT('assessment.goBack', 'Go Back')"
 					>
 						<ArrowLeft class="w-4 h-4" />
 					</button>
 					<button
 						@click="exitAssessment"
 						class="p-1 text-red-600 hover:text-red-800 transition-colors"
-						:title="t('assessment.exit')"
+						:title="safeT('assessment.exit', 'Exit')"
 					>
 						<X class="w-4 h-4" />
 					</button>
@@ -944,12 +994,12 @@
 					:style="{ width: assessmentProgress.percentage + '%' }"
 				></div>
 			</div>
-			<div class="text-xs text-blue-600 mt-1">{{ assessmentProgress.currentQuestion }} / {{ assessmentProgress.totalQuestions }}</div>
+			<div class="text-xs text-blue-600 mt-2">{{ assessmentProgress.currentQuestion }} / {{ assessmentProgress.totalQuestions }}</div>
 		</div>
 
 		<!-- Input Area -->
 		<div
-			class="bg-white border-t border-gray-200 p-3 sm:p-4 flex-shrink-0 z-50 fixed bottom-16 left-0 right-0 mx-2 sm:mx-3 lg:mx-4"
+			class="bg-white border-t border-gray-200 p-4 flex-shrink-0 z-50 fixed bottom-0 left-0 right-0"
 		>
 			<!-- Mode Toggle and Helper Buttons -->
 			<div class="flex items-center justify-between mb-3">
@@ -957,24 +1007,24 @@
 					<button
 						@click="setConversationMode('guided')"
 						:class="[
-							'px-3 py-1 text-sm rounded-full transition-all duration-200',
+							'px-3 py-2 text-sm rounded-full transition-all duration-200 font-medium',
 							conversationMode === 'guided'
 								? 'bg-blue-500 text-white'
 								: 'bg-gray-200 text-gray-700 hover:bg-gray-300'
 						]"
 					>
-						{{ t('mode.guided') }}
+						{{ safeT('mode.guided', 'Guided') }}
 					</button>
 					<button
 						@click="setConversationMode('free')"
 						:class="[
-							'px-3 py-1 text-sm rounded-full transition-all duration-200',
+							'px-3 py-2 text-sm rounded-full transition-all duration-200 font-medium',
 							conversationMode === 'free'
 								? 'bg-blue-500 text-white'
 								: 'bg-gray-200 text-gray-700 hover:bg-gray-300'
 						]"
 					>
-						{{ t('mode.free') }}
+						{{ safeT('mode.free', 'Free') }}
 					</button>
 				</div>
 
@@ -985,10 +1035,10 @@
 						:class="[
 							'p-2 rounded-lg transition-all duration-200',
 							showSupportivePrompts
-								? 'bg-blue-500 text-white'
+								? 'bg-blue-500 text-white shadow-md'
 								: 'bg-gray-200 text-gray-600 hover:bg-gray-300'
 						]"
-						:title="t('supportive.toggle')"
+						:title="safeT('supportive.toggle', 'Toggle Supportive Prompts')"
 					>
 						<Heart class="w-4 h-4" />
 					</button>
@@ -997,10 +1047,10 @@
 						:class="[
 							'p-2 rounded-lg transition-all duration-200',
 							showEmotionWheel
-								? 'bg-purple-500 text-white'
+								? 'bg-purple-500 text-white shadow-md'
 								: 'bg-gray-200 text-gray-600 hover:bg-gray-300'
 						]"
-						:title="t('emotion.toggle')"
+						:title="safeT('emotion.toggle', 'Toggle Emotion Wheel')"
 					>
 						<Smile class="w-4 h-4" />
 					</button>
@@ -1009,10 +1059,10 @@
 						:class="[
 							'p-2 rounded-lg transition-all duration-200',
 							showQuickResponses
-								? 'bg-green-500 text-white'
+								? 'bg-green-500 text-white shadow-md'
 								: 'bg-gray-200 text-gray-600 hover:bg-gray-300'
 						]"
-						:title="t('quickResponses.toggle')"
+						:title="safeT('quickResponses.toggle', 'Toggle Quick Responses')"
 					>
 						<MessageSquare class="w-4 h-4" />
 					</button>
@@ -1023,13 +1073,13 @@
 				<button
 					@click="toggleRecording"
 					:class="[
-						'flex-shrink-0 w-12 h-12 sm:w-12 sm:h-12 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm min-h-[48px] min-w-[48px]',
+						'flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200',
 						isRecording
 							? 'bg-red-500 text-white animate-pulse'
-							: 'bg-gray-100 text-gray-600 hover:bg-gray-200 active:bg-gray-300',
+							: 'bg-gray-100 text-gray-600 hover:bg-gray-200 active:scale-95',
 					]"
 				>
-					<Mic class="w-4 h-4 sm:w-5 sm:h-5" />
+					<Mic class="w-5 h-5" />
 				</button>
 
 				<!-- Text Input -->
@@ -1040,21 +1090,21 @@
 						@input="handleInputChange"
 						:placeholder="getContextualPlaceholder()"
 						rows="1"
-						class="w-full px-4 py-3 pr-16 sm:pr-20 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm sm:text-base bg-gray-50 focus:bg-white transition-colors"
-						style="max-height: 120px"
+						class="w-full px-4 py-3 pr-16 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-base bg-gray-50 focus:bg-white transition-all duration-200"
+						style="max-height: 120px; min-height: 48px;"
 					></textarea>
 
 					<!-- Real-time Feedback Indicators -->
 					<div v-if="showRealTimeFeedback && currentMessage.trim()" class="absolute right-14 sm:right-16 top-1/2 transform -translate-y-1/2">
 						<div class="flex items-center space-x-1">
 							<!-- Emotion Detection -->
-							<div v-if="detectedEmotion" class="text-lg sm:text-xl" :title="t('emotion.detected')">{{ getEmotionEmoji(detectedEmotion) }}</div>
+							<div v-if="detectedEmotion" class="text-lg sm:text-xl" :title="safeT('emotion.detected', 'Emotion detected')">{{ getEmotionEmoji(detectedEmotion) }}</div>
 							<!-- Sentiment Indicators -->
-							<div v-if="isTypingPositive" class="w-2 h-2 bg-green-400 rounded-full animate-pulse" :title="t('feedback.positive')"></div>
-							<div v-else-if="isTypingNegative" class="w-2 h-2 bg-red-400 rounded-full animate-pulse" :title="t('feedback.needsSupport')"></div>
-							<div v-else-if="currentMessage.trim()" class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" :title="t('feedback.neutral')"></div>
+							<div v-if="isTypingPositive" class="w-2 h-2 bg-green-400 rounded-full animate-pulse" :title="safeT('feedback.positive', 'Positive sentiment detected')"></div>
+							<div v-else-if="isTypingNegative" class="w-2 h-2 bg-red-400 rounded-full animate-pulse" :title="safeT('feedback.needsSupport', 'May need support')"></div>
+							<div v-else-if="currentMessage.trim()" class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" :title="safeT('feedback.neutral', 'Neutral sentiment')"></div>
 							<!-- Crisis Detection Warning -->
-							<div v-if="potentialCrisisDetected" class="w-2 h-2 bg-orange-500 rounded-full animate-pulse" :title="t('feedback.crisis')"></div>
+							<div v-if="potentialCrisisDetected" class="w-2 h-2 bg-orange-500 rounded-full animate-pulse" :title="safeT('feedback.crisis', 'Potential crisis detected')"></div>
 						</div>
 					</div>
 
@@ -1062,7 +1112,7 @@
 					<div v-if="showEmpathyValidation" class="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2">
 						<div class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs flex items-center space-x-1">
 							<Heart class="w-3 h-3" />
-							<span>{{ t('empathy.validated') }}</span>
+							<span>{{ safeT('empathy.validated', 'I understand how you feel') }}</span>
 						</div>
 					</div>
 
@@ -1081,16 +1131,16 @@
 					@click="handleSendMessage"
 					:disabled="!currentMessage.trim() || isSending"
 					:class="[
-						'flex-shrink-0 w-12 h-12 sm:w-12 sm:h-12 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm min-h-[48px] min-w-[48px]',
+						'flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200',
 						currentMessage.trim() && !isSending
-							? 'bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700'
+							? 'bg-blue-500 text-white hover:bg-blue-600 active:scale-95'
 							: 'bg-gray-100 text-gray-400 cursor-not-allowed',
 					]"
 				>
-					<Send v-if="!isSending" class="w-4 h-4 sm:w-5 sm:h-5" />
+					<Send v-if="!isSending" class="w-5 h-5" />
 					<div
 						v-else
-						class="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
+						class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
 					></div>
 				</button>
 			</div>
@@ -1284,12 +1334,40 @@ import {
 	User,
 } from "lucide-vue-next";
 
-// I18n composable
+// I18n composable with safe initialization for SSR
 const { t, locale, locales, setLocale } = useI18n();
 
-// Set layout
+// Safe translation function that completely avoids i18n during SSR
+const safeT = (key, fallback = '', options = {}) => {
+	// During SSR or if i18n is not available, always return fallback
+	if (process.server || typeof t !== 'function') {
+		return fallback;
+	}
+
+	// Client-side only: try to use i18n if available
+	try {
+		const result = safeT(key, fallback);
+		// If result is the same as key, it might mean translation is missing
+		if (result === key && fallback) {
+			return fallback;
+		}
+		return result;
+	} catch (error) {
+		console.warn(`Translation error for key "${key}":`, error);
+		return fallback;
+	}
+};
+
+// Ensure component is mounted on client side
+const isClient = ref(false);
+onMounted(() => {
+	isClient.value = true;
+});
+
+// Set layout and disable SSR for this page to avoid i18n issues
 definePageMeta({
 	layout: "app",
+	ssr: false
 });
 
 // Enhanced Ollama Chat integration with semantic search
@@ -1377,15 +1455,10 @@ const isSpeechSupported = ref(false);
 const isMobile = computed(() => windowWidth.value < 768);
 const isExtraSmall = computed(() => windowWidth.value < 480);
 const speechStatus = computed(() => {
-	try {
-		if (isListening.value) return `- ${t('status.listening')}`;
-		if (isProcessingSpeech.value) return `- ${t('status.processing')}`;
-		if (isGeneratingResponse.value) return `- ${t('status.responding')}`;
-		return `- ${t('status.ready')}`;
-	} catch (error) {
-		console.warn('Translation error in speechStatus:', error);
-		return '- Ready';
-	}
+	if (isListening.value) return `- ${safeT('status.listening', 'Listening')}`;
+	if (isProcessingSpeech.value) return `- ${safeT('status.processing', 'Processing')}`;
+	if (isGeneratingResponse.value) return `- ${safeT('status.responding', 'Responding')}`;
+	return `- ${safeT('status.ready', 'Ready')}`;
 });
 
 const privacySettings = ref({
@@ -1396,70 +1469,36 @@ const privacySettings = ref({
 
 // Quick intent buttons for first-time users
 const quickIntents = computed(() => {
-	try {
-		return [
-			{
-				id: 1,
-				emoji: "😰",
-				label: t('quickIntents.anxious.label'),
-				message: t('quickIntents.anxious.message'),
-				mode: "help",
-			},
-			{
-				id: 2,
-				emoji: "😢",
-				label: t('quickIntents.sad.label'),
-				message: t('quickIntents.sad.message'),
-				mode: "help",
-			},
-			{
-				id: 3,
-				emoji: "💡",
-				label: t('quickIntents.tips.label'),
-				message: t('quickIntents.tips.message'),
-				mode: "tips",
-			},
-			{
-				id: 4,
-				emoji: "💬",
-				label: t('quickIntents.chat.label'),
-				message: t('quickIntents.chat.message'),
-				mode: "chat",
-			},
-		];
-	} catch (error) {
-		console.warn('Translation error in quickIntents:', error);
-		return [
-			{
-				id: 1,
-				emoji: "😰",
-				label: "I'm feeling anxious...",
-				message: "I'm feeling anxious and don't know what to do. Can you help me?",
-				mode: "help",
-			},
-			{
-				id: 2,
-				emoji: "😢",
-				label: "I'm sad today",
-				message: "I'm feeling sad today and need someone to talk to.",
-				mode: "help",
-			},
-			{
-				id: 3,
-				emoji: "💡",
-				label: "Tips for stress",
-				message: "Can you give me some tips to manage stress?",
-				mode: "tips",
-			},
-			{
-				id: 4,
-				emoji: "💬",
-				label: "I want to share",
-				message: "I want to share what's on my mind today.",
-				mode: "chat",
-			},
-		];
-	}
+	return [
+		{
+			id: 1,
+			emoji: "😰",
+			label: safeT('quickIntents.anxious.label', "I'm feeling anxious..."),
+			message: safeT('quickIntents.anxious.message', "I'm feeling anxious and don't know what to do. Can you help me?"),
+			mode: "help",
+		},
+		{
+			id: 2,
+			emoji: "😢",
+			label: safeT('quickIntents.sad.label', "I'm sad today"),
+			message: safeT('quickIntents.sad.message', "I'm feeling sad today and need someone to talk to."),
+			mode: "help",
+		},
+		{
+			id: 3,
+			emoji: "💡",
+			label: safeT('quickIntents.tips.label', "Tips for stress"),
+			message: safeT('quickIntents.tips.message', "Can you give me some tips to manage stress?"),
+			mode: "tips",
+		},
+		{
+			id: 4,
+			emoji: "💬",
+			label: safeT('quickIntents.chat.label', "I want to share"),
+			message: safeT('quickIntents.chat.message', "I want to share what's on my mind today."),
+			mode: "chat",
+		},
+	];
 });
 
 // Crisis keywords for detection
@@ -1477,29 +1516,15 @@ const crisisKeywords = [
 
 // Methods
 const getModeDescription = (mode) => {
-	try {
-		switch (mode) {
-			case "help":
-				return t('modeDescriptions.help');
-			case "tips":
-				return t('modeDescriptions.tips');
-			case "chat":
-				return t('modeDescriptions.chat');
-			default:
-				return t('modeDescriptions.help');
-		}
-	} catch (error) {
-		console.warn('Translation error in getModeDescription:', error);
-		switch (mode) {
-			case "help":
-				return "Get help and support for mental health issues";
-			case "tips":
-				return "Receive daily tips to improve your mental wellbeing";
-			case "chat":
-				return "Chat freely about anything on your mind";
-			default:
-				return "Get help and support for mental health issues";
-		}
+	switch (mode) {
+		case "help":
+			return safeT('modeDescriptions.help', 'Get help and support for mental health issues');
+		case "tips":
+			return safeT('modeDescriptions.tips', 'Receive daily tips to improve your mental wellbeing');
+		case "chat":
+			return safeT('modeDescriptions.chat', 'Chat freely about anything on your mind');
+		default:
+			return safeT('modeDescriptions.help', 'Get help and support for mental health issues');
 	}
 };
 
@@ -2291,7 +2316,7 @@ const generateFallbackResponse = async (context) => {
 			method: 'POST',
 			body: {
 				message: `fallback_${context}`,
-				client_id: clientId.value,
+				client_id: sessionId.value || `fallback_${Date.now()}`,
 				session_data: {
 					preferredLanguage: locale.value,
 					mode: currentMode.value,
@@ -2304,9 +2329,13 @@ const generateFallbackResponse = async (context) => {
 	} catch (error) {
 		console.error('Fallback generation failed:', error)
 		// Ultimate fallback based on locale
-		if (locale.value === 'id') {
-			return 'Saya di sini untuk membantu Anda. Mari kita lanjutkan percakapan.'
-		} else {
+		try {
+			if (locale.value === 'id') {
+				return 'Saya di sini untuk membantu Anda. Mari kita lanjutkan percakapan.'
+			} else {
+				return 'I\'m here to help you. Let\'s continue our conversation.'
+			}
+		} catch (localeError) {
 			return 'I\'m here to help you. Let\'s continue our conversation.'
 		}
 	}
@@ -2321,7 +2350,7 @@ const submitAssessmentResponse = async (response) => {
 		// Add user's response to chat
 		addOllamaMessage({
 			id: `user_assessment_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-			text: `${t('assessment.responsePrefix', 'Response')}: ${response}`,
+			text: `${safeT('assessment.responsePrefix', 'Response')}: ${response}`,
 			sender: "user",
 			timestamp: new Date(),
 		});
@@ -2330,7 +2359,7 @@ const submitAssessmentResponse = async (response) => {
 		const loadingMessageId = `ai_loading_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 		addOllamaMessage({
 			id: loadingMessageId,
-			text: t('ui.processing', 'Processing your response...'),
+			text: safeT('ui.processing', 'Processing your response...'),
 			sender: "ai",
 			timestamp: new Date(),
 			isStreaming: true,
@@ -2350,15 +2379,15 @@ const submitAssessmentResponse = async (response) => {
 // Enhanced UI Methods
 const getContextualPlaceholder = () => {
 	if (conversationMode.value === 'guided' && isAssessmentActive.value) {
-		return t('input.assessmentPlaceholder', 'Share your thoughts about this question...');
+		return safeT('input.assessmentPlaceholder', 'Share your thoughts about this question...');
 	}
 	if (selectedEmotion.value) {
-		return t('input.emotionPlaceholder', `Tell me more about feeling ${selectedEmotion.value}...`);
+		return safeT('input.emotionPlaceholder', `Tell me more about feeling ${selectedEmotion.value}...`);
 	}
 	if (currentMode.value === 'help') {
-		return t('input.helpPlaceholder', 'How are you feeling today? I\'m here to listen...');
+		return safeT('input.helpPlaceholder', 'How are you feeling today? I\'m here to listen...');
 	}
-	return t('input.placeholder', 'Type your message here...');
+	return safeT('input.placeholder', 'Type your message here...');
 };
 
 const handleInputChange = (event) => {
@@ -2405,9 +2434,9 @@ const selectEmotion = (emotion) => {
 };
 
 const selectQuickResponse = (response) => {
-	currentMessage.value = response;
+	currentMessage.value = response.text;
 	showQuickResponses.value = false;
-	sendMessage();
+	handleSendMessage();
 };
 
 const toggleConversationMode = () => {
@@ -2450,78 +2479,89 @@ const saveProgress = () => {
 	};
 
 	localStorage.setItem('chatbot_progress', JSON.stringify(progressData));
-	alert(t('progress.saved', 'Progress saved successfully!'));
+	alert(safeT('progress.saved', 'Progress saved successfully!'));
 };
 
 const exitConversation = () => {
-	if (confirm(t('exit.confirm', 'Are you sure you want to exit? Your progress will be saved.'))) {
+	if (confirm(safeT('exit.confirm', 'Are you sure you want to exit? Your progress will be saved.'))) {
 		saveProgress();
 		// Navigate to home or previous page
-		navigateToHome();
+		window.location.href = '/';
 	}
 };
 
 const navigateToHome = () => {
 	// Navigate to home page
-	navigateToHome('/');
+	window.location.href = '/';
 };
 
 // Enhanced Computed Properties
 const supportivePrompts = computed(() => {
 	if (currentMode.value === 'help') {
 		return [
-			t('prompts.feelings', 'How are you feeling right now?'),
-			t('prompts.today', 'What happened today that brought you here?'),
-			t('prompts.support', 'What kind of support do you need most?')
+			{ id: 1, emoji: '💭', text: safeT('prompts.feelings', 'How are you feeling right now?') },
+			{ id: 2, emoji: '📅', text: safeT('prompts.today', 'What happened today that brought you here?') },
+			{ id: 3, emoji: '🤝', text: safeT('prompts.support', 'What kind of support do you need most?') }
 		];
 	}
 	return [
-		t('prompts.general1', 'Tell me more about that...'),
-		t('prompts.general2', 'How does that make you feel?'),
-		t('prompts.general3', 'What would help you right now?')
+		{ id: 1, emoji: '💬', text: safeT('prompts.general1', 'Tell me more about that...') },
+		{ id: 2, emoji: '💭', text: safeT('prompts.general2', 'How does that make you feel?') },
+		{ id: 3, emoji: '💡', text: safeT('prompts.general3', 'What would help you right now?') }
 	];
 });
 
 const emotionOptions = computed(() => [
-	{ name: 'happy', emoji: '😊', color: 'text-yellow-500' },
-	{ name: 'sad', emoji: '😢', color: 'text-blue-500' },
-	{ name: 'angry', emoji: '😠', color: 'text-red-500' },
-	{ name: 'anxious', emoji: '😰', color: 'text-purple-500' },
-	{ name: 'calm', emoji: '😌', color: 'text-green-500' },
-	{ name: 'confused', emoji: '😕', color: 'text-gray-500' },
-	{ name: 'excited', emoji: '🤗', color: 'text-orange-500' },
-	{ name: 'tired', emoji: '😴', color: 'text-indigo-500' }
+	{ id: 'happy', emoji: '😊', label: safeT('emotions.happy', 'Happy'), color: 'text-yellow-500' },
+	{ id: 'sad', emoji: '😢', label: safeT('emotions.sad', 'Sad'), color: 'text-blue-500' },
+	{ id: 'angry', emoji: '😠', label: safeT('emotions.angry', 'Angry'), color: 'text-red-500' },
+	{ id: 'anxious', emoji: '😰', label: safeT('emotions.anxious', 'Anxious'), color: 'text-purple-500' },
+	{ id: 'calm', emoji: '😌', label: safeT('emotions.calm', 'Calm'), color: 'text-green-500' },
+	{ id: 'confused', emoji: '😕', label: safeT('emotions.confused', 'Confused'), color: 'text-gray-500' },
+	{ id: 'excited', emoji: '🤗', label: safeT('emotions.excited', 'Excited'), color: 'text-orange-500' },
+	{ id: 'tired', emoji: '😴', label: safeT('emotions.tired', 'Tired'), color: 'text-indigo-500' }
 ]);
 
 const quickResponseOptions = computed(() => {
-	if (!selectedEmotion.value) return [];
+	// Default responses that are always available
+	const defaultResponses = [
+		{ id: 'default1', text: safeT('responses.default1', 'I need someone to talk to') },
+		{ id: 'default2', text: safeT('responses.default2', 'Can you help me?') },
+		{ id: 'default3', text: safeT('responses.default3', 'I\'m not sure what to say') }
+	];
 
-	const responses = {
-		happy: [
-			t('responses.happy1', 'I\'m feeling really good today!'),
-			t('responses.happy2', 'Something wonderful happened.'),
-			t('responses.happy3', 'I want to share my joy.')
-		],
-		sad: [
-			t('responses.sad1', 'I\'ve been feeling down lately.'),
-			t('responses.sad2', 'Everything seems overwhelming.'),
-			t('responses.sad3', 'I need someone to talk to.')
-		],
-		anxious: [
-			t('responses.anxious1', 'I can\'t stop worrying about things.'),
-			t('responses.anxious2', 'My mind is racing with thoughts.'),
-			t('responses.anxious3', 'I feel like something bad will happen.')
-		]
-	};
+	// If an emotion is selected, show emotion-specific responses
+	if (selectedEmotion.value) {
+		const emotionResponses = {
+			happy: [
+				{ id: 'happy1', text: safeT('responses.happy1', 'I\'m feeling really good today!') },
+				{ id: 'happy2', text: safeT('responses.happy2', 'Something wonderful happened.') },
+				{ id: 'happy3', text: safeT('responses.happy3', 'I want to share my joy.') }
+			],
+			sad: [
+				{ id: 'sad1', text: safeT('responses.sad1', 'I\'ve been feeling down lately.') },
+				{ id: 'sad2', text: safeT('responses.sad2', 'Everything seems overwhelming.') },
+				{ id: 'sad3', text: safeT('responses.sad3', 'I need someone to talk to.') }
+			],
+			anxious: [
+				{ id: 'anxious1', text: safeT('responses.anxious1', 'I can\'t stop worrying about things.') },
+				{ id: 'anxious2', text: safeT('responses.anxious2', 'My mind is racing with thoughts.') },
+				{ id: 'anxious3', text: safeT('responses.anxious3', 'I feel like something bad will happen.') }
+			]
+		};
 
-	return responses[selectedEmotion.value] || [];
+		return emotionResponses[selectedEmotion.value] || defaultResponses;
+	}
+
+	// Always return default responses if no emotion is selected
+	return defaultResponses;
 });
 
 // Additional Enhanced Methods
 const selectSupportivePrompt = (prompt) => {
 	currentMessage.value = prompt.text;
 	showSupportivePrompts.value = false;
-	sendMessage();
+	handleSendMessage();
 };
 
 const toggleSupportivePrompts = () => {
@@ -2540,6 +2580,62 @@ const toggleQuickResponses = () => {
 	}
 };
 
+const closeAllPanels = () => {
+	showSupportivePrompts.value = false;
+	showEmotionWheel.value = false;
+	showQuickResponses.value = false;
+};
+
+// Panel scroll is now handled purely via CSS
+
+// Detect if a question asks for a range response (1-10, 1-5, etc.)
+const isRangeQuestion = (question) => {
+	if (!question || !question.question_text) return false;
+
+	const text = question.question_text.toLowerCase();
+
+	// Check for common range patterns
+	const rangePatterns = [
+		/\b1\s*[-–—]\s*10\b/,           // 1-10, 1–10, 1—10
+		/\b1\s*[-–—]\s*\d+\b/,         // 1-n (any number)
+		/\bskala\s+1\s*[-–—]\s*\d+\b/, // skala 1-n (Indonesian)
+		/\bscale\s+1\s*[-–—]\s*\d+\b/, // scale 1-n (English)
+		/\b(?:dari|from)\s+1\s+(?:sampai|hingga|to)\s+\d+\b/, // dari 1 sampai n
+		/\b(?:rate|nilai|beri nilai|berikan nilai)\b.*\b1\s*[-–—]\s*\d+\b/, // rate/nilai 1-n
+		/\b(?:pilih|choose|select)\b.*\b1\s*[-–—]\s*\d+\b/, // pilih 1-n
+	];
+
+	return rangePatterns.some(pattern => pattern.test(text));
+};
+
+// Determine if we should show the 1-10 scale (default for most assessment questions)
+const shouldShowScale = (question) => {
+	if (!question) return false;
+
+	// Always show scale if explicitly marked as scale
+	if (question.response_type === 'scale') return true;
+
+	// Show scale if it's a detected range question
+	if (isRangeQuestion(question)) return true;
+
+	// For assessment questions, default to scale unless explicitly marked as text-only
+	// Check for text-only indicators
+	const textOnlyPatterns = [
+		/\b(?:explain|jelaskan|describe|ceritakan|tulis|write|uraikan)\b/i,
+		/\b(?:mengapa|why|bagaimana|how)\b/i,
+		/\b(?:pendapat|opinion|pikiran|thoughts)\b/i,
+		/response_type.*text/i
+	];
+
+	const text = question.question_text || '';
+	const isTextOnly = textOnlyPatterns.some(pattern => pattern.test(text)) ||
+					   question.response_type === 'text_only' ||
+					   question.response_type === 'open_text';
+
+	// Default to scale for assessment questions unless explicitly text-only
+	return !isTextOnly;
+};
+
 const setConversationMode = (mode) => {
 	conversationMode.value = mode;
 	if (mode === 'free' && isAssessmentActive.value) {
@@ -2554,7 +2650,7 @@ const goBackInAssessment = () => {
 };
 
 const exitAssessment = () => {
-	if (confirm(t('assessment.exitConfirm', 'Are you sure you want to exit the assessment?'))) {
+	if (confirm(safeT('assessment.exitConfirm', 'Are you sure you want to exit the assessment?'))) {
 		saveProgress();
 		// Reset assessment state
 		assessmentPaused.value = false;
@@ -2579,6 +2675,9 @@ const assessmentProgress = computed(() => {
 const canGoBack = computed(() => {
 	return canNavigateBack.value && ollamaMessages.value.length > 1;
 });
+
+
+
 
 onMounted(() => {
 	// Focus on input when component mounts
@@ -2620,7 +2719,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Custom scrollbar */
+/* Custom scrollbar - not available in Tailwind */
 ::-webkit-scrollbar {
 	width: 4px;
 }
@@ -2634,90 +2733,115 @@ onMounted(() => {
 	border-radius: 2px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-	background: #a1a1a1;
+/* Panel-specific scrollbar styling */
+.unified-panel .overflow-y-auto::-webkit-scrollbar {
+	width: 6px;
 }
 
-/* Smooth animations */
-.animate-bounce {
-	animation: bounce 1.4s infinite;
+.unified-panel .overflow-y-auto::-webkit-scrollbar-track {
+	background: #f8fafc;
+	border-radius: 3px;
 }
 
-@keyframes bounce {
-	0%,
-	80%,
-	100% {
-		transform: translateY(0);
+.unified-panel .overflow-y-auto::-webkit-scrollbar-thumb {
+	background: #cbd5e1;
+	border-radius: 3px;
+}
+
+.unified-panel .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+	background: #94a3b8;
+}
+
+/* Prevent scroll chaining */
+.unified-panel {
+	overscroll-behavior: contain;
+	position: fixed;
+	z-index: 50;
+	isolation: isolate;
+	/* Prevent the panel itself from scrolling */
+	overflow: hidden;
+}
+
+/* Enhanced mobile scrolling - consolidated rule */
+.unified-panel .overflow-y-auto {
+	-webkit-overflow-scrolling: touch;
+	scroll-behavior: smooth;
+	overscroll-behavior: contain;
+	scrollbar-width: thin;
+	scrollbar-color: #cbd5e1 #f8fafc;
+	position: relative;
+	z-index: 1;
+}
+
+/* Scroll container specific styling */
+.scroll-container {
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: thin;
+	scrollbar-color: #cbd5e1 #f8fafc;
+}
+
+/* Firefox scrollbar styling */
+.scroll-container::-webkit-scrollbar {
+	width: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+	background: #f8fafc;
+	border-radius: 3px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+	background: #cbd5e1;
+	border-radius: 3px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+	background: #94a3b8;
+}
+
+/* Ensure content doesn't get cut off on small screens */
+@media (max-height: 600px) {
+	.unified-panel {
+		max-height: 80vh !important;
 	}
-	40% {
-		transform: translateY(-0.25rem);
+}
+
+/* Desktop optimizations */
+@media (min-width: 1024px) {
+	.unified-panel {
+		/* Better positioning for desktop */
+		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 	}
 }
 
-/* Mobile-specific optimizations */
+/* Mobile touch optimizations */
+@media (hover: none) and (pointer: coarse) {
+	.scroll-container {
+		/* Enhanced touch scrolling for mobile */
+		-webkit-overflow-scrolling: touch;
+		scroll-snap-type: y proximity;
+		/* Larger touch targets on mobile */
+		padding: 1rem;
+	}
+
+	.unified-panel {
+		/* Better mobile positioning */
+		max-height: 70vh;
+	}
+}
+
+/* iOS zoom prevention - not available in Tailwind */
 @media (max-width: 768px) {
-	/* Prevent zoom on iOS input focus */
-	textarea {
-		font-size: 16px;
+	textarea, input, select {
+		font-size: 16px !important;
 	}
+}
 
-	/* Touch feedback for buttons */
-	button:active {
-		transform: scale(0.98);
-	}
-
-	/* Smooth scrolling */
+/* Touch device optimizations - not available in Tailwind */
+@media (hover: none) and (pointer: coarse) {
 	.overflow-y-auto {
 		-webkit-overflow-scrolling: touch;
-		scroll-behavior: smooth;
-	}
-}
-
-/* Ensure proper text wrapping */
-.break-words {
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-}
-
-/* Ensure navbar visibility */
-@media (max-width: 768px) {
-	/* Account for navbar height (typically 64px) */
-	.bottom-16 {
-		bottom: 4rem; /* 64px */
-	}
-
-	/* Additional space for navbar */
-	.pb-32 {
-		padding-bottom: 8rem; /* 128px for input + navbar */
-	}
-}
-
-@media (min-width: 769px) {
-	/* Desktop navbar height adjustment */
-	.bottom-16 {
-		bottom: 4rem;
-	}
-
-	.pb-36 {
-		padding-bottom: 9rem; /* 144px for input + navbar */
-	}
-}
-
-/* Mobile-specific animations */
-@media (max-width: 768px) {
-	.animate-bounce {
-		animation: mobile-bounce 1.2s infinite;
-	}
-}
-
-@keyframes mobile-bounce {
-	0%,
-	80%,
-	100% {
-		transform: translateY(0);
-	}
-	40% {
-		transform: translateY(-0.2rem);
 	}
 }
 </style>

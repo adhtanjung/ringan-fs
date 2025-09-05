@@ -19,6 +19,7 @@ from app.core.auth import verify_token
 from app.services.vector_service import vector_service
 from app.services.embedding_service import embedding_service
 from app.services.semantic_search_service import semantic_search_service
+from app.services.dataset_management_service import dataset_management_service
 
 # Load environment variables
 load_dotenv()
@@ -56,6 +57,13 @@ async def lifespan(app: FastAPI):
         print("✅ Semantic search service initialized")
     except Exception as e:
         print(f"⚠️  Semantic search service initialization failed: {e}")
+
+    # Initialize dataset management service
+    try:
+        await dataset_management_service.initialize()
+        print("✅ Dataset management service initialized")
+    except Exception as e:
+        print(f"⚠️  Dataset management service initialization failed: {e}")
 
     print("✅ Backend ready!")
 

@@ -17,7 +17,7 @@ from app.models.vector_models import (
 from app.services.vector_service import vector_service
 from app.services.embedding_service import embedding_service
 from app.services.semantic_search_service import semantic_search_service
-from app.core.auth import get_current_user_optional
+from app.core.auth import get_current_user_optional, get_current_user
 
 logger = logging.getLogger(__name__)
 
@@ -237,18 +237,68 @@ async def multi_collection_search(
 
 
 @router.get("/collections/stats")
-async def get_collection_stats():
+async def get_collection_stats(
+    current_user: Optional[Dict] = Depends(get_current_user_optional)
+):
     """Get statistics for all collections"""
     try:
         await vector_service.connect()
-        return await semantic_search_service.get_collection_stats()
+        # Use vector_service.get_collection_stats() directly which handles config properly
+        stats_data = await vector_service.get_collection_stats()
+        
+        # Transform the data to match frontend expectations
+        collections = []
+        for collection_name, stats in stats_data.items():
+            if "error" not in stats:
+                collection_data = {
+                    "name": collection_name,
+                    "status": stats.get("status", "unknown"),
+                    "points_count": stats.get("points_count", 0),
+                    "segments_count": stats.get("segments_count", 0),
+                    "vectors_count": stats.get("vectors_count", 0),
+                    "vector_size": stats.get("config", {}).get("vector_size", 384),
+                    "distance": stats.get("config", {}).get("distance", "cosine")
+                }
+                
+                # Add the full config if available
+                if "config" in stats:
+                    collection_data["config"] = {
+                        "params": {
+                            "vectors": {
+                                "size": stats["config"]["vector_size"],
+                                "distance": stats["config"]["distance"]
+                            }
+                        }
+                    }
+                
+                collections.append(collection_data)
+            else:
+                # Include error collections for debugging
+                collections.append({
+                    "name": collection_name,
+                    "status": "error",
+                    "error": stats["error"],
+                    "points_count": 0,
+                    "segments_count": 0,
+                    "vector_size": 0,
+                    "distance": "unknown"
+                })
+        
+        return {
+            "collections": collections,
+            "total_collections": len(collections),
+            "healthy_collections": len([c for c in collections if c["status"] != "error"])
+        }
+        
     except Exception as e:
         logger.error(f"Failed to get collection stats: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/health")
-async def vector_health_check():
+async def vector_health_check(
+    current_user: Optional[Dict] = Depends(get_current_user_optional)
+):
     """Check vector database and embedding service health"""
     try:
         # Check vector service
@@ -271,41 +321,67 @@ async def vector_health_check():
 
 
 @router.post("/collections/create")
-async def create_collections():
+async def create_collections(
+    current_user: Dict = Depends(get_current_user)
+):
     """Create all required collections"""
     try:
         await vector_service.connect()
         success = await vector_service.create_collections()
 
         if success:
-            return {"message": "Collections created successfully"}
+            return {
+                "success": True,
+                "message": "Collections created successfully"
+            }
         else:
-            raise HTTPException(status_code=500, detail="Failed to create collections")
+            return {
+                "success": False,
+                "error": "Failed to create collections"
+            }
 
     except Exception as e:
         logger.error(f"Failed to create collections: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
+        return {
+            "success": False,
+            "error": str(e)
+        }
 
 
 @router.delete("/collections/{collection_name}")
-async def delete_collection(collection_name: str):
+async def delete_collection(
+    collection_name: str,
+    current_user: Dict = Depends(get_current_user)
+):
     """Delete a specific collection"""
     try:
         await vector_service.connect()
         success = await vector_service.delete_collection(collection_name)
 
         if success:
-            return {"message": f"Collection '{collection_name}' deleted successfully"}
+            return {
+                "success": True,
+                "message": f"Collection '{collection_name}' deleted successfully"
+            }
         else:
-            raise HTTPException(status_code=500, detail="Failed to delete collection")
+            return {
+                "success": False,
+                "error": "Failed to delete collection"
+            }
 
     except Exception as e:
         logger.error(f"Failed to delete collection: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
+        return {
+            "success": False,
+            "error": str(e)
+        }
 
 
 @router.get("/collections/{collection_name}/info")
-async def get_collection_info(collection_name: str):
+async def get_collection_info(
+    collection_name: str,
+    current_user: Optional[Dict] = Depends(get_current_user_optional)
+):
     """Get information about a specific collection"""
     try:
         await vector_service.connect()

@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-09-03T01:17:41.772075",
+  "report_scope": "sample_dataset",
+  "summary": {
+    "total_assessments": 1,
+    "active_alerts": 2,
+    "datasets_monitored": 1
+  },
+  "recent_assessments": [
+    {
+      "dataset_name": "sample_dataset",
+      "timestamp": "2025-09-03T01:17:41.760055",
+      "overall_score": 0.8048076923076923,
+      "quality_level": "good",
+      "record_count": 6,
+      "field_count": 5
+    }
+  ],
+  "active_alerts": [
+    {
+      "alert_id": "timeliness_sample_dataset_1756837061",
+      "timestamp": "2025-09-03T01:17:41.767075",
+      "severity": "error",
+      "dimension": "timeliness",
+      "dataset_name": "sample_dataset",
+      "message": "timeliness quality below threshold: 0.000",
+      "current_score": 0.0,
+      "threshold": 0.7
+    },
+    {
+      "alert_id": "validity_sample_dataset_1756837061",
+      "timestamp": "2025-09-03T01:17:41.763566",
+      "severity": "warning",
+      "dimension": "validity",
+      "dataset_name": "sample_dataset",
+      "message": "validity quality below threshold: 0.667",
+      "current_score": 0.6666666666666666,
+      "threshold": 0.75
+    }
+  ],
+  "quality_trends": []
+}

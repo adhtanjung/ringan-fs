@@ -1,0 +1,1746 @@
+{
+  "audit_timestamp": "2025-09-03T01:20:42.220637",
+  "files_analyzed": [
+    "anxiety.xlsx",
+    "stress.xlsx",
+    "trauma.xlsx",
+    "mentalhealthdata.xlsx"
+  ],
+  "summary_statistics": {
+    "total_files_analyzed": 4,
+    "total_sheets_analyzed": 28,
+    "total_data_rows": 2990,
+    "average_quality_score": 0.667,
+    "min_quality_score": 0.0,
+    "max_quality_score": 1.0
+  },
+  "quality_issues": [],
+  "recommendations": [
+    "Overall data quality is low (0.67). Implement comprehensive data cleaning.",
+    "High null value percentages in: anxiety.xlsx:1.1 Problems, anxiety.xlsx:1.6 FineTuning Examples, stress.xlsx:1.4 Feedback Prompts. Implement null handling strategies.",
+    "Duplicate data issues in: anxiety.xlsx:1.1 Problems, anxiety.xlsx:1.2 Self Assessment, anxiety.xlsx:1.6 FineTuning Examples. Implement deduplication logic.",
+    "Implement ID format standardization (e.g., STR_04_08 pattern)",
+    "Ensure UTF-8 encoding consistency for Indonesian text",
+    "Create validation schemas for each sheet type",
+    "Implement data quality monitoring for ongoing maintenance"
+  ],
+  "anxiety.xlsx": {
+    "file_name": "anxiety.xlsx",
+    "file_size_mb": 0.11252689361572266,
+    "sheets_found": [
+      "1.1 Problems",
+      "1.2 Self Assessment",
+      "1.3 Suggestions",
+      "1.4 Feedback Prompts",
+      "1.5 Next Action After Feedback",
+      "1.6 FineTuning Examples",
+      "Clusters"
+    ],
+    "sheets_missing": [],
+    "sheet_analysis": {
+      "1.1 Problems": {
+        "sheet_name": "1.1 Problems",
+        "domain": "anxiety",
+        "row_count": 10,
+        "column_count": 5,
+        "columns": [
+          "category",
+          "category_id",
+          "sub_category_id",
+          "problem_name",
+          "description"
+        ],
+        "data_types": {
+          "category": "object",
+          "category_id": "object",
+          "sub_category_id": "object",
+          "problem_name": "object",
+          "description": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 15,
+          "null_percentage_overall": 30.0,
+          "columns_with_nulls": {
+            "category": 9,
+            "sub_category_id": 2,
+            "problem_name": 2,
+            "description": 2
+          },
+          "null_percentages_by_column": {
+            "category": 90.0,
+            "sub_category_id": 20.0,
+            "problem_name": 20.0,
+            "description": 20.0
+          },
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 1,
+          "duplicate_percentage": 10.0,
+          "duplicate_ids": {
+            "category_id": 10
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.85,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "category_id": {
+            "unique_count": 1,
+            "total_count": 10,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "sub_category_id": {
+            "unique_count": 8,
+            "total_count": 8,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.2 Self Assessment": {
+        "sheet_name": "1.2 Self Assessment",
+        "domain": "anxiety",
+        "row_count": 263,
+        "column_count": 7,
+        "columns": [
+          "question_id",
+          "sub_category_id",
+          "batch_id",
+          "question_text",
+          "response_type",
+          "response_type.1",
+          "response_type.2"
+        ],
+        "data_types": {
+          "question_id": "object",
+          "sub_category_id": "object",
+          "batch_id": "object",
+          "question_text": "object",
+          "response_type": "object",
+          "response_type.1": "object",
+          "response_type.2": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 163,
+          "null_percentage_overall": 8.85,
+          "columns_with_nulls": {
+            "question_id": 23,
+            "sub_category_id": 23,
+            "batch_id": 23,
+            "question_text": 23,
+            "response_type": 23,
+            "response_type.1": 23,
+            "response_type.2": 25
+          },
+          "null_percentages_by_column": {
+            "question_id": 8.75,
+            "sub_category_id": 8.75,
+            "batch_id": 8.75,
+            "question_text": 8.75,
+            "response_type": 8.75,
+            "response_type.1": 8.75,
+            "response_type.2": 9.51
+          },
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 22,
+          "duplicate_percentage": 8.37,
+          "duplicate_ids": {
+            "question_id": 56,
+            "sub_category_id": 238,
+            "batch_id": 238
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.93949,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "question_id": {
+            "unique_count": 212,
+            "total_count": 240,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "sub_category_id": {
+            "unique_count": 10,
+            "total_count": 240,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "batch_id": {
+            "unique_count": 26,
+            "total_count": 240,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.3 Suggestions": {
+        "sheet_name": "1.3 Suggestions",
+        "domain": "anxiety",
+        "row_count": 104,
+        "column_count": 5,
+        "columns": [
+          "suggestion_id",
+          "sub_category_id",
+          "cluster",
+          "suggestion_text",
+          "resource_link"
+        ],
+        "data_types": {
+          "suggestion_id": "object",
+          "sub_category_id": "object",
+          "cluster": "object",
+          "suggestion_text": "object",
+          "resource_link": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 0,
+          "null_percentage_overall": 0.0,
+          "columns_with_nulls": {},
+          "null_percentages_by_column": {},
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {
+            "sub_category_id": 104
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 1.0,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "suggestion_id": {
+            "unique_count": 104,
+            "total_count": 104,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "sub_category_id": {
+            "unique_count": 8,
+            "total_count": 104,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.4 Feedback Prompts": {
+        "sheet_name": "1.4 Feedback Prompts",
+        "domain": "anxiety",
+        "row_count": 0,
+        "column_count": 4,
+        "columns": [
+          "prompt_id",
+          "stage",
+          "prompt_text",
+          "next_action"
+        ],
+        "data_types": {
+          "prompt_id": "object",
+          "stage": "object",
+          "prompt_text": "object",
+          "next_action": "object"
+        },
+        "null_analysis": {},
+        "duplicate_analysis": {},
+        "data_quality_issues": [
+          "Empty sheet"
+        ],
+        "quality_score": 0.0
+      },
+      "1.5 Next Action After Feedback": {
+        "sheet_name": "1.5 Next Action After Feedback",
+        "domain": "anxiety",
+        "row_count": 8,
+        "column_count": 3,
+        "columns": [
+          "action_id",
+          "label",
+          "description"
+        ],
+        "data_types": {
+          "action_id": "object",
+          "label": "object",
+          "description": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 0,
+          "null_percentage_overall": 0.0,
+          "columns_with_nulls": {},
+          "null_percentages_by_column": {},
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {}
+        },
+        "data_quality_issues": [],
+        "quality_score": 1.0,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "action_id": {
+            "unique_count": 8,
+            "total_count": 8,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.6 FineTuning Examples": {
+        "sheet_name": "1.6 FineTuning Examples",
+        "domain": "anxiety",
+        "row_count": 28,
+        "column_count": 9,
+        "columns": [
+          "id",
+          "problem",
+          "ConversationID",
+          "prompt",
+          "completion",
+          "Unnamed: 5",
+          "Unnamed: 6",
+          "Unnamed: 7",
+          "Unnamed: 8"
+        ],
+        "data_types": {
+          "id": "float64",
+          "problem": "float64",
+          "ConversationID": "float64",
+          "prompt": "float64",
+          "completion": "float64",
+          "Unnamed: 5": "float64",
+          "Unnamed: 6": "float64",
+          "Unnamed: 7": "float64",
+          "Unnamed: 8": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 251,
+          "null_percentage_overall": 99.6,
+          "columns_with_nulls": {
+            "id": 28,
+            "problem": 28,
+            "ConversationID": 28,
+            "prompt": 28,
+            "completion": 28,
+            "Unnamed: 5": 28,
+            "Unnamed: 6": 28,
+            "Unnamed: 7": 28,
+            "Unnamed: 8": 27
+          },
+          "null_percentages_by_column": {
+            "id": 100.0,
+            "problem": 100.0,
+            "ConversationID": 100.0,
+            "prompt": 100.0,
+            "completion": 100.0,
+            "Unnamed: 5": 100.0,
+            "Unnamed: 6": 100.0,
+            "Unnamed: 7": 100.0,
+            "Unnamed: 8": 96.43
+          },
+          "completely_empty_columns": [
+            "id",
+            "problem",
+            "ConversationID",
+            "prompt",
+            "completion",
+            "Unnamed: 5",
+            "Unnamed: 6",
+            "Unnamed: 7"
+          ]
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 26,
+          "duplicate_percentage": 92.86,
+          "duplicate_ids": {}
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.3230199999999999,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "id": {
+            "unique_count": 0,
+            "total_count": 0,
+            "patterns_found": [],
+            "pattern_consistency": false
+          },
+          "ConversationID": {
+            "unique_count": 0,
+            "total_count": 0,
+            "patterns_found": [],
+            "pattern_consistency": false
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "Clusters": {
+        "sheet_name": "Clusters",
+        "domain": "anxiety",
+        "row_count": 0,
+        "column_count": 0,
+        "columns": [],
+        "data_types": {},
+        "null_analysis": {},
+        "duplicate_analysis": {},
+        "data_quality_issues": [
+          "Empty sheet"
+        ],
+        "quality_score": 0.0
+      }
+    },
+    "overall_quality_score": 0.5875014285714285
+  },
+  "stress.xlsx": {
+    "file_name": "stress.xlsx",
+    "file_size_mb": 0.11727714538574219,
+    "sheets_found": [
+      "1.1 Problems",
+      "1.2 Self Assessment",
+      "1.3 Suggestions",
+      "1.4 Feedback Prompts",
+      "1.5 Next Action After Feedback",
+      "1.6 FineTuning Examples",
+      "Clusters"
+    ],
+    "sheets_missing": [],
+    "sheet_analysis": {
+      "1.1 Problems": {
+        "sheet_name": "1.1 Problems",
+        "domain": "stress",
+        "row_count": 7,
+        "column_count": 5,
+        "columns": [
+          "category",
+          "category_id",
+          "sub_category_id",
+          "problem_name",
+          "description"
+        ],
+        "data_types": {
+          "category": "object",
+          "category_id": "object",
+          "sub_category_id": "object",
+          "problem_name": "object",
+          "description": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 0,
+          "null_percentage_overall": 0.0,
+          "columns_with_nulls": {},
+          "null_percentages_by_column": {},
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {
+            "category_id": 7
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 1.0,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "category_id": {
+            "unique_count": 1,
+            "total_count": 7,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "sub_category_id": {
+            "unique_count": 7,
+            "total_count": 7,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.2 Self Assessment": {
+        "sheet_name": "1.2 Self Assessment",
+        "domain": "stress",
+        "row_count": 168,
+        "column_count": 7,
+        "columns": [
+          "question_id",
+          "sub_category_id",
+          "batch_id",
+          "question_text",
+          "response_type",
+          "next_step",
+          "clusters"
+        ],
+        "data_types": {
+          "question_id": "object",
+          "sub_category_id": "object",
+          "batch_id": "object",
+          "question_text": "object",
+          "response_type": "object",
+          "next_step": "object",
+          "clusters": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 0,
+          "null_percentage_overall": 0.0,
+          "columns_with_nulls": {},
+          "null_percentages_by_column": {},
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {
+            "sub_category_id": 168,
+            "batch_id": 168
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 1.0,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "question_id": {
+            "unique_count": 168,
+            "total_count": 168,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "sub_category_id": {
+            "unique_count": 7,
+            "total_count": 168,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "batch_id": {
+            "unique_count": 21,
+            "total_count": 168,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.3 Suggestions": {
+        "sheet_name": "1.3 Suggestions",
+        "domain": "stress",
+        "row_count": 139,
+        "column_count": 6,
+        "columns": [
+          "suggestion_id",
+          "sub_category_id",
+          "cluster",
+          "suggestion_text",
+          "resource_link",
+          "Unnamed: 5"
+        ],
+        "data_types": {
+          "suggestion_id": "object",
+          "sub_category_id": "object",
+          "cluster": "object",
+          "suggestion_text": "object",
+          "resource_link": "object",
+          "Unnamed: 5": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 135,
+          "null_percentage_overall": 16.19,
+          "columns_with_nulls": {
+            "Unnamed: 5": 135
+          },
+          "null_percentages_by_column": {
+            "Unnamed: 5": 97.12
+          },
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {
+            "sub_category_id": 139
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.93524,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "suggestion_id": {
+            "unique_count": 139,
+            "total_count": 139,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "sub_category_id": {
+            "unique_count": 7,
+            "total_count": 139,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.4 Feedback Prompts": {
+        "sheet_name": "1.4 Feedback Prompts",
+        "domain": "stress",
+        "row_count": 47,
+        "column_count": 4,
+        "columns": [
+          "prompt_id",
+          "stage",
+          "prompt_text",
+          "next_action"
+        ],
+        "data_types": {
+          "prompt_id": "object",
+          "stage": "object",
+          "prompt_text": "object",
+          "next_action": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 103,
+          "null_percentage_overall": 54.79,
+          "columns_with_nulls": {
+            "prompt_id": 44,
+            "stage": 39,
+            "prompt_text": 3,
+            "next_action": 17
+          },
+          "null_percentages_by_column": {
+            "prompt_id": 93.62,
+            "stage": 82.98,
+            "prompt_text": 6.38,
+            "next_action": 36.17
+          },
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 2,
+          "duplicate_percentage": 4.26,
+          "duplicate_ids": {
+            "prompt_id": 2
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.76806,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "prompt_id": {
+            "unique_count": 2,
+            "total_count": 3,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.5 Next Action After Feedback": {
+        "sheet_name": "1.5 Next Action After Feedback",
+        "domain": "stress",
+        "row_count": 8,
+        "column_count": 3,
+        "columns": [
+          "action_id",
+          "label",
+          "description"
+        ],
+        "data_types": {
+          "action_id": "object",
+          "label": "object",
+          "description": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 0,
+          "null_percentage_overall": 0.0,
+          "columns_with_nulls": {},
+          "null_percentages_by_column": {},
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {}
+        },
+        "data_quality_issues": [],
+        "quality_score": 1.0,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "action_id": {
+            "unique_count": 8,
+            "total_count": 8,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.6 FineTuning Examples": {
+        "sheet_name": "1.6 FineTuning Examples",
+        "domain": "stress",
+        "row_count": 778,
+        "column_count": 9,
+        "columns": [
+          "id",
+          "problem",
+          "ConversationID",
+          "prompt",
+          "completion",
+          "Unnamed: 5",
+          "Unnamed: 6",
+          "Unnamed: 7",
+          "Unnamed: 8"
+        ],
+        "data_types": {
+          "id": "float64",
+          "problem": "object",
+          "ConversationID": "float64",
+          "prompt": "object",
+          "completion": "object",
+          "Unnamed: 5": "float64",
+          "Unnamed: 6": "float64",
+          "Unnamed: 7": "float64",
+          "Unnamed: 8": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 5488,
+          "null_percentage_overall": 78.38,
+          "columns_with_nulls": {
+            "id": 764,
+            "problem": 651,
+            "ConversationID": 651,
+            "prompt": 176,
+            "completion": 135,
+            "Unnamed: 5": 778,
+            "Unnamed: 6": 778,
+            "Unnamed: 7": 778,
+            "Unnamed: 8": 777
+          },
+          "null_percentages_by_column": {
+            "id": 98.2,
+            "problem": 83.68,
+            "ConversationID": 83.68,
+            "prompt": 22.62,
+            "completion": 17.35,
+            "Unnamed: 5": 100.0,
+            "Unnamed: 6": 100.0,
+            "Unnamed: 7": 100.0,
+            "Unnamed: 8": 99.87
+          },
+          "completely_empty_columns": [
+            "Unnamed: 5",
+            "Unnamed: 6",
+            "Unnamed: 7"
+          ]
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 141,
+          "duplicate_percentage": 18.12,
+          "duplicate_ids": {}
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.63212,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "id": {
+            "unique_count": 14,
+            "total_count": 14,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "ConversationID": {
+            "unique_count": 127,
+            "total_count": 127,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "Clusters": {
+        "sheet_name": "Clusters",
+        "domain": "stress",
+        "row_count": 0,
+        "column_count": 0,
+        "columns": [],
+        "data_types": {},
+        "null_analysis": {},
+        "duplicate_analysis": {},
+        "data_quality_issues": [
+          "Empty sheet"
+        ],
+        "quality_score": 0.0
+      }
+    },
+    "overall_quality_score": 0.7622028571428571
+  },
+  "trauma.xlsx": {
+    "file_name": "trauma.xlsx",
+    "file_size_mb": 0.12473297119140625,
+    "sheets_found": [
+      "1.1 Problems",
+      "1.2 Self Assessment",
+      "1.3 Suggestions",
+      "1.4 Feedback Prompts",
+      "1.5 Next Action After Feedback",
+      "1.6 FineTuning Examples",
+      "Clusters"
+    ],
+    "sheets_missing": [],
+    "sheet_analysis": {
+      "1.1 Problems": {
+        "sheet_name": "1.1 Problems",
+        "domain": "trauma",
+        "row_count": 7,
+        "column_count": 5,
+        "columns": [
+          "category",
+          "category_id",
+          "sub_category_id",
+          "problem_name",
+          "description"
+        ],
+        "data_types": {
+          "category": "object",
+          "category_id": "object",
+          "sub_category_id": "object",
+          "problem_name": "object",
+          "description": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 6,
+          "null_percentage_overall": 17.14,
+          "columns_with_nulls": {
+            "category": 6
+          },
+          "null_percentages_by_column": {
+            "category": 85.71
+          },
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {
+            "category_id": 7
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.93144,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "category_id": {
+            "unique_count": 1,
+            "total_count": 7,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "sub_category_id": {
+            "unique_count": 7,
+            "total_count": 7,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.2 Self Assessment": {
+        "sheet_name": "1.2 Self Assessment",
+        "domain": "trauma",
+        "row_count": 232,
+        "column_count": 7,
+        "columns": [
+          "question_id",
+          "sub_category_id",
+          "batch_id",
+          "question_text",
+          "response_type",
+          "next_step",
+          "clusters"
+        ],
+        "data_types": {
+          "question_id": "object",
+          "sub_category_id": "object",
+          "batch_id": "object",
+          "question_text": "object",
+          "response_type": "object",
+          "next_step": "object",
+          "clusters": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 140,
+          "null_percentage_overall": 8.62,
+          "columns_with_nulls": {
+            "question_id": 20,
+            "sub_category_id": 20,
+            "batch_id": 20,
+            "question_text": 20,
+            "response_type": 20,
+            "next_step": 20,
+            "clusters": 20
+          },
+          "null_percentages_by_column": {
+            "question_id": 8.62,
+            "sub_category_id": 8.62,
+            "batch_id": 8.62,
+            "question_text": 8.62,
+            "response_type": 8.62,
+            "next_step": 8.62,
+            "clusters": 8.62
+          },
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 19,
+          "duplicate_percentage": 8.19,
+          "duplicate_ids": {
+            "sub_category_id": 212,
+            "batch_id": 212
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.9409500000000001,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "question_id": {
+            "unique_count": 212,
+            "total_count": 212,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "sub_category_id": {
+            "unique_count": 7,
+            "total_count": 212,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "batch_id": {
+            "unique_count": 21,
+            "total_count": 212,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.3 Suggestions": {
+        "sheet_name": "1.3 Suggestions",
+        "domain": "trauma",
+        "row_count": 150,
+        "column_count": 5,
+        "columns": [
+          "suggestion_id",
+          "sub_category_id",
+          "cluster",
+          "suggestion_text",
+          "Unnamed: 4"
+        ],
+        "data_types": {
+          "suggestion_id": "object",
+          "sub_category_id": "object",
+          "cluster": "object",
+          "suggestion_text": "object",
+          "Unnamed: 4": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 0,
+          "null_percentage_overall": 0.0,
+          "columns_with_nulls": {},
+          "null_percentages_by_column": {},
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {
+            "sub_category_id": 150
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 1.0,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "suggestion_id": {
+            "unique_count": 150,
+            "total_count": 150,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "sub_category_id": {
+            "unique_count": 7,
+            "total_count": 150,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.4 Feedback Prompts": {
+        "sheet_name": "1.4 Feedback Prompts",
+        "domain": "trauma",
+        "row_count": 0,
+        "column_count": 4,
+        "columns": [
+          "prompt_id",
+          "stage",
+          "prompt_text",
+          "next_action"
+        ],
+        "data_types": {
+          "prompt_id": "object",
+          "stage": "object",
+          "prompt_text": "object",
+          "next_action": "object"
+        },
+        "null_analysis": {},
+        "duplicate_analysis": {},
+        "data_quality_issues": [
+          "Empty sheet"
+        ],
+        "quality_score": 0.0
+      },
+      "1.5 Next Action After Feedback": {
+        "sheet_name": "1.5 Next Action After Feedback",
+        "domain": "trauma",
+        "row_count": 8,
+        "column_count": 3,
+        "columns": [
+          "action_id",
+          "label",
+          "description"
+        ],
+        "data_types": {
+          "action_id": "object",
+          "label": "object",
+          "description": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 0,
+          "null_percentage_overall": 0.0,
+          "columns_with_nulls": {},
+          "null_percentages_by_column": {},
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {}
+        },
+        "data_quality_issues": [],
+        "quality_score": 1.0,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "action_id": {
+            "unique_count": 8,
+            "total_count": 8,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.6 FineTuning Examples": {
+        "sheet_name": "1.6 FineTuning Examples",
+        "domain": "trauma",
+        "row_count": 28,
+        "column_count": 9,
+        "columns": [
+          "id",
+          "problem",
+          "ConversationID",
+          "prompt",
+          "completion",
+          "Unnamed: 5",
+          "Unnamed: 6",
+          "Unnamed: 7",
+          "Unnamed: 8"
+        ],
+        "data_types": {
+          "id": "float64",
+          "problem": "float64",
+          "ConversationID": "float64",
+          "prompt": "float64",
+          "completion": "float64",
+          "Unnamed: 5": "float64",
+          "Unnamed: 6": "float64",
+          "Unnamed: 7": "float64",
+          "Unnamed: 8": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 251,
+          "null_percentage_overall": 99.6,
+          "columns_with_nulls": {
+            "id": 28,
+            "problem": 28,
+            "ConversationID": 28,
+            "prompt": 28,
+            "completion": 28,
+            "Unnamed: 5": 28,
+            "Unnamed: 6": 28,
+            "Unnamed: 7": 28,
+            "Unnamed: 8": 27
+          },
+          "null_percentages_by_column": {
+            "id": 100.0,
+            "problem": 100.0,
+            "ConversationID": 100.0,
+            "prompt": 100.0,
+            "completion": 100.0,
+            "Unnamed: 5": 100.0,
+            "Unnamed: 6": 100.0,
+            "Unnamed: 7": 100.0,
+            "Unnamed: 8": 96.43
+          },
+          "completely_empty_columns": [
+            "id",
+            "problem",
+            "ConversationID",
+            "prompt",
+            "completion",
+            "Unnamed: 5",
+            "Unnamed: 6",
+            "Unnamed: 7"
+          ]
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 26,
+          "duplicate_percentage": 92.86,
+          "duplicate_ids": {}
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.3230199999999999,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "id": {
+            "unique_count": 0,
+            "total_count": 0,
+            "patterns_found": [],
+            "pattern_consistency": false
+          },
+          "ConversationID": {
+            "unique_count": 0,
+            "total_count": 0,
+            "patterns_found": [],
+            "pattern_consistency": false
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "Clusters": {
+        "sheet_name": "Clusters",
+        "domain": "trauma",
+        "row_count": 0,
+        "column_count": 0,
+        "columns": [],
+        "data_types": {},
+        "null_analysis": {},
+        "duplicate_analysis": {},
+        "data_quality_issues": [
+          "Empty sheet"
+        ],
+        "quality_score": 0.0
+      }
+    },
+    "overall_quality_score": 0.5993442857142857
+  },
+  "mentalhealthdata.xlsx": {
+    "file_name": "mentalhealthdata.xlsx",
+    "file_size_mb": 0.09785175323486328,
+    "sheets_found": [
+      "1.1 Problems",
+      "1.2 Self Assessment",
+      "1.3 Suggestions",
+      "1.4 Feedback Prompts",
+      "1.5 Next Action After Feedback",
+      "1.6 FineTuning Examples",
+      "Clusters"
+    ],
+    "sheets_missing": [],
+    "sheet_analysis": {
+      "1.1 Problems": {
+        "sheet_name": "1.1 Problems",
+        "domain": "mentalhealthdata",
+        "row_count": 15,
+        "column_count": 4,
+        "columns": [
+          "category",
+          "problem_id",
+          "problem_name",
+          "description"
+        ],
+        "data_types": {
+          "category": "object",
+          "problem_id": "object",
+          "problem_name": "object",
+          "description": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 22,
+          "null_percentage_overall": 36.67,
+          "columns_with_nulls": {
+            "category": 11,
+            "description": 11
+          },
+          "null_percentages_by_column": {
+            "category": 73.33,
+            "description": 73.33
+          },
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {}
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.85332,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "problem_id": {
+            "unique_count": 15,
+            "total_count": 15,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.2 Self Assessment": {
+        "sheet_name": "1.2 Self Assessment",
+        "domain": "mentalhealthdata",
+        "row_count": 106,
+        "column_count": 6,
+        "columns": [
+          "question_id",
+          "problem_id",
+          "question_text",
+          "response_type",
+          "next_step",
+          "clusters"
+        ],
+        "data_types": {
+          "question_id": "object",
+          "problem_id": "object",
+          "question_text": "object",
+          "response_type": "object",
+          "next_step": "object",
+          "clusters": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 132,
+          "null_percentage_overall": 20.75,
+          "columns_with_nulls": {
+            "question_id": 1,
+            "problem_id": 1,
+            "question_text": 1,
+            "response_type": 1,
+            "next_step": 62,
+            "clusters": 66
+          },
+          "null_percentages_by_column": {
+            "question_id": 0.94,
+            "problem_id": 0.94,
+            "question_text": 0.94,
+            "response_type": 0.94,
+            "next_step": 58.49,
+            "clusters": 62.26
+          },
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {
+            "problem_id": 104
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.917,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "question_id": {
+            "unique_count": 105,
+            "total_count": 105,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "problem_id": {
+            "unique_count": 3,
+            "total_count": 105,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.3 Suggestions": {
+        "sheet_name": "1.3 Suggestions",
+        "domain": "mentalhealthdata",
+        "row_count": 51,
+        "column_count": 5,
+        "columns": [
+          "suggestion_id",
+          "problem_id",
+          "cluster",
+          "suggestion_text",
+          "resource_link"
+        ],
+        "data_types": {
+          "suggestion_id": "object",
+          "problem_id": "object",
+          "cluster": "float64",
+          "suggestion_text": "object",
+          "resource_link": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 90,
+          "null_percentage_overall": 35.29,
+          "columns_with_nulls": {
+            "suggestion_id": 1,
+            "problem_id": 1,
+            "cluster": 51,
+            "suggestion_text": 1,
+            "resource_link": 36
+          },
+          "null_percentages_by_column": {
+            "suggestion_id": 1.96,
+            "problem_id": 1.96,
+            "cluster": 100.0,
+            "suggestion_text": 1.96,
+            "resource_link": 70.59
+          },
+          "completely_empty_columns": [
+            "cluster"
+          ]
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {
+            "suggestion_id": 6,
+            "problem_id": 47
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.85884,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "suggestion_id": {
+            "unique_count": 47,
+            "total_count": 50,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "problem_id": {
+            "unique_count": 4,
+            "total_count": 50,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.4 Feedback Prompts": {
+        "sheet_name": "1.4 Feedback Prompts",
+        "domain": "mentalhealthdata",
+        "row_count": 47,
+        "column_count": 4,
+        "columns": [
+          "prompt_id",
+          "stage",
+          "prompt_text",
+          "next_action"
+        ],
+        "data_types": {
+          "prompt_id": "object",
+          "stage": "object",
+          "prompt_text": "object",
+          "next_action": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 103,
+          "null_percentage_overall": 54.79,
+          "columns_with_nulls": {
+            "prompt_id": 44,
+            "stage": 39,
+            "prompt_text": 3,
+            "next_action": 17
+          },
+          "null_percentages_by_column": {
+            "prompt_id": 93.62,
+            "stage": 82.98,
+            "prompt_text": 6.38,
+            "next_action": 36.17
+          },
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 2,
+          "duplicate_percentage": 4.26,
+          "duplicate_ids": {
+            "prompt_id": 2
+          }
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.76806,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "prompt_id": {
+            "unique_count": 2,
+            "total_count": 3,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.5 Next Action After Feedback": {
+        "sheet_name": "1.5 Next Action After Feedback",
+        "domain": "mentalhealthdata",
+        "row_count": 8,
+        "column_count": 3,
+        "columns": [
+          "action_id",
+          "label",
+          "description"
+        ],
+        "data_types": {
+          "action_id": "object",
+          "label": "object",
+          "description": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 0,
+          "null_percentage_overall": 0.0,
+          "columns_with_nulls": {},
+          "null_percentages_by_column": {},
+          "completely_empty_columns": []
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 0,
+          "duplicate_percentage": 0.0,
+          "duplicate_ids": {}
+        },
+        "data_quality_issues": [],
+        "quality_score": 1.0,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "action_id": {
+            "unique_count": 8,
+            "total_count": 8,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "1.6 FineTuning Examples": {
+        "sheet_name": "1.6 FineTuning Examples",
+        "domain": "mentalhealthdata",
+        "row_count": 778,
+        "column_count": 9,
+        "columns": [
+          "id",
+          "problem",
+          "ConversationID",
+          "prompt",
+          "completion",
+          "Unnamed: 5",
+          "Unnamed: 6",
+          "Unnamed: 7",
+          "Unnamed: 8"
+        ],
+        "data_types": {
+          "id": "float64",
+          "problem": "object",
+          "ConversationID": "float64",
+          "prompt": "object",
+          "completion": "object",
+          "Unnamed: 5": "float64",
+          "Unnamed: 6": "float64",
+          "Unnamed: 7": "float64",
+          "Unnamed: 8": "object"
+        },
+        "null_analysis": {
+          "total_null_values": 5488,
+          "null_percentage_overall": 78.38,
+          "columns_with_nulls": {
+            "id": 764,
+            "problem": 651,
+            "ConversationID": 651,
+            "prompt": 176,
+            "completion": 135,
+            "Unnamed: 5": 778,
+            "Unnamed: 6": 778,
+            "Unnamed: 7": 778,
+            "Unnamed: 8": 777
+          },
+          "null_percentages_by_column": {
+            "id": 98.2,
+            "problem": 83.68,
+            "ConversationID": 83.68,
+            "prompt": 22.62,
+            "completion": 17.35,
+            "Unnamed: 5": 100.0,
+            "Unnamed: 6": 100.0,
+            "Unnamed: 7": 100.0,
+            "Unnamed: 8": 99.87
+          },
+          "completely_empty_columns": [
+            "Unnamed: 5",
+            "Unnamed: 6",
+            "Unnamed: 7"
+          ]
+        },
+        "duplicate_analysis": {
+          "duplicate_rows_count": 141,
+          "duplicate_percentage": 18.12,
+          "duplicate_ids": {}
+        },
+        "data_quality_issues": [],
+        "quality_score": 0.63212,
+        "type_consistency": {
+          "type_consistency_issues": [],
+          "issues_count": 0
+        },
+        "id_format_analysis": {
+          "id": {
+            "unique_count": 14,
+            "total_count": 14,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          },
+          "ConversationID": {
+            "unique_count": 127,
+            "total_count": 127,
+            "patterns_found": [
+              "NO_UNDERSCORE"
+            ],
+            "pattern_consistency": true
+          }
+        },
+        "encoding_analysis": {
+          "encoding_issues": [],
+          "issues_count": 0
+        }
+      },
+      "Clusters": {
+        "sheet_name": "Clusters",
+        "domain": "mentalhealthdata",
+        "row_count": 0,
+        "column_count": 0,
+        "columns": [],
+        "data_types": {},
+        "null_analysis": {},
+        "duplicate_analysis": {},
+        "data_quality_issues": [
+          "Empty sheet"
+        ],
+        "quality_score": 0.0
+      }
+    },
+    "overall_quality_score": 0.7184771428571428
+  }
+}

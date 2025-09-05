@@ -54,6 +54,9 @@ class DataCleaningService:
             r'end_session': 'end_session',
             r'escalate': 'escalate',
             r'schedule_followup': 'schedule_followup',
+            r'suggest_related_problem': 'show_problem_menu',  # Map to show_problem_menu
+            r'offer_resource': 'show_problem_menu',  # Map to show_problem_menu
+            r'ask_clarification': 'continue_same',  # Map to continue_same
             r'\[yes\].*continue.*same': 'continue_same',
             r'\[no\].*continue.*same': 'continue_same',
             r'\[yes\].*show.*problem.*menu': 'show_problem_menu',
@@ -111,8 +114,28 @@ class DataCleaningService:
                     df.at[idx, 'question_id'] = df.at[idx, 'response_type']
                     df.at[idx, 'response_type'] = 'text'  # Default to text
 
-        # Clean sub_category_id
+        # Clean sub_category_id - validate format and filter out corrupted values
         if 'sub_category_id' in df.columns:
+            # First, convert to string to handle mixed types
+            df['sub_category_id'] = df['sub_category_id'].astype(str)
+            
+            # Define valid sub_category_id pattern (e.g., P001-1, P004-7)
+            import re
+            valid_pattern = re.compile(r'^P\d{3}-\d+$')
+            
+            # Filter out rows with invalid sub_category_id (like question text)
+            valid_mask = df['sub_category_id'].apply(lambda x: bool(valid_pattern.match(str(x))) if pd.notna(x) and str(x) != 'nan' else False)
+            
+            # Log invalid entries for debugging
+            invalid_entries = df[~valid_mask]['sub_category_id'].unique()
+            if len(invalid_entries) > 0:
+                print(f"Filtering out {len(df[~valid_mask])} rows with invalid sub_category_id values")
+                print(f"Invalid entries (first 3): {list(invalid_entries)[:3]}")
+            
+            # Keep only rows with valid sub_category_id
+            df = df[valid_mask].copy()
+            
+            # Fill any remaining NaN values
             df['sub_category_id'] = df['sub_category_id'].fillna('unknown')
 
         # Clean batch_id
@@ -144,8 +167,10 @@ class DataCleaningService:
 
         # Clean prompt_id
         if 'prompt_id' in df.columns:
+            # Convert to string type first to avoid dtype issues
+            df['prompt_id'] = df['prompt_id'].astype(str)
             # Fill NaN values with generated prompt IDs
-            mask = df['prompt_id'].isna()
+            mask = (df['prompt_id'] == 'nan') | (df['prompt_id'].isna())
             df.loc[mask, 'prompt_id'] = [f'prompt_{i}' for i in df[mask].index]
 
         return df
@@ -166,8 +191,10 @@ class DataCleaningService:
 
         # Clean id column
         if 'id' in df.columns:
+            # Convert to string type first to avoid dtype issues
+            df['id'] = df['id'].astype(str)
             # Fill NaN values with generated train IDs
-            mask = df['id'].isna()
+            mask = (df['id'] == 'nan') | (df['id'].isna())
             df.loc[mask, 'id'] = [f'train_{i}' for i in df[mask].index]
 
         # Clean problem column
@@ -176,8 +203,10 @@ class DataCleaningService:
 
         # Clean ConversationID column
         if 'ConversationID' in df.columns:
+            # Convert to string type first to avoid dtype issues
+            df['ConversationID'] = df['ConversationID'].astype(str)
             # Fill NaN values with generated conversation IDs
-            mask = df['ConversationID'].isna()
+            mask = (df['ConversationID'] == 'nan') | (df['ConversationID'].isna())
             df.loc[mask, 'ConversationID'] = [f'conv_{i}' for i in df[mask].index]
 
         return df

@@ -94,3 +94,16 @@ async def get_current_user_optional(request: Request) -> Optional[Dict]:
         return None
 
 
+async def get_current_admin_user(current_user: Dict = Depends(get_current_user)) -> Dict:
+    """Get current authenticated admin user"""
+    # Check if user has admin role
+    user_role = current_user.get("role", "user")
+    if user_role != "admin":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Admin access required"
+        )
+
+    return current_user
+
+

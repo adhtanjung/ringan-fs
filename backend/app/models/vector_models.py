@@ -63,6 +63,9 @@ class AssessmentQuestion(BaseModel):
     next_step: Optional[str] = Field(None, description="Next question identifier")
     clusters: Optional[List[str]] = Field(None, description="Related clusters")
     domain: str = Field(..., description="Mental health domain")
+    scale_min: Optional[int] = Field(None, description="Minimum value for scale questions")
+    scale_max: Optional[int] = Field(None, description="Maximum value for scale questions")
+    options: Optional[List[str]] = Field(None, description="Options for multiple choice questions")
 
     class Config:
         schema_extra = {

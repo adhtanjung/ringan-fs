@@ -1,0 +1,100 @@
+{
+  "timestamp": "2025-09-03T01:18:20.438394",
+  "summary": {
+    "total_datasets": 1,
+    "total_records": 5,
+    "total_fields": 5,
+    "total_validation_errors": 0,
+    "total_transformation_errors": 0,
+    "average_quality_score": 1.0,
+    "total_execution_time": 0.003
+  },
+  "detailed_results": [
+    {
+      "total_records": 5,
+      "standardized_fields": 5,
+      "validation_errors": 0,
+      "transformation_errors": 0,
+      "warnings": [],
+      "execution_time": 0.003,
+      "quality_score": 1.0,
+      "field_statistics": {
+        "field_names": {
+          "original_columns": [
+            "ID",
+            "Anxiety Score",
+            "Stress Level",
+            "Response Text",
+            "Frequency"
+          ],
+          "standardized_columns": [
+            "record_id",
+            "anxiety_score",
+            "stress_level",
+            "response_text",
+            "frequency"
+          ],
+          "column_mapping": {
+            "ID": "record_id",
+            "Anxiety Score": "anxiety_score",
+            "Stress Level": "stress_level",
+            "Response Text": "response_text",
+            "Frequency": "frequency"
+          },
+          "duplicates_resolved": false
+        },
+        "record_id": {
+          "original_dtype": "object",
+          "original_unique_count": 5,
+          "validation_errors": 0,
+          "transformation_errors": 0,
+          "warnings": [],
+          "final_dtype": "int64",
+          "final_unique_count": 5,
+          "transformation_success": true
+        },
+        "anxiety_score": {
+          "original_dtype": "float64",
+          "original_unique_count": 4,
+          "validation_errors": 0,
+          "transformation_errors": 0,
+          "warnings": [],
+          "final_dtype": "float64",
+          "final_unique_count": 4,
+          "transformation_success": true
+        },
+        "stress_level": {
+          "original_dtype": "object",
+          "original_unique_count": 4,
+          "validation_errors": 0,
+          "transformation_errors": 0,
+          "warnings": [],
+          "final_dtype": "object",
+          "final_unique_count": 3,
+          "transformation_success": true
+        },
+        "response_text": {
+          "original_dtype": "object",
+          "original_unique_count": 4,
+          "validation_errors": 0,
+          "transformation_errors": 0,
+          "warnings": [],
+          "final_dtype": "object",
+          "final_unique_count": 5,
+          "transformation_success": true
+        },
+        "frequency": {
+          "original_dtype": "object",
+          "original_unique_count": 4,
+          "validation_errors": 0,
+          "transformation_errors": 0,
+          "warnings": [],
+          "final_dtype": "object",
+          "final_unique_count": 4,
+          "transformation_success": true
+        }
+      }
+    }
+  ],
+  "recommendations": []
+}

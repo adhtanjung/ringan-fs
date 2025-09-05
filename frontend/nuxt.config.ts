@@ -57,6 +57,17 @@ export default defineNuxtConfig({
 			appEnvironment: process.env.APP_ENV || "development",
 			isDev: process.env.APP_IS_DEV === "true", // Custom flag for development mode
 
+			// Backend API Configuration
+			backendApiUrl:
+				process.env.NUXT_PUBLIC_BACKEND_API_URL ||
+				"http://localhost:8000/api/v1",
+			adminApiUrl:
+				process.env.NUXT_PUBLIC_ADMIN_API_URL ||
+				"http://localhost:8000/api/v1/admin",
+			vectorApiUrl:
+				process.env.NUXT_PUBLIC_VECTOR_API_URL ||
+				"http://localhost:8000/api/v1/vector",
+
 			// Python Backend Configuration (Ollama)
 			customChatApiUrl:
 				process.env.NUXT_PUBLIC_CUSTOM_CHAT_API_URL ||
@@ -108,24 +119,44 @@ export default defineNuxtConfig({
 	i18n: {
 		locales: [
 			{
-				code: 'en',
-				name: 'English',
-				file: 'en.json'
+				code: "en",
+				name: "English",
+				file: "en.json",
 			},
 			{
-				code: 'id',
-				name: 'Bahasa Indonesia',
-				file: 'id.json'
-			}
+				code: "id",
+				name: "Bahasa Indonesia",
+				file: "id.json",
+			},
 		],
-		defaultLocale: 'id',
-		langDir: 'locales',
-		strategy: 'no_prefix',
+		defaultLocale: "id",
+		langDir: "locales",
+		strategy: "no_prefix",
 		detectBrowserLanguage: {
 			useCookie: true,
-			cookieKey: 'i18n_redirected',
-			redirectOn: 'root',
-			fallbackLocale: 'id'
-		}
+			cookieKey: "i18n_redirected",
+			redirectOn: "root",
+			fallbackLocale: "id",
+		},
+		compilation: {
+			strictMessage: false,
+			escapeHtml: true,
+		},
+		bundle: {
+			compositionOnly: true,
+			runtimeOnly: false,
+			fullInstall: true,
+			dropMessageCompiler: false,
+		},
+	},
+	// Nitro configuration for API proxy
+	nitro: {
+		devProxy: {
+			"/api": {
+				target: "http://127.0.0.1:8000/api",
+				changeOrigin: true,
+				prependPath: false,
+			},
+		},
 	},
 });

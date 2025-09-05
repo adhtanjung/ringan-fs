@@ -24,7 +24,7 @@ class Settings(BaseSettings):
 
     # Database
     DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql://user:password@localhost/mental_health_chat")
-    MONGODB_URL: str = os.getenv("MONGODB_URL", "mongodb://localhost:27017/mental_health_chat")
+    MONGODB_URL: str = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
     REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379")
 
     # Vector Database (Qdrant)
