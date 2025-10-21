@@ -1,0 +1,114 @@
+[{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e55c"
+  },
+  "_record_hash": "ee98982cd3bedf753df5100dda05a4cf",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.694Z"
+  },
+  "id": "01a153b0",
+  "next_action": "show_problem_menu",
+  "prompt_id": "F002",
+  "prompt_text": "Are you still experiencing stress regularly?",
+  "stage": "ongoing"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e55e"
+  },
+  "_record_hash": "f4c4bc8a14f81574cc80d40a9ed9fc3a",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.694Z"
+  },
+  "id": "b085de4d",
+  "next_action": "[yes]A01, [no] Continue coaching within the same problem module (e.g., suggest another tip, ask deeper follow-up).",
+  "prompt_id": "F001",
+  "prompt_text": "Did your stress level drop after you tried this technique?",
+  "stage": "post_suggestion"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e587"
+  },
+  "_record_hash": "6be997cd36f66673480127f6318868dc",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.696Z"
+  },
+  "id": "41575cbe",
+  "next_action": null,
+  "prompt_id": null,
+  "prompt_text": "Were you able to apply any technique from the app in real-life scenarios? Yes, No",
+  "stage": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49c"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.974Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.974Z"
+  },
+  "is_active": true,
+  "prompt_id": "P_STR_001",
+  "stage": "post_suggestion",
+  "prompt_text": "Did the tip help reduce your anxiety?",
+  "next_action_id": "A_001",
+  "context": null,
+  "next_action": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49d"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.974Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.974Z"
+  },
+  "is_active": true,
+  "prompt_id": "P_STR_002",
+  "stage": "ongoing",
+  "prompt_text": "Are you still experiencing stress regularly?",
+  "next_action_id": "A_001",
+  "context": null,
+  "next_action": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49e"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.975Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.975Z"
+  },
+  "is_active": true,
+  "prompt_id": "P_GEN_001",
+  "stage": "post_suggestion",
+  "prompt_text": "Did the tip help reduce your anxiety?",
+  "next_action_id": "A_301",
+  "context": null,
+  "next_action": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49f"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.976Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.976Z"
+  },
+  "is_active": true,
+  "prompt_id": "P_GEN_002",
+  "stage": "ongoing",
+  "prompt_text": "Are you still experiencing stress regularly?",
+  "next_action_id": "A_301",
+  "context": null,
+  "next_action": null
+}]

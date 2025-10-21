@@ -54,14 +54,14 @@ async def send_message(
         if chat_message.use_flow and chat_message.flow_mode == "flow":
             # Use conversation flow service
             flow_status = conversation_flow_service.get_flow_status(client_id)
-            
+
             if flow_status is None:
                 # Start new conversation flow
                 flow_response = await conversation_flow_service.start_conversation_flow(client_id, chat_message.message)
             else:
                 # Continue existing flow
                 flow_response = await conversation_flow_service.process_flow_message(client_id, chat_message.message)
-            
+
             # Convert flow response to ChatResponse format
             response = {
                 "message": flow_response.get("message", ""),
@@ -161,6 +161,9 @@ async def start_assessment(
     try:
         client_id = current_user.get("id") if current_user else str(uuid.uuid4())
 
+        print(f"🔍 Assessment start - using client_id: {client_id}")
+        print(f"🔍 Assessment start - current_user: {current_user}")
+
         response = await chat_service.start_assessment(
             client_id=client_id,
             problem_category=assessment_request.problem_category,
@@ -181,13 +184,23 @@ async def respond_assessment(
     Process user response to assessment question
     """
     try:
-        client_id = current_user.get("id") if current_user else str(uuid.uuid4())
+        # Use session_id from request if provided, otherwise generate new client_id
+        session_id = request.get("session_id")
+        if session_id:
+            client_id = session_id
+        else:
+            client_id = current_user.get("id") if current_user else str(uuid.uuid4())
+
+        print(f"🔍 Assessment respond - session_id from request: {session_id}")
+        print(f"🔍 Assessment respond - using client_id: {client_id}")
+        print(f"🔍 Assessment respond - current_user: {current_user}")
+
         response = request.get("response", "")
         question_id = request.get("question_id", "")
-        
+
         if not response or not question_id:
             raise HTTPException(status_code=400, detail="Response and question_id are required")
-        
+
         result = await chat_service.process_assessment_response(
             client_id=client_id,
             response=response,
@@ -209,7 +222,7 @@ async def get_assessment_status(
     try:
         client_id = current_user.get("id") if current_user else str(uuid.uuid4())
         status = chat_service.get_assessment_status(client_id)
-        
+
         if status:
             return {
                 "active": True,
@@ -232,7 +245,7 @@ async def cancel_assessment(
     try:
         client_id = current_user.get("id") if current_user else str(uuid.uuid4())
         success = chat_service.cancel_assessment(client_id)
-        
+
         return {
             "success": success,
             "message": "Assessment dibatalkan" if success else "Tidak ada assessment aktif"
@@ -319,13 +332,13 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
             # Receive message
             data = await websocket.receive_text()
             message_data = json.loads(data)
-            
+
             # Check if this is an assessment response
             if message_data.get("type") == "assessment_response":
                 # Handle assessment response directly
                 response = message_data.get("response", "")
                 question_id = message_data.get("question_id", "")
-                
+
                 if response and question_id:
                     # Process assessment response and stream the result
                     async for chunk in conversation_flow_service.process_flow_message_streaming(
@@ -344,11 +357,11 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
 
             # Process message with flow support
             use_flow = message_data.get("use_flow", True)
-            
+
             if use_flow:
                 # Use conversation flow service with streaming
                 flow_status = conversation_flow_service.get_flow_status(client_id)
-                
+
                 if flow_status is None:
                     # Start new conversation flow with streaming
                     async for chunk in conversation_flow_service.start_conversation_flow_streaming(
@@ -412,14 +425,14 @@ async def streaming_websocket_endpoint(websocket: WebSocket):
                 # Parse the JSON chunk from the service
                 try:
                     chunk_data = json.loads(chunk_json)
-                    
+
                     # Forward the chunk as-is to maintain all metadata
                     await websocket.send_text(chunk_json)
-                    
+
                     # Store complete data for final response
                     if chunk_data.get("type") == "complete":
                         complete_data = chunk_data
-                        
+
                 except json.JSONDecodeError:
                     # Handle plain text chunks (fallback)
                     await websocket.send_text(json.dumps({

@@ -1,10 +1,14 @@
 <template>
-  <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+  <TooltipProvider>
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200">
     <!-- Table Header -->
     <div class="px-6 py-4 border-b border-gray-200">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-4">
-          <h3 class="text-lg font-medium text-gray-900">{{ title }}</h3>
+          <div>
+            <h3 class="text-lg font-medium text-gray-900">{{ title }}</h3>
+            <p class="text-sm text-gray-600">Manage and edit {{ title.toLowerCase() }} data</p>
+          </div>
           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
             {{ totalItems }} items
           </span>
@@ -33,7 +37,7 @@
             <svg class="-ml-1 mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
-            Add New
+            Add New {{ title }}
           </button>
         </div>
       </div>
@@ -89,6 +93,24 @@
               >
                 <div class="flex items-center space-x-1">
                   <span>{{ column.label }}</span>
+                  <!-- Info Tooltip -->
+                  <Tooltip v-if="column.description">
+                    <TooltipTrigger as-child>
+                      <button
+                        type="button"
+                        class="inline-flex items-center justify-center w-4 h-4 text-gray-400 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+                        @click.stop
+                      >
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                        </svg>
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent class="max-w-xs bg-blue-700 text-white">
+                      <p class="text-sm">{{ column.description }}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                  <!-- Sort Icon -->
                   <svg
                     v-if="sortColumn === column.key"
                     class="h-4 w-4 text-gray-400"
@@ -103,7 +125,7 @@
               </th>
 
               <!-- Actions -->
-              <th scope="col" class="relative px-6 py-3">
+              <th scope="col" class="sticky right-0 bg-gray-50 px-6 py-3 z-10">
                 <span class="sr-only">Actions</span>
               </th>
             </tr>
@@ -112,7 +134,7 @@
             <tr
               v-for="(item, index) in paginatedData"
               :key="item.id || index"
-              class="hover:bg-gray-50"
+              class="hover:bg-gray-50 group"
               :class="{ 'bg-blue-50': selectedItems.includes(item.id) }"
             >
               <!-- Select Checkbox -->
@@ -161,8 +183,8 @@
               </td>
 
               <!-- Actions -->
-              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                <div class="flex items-center space-x-2">
+              <td class="sticky right-0 bg-white group-hover:bg-gray-50 px-6 py-4 whitespace-nowrap text-right text-sm font-medium z-10 shadow-[-4px_0_6px_-2px_rgba(0,0,0,0.1)]">
+                <div class="flex items-center justify-end space-x-2">
                   <button
                     @click="editItem(item)"
                     class="text-blue-600 hover:text-blue-900 p-1 rounded hover:bg-blue-100"
@@ -193,14 +215,14 @@
         <div class="flex-1 flex justify-between sm:hidden">
           <button
             @click="previousPage"
-            :disabled="currentPage === 1"
+            :disabled="props.currentPage === 1"
             class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Previous
           </button>
           <button
             @click="nextPage"
-            :disabled="currentPage === totalPages"
+            :disabled="props.currentPage === totalPages"
             class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Next
@@ -210,9 +232,9 @@
           <div>
             <p class="text-sm text-gray-700">
               Showing
-              <span class="font-medium">{{ (currentPage - 1) * pageSize + 1 }}</span>
+              <span class="font-medium">{{ (props.currentPage - 1) * props.pagination.limit + 1 }}</span>
               to
-              <span class="font-medium">{{ Math.min(currentPage * pageSize, totalItems) }}</span>
+              <span class="font-medium">{{ Math.min(props.currentPage * props.pagination.limit, totalItems) }}</span>
               of
               <span class="font-medium">{{ totalItems }}</span>
               results
@@ -222,7 +244,7 @@
             <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
               <button
                 @click="previousPage"
-                :disabled="currentPage === 1"
+                :disabled="props.currentPage === 1"
                 class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span class="sr-only">Previous</span>
@@ -236,7 +258,7 @@
                 :key="page"
                 @click="goToPage(page)"
                 :class="[
-                  page === currentPage
+                  page === props.currentPage
                     ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
                     : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50',
                   'relative inline-flex items-center px-4 py-2 border text-sm font-medium'
@@ -247,7 +269,7 @@
 
               <button
                 @click="nextPage"
-                :disabled="currentPage === totalPages"
+                :disabled="props.currentPage === totalPages"
                 class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span class="sr-only">Next</span>
@@ -292,10 +314,12 @@
       </div>
     </div>
   </div>
+  </TooltipProvider>
 </template>
 
 <script setup>
 import { ref, computed, watch, onMounted } from 'vue'
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '~/components/ui/tooltip'
 
 // Props
 const props = defineProps({
@@ -322,6 +346,18 @@ const props = defineProps({
   pageSize: {
     type: Number,
     default: 20
+  },
+  pagination: {
+    type: Object,
+    default: () => ({ skip: 0, limit: 50, total: 0, has_more: false })
+  },
+  currentPage: {
+    type: Number,
+    default: 1
+  },
+  totalPages: {
+    type: Number,
+    default: 1
   }
 })
 
@@ -331,7 +367,11 @@ const emit = defineEmits([
   'edit',
   'delete',
   'bulk-delete',
-  'refresh'
+  'refresh',
+  'page-change',
+  'page-size-change',
+  'next-page',
+  'prev-page'
 ])
 
 // Reactive data
@@ -375,19 +415,18 @@ const sortedData = computed(() => {
   })
 })
 
-const totalItems = computed(() => filteredData.value.length)
-const totalPages = computed(() => Math.ceil(totalItems.value / props.pageSize))
+const totalItems = computed(() => props.pagination.total || filteredData.value.length)
+const totalPages = computed(() => props.totalPages || Math.ceil(totalItems.value / props.pageSize))
 
 const paginatedData = computed(() => {
-  const start = (currentPage.value - 1) * props.pageSize
-  const end = start + props.pageSize
-  return sortedData.value.slice(start, end)
+  // For server-side pagination, we use the data as-is since it's already paginated
+  return sortedData.value
 })
 
 const visiblePages = computed(() => {
   const pages = []
   const total = totalPages.value
-  const current = currentPage.value
+  const current = props.currentPage
 
   if (total <= 7) {
     for (let i = 1; i <= total; i++) {
@@ -479,20 +518,20 @@ const clearSelection = () => {
 }
 
 const previousPage = () => {
-  if (currentPage.value > 1) {
-    currentPage.value--
+  if (props.currentPage > 1) {
+    emit('prev-page')
   }
 }
 
 const nextPage = () => {
-  if (currentPage.value < totalPages.value) {
-    currentPage.value++
+  if (props.currentPage < totalPages.value) {
+    emit('next-page')
   }
 }
 
 const goToPage = (page) => {
   if (typeof page === 'number' && page >= 1 && page <= totalPages.value) {
-    currentPage.value = page
+    emit('page-change', page)
   }
 }
 
@@ -523,7 +562,8 @@ const fetchData = () => {
 
 // Watchers
 watch(searchQuery, () => {
-  currentPage.value = 1
+  // Note: For server-side pagination, we don't reset the page here
+  // The parent component should handle search and pagination
 })
 
 watch(() => props.data, () => {

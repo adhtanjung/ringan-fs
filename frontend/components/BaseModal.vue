@@ -1,17 +1,17 @@
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div 
-        v-if="modelValue" 
-        class="fixed inset-0 z-50 flex items-center justify-center p-4"
+      <div
+        v-if="modelValue"
+        class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
         @click.self="closeModal"
       >
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-        
+
         <!-- Modal Content -->
-        <div 
-          class="relative bg-white rounded-lg shadow-md w-full max-w-md mx-auto"
+        <div
+          class="relative bg-white rounded-lg shadow-md w-full max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
           @click.stop
         >
           <!-- Close Button -->
@@ -22,9 +22,9 @@
           >
             <X class="w-5 h-5 text-gray-500" />
           </button>
-          
+
           <!-- Modal Body -->
-          <div class="p-6">
+          <div class="p-4 sm:p-6">
             <slot />
           </div>
         </div>
@@ -60,9 +60,9 @@ onMounted(() => {
       closeModal()
     }
   }
-  
+
   document.addEventListener('keydown', handleEscape)
-  
+
   onUnmounted(() => {
     document.removeEventListener('keydown', handleEscape)
   })
@@ -89,4 +89,4 @@ onMounted(() => {
 .modal-leave-to .relative {
   transform: scale(0.9) translateY(-20px);
 }
-</style> 
+</style>

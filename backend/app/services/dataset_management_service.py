@@ -17,6 +17,7 @@ from app.services.embedding_service import embedding_service
 from app.models.dataset_models import (
     ProblemCategoryModel, AssessmentQuestionModel, TherapeuticSuggestionModel,
     FeedbackPromptModel, NextActionModel, FineTuningExampleModel,
+    ProblemTypeModel, DomainTypeModel,
     BulkOperationResult, ValidationResult, DatasetStatsModel
 )
 
@@ -34,7 +35,9 @@ class DatasetManagementService:
             'suggestions': 'suggestions',
             'feedback_prompts': 'feedback_prompts',
             'next_actions': 'next_actions',
-            'training_examples': 'training_examples'
+            'training_examples': 'training_examples',
+            'problem_types': 'problem_types',
+            'domain_types': 'domain_types'
         }
         self.model_classes = {
             'problems': ProblemCategoryModel,
@@ -42,7 +45,9 @@ class DatasetManagementService:
             'suggestions': TherapeuticSuggestionModel,
             'feedback_prompts': FeedbackPromptModel,
             'next_actions': NextActionModel,
-            'training_examples': FineTuningExampleModel
+            'training_examples': FineTuningExampleModel,
+            'problem_types': ProblemTypeModel,
+            'domain_types': DomainTypeModel
         }
 
     def _get_mock_data(self, data_type: str, skip: int = 0, limit: int = 100) -> Dict[str, Any]:
@@ -228,7 +233,9 @@ class DatasetManagementService:
             'suggestions': dataset_validation_service.validate_therapeutic_suggestion,
             'feedback_prompts': dataset_validation_service.validate_feedback_prompt,
             'next_actions': dataset_validation_service.validate_next_action,
-            'training_examples': dataset_validation_service.validate_training_example
+            'training_examples': dataset_validation_service.validate_training_example,
+            'problem_types': dataset_validation_service.validate_problem_type,
+            'domain_types': dataset_validation_service.validate_domain_type
         }
 
         validation_result = await validation_methods[data_type](data)
@@ -306,8 +313,14 @@ class DatasetManagementService:
         if data_type not in self.collections:
             raise ValueError(f"Unknown data type: {data_type}")
 
+        # Validate ObjectId format
+        try:
+            object_id = ObjectId(item_id)
+        except Exception:
+            raise ValueError(f"Invalid ObjectId format: {item_id}")
+
         collection = getattr(self.db, self.collections[data_type])
-        item = await collection.find_one({"_id": ObjectId(item_id)})
+        item = await collection.find_one({"_id": object_id})
 
         if item:
             item['id'] = str(item['_id'])
@@ -372,7 +385,9 @@ class DatasetManagementService:
             'suggestions': dataset_validation_service.validate_therapeutic_suggestion,
             'feedback_prompts': dataset_validation_service.validate_feedback_prompt,
             'next_actions': dataset_validation_service.validate_next_action,
-            'training_examples': dataset_validation_service.validate_training_example
+            'training_examples': dataset_validation_service.validate_training_example,
+            'problem_types': dataset_validation_service.validate_problem_type,
+            'domain_types': dataset_validation_service.validate_domain_type
         }
 
         validation_result = await validation_methods[data_type](updated_data)
@@ -411,7 +426,14 @@ class DatasetManagementService:
 
         # Delete from database
         collection = getattr(self.db, self.collections[data_type])
-        result = await collection.delete_one({"_id": ObjectId(item_id)})
+
+        # Validate ObjectId format
+        try:
+            object_id = ObjectId(item_id)
+        except Exception:
+            raise ValueError(f"Invalid ObjectId format: {item_id}")
+
+        result = await collection.delete_one({"_id": object_id})
 
         if result.deleted_count == 0:
             return False
@@ -423,7 +445,8 @@ class DatasetManagementService:
         logger.info(f"✅ Deleted {data_type} item: {item_id}")
         return True
 
-    async def bulk_create(self, data_type: str, items: List[Dict[str, Any]]) -> BulkOperationResult:
+    async def bulk_create(self, data_type: str, items: List[Dict[str, Any]],
+                         overwrite: bool = False) -> BulkOperationResult:
         """Create multiple items in bulk with validation"""
         result = BulkOperationResult(
             success=True,
@@ -431,6 +454,15 @@ class DatasetManagementService:
             successful=0,
             failed=0
         )
+
+        # If overwrite is True, delete existing items first
+        if overwrite and self.db:
+            try:
+                collection = self.db[self.collections[data_type]]
+                await collection.delete_many({})
+                logger.info(f"Cleared existing {data_type} data for overwrite")
+            except Exception as e:
+                logger.warning(f"Failed to clear existing data: {str(e)}")
 
         for item_data in items:
             try:
@@ -443,6 +475,46 @@ class DatasetManagementService:
 
         result.success = result.failed == 0
         return result
+
+    async def get_all_data(self, data_type: str, filters: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+        """Get all data for a specific type with optional filters"""
+        if data_type not in self.collections:
+            raise ValueError(f"Invalid data type: {data_type}")
+
+        try:
+            logger.info(f"Getting all data for {data_type} with filters: {filters}")
+
+            if self.db is None:
+                logger.warning("Database not available, returning mock data")
+                mock_data = self._get_mock_data(data_type)
+                items = mock_data.get('items', [])
+                logger.info(f"Returning {len(items)} mock items")
+                return items
+
+            collection = self.db[self.collections[data_type]]
+
+            # Apply filters if provided
+            query = {}
+            if filters:
+                for key, value in filters.items():
+                    if isinstance(value, str):
+                        query[key] = {"$regex": value, "$options": "i"}
+                    else:
+                        query[key] = value
+
+            cursor = collection.find(query)
+            items = []
+            async for item in cursor:
+                item['id'] = str(item['_id'])
+                del item['_id']
+                items.append(item)
+
+            logger.info(f"Found {len(items)} items in database for {data_type}")
+            return items
+
+        except Exception as e:
+            logger.error(f"Failed to get data for {data_type}: {str(e)}")
+            return []
 
     async def bulk_update(self, data_type: str, updates: List[Dict[str, Any]]) -> BulkOperationResult:
         """Update multiple items in bulk"""
@@ -563,16 +635,23 @@ class DatasetManagementService:
                     import uuid
                     point_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, item['id']))
 
+                    payload = {
+                        'question_id': item['question_id'],
+                        'sub_category_id': item['sub_category_id'],
+                        'question_text': item['question_text'],
+                        'response_type': item['response_type'],
+                        'type': 'assessment'
+                    }
+
+                    # Add scale information if it's a scale question
+                    if item.get('response_type') == 'scale':
+                        payload['scale_min'] = item.get('scale_min', 1)
+                        payload['scale_max'] = item.get('scale_max', 10)
+
                     point = {
                         'id': point_id,
                         'vector': embedding,
-                        'payload': {
-                            'question_id': item['question_id'],
-                            'sub_category_id': item['sub_category_id'],
-                            'question_text': item['question_text'],
-                            'response_type': item['response_type'],
-                            'type': 'assessment'
-                        }
+                        'payload': payload
                     }
 
                     collection_name = vector_service.collections.get('assessments', 'mental-health-assessments')
@@ -606,6 +685,197 @@ class DatasetManagementService:
         except Exception as e:
             logger.error(f"❌ Vector DB sync failed for {data_type} {operation}: {str(e)}")
             # Don't raise - vector sync failure shouldn't break the main operation
+
+    async def check_domain_code_exists(self, domain_code: str, exclude_id: Optional[str] = None) -> tuple[bool, Optional[dict]]:
+        """Check if domain code exists, optionally excluding a specific document (case-insensitive)"""
+        try:
+            if self.db is None:
+                await self._ensure_db_connection()
+
+            collection = self.db[self.collections['domain_types']]
+
+            # Build query to find domain_code (case-insensitive), optionally excluding a specific document
+            # Use case-insensitive regex with escaped special characters for flexibility
+            import re
+            escaped_domain_code = re.escape(domain_code)
+            query = {"domain_code": {"$regex": f"^{escaped_domain_code}$", "$options": "i"}}
+            if exclude_id:
+                query["_id"] = {"$ne": ObjectId(exclude_id)}
+
+            existing_item = await collection.find_one(query)
+
+            # Convert ObjectId to string for JSON serialization
+            if existing_item:
+                existing_item["_id"] = str(existing_item["_id"])
+
+            return existing_item is not None, existing_item
+
+        except Exception as e:
+            logger.error(f"Error checking domain code existence: {str(e)}")
+            raise
+
+    async def check_problem_type_name_exists(self, type_name: str, exclude_id: Optional[str] = None) -> tuple[bool, Optional[dict]]:
+        """Check if problem type name exists, optionally excluding a specific document (case-insensitive)"""
+        try:
+            if self.db is None:
+                await self._ensure_db_connection()
+
+            collection = self.db[self.collections['problem_types']]
+
+            # Build query to find type_name (case-insensitive), optionally excluding a specific document
+            # Use case-insensitive regex with escaped special characters for flexibility
+            import re
+            escaped_type_name = re.escape(type_name)
+            query = {"type_name": {"$regex": f"^{escaped_type_name}$", "$options": "i"}}
+            if exclude_id:
+                query["_id"] = {"$ne": ObjectId(exclude_id)}
+
+            existing_item = await collection.find_one(query)
+
+            # Convert ObjectId to string for JSON serialization
+            if existing_item:
+                existing_item["_id"] = str(existing_item["_id"])
+
+            return existing_item is not None, existing_item
+
+        except Exception as e:
+            logger.error(f"Error checking problem type name existence: {str(e)}")
+            raise
+
+    async def check_question_id_exists(self, question_id: str, exclude_id: Optional[str] = None) -> tuple[bool, Optional[dict]]:
+        """Check if assessment question_id exists (case-insensitive)."""
+        try:
+            if self.db is None:
+                await self._ensure_db_connection()
+
+            collection = self.db[self.collections['assessments']]
+
+            import re
+            escaped_question_id = re.escape(question_id)
+            query = {"question_id": {"$regex": f"^{escaped_question_id}$", "$options": "i"}}
+            if exclude_id:
+                query["_id"] = {"$ne": ObjectId(exclude_id)}
+
+            existing_item = await collection.find_one(query)
+
+            if existing_item:
+                existing_item["_id"] = str(existing_item["_id"])
+
+            return existing_item is not None, existing_item
+
+        except Exception as e:
+            logger.error(f"Error checking question_id existence: {str(e)}")
+            raise
+
+    async def list_problem_subcategory_ids(self, q: Optional[str] = None, limit: int = 20, skip: int = 0) -> tuple[list[dict], bool]:
+        """Return list of sub_category_id values from problems collection for dropdowns with optional search and pagination.
+
+        Returns (items, has_more)
+        """
+        try:
+            if self.db is None:
+                await self._ensure_db_connection()
+
+            collection = self.db[self.collections['problems']]
+
+            query: dict = {"sub_category_id": {"$exists": True, "$ne": None}}
+            if q:
+                import re
+                escaped = re.escape(q)
+                query = {
+                    "$and": [
+                        {"sub_category_id": {"$exists": True, "$ne": None}},
+                        {"$or": [
+                            {"sub_category_id": {"$regex": escaped, "$options": "i"}},
+                            {"category_id": {"$regex": escaped, "$options": "i"}},
+                            {"problem_name": {"$regex": escaped, "$options": "i"}},
+                            {"description": {"$regex": escaped, "$options": "i"}},
+                        ]}
+                    ]
+                }
+
+            projection = {"sub_category_id": 1, "category_id": 1, "problem_name": 1, "description": 1}
+
+            cursor = collection.find(query, projection).skip(skip).limit(limit + 1)
+            docs: list[dict] = []
+            async for doc in cursor:
+                docs.append(doc)
+
+            has_more = len(docs) > limit
+            docs = docs[:limit]
+
+            items: list[dict] = []
+            seen = set()
+            for doc in docs:
+                sub_id = doc.get("sub_category_id")
+                if not sub_id or sub_id in seen:
+                    continue
+                seen.add(sub_id)
+                category_id = doc.get("category_id")
+                desc = doc.get("problem_name") or doc.get("description") or ""
+                parts = [sub_id]
+                if category_id:
+                    parts.append(category_id)
+                if desc:
+                    parts.append(desc)
+                label = " — ".join(parts)
+                items.append({"value": sub_id, "label": label})
+
+            return items, has_more
+
+        except Exception as e:
+            logger.error(f"Error listing problem subcategory ids: {str(e)}")
+            raise
+
+    async def check_category_id_exists(self, category_id: str, exclude_id: Optional[str] = None) -> tuple[bool, Optional[dict]]:
+        """Check if category_id exists in problems collection (case-insensitive)"""
+        try:
+            if self.db is None:
+                await self._ensure_db_connection()
+
+            collection = self.db[self.collections['problems']]
+
+            import re
+            escaped_category_id = re.escape(category_id)
+            query = {"category_id": {"$regex": f"^{escaped_category_id}$", "$options": "i"}}
+            if exclude_id:
+                query["_id"] = {"$ne": ObjectId(exclude_id)}
+
+            existing_item = await collection.find_one(query)
+
+            if existing_item:
+                existing_item["_id"] = str(existing_item["_id"])
+
+            return existing_item is not None, existing_item
+
+        except Exception as e:
+            logger.error(f"Error checking category_id existence: {str(e)}")
+            raise
+
+    async def check_sub_category_id_exists(self, sub_category_id: str, exclude_id: Optional[str] = None) -> tuple[bool, Optional[dict]]:
+        """Check if sub_category_id exists in problems collection (case-insensitive)"""
+        try:
+            if self.db is None:
+                await self._ensure_db_connection()
+
+            collection = self.db[self.collections['problems']]
+
+            import re
+            escaped_sub_category_id = re.escape(sub_category_id)
+            query = {"sub_category_id": {"$regex": f"^{escaped_sub_category_id}$", "$options": "i"}}
+            if exclude_id:
+                query["_id"] = {"$ne": ObjectId(exclude_id)}
+
+            existing_item = await collection.find_one(query)
+
+            if existing_item:
+                existing_item["_id"] = str(existing_item["_id"])
+
+            return existing_item is not None, existing_item
+
+        except Exception as e:
+            logger.error(f"Error checking sub_category_id existence: {str(e)}")
+            raise
 
 
 # Global instance

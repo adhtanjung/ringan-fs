@@ -1,0 +1,653 @@
+[{
+  "_id": {
+    "$oid": "68b7e99e558381f06f64e048"
+  },
+  "_record_hash": "36486da1960fcd52398fa527a886a5f7",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:18.743Z"
+  },
+  "category": "Anxiety",
+  "category_id": "ANX_01",
+  "description": "Marked fear or anxiety about social situations where the individual might be scrutinized",
+  "id": "e9d477e2",
+  "problem_name": "P001-1 Social Anxiety",
+  "sub_category_id": "ANX_01_01",
+  "created_at": "2025-09-04T11:49:52.749992",
+  "domain": "anxiety",
+  "is_active": true,
+  "severity_level": 3,
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.783Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68b7e99e558381f06f64e049"
+  },
+  "_record_hash": "907378b2bb479df6a09217f964a5d79b",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:18.743Z"
+  },
+  "category": "Anxiety",
+  "category_id": "P001",
+  "description": "Marked as fear or having anxiety symptoms before tests and exams",
+  "id": "fa3519f4",
+  "problem_name": "P001-2 Exam/Test Anxiety",
+  "sub_category_id": "P001-2",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e99e558381f06f64e04a"
+  },
+  "_record_hash": "0ea9b2441a484cb598b9f160717a1694",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:18.743Z"
+  },
+  "category": "Anxiety",
+  "category_id": "P001",
+  "description": "Marked as anxious symptoms before or during major transitions like a new home, new school, divorce, etc.",
+  "id": "dfaf0b2a",
+  "problem_name": "P001-3 Transition/Adjustment Anxiety",
+  "sub_category_id": "P001-3",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e99e558381f06f64e04b"
+  },
+  "_record_hash": "fa3cab85f60c8fb25e7e263256cb3ef3",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:18.743Z"
+  },
+  "category": "Anxiety",
+  "category_id": "P001",
+  "description": "Recurrent unexpected panic attacks, followed by persistent concern about having more attacks or significant behavioral changes related to the attacks.",
+  "id": "8458fee1",
+  "problem_name": "P001-4 Panic Disorder",
+  "sub_category_id": "P001-4",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e99e558381f06f64e04c"
+  },
+  "_record_hash": "3b90ac145cb6ffcb0408b3e67d59b5df",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:18.743Z"
+  },
+  "category": "Anxiety",
+  "category_id": "P001",
+  "description": "Excessive anxiety and worry about a number of events or activities, occurring more days than not for at least six months",
+  "id": "ddb03d2f",
+  "problem_name": "P001-5 Generalized Anxiety - Mild",
+  "sub_category_id": "P001-5",
+  "is_active": true,
+  "severity_level": 2
+},
+{
+  "_id": {
+    "$oid": "68b7e99e558381f06f64e04d"
+  },
+  "_record_hash": "990f81b6b03408be9f66836de3560337",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:18.743Z"
+  },
+  "category": "Anxiety",
+  "category_id": "P001",
+  "description": "Excessive anxiety and worry about a number of events or activities, occurring more days than not for at least six months",
+  "id": "d268d8c5",
+  "problem_name": "P001-6 Generalized Anxiety - Moderate",
+  "sub_category_id": "P001-6",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e99e558381f06f64e04e"
+  },
+  "_record_hash": "2632bcdbc26ec9f10553766245759cf1",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:18.743Z"
+  },
+  "category": "Anxiety",
+  "category_id": "P001",
+  "description": "Excessive anxiety and worry about a number of events or activities, occurring more days than not for at least six months",
+  "id": "cc1677cd",
+  "problem_name": "P001-7 Generalized Anxiety - Severe",
+  "sub_category_id": "P001-7",
+  "is_active": true,
+  "severity_level": 4
+},
+{
+  "_id": {
+    "$oid": "68b7e99e558381f06f64e04f"
+  },
+  "_record_hash": "1c669e9f1125b0baa61800d1487d4bbc",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:18.743Z"
+  },
+  "category": "Anxiety",
+  "category_id": "P001",
+  "description": "Characterized by excessive anxiety concerning separation from those to whom the individual is attached.",
+  "id": "7daaa6aa",
+  "problem_name": "P001-8 Separation Anxiety Disorder Disorder",
+  "sub_category_id": "P001-8",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e99e558381f06f64e050"
+  },
+  "_record_hash": "e2e72a06b3803ff156103ff23e0a7fff",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:18.745Z"
+  },
+  "category": "General",
+  "category_id": "P001",
+  "description": null,
+  "id": "e7652503",
+  "problem_name": null,
+  "sub_category_id": null,
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0c3"
+  },
+  "_record_hash": "994a40fd5779e2120895b172b38f52a2",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.209Z"
+  },
+  "category": "Anxiety",
+  "description": "Anxiety related to academic examinations.",
+  "id": "2eb0bc65",
+  "problem_id": "P001",
+  "problem_name": "Exam Anxiety",
+  "category_id": "GEN_01",
+  "created_at": "2025-09-04T11:50:02.552679",
+  "domain": "general",
+  "is_active": true,
+  "severity_level": 3,
+  "sub_category_id": "GEN_01_01",
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.785Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0c4"
+  },
+  "_record_hash": "7ed6410825bf6ff9381b2800a4a63464",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.209Z"
+  },
+  "category": "Stress",
+  "description": "Stress experienced in professional settings.",
+  "id": "0f4543b3",
+  "problem_id": "P002",
+  "problem_name": "Workplace Stress",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0c5"
+  },
+  "_record_hash": "431d289d5a23d1f24e8efce69b5f5971",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.209Z"
+  },
+  "category": "General",
+  "description": "Negative self-perception or lack of confidence.",
+  "id": "1fc31766",
+  "problem_id": "P003",
+  "problem_name": "Low Self-Esteem",
+  "is_active": true,
+  "severity_level": 2
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0c6"
+  },
+  "_record_hash": "b7db504b31ea42c946b5eb2ecae1f686",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.209Z"
+  },
+  "category": "Stress",
+  "description": "Stress can be defined as a state of worry or mental tension caused by a difficult situation.",
+  "id": "6d49431b",
+  "problem_id": "P004",
+  "problem_name": "Stress",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0c7"
+  },
+  "_record_hash": "40bd9d244b63b9ccbbfbf79060d3f3b4",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.209Z"
+  },
+  "category": "Stress",
+  "description": "Stress-related condition: Stress - Panic Attack",
+  "id": "fbcfd1fe",
+  "problem_id": "P004-1",
+  "problem_name": "Stress - Panic Attack",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0c8"
+  },
+  "_record_hash": "2ee3206737fe6a5f881120bc42e2e083",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "General",
+  "description": "Mental health condition: ?",
+  "id": "09826419",
+  "problem_id": "P004 -2",
+  "problem_name": "?",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0c9"
+  },
+  "_record_hash": "c780464abded6dac1fae5959f792c182",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "Depression",
+  "description": "Depression-related condition: Depression",
+  "id": "bf7ac1cb",
+  "problem_id": "P005",
+  "problem_name": "Depression",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0ca"
+  },
+  "_record_hash": "c5062670b3c7078545d858ce808d2e11",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "Trauma",
+  "description": "Trauma-related condition: Trauma",
+  "id": "07b9d736",
+  "problem_id": "P006",
+  "problem_name": "Trauma",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0cb"
+  },
+  "_record_hash": "7b7fd17a70c7059f8aac093ffaa352f6",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "General",
+  "description": "Mental health condition: Bullying",
+  "id": "4125048c",
+  "problem_id": "P007",
+  "problem_name": "Bullying",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0cc"
+  },
+  "_record_hash": "e4943807214f6bc5877a3e67f24b8971",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "Anxiety",
+  "description": "Anxiety-related condition: Anxiety",
+  "id": "7229aede",
+  "problem_id": "P008",
+  "problem_name": "Anxiety",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0cd"
+  },
+  "_record_hash": "18ddce7be9dabc350c0f4da7bd1b1a23",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "General",
+  "description": "Mental health condition: Social issues and bullying",
+  "id": "00a69859",
+  "problem_id": "P009",
+  "problem_name": "Social issues and bullying",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0ce"
+  },
+  "_record_hash": "a2c80675d76ffe0ef20a833065c1d3a9",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "General",
+  "description": "Mental health condition: Family problems",
+  "id": "f4642833",
+  "problem_id": "P010",
+  "problem_name": "Family problems",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0cf"
+  },
+  "_record_hash": "570dd5afe18592e23aa85195c4e2ed61",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "General",
+  "description": "Mental health condition: Suicidal thoughts",
+  "id": "ee736a95",
+  "problem_id": "P011",
+  "problem_name": "Suicidal thoughts",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0d0"
+  },
+  "_record_hash": "8f241e668cb17f589122226277cd8bd4",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "General",
+  "description": "Mental health condition: Addiction",
+  "id": "0eb73992",
+  "problem_id": "P012",
+  "problem_name": "Addiction",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e0d1"
+  },
+  "_record_hash": "bbe2687d48d7545ead8473025867f420",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.210Z"
+  },
+  "category": "General",
+  "description": "Mental health condition: Emotional Regulation",
+  "id": "53819e9b",
+  "problem_id": "P013",
+  "problem_name": "Emotional Regulation",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e421"
+  },
+  "_record_hash": "d83a9dc7cdb3c7478206d5fc90830d20",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.585Z"
+  },
+  "category": "Stress",
+  "category_id": "STR_04",
+  "description": "Emotional or psychological stress related to romantic, social, or interpersonal relationships.",
+  "id": "0b56f303",
+  "problem_name": "P004-1 Stress from Relationships",
+  "sub_category_id": "STR_04_01",
+  "created_at": "2025-09-04T11:49:46.892092",
+  "domain": "stress",
+  "is_active": true,
+  "severity_level": 3,
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.781Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e422"
+  },
+  "_record_hash": "e572e5aa4cebecea4f15e33d2cf58e16",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.586Z"
+  },
+  "category": "Stress",
+  "category_id": "P004",
+  "description": "Stress caused by conflicts, expectations, or emotional strain within family systems.",
+  "id": "6674770b",
+  "problem_name": "P004-2 Stress from Family Relations",
+  "sub_category_id": "P004-2",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e423"
+  },
+  "_record_hash": "69e7762d598e1fa51d2e572a598f3836",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.586Z"
+  },
+  "category": "Stress",
+  "category_id": "P004",
+  "description": "Stress reactions stemming from verbal, emotional, or physical bullying at school or in social settings.",
+  "id": "677d385d",
+  "problem_name": "P004-3 Stress from Bullying",
+  "sub_category_id": "P004-3",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e424"
+  },
+  "_record_hash": "c3109a676daf1284714a05aec6a0dea2",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.586Z"
+  },
+  "category": "Stress",
+  "category_id": "P004",
+  "description": "Workplace-related stress due to pressure, workload, conflict, or role strain.",
+  "id": "fc70d5ce",
+  "problem_name": "P004-4 Stress from the Workplace",
+  "sub_category_id": "P004-4",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e425"
+  },
+  "_record_hash": "f886a2fb43e68f6e71df30c45c3c0d39",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.586Z"
+  },
+  "category": "Stress",
+  "category_id": "P004",
+  "description": "Inability to manage emotional responses effectively, leading to intense and rapidly shifting emotions.",
+  "id": "ba5dbce3",
+  "problem_name": "P004-5 Emotional Dysregulation",
+  "sub_category_id": "P004-5",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e426"
+  },
+  "_record_hash": "a46cee1d0e9947e3ed719a31b072b3fb",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.586Z"
+  },
+  "category": "Stress",
+  "category_id": "P004",
+  "description": "Acute physiological and emotional responses to a traumatic or overwhelming event.",
+  "id": "b69e8d59",
+  "problem_name": "P004-6 Acute Stress Reaction",
+  "sub_category_id": "P004-6",
+  "is_active": true,
+  "severity_level": 4
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e427"
+  },
+  "_record_hash": "81418735e43cedecb2541d6322b9e8c6",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.586Z"
+  },
+  "category": "Stress",
+  "category_id": "P004",
+  "description": "Chronic stress emerging from negative self-image, low confidence, or perceived lack of self-worth.",
+  "id": "1dfea9c8",
+  "problem_name": "P004-7 Stress from Low Self Esteem",
+  "sub_category_id": "P004-7",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e80d"
+  },
+  "_record_hash": "1cd90184cefe1994490e2842039855b0",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.965Z"
+  },
+  "category": "Trauma",
+  "category_id": "TRA_05",
+  "description": "Emotional and physical distress triggered by life changes or transitions.",
+  "id": "2351702f",
+  "problem_name": "P005-1 - Adjustment Disorder",
+  "sub_category_id": "TRA_05_01",
+  "created_at": "2025-09-04T11:49:57.755551",
+  "domain": "trauma",
+  "is_active": true,
+  "severity_level": 3,
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.784Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e80e"
+  },
+  "_record_hash": "7725c8700e8b0e79d143c34c802b751c",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.965Z"
+  },
+  "category": "Stress",
+  "category_id": "P005",
+  "description": "Response to a single shocking or distressing event such as an accident or assault.",
+  "id": "600d9b35",
+  "problem_name": "P005-2 - Acute Trauma",
+  "sub_category_id": "P005-2",
+  "is_active": true,
+  "severity_level": 4
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e80f"
+  },
+  "_record_hash": "6acae2a98bcf96a09002dbbcb633d99f",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.965Z"
+  },
+  "category": "Stress",
+  "category_id": "P005",
+  "description": "Ongoing symptoms after experiencing or witnessing a life-threatening event.",
+  "id": "ffc4ffe2",
+  "problem_name": "P005-3 - PTSD (Post-Traumatic Stress Disorder)",
+  "sub_category_id": "P005-3",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e810"
+  },
+  "_record_hash": "0224def5671bc88918af79a48cb49099",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.966Z"
+  },
+  "category": "Trauma",
+  "category_id": "P005",
+  "description": "Long-term exposure to multiple, often interpersonal traumatic experiences.",
+  "id": "b70af84a",
+  "problem_name": "P005-4 - Complex Trauma",
+  "sub_category_id": "P005-4",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e811"
+  },
+  "_record_hash": "7cac9efbb05341b4e5a68570451cf5f9",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.966Z"
+  },
+  "category": "Trauma",
+  "category_id": "P005",
+  "description": "Trauma rooted in early life adversity such as abuse, neglect, or household dysfunction.",
+  "id": "d184810d",
+  "problem_name": "P005-5 - Childhood Trauma",
+  "sub_category_id": "P005-5",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e812"
+  },
+  "_record_hash": "7256659e58163bafa05b0b50ccb0d7b6",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.966Z"
+  },
+  "category": "Trauma",
+  "category_id": "P005",
+  "description": "Psychological impact of serious illness, injury, or invasive medical treatment.",
+  "id": "4b10d912",
+  "problem_name": "P005-6 - Medical Trauma",
+  "sub_category_id": "P005-6",
+  "is_active": true,
+  "severity_level": 3
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e813"
+  },
+  "_record_hash": "a4d65c5d28f18fc11cacb03ba27afb40",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.966Z"
+  },
+  "category": "Trauma",
+  "category_id": "P005",
+  "description": "Grief complicated by sudden, violent, or unresolved loss of a loved one.",
+  "id": "de15493a",
+  "problem_name": "P005-7 - Traumatic Grief/Loss",
+  "sub_category_id": "P005-7",
+  "is_active": true,
+  "severity_level": 3
+}]

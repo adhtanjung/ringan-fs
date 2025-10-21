@@ -107,5 +107,68 @@
 		"switch": "Ganti Bahasa",
 		"english": "English",
 		"indonesian": "Bahasa Indonesia"
+	},
+	"quickReplies": {
+		"feeling": "Saya ingin berbicara tentang perasaan saya",
+		"help": "Saya butuh bantuan",
+		"sleep": "Saya mengalami masalah tidur",
+		"assessment": "Saya ingin melakukan assessment"
+	},
+	"chat": {
+		"title": "Asisten Kesehatan Mental",
+		"subtitle": "Online & Siap Membantu",
+		"typing": "Sedang mengetik...",
+		"welcome": {
+			"title": "Selamat Datang di Ruang Aman Anda",
+			"subtitle": "Saya di sini untuk mendengarkan dan mendukung Anda. Bagaimana perasaan Anda hari ini?",
+			"ai": "Halo! Saya di sini untuk mendukung perjalanan kesehatan mental Anda. Bagaimana perasaan Anda hari ini?"
+		},
+		"input": {
+			"placeholder": "Bagikan apa yang ada di pikiran Anda..."
+		}
+	},
+	"settings": {
+		"title": "Pengaturan",
+		"language": "Bahasa",
+		"languageDesc": "Pilih bahasa yang Anda inginkan",
+		"privacy": "Privasi",
+		"saveHistory": "Simpan riwayat percakapan",
+		"analytics": "Analitik penggunaan anonim",
+		"emergency": "Sumber Daya Darurat",
+		"crisisHotline": "Hotline Krisis"
+	},
+	"crisis": {
+		"title": "Kami Di Sini untuk Membantu",
+		"message": "Sepertinya Anda mungkin sedang mengalami masa sulit. Anda tidak sendirian.",
+		"call": "Hubungi Hotline Krisis",
+		"continue": "Lanjutkan Chat"
+	},
+	"assessment": {
+		"title": "Pertanyaan Assessment",
+		"progress": "Assessment Sedang Berlangsung",
+		"cancel": "Batal",
+		"question": "Pertanyaan",
+		"total": "total",
+		"submit": "Kirim Jawaban",
+		"skip": "Lewati",
+		"scale": {
+			"low": "Rendah",
+			"high": "Tinggi",
+			"instruction": "Pilih angka dari 1 (rendah) sampai 10 (tinggi)"
+		},
+		"yes": "Ya",
+		"no": "Tidak",
+		"text": {
+			"placeholder": "Silakan bagikan pemikiran Anda...",
+			"instruction": "Bagikan sebanyak atau sesedikit yang Anda rasa nyaman"
+		}
+	},
+	"quickReplies": {
+		"feeling": "Saya merasa cemas",
+		"help": "Saya butuh strategi coping",
+		"sleep": "Saya kesulitan tidur",
+		"assessment": "Saya ingin melakukan assessment",
+		"stress": "Saya merasa stres",
+		"depression": "Saya rasa saya mungkin depresi"
 	}
 }

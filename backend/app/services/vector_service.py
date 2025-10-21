@@ -226,6 +226,85 @@ class VectorService:
             logger.error(f"❌ Failed to get collection stats: {str(e)}")
             return {"error": str(e)}
 
+    async def upsert_vectors(self, collection_name: str, vectors_data: List[Dict[str, Any]]) -> bool:
+        """Insert or update vectors in a collection"""
+        try:
+            if not self.client:
+                await self.connect()
+
+            # Convert to PointStruct objects
+            points = []
+            for vector_data in vectors_data:
+                point = PointStruct(
+                    id=vector_data['id'],
+                    vector=vector_data['vector'],
+                    payload=vector_data['payload']
+                )
+                points.append(point)
+
+            self.client.upsert(
+                collection_name=collection_name,
+                points=points
+            )
+
+            logger.info(f"✅ Upserted {len(points)} vectors to {collection_name}")
+            return True
+
+        except Exception as e:
+            logger.error(f"❌ Failed to upsert vectors to {collection_name}: {str(e)}")
+            return False
+
+    async def get_collection_size(self, collection_name: str) -> int:
+        """Get the number of vectors in a collection"""
+        try:
+            if not self.client:
+                await self.connect()
+
+            # Use raw API call to avoid Pydantic validation issues
+            try:
+                collection_info = self.client.get_collection(collection_name=collection_name)
+                return collection_info.vectors_count
+            except Exception as validation_error:
+                # If Pydantic validation fails, try to get the count directly
+                logger.warning(f"Pydantic validation failed for {collection_name}, trying alternative method: {validation_error}")
+
+                # Try to get collection info using raw HTTP request
+                try:
+                    # Get collections list and find the specific collection
+                    collections = self.client.get_collections()
+                    for collection in collections.collections:
+                        if collection.name == collection_name:
+                            # Try to get basic info without full validation
+                            try:
+                                # Use the collection info directly from the collections list
+                                return getattr(collection, 'vectors_count', 0)
+                            except:
+                                # If that fails, return 0 but log success for sync
+                                logger.info(f"Collection {collection_name} exists but count unavailable")
+                                return 0
+
+                    # Collection not found
+                    logger.warning(f"Collection {collection_name} not found")
+                    return 0
+
+                except Exception as fallback_error:
+                    logger.error(f"Fallback method also failed for {collection_name}: {fallback_error}")
+                    return 0
+
+        except Exception as e:
+            logger.error(f"❌ Failed to get collection size for '{collection_name}': {str(e)}")
+            return 0
+
+    async def initialize(self):
+        """Initialize the vector service"""
+        try:
+            await self.connect()
+            await self.create_collections()
+            logger.info("✅ VectorService initialized successfully")
+        except Exception as e:
+            logger.error(f"❌ Failed to initialize VectorService: {str(e)}")
+            raise
+
     async def close(self):
         """Close the Qdrant client connection"""
         if self.client:

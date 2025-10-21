@@ -233,11 +233,29 @@ class ChatService:
                 context_text = ' '.join(context_parts + [message])
 
             # Search for matching problem categories
+            print(f"🔍 Problem context analysis - context_text: '{context_text}'")
+
+            # Try both original and English translation for better results
             problem_search = await semantic_search_service.search_problems(
                 query=context_text,
                 limit=5,
-                score_threshold=0.4
+                score_threshold=0.3  # Lower threshold for better matching
             )
+
+            # If no results found, try with English keywords
+            if not problem_search.success or not problem_search.results:
+                print(f"🔍 Problem context analysis - no results, trying English keywords")
+                english_keywords = self._extract_english_keywords(context_text)
+                if english_keywords:
+                    problem_search = await semantic_search_service.search_problems(
+                        query=english_keywords,
+                        limit=5,
+                        score_threshold=0.3
+                    )
+                    print(f"🔍 Problem context analysis - English search results: {len(problem_search.results) if problem_search.results else 0}")
+
+            print(f"🔍 Problem context analysis - problem_search.success: {problem_search.success}")
+            print(f"🔍 Problem context analysis - problem_search.results count: {len(problem_search.results) if problem_search.results else 0}")
 
             detected_problems = []
             confidence_scores = []
@@ -245,8 +263,11 @@ class ChatService:
             if problem_search.success and problem_search.results:
                 for result in problem_search.results:
                     payload = result.payload
+                    # Use domain as fallback if category is empty
+                    category = payload.get('category', '') or payload.get('domain', '')
+                    print(f"🔍 Problem context analysis - found problem: {category} (score: {result.score})")
                     detected_problems.append({
-                        "category": payload.get('category', ''),
+                        "category": category,
                         "sub_category": payload.get('sub_category', ''),
                         "sub_category_id": payload.get('sub_category_id', ''),
                         "domain": payload.get('domain', ''),
@@ -257,7 +278,12 @@ class ChatService:
 
             # Determine if we have high confidence in problem identification
             max_confidence = max(confidence_scores) if confidence_scores else 0
-            should_suggest_assessment = max_confidence > 0.6 and len(detected_problems) > 0
+            # Lower the threshold to 0.5 to be more inclusive for assessment suggestions
+            should_suggest_assessment = max_confidence > 0.5 and len(detected_problems) > 0
+
+            print(f"🔍 Problem context analysis - max_confidence: {max_confidence}")
+            print(f"🔍 Problem context analysis - detected_problems count: {len(detected_problems)}")
+            print(f"🔍 Problem context analysis - should_suggest_assessment: {should_suggest_assessment}")
 
             return {
                 "detected_problems": detected_problems,
@@ -277,29 +303,82 @@ class ChatService:
                 "primary_sub_category_id": None
             }
 
+    def _extract_english_keywords(self, text: str) -> str:
+        """
+        Extract English keywords from Indonesian text for better semantic search
+        """
+        # Simple Indonesian to English keyword mapping
+        keyword_map = {
+            'cemas': 'anxiety anxious',
+            'stres': 'stress stressed',
+            'depresi': 'depression depressed',
+            'khawatir': 'worry worried anxious',
+            'takut': 'fear afraid anxious',
+            'panik': 'panic anxious',
+            'gelisah': 'restless anxious',
+            'tertekan': 'stressed depressed',
+            'kesulitan': 'difficulty struggling',
+            'masalah': 'problem issue',
+            'bantuan': 'help support',
+            'merasa': 'feeling',
+            'saya': 'I',
+            'aku': 'I',
+            'sangat': 'very',
+            'benar': 'really',
+            'sekali': 'very',
+            'sekali': 'very'
+        }
+
+        text_lower = text.lower()
+        english_keywords = []
+
+        for indo_word, english_words in keyword_map.items():
+            if indo_word in text_lower:
+                english_keywords.extend(english_words.split())
+
+        return ' '.join(english_keywords) if english_keywords else ''
+
     async def _should_transition_to_assessment(self, context_analysis: Dict, conversation_history: List[Dict]) -> bool:
         """
         Determine if the conversation should transition to structured assessment
         """
         try:
             # Check confidence level
-            if context_analysis.get('max_confidence', 0) < 0.6:
+            max_confidence = context_analysis.get('max_confidence', 0)
+            print(f"🔍 Assessment transition check - max_confidence: {max_confidence}")
+
+            if max_confidence < 0.5:
+                print(f"🔍 Assessment transition - confidence too low: {max_confidence}")
                 return False
 
             # Check if user has been discussing problems for multiple messages
-            if len(conversation_history) >= 6:  # At least 3 exchanges
+            history_length = len(conversation_history) if conversation_history else 0
+            print(f"🔍 Assessment transition - conversation_history length: {history_length}")
+
+            if history_length >= 6:  # At least 3 exchanges
+                print(f"🔍 Assessment transition - enough conversation history: {history_length}")
                 return True
 
-            # Check for explicit distress indicators
+            # Check for explicit distress indicators in recent messages
             recent_messages = conversation_history[-3:] if conversation_history else []
-            distress_keywords = ['help', 'stressed', 'anxious', 'depressed', 'overwhelmed', 'struggling', 'difficult']
+            distress_keywords = ['help', 'stressed', 'anxious', 'depressed', 'overwhelmed', 'struggling', 'difficult', 'feeling', 'trouble', 'problem', 'issue']
+
+            print(f"🔍 Assessment transition - recent_messages: {recent_messages}")
 
             for msg in recent_messages:
                 if msg.get('role') == 'user':
                     content = msg.get('content', '').lower()
+                    print(f"🔍 Assessment transition - checking message: '{content}'")
                     if any(keyword in content for keyword in distress_keywords):
+                        print(f"🔍 Assessment transition - distress keyword found in: '{content}'")
                         return True
 
+            # If we have good confidence (>= 0.5) and detected problems, suggest assessment even for single messages
+            if max_confidence >= 0.5 and context_analysis.get('detected_problems'):
+                print(f"🔍 Assessment transition - good confidence single message: {max_confidence}")
+                return True
+
+            print(f"🔍 Assessment transition - no conditions met, returning False")
             return False
 
         except Exception as e:
@@ -606,7 +685,12 @@ Tone: Apologetic, supportive, helpful
                     })
 
                 # Add assessment suggestion if appropriate
+                print(f"🔍 Assessment suggestion check - should_transition: {should_transition}")
+                print(f"🔍 Assessment suggestion check - context_analysis.get('should_suggest_assessment'): {context_analysis.get('should_suggest_assessment')}")
+                print(f"🔍 Assessment suggestion check - context_analysis: {context_analysis}")
+
                 if should_transition and context_analysis.get('should_suggest_assessment'):
+                    print(f"🔍 Assessment suggestion - conditions met, generating suggestion")
                     primary_problem = context_analysis.get('detected_problems', [{}])[0]
 
                     # Generate dynamic assessment suggestion

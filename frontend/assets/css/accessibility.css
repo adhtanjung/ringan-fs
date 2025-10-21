@@ -1,0 +1,344 @@
+/* Accessibility and Motion Preferences */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus management */
+.focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .focus-visible {
+    outline: 4px solid #000;
+    outline-offset: 4px;
+  }
+
+  .ring-2 {
+    outline: 4px solid #000;
+    outline-offset: 4px;
+  }
+
+  .ring-blue-500 {
+    outline-color: #000;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable specific animations */
+  .animate-spin,
+  .animate-bounce,
+  .animate-pulse,
+  .animate-ping {
+    animation: none !important;
+  }
+
+  /* Disable transform animations */
+  [style*="transform"] {
+    transform: none !important;
+  }
+
+  /* Disable opacity transitions */
+  [style*="opacity"] {
+    opacity: 1 !important;
+  }
+}
+
+/* Motion-safe animations (only when motion is not reduced) */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-safe-animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  .motion-safe-animate-bounce {
+    animation: bounce 1s infinite;
+  }
+
+  .motion-safe-animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .motion-safe-animate-ping {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+
+/* Keyboard navigation improvements */
+.keyboard-navigation *:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Skip links for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Improved button focus states */
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Improved input focus states */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Link focus states */
+a:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  text-decoration: underline;
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+  .bg-white {
+    background-color: #fff !important;
+  }
+
+  .bg-gray-100 {
+    background-color: #f0f0f0 !important;
+  }
+
+  .text-gray-600 {
+    color: #000 !important;
+  }
+
+  .text-gray-500 {
+    color: #333 !important;
+  }
+
+  .border-gray-200 {
+    border-color: #000 !important;
+  }
+
+  .border-gray-300 {
+    border-color: #333 !important;
+  }
+}
+
+/* Dark mode high contrast */
+@media (prefers-contrast: high) and (prefers-color-scheme: dark) {
+  .dark .bg-gray-800 {
+    background-color: #000 !important;
+  }
+
+  .dark .bg-gray-700 {
+    background-color: #111 !important;
+  }
+
+  .dark .text-gray-300 {
+    color: #fff !important;
+  }
+
+  .dark .text-gray-400 {
+    color: #ccc !important;
+  }
+
+  .dark .border-gray-600 {
+    border-color: #fff !important;
+  }
+
+  .dark .border-gray-700 {
+    border-color: #ccc !important;
+  }
+}
+
+/* Reduced data mode support */
+@media (prefers-reduced-data: reduce) {
+  .bg-gradient-to-r,
+  .bg-gradient-to-br,
+  .bg-gradient-to-bl {
+    background: #f8fafc !important;
+  }
+
+  .dark .bg-gradient-to-r,
+  .dark .bg-gradient-to-br,
+  .dark .bg-gradient-to-bl {
+    background: #1f2937 !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+/* Animation keyframes for motion-safe animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Smooth scrolling for users who prefer it */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Improved text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+
+
+
+

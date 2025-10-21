@@ -469,6 +469,76 @@ class SemanticSearchService:
             logger.error(f"❌ Multi-collection search failed: {str(e)}")
             return {}
 
+    async def search(
+        self,
+        query: str,
+        top_k: int = 5,
+        threshold: float = 0.7,
+        collection: Optional[str] = None
+    ) -> List[Dict]:
+        """
+        Generic search method for backward compatibility
+        Searches across all collections or a specific collection
+        """
+        try:
+            all_results = []
+
+            # If specific collection is requested, search only that collection
+            if collection and collection in self.collections:
+                if collection == "problems":
+                    response = await self.search_problems(query, top_k, threshold)
+                elif collection == "assessments":
+                    response = await self.search_assessment_questions(query, limit=top_k, score_threshold=threshold)
+                elif collection == "suggestions":
+                    response = await self.search_therapeutic_suggestions(query, limit=top_k, score_threshold=threshold)
+                elif collection == "feedback":
+                    response = await self.search_feedback_prompts(query, limit=top_k, score_threshold=threshold)
+                elif collection == "training":
+                    response = await self.search_training_examples(query, limit=top_k, score_threshold=threshold)
+                else:
+                    return []
+
+                if response.success:
+                    for result in response.results:
+                        all_results.append({
+                            "id": result.id,
+                            "score": result.score,
+                            "content": result.payload.get("content", ""),
+                            "metadata": result.payload,
+                            "collection": collection
+                        })
+            else:
+                # Search across all collections
+                collections_to_search = ["problems", "suggestions", "assessments"]
+
+                for coll in collections_to_search:
+                    if coll == "problems":
+                        response = await self.search_problems(query, top_k, threshold)
+                    elif coll == "assessments":
+                        response = await self.search_assessment_questions(query, limit=top_k, score_threshold=threshold)
+                    elif coll == "suggestions":
+                        response = await self.search_therapeutic_suggestions(query, limit=top_k, score_threshold=threshold)
+                    else:
+                        continue
+
+                    if response.success:
+                        for result in response.results:
+                            all_results.append({
+                                "id": result.id,
+                                "score": result.score,
+                                "content": result.payload.get("content", ""),
+                                "metadata": result.payload,
+                                "collection": coll
+                            })
+
+            # Sort by score and return top results
+            all_results.sort(key=lambda x: x["score"], reverse=True)
+            return all_results[:top_k]
+
+        except Exception as e:
+            logger.error(f"❌ Generic search failed: {str(e)}")
+            return []
+
     async def get_collection_stats(self) -> Dict[str, Any]:
         """Get statistics for all collections"""
         try:

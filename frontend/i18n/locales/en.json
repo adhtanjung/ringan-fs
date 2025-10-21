@@ -196,5 +196,41 @@
 	},
 	"exit": {
 		"confirm": "Are you sure you want to exit? Your progress will be saved."
+	},
+	"chat": {
+		"title": "Mental Health Assistant",
+		"subtitle": "Online & Ready to Help",
+		"typing": "Typing...",
+		"thinking": "AI is thinking...",
+		"welcome": {
+			"title": "Welcome to Your Safe Space",
+			"subtitle": "I'm here to listen and support you. How are you feeling today?",
+			"ai": "Hello! I'm here to support your mental health journey. How are you feeling today?"
+		},
+		"input": {
+			"placeholder": "Share what's on your mind..."
+		}
+	},
+	"quickReplies": {
+		"feeling": "I'm feeling anxious",
+		"help": "I need coping strategies",
+		"sleep": "I'm having trouble sleeping",
+		"assessment": "I'd like to do an assessment"
+	},
+	"settings": {
+		"title": "Settings",
+		"language": "Language",
+		"languageDesc": "Choose your preferred language",
+		"privacy": "Privacy",
+		"saveHistory": "Save conversation history",
+		"analytics": "Anonymous usage analytics",
+		"emergency": "Emergency Resources",
+		"crisisHotline": "Crisis Hotline"
+	},
+	"crisis": {
+		"title": "We're Here to Help",
+		"message": "It sounds like you might be going through a difficult time. You're not alone.",
+		"call": "Call Crisis Hotline",
+		"continue": "Continue Chat"
 	}
 }

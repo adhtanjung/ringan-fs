@@ -1,0 +1,3210 @@
+[{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8e9"
+  },
+  "_record_hash": "4498b3af72d8e41f2e46258f0fa6135c",
+  "Unnamed: 4": "CBT; Behavioral Activation – Beck, 2011; Martinsen et al., 2017",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.144Z"
+  },
+  "cluster": "c1",
+  "id": "70c803d4",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S001",
+  "suggestion_text": "Identify one behavior that you’ve stopped doing since the incident—something that used to bring a sense of structure or reward (e.g., going to the gym, journaling, calling a friend). Break it into three small, manageable steps and schedule the first step this week. Example: Behavior: Cooking a basic meal again. Step 1: Write a grocery list. Step 2: Buy ingredients for one simple recipe. Step 3: Cook and eat that meal mindfully. Purpose: This helps combat avoidance, boost energy, and reintroduce positive reinforcement."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8ea"
+  },
+  "_record_hash": "0467b59d80f384b8e45369481d7567f6",
+  "Unnamed: 4": "CBT; Beck, 1976; Dobson & Dozois, 2019",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.144Z"
+  },
+  "cluster": "c1",
+  "id": "2057cda8",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S002",
+  "suggestion_text": "Take a recurring stress-related thought (e.g., “I can’t deal with anything anymore”) and write it at the top of a page. Underneath, create two columns: (1) Evidence that supports this thought, and (2) Evidence that challenges it. Then reframe it into a more flexible thought (e.g., “I feel overwhelmed, but I’ve handled things before”). Purpose: Trains cognitive restructuring and challenges catastrophic interpretations common in adjustment disorder."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8eb"
+  },
+  "_record_hash": "761058e3fd4f429e52d5db0167bdc129",
+  "Unnamed: 4": "ACT; Hayes et al., 2012; Wilson & Murrell, 2004",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.144Z"
+  },
+  "cluster": "c1",
+  "id": "2a7591c5",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S003",
+  "suggestion_text": "Use the “Values Compass”: Identify one core value (e.g., stability, connection, growth). Ask: “Why does this matter to me?”, “How has this value been affected by the event?”, and “What’s one small act this week that moves me toward this value?” Example: If “connection” is the value, the action might be sending a check-in text to a friend. Purpose: This restores motivation and meaning after disruption and helps prioritize behavior aligned with identity."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8ec"
+  },
+  "_record_hash": "3e8237781ddac38c36cb42f2ea49ef74",
+  "Unnamed: 4": "ACT; Ciarrochi et al., 2012; Hayes et al., 2012",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.144Z"
+  },
+  "cluster": "c1",
+  "id": "277bf93e",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S004",
+  "suggestion_text": "Write a values-based reflection letter to yourself about how you responded to the stressful incident and what personal strengths you used during that time. Be honest and specific. You might begin with: “At first, I felt frozen by everything. But despite that, I managed to…” or “One thing I did that surprised me was…” Identify the internal qualities that helped you (e.g., courage, empathy, responsibility, endurance). Don’t focus on “being perfect”—focus on your authentic efforts. Then, reflect on what matters most to you now and write about one small values-aligned action you’ll commit to doing this week. Purpose: This ACT-based exercise supports psychological flexibility, values re-engagement, and cognitive distancing from trauma-anchored identity."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8ed"
+  },
+  "_record_hash": "a0a0dee6c6e70dca68ba89c6c757123e",
+  "Unnamed: 4": "CBT; Neenan & Dryden, 2004",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.144Z"
+  },
+  "cluster": "c1",
+  "id": "dce6975a",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S005",
+  "suggestion_text": "Use the “Stress Puzzle” method: Write down all aspects of your current adjustment challenge. Break them into two columns: “What I can influence” vs. “What I cannot.” Choose one actionable piece to focus on this week. Purpose: Reduces overwhelm by separating controllable vs. uncontrollable aspects and shifting focus to small wins."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8ee"
+  },
+  "_record_hash": "bd5c9fefcce592e7e78f23a434f1f89e",
+  "Unnamed: 4": "Resilience Framework; Southwick & Charney, 2012; APA, 2023",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.144Z"
+  },
+  "cluster": "c1",
+  "id": "5d8c2317",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S006",
+  "suggestion_text": "Map your “Resilience Resources”: Draw three circles labeled: “People”, “Places”, and “Practices”. Fill each with stable, supportive resources you still have or can reconnect with. Then pick one to actively engage with this week (e.g., call a friend, return to journaling, walk a calming route). Purpose: Reinforces existing support systems and reminds the person that resources still exist, despite the disruption."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8ef"
+  },
+  "_record_hash": "7754d042f39143c50e8019f72aa73b00",
+  "Unnamed: 4": "Adjustment Disorder Model; APA, 2023; Leahy, 2003",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.144Z"
+  },
+  "cluster": "c1",
+  "id": "7198a8b2",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S007",
+  "suggestion_text": "Track your “adjustment curve”: Note one emotional, one behavioral, and one thinking pattern that has shifted since the event. Use this to notice progress and identify areas still needing support. Ask: “What changed?”, “What improved?”, “What still needs attention?” Purpose: This helps break down the complexity of adjustment into observable, trackable parts, supporting cognitive processing and emotional labeling."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f0"
+  },
+  "_record_hash": "78bb56b7da06e15aa0214aaa5f2dc7ba",
+  "Unnamed: 4": "ACT; Harris, 2019; Hayes et al., 2012",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c1",
+  "id": "70e70823",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S008",
+  "suggestion_text": "Practice the “One-Minute Reframe”: When facing an emotional wave, pause and ask, “What is this really about?” and “What matters most right now?” Then name one small action that honors what matters — not what the emotion demands. Purpose: Encourages values-based redirection and cognitive-emotional flexibility in real time."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f1"
+  },
+  "_record_hash": "e45756c07db16adbf2e5a88be7cc8f04",
+  "Unnamed: 4": "CBT/Mindfulness; Kabat-Zinn, 1990; Linehan, 1993",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c1",
+  "id": "c188e694",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S009",
+  "suggestion_text": "Schedule a 20-minute “stability window” each day: Do a familiar, structured task that reminds you of competence and predictability (e.g., making a meal, cleaning, walking the same route). Purpose: Restores a sense of routine and control, useful during emotional chaos."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f2"
+  },
+  "_record_hash": "de27b240dc39ed63f36ad0dffc5cbf4c",
+  "Unnamed: 4": "CBT/ACT; Hayes et al., 2012; Beck, 2011",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c1",
+  "id": "cfe2cf12",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S010",
+  "suggestion_text": "Identify one area in your life where you're avoiding something (e.g., conversations, paperwork, decisions). Break it into three smaller steps and do the first one today. Track how your avoidance changes over a week. Purpose: Addresses experiential avoidance and promotes action-based recovery."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f3"
+  },
+  "_record_hash": "5a343a78b45f880a57955f0db55a201b",
+  "Unnamed: 4": "CBT/Trauma Recovery – Judith Herman, 1992; Leahy, 2003",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c1",
+  "id": "dfe1fe68",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S011",
+  "suggestion_text": "Use the \"Personal Timeline\" technique: On a blank page, draw a horizontal timeline from “Before the Incident” to “Now.” Mark moments of strength, coping, support, or progress since the incident. Even small events like “got out of bed,” “texted a friend,” or “cried and let it out” count. Purpose: Reframes the current struggle as a dynamic adjustment process, not a static state of being stuck."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f4"
+  },
+  "_record_hash": "7bbf5c58eb7bd8143366d738c4d7cf31",
+  "Unnamed: 4": "Resilience and Regulation – Bonanno, 2004; Siegel, 2012",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c1",
+  "id": "66bcc18b",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S012",
+  "suggestion_text": "Build a \"micro-routine\": Choose three tiny actions to repeat each morning (e.g., open the window, drink a glass of water, stretch arms). Keep them easy and consistent. These rituals offer predictability and restore small moments of self-control when the larger world feels disrupted."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f5"
+  },
+  "_record_hash": "ffc1e68f80f637f2a7b5c65c9ed9ff19",
+  "Unnamed: 4": "ACT/Post-Traumatic Growth – Hayes et al., 2012; Tedeschi & Calhoun, 2004",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c1",
+  "id": "16a5f831",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S013",
+  "suggestion_text": "Do a “meaning scan”: Write down what has changed since the incident—not only in terms of difficulty but also in perspective or values. Then answer: “What matters to me now that didn’t before?” Purpose: Strengthens post-crisis growth by helping the person notice what they want to preserve, reclaim, or reinvent."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f6"
+  },
+  "_record_hash": "9a34fc3854653df7e766ae89eacdef26",
+  "Unnamed: 4": "ACT; Emotional Regulation – Neff, 2011; Linehan, 1993",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c1",
+  "id": "fdeed7cc",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S014",
+  "suggestion_text": "Use the “Three Lenses” technique when something triggers distress: (1) What am I feeling? (2) What am I needing right now? (3) What’s a small, values-aligned next step? Purpose: Trains emotion labeling, unmet need identification, and response flexibility. This helps move from reactivity to intentionality."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f7"
+  },
+  "_record_hash": "56b1426cf299f2dacadaa8c06a7a977e",
+  "Unnamed: 4": "Resilience Imagery – Meichenbaum, 2007; Mindfulness Practices – Kabat-Zinn, 1990",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c1",
+  "id": "d9da62ad",
+  "sub_category_id": "P005-1",
+  "suggestion_id": "S015",
+  "suggestion_text": "Visualize a “stability space”: Close your eyes and imagine a place (real or imagined) where you feel grounded and secure. Describe it in detail (sights, sounds, smells), then name one thing you could bring from that space into your current life (e.g., “peace,” “light,” “warmth”). Purpose: Builds psychological safety and anchors regulation without generic grounding."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f8"
+  },
+  "_record_hash": "777f3ba958ab9f28d414b5ce05ae3681",
+  "Unnamed: 4": "Pharchi, RAPID, ACT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "38efeb17",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S016",
+  "suggestion_text": "Ask 'What Do I Still Have Control Over Today?'\\nIn the chaos of acute stress, people often feel everything is out of control. Reclaiming even a small sense of agency can help stabilize the mind.\\n👉 Write down 3 things you still have influence over: your breath, what you eat, or what music you play.\\n🌱 Focus on decisions that are reachable.\\n🧠 Why it helps: Even limited control activates the prefrontal cortex and reduces helplessness."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8f9"
+  },
+  "_record_hash": "290603a775dc977e2d6d23bfa6d656ee",
+  "Unnamed: 4": "NCTSN, ACT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "e109495f",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S017",
+  "suggestion_text": "Break the Day Into 2-Hour Chunks\\nThe future can feel overwhelming. Time distortion is common in acute stress.\\n👉 Create a micro-schedule: ‘From 9–11 I’ll do this. From 11–1 I’ll rest.’\\n🌱 Repeat each block like a ritual.\\n🧠 Why it helps: Time framing restores predictability."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8fa"
+  },
+  "_record_hash": "3080066e0bbcbc40526252d9cfcc7aa5",
+  "Unnamed: 4": "CBT, RAPID, NCTSN",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "2883e1d7",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S018",
+  "suggestion_text": "Name the Event Out Loud or in Writing\\nAvoidance can strengthen distress. Naming what happened—without having to explain it—creates mental distance.\\n👉 Try this script: “Something terrible/shocking/stressful happened. I’m not ready to talk about it fully, but I know it occurred.”\\n🌱 This gives the brain a handle to begin processing.\\n🧠 Why it helps: Labeling reduces emotional intensity and activates cognitive circuits."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8fb"
+  },
+  "_record_hash": "fb874237783d836ae6bb37083d696c9e",
+  "Unnamed: 4": "NCTSN, ACT, Pharchi",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "cc026724",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S019",
+  "suggestion_text": "Build a Short 'Stability List'\\nIn the first days after stress, make a visible list of 3 things that bring even a small sense of calm.\\n👉 Examples: hot shower, sitting in sunlight, listening to music.\\n🌱 Put this list on your fridge, desk, or phone.\\n🧠 Why it helps: Reminders increase likelihood of use, and reinforce internal safety cues."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8fc"
+  },
+  "_record_hash": "42c2aad9dd2a38d4ac15255f1cea15b9",
+  "Unnamed: 4": "RAPID, NCTSN",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "7342dc46",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S020",
+  "suggestion_text": "Ask: 'Who Is One Person That Feels Safe Right Now?'\\nSocial withdrawal is a common response to trauma. But one positive interaction can reset your stress response.\\n👉 Message, call, or just think about this person. If reaching out feels too hard, write a note you don’t send.\\n🌱 You’re reminding your system that safety exists.\\n🧠 Why it helps: Connection restores coregulatory capacity and reduces isolation."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8fd"
+  },
+  "_record_hash": "700a461d3f43deda2089c8fc802802e7",
+  "Unnamed: 4": "CBT trauma protocols; NCTSN Step 5 – Encourage processing",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "e7d2a4b8",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S021",
+  "suggestion_text": "Map Out the Timeline of What Happened\\nOne of the first steps in integrating a traumatic experience is organizing the sequence of events. Even if it's fragmented, trying to tell the story in order helps restore narrative coherence.\\n👉 How: Write (or say) what happened before, during, and after the event. It doesn’t need to be perfect. Add how your body felt or what you were thinking at each stage.\\n💡 Why it works: From a cognitive-behavioral view, trauma often creates disjointed memory. Rebuilding the story helps contain it."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8fe"
+  },
+  "_record_hash": "6215979a3bc1b92d14389f9a5e554386",
+  "Unnamed: 4": "RAPID – Assessment & Prioritization; Pharchi “Control”",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "5c653ba2",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S022",
+  "suggestion_text": "Identify What Feels Most Unsafe Right Now\\nAfter acute stress, people often experience a vague sense of threat, even if they’re physically safe. Clarifying the specific fear allows the brain to down-regulate its defense system.\\n👉 How: Ask: “What do I fear is going to happen next?” Break the fear into facts vs. projections.\\n💡 Why it works: RAPID’s assessment and prioritization stages emphasize locating the perceived threat to allow proper support and stabilization."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e8ff"
+  },
+  "_record_hash": "78826ad3e51d1f0e07cdce970f8e1183",
+  "Unnamed: 4": "Pharchi 6C’s, NCTSN Step 6 – Foster adaptive functioning",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "b9e4e300",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S023",
+  "suggestion_text": "List the Resources That Are Still Intact\\nIn acute stress, your attention focuses on loss and disruption. Deliberately noticing what remains steady can help reorient your mindset from helplessness to hope.\\n👉 How: Write down: People you can still talk to, places that feel safe, skills you haven’t lost.\\n💡 Why it works: This primes your brain to notice support and reinforces the “C” of Connect and Cope."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e900"
+  },
+  "_record_hash": "22667e68d773c18101f13619da4c91fb",
+  "Unnamed: 4": "Pharchi “Create Meaning”; RAPID – Intervention and Disposition",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "b435cba1",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S024",
+  "suggestion_text": "Assign Yourself a Leadership Task, No Matter How Small\\nEven when you feel fragile, taking responsibility for something—yourself, a space, or a person—can reduce the feeling of being a victim.\\n👉 How: Examples: Create a 3-day check-in plan with a friend; organize your environment; share a coping tip with someone else.\\n💡 Why it works: Being useful and needed taps into internal motivation and neurobiological repair."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e901"
+  },
+  "_record_hash": "784caa5cf3b0c0e933bec4e2343b9b56",
+  "Unnamed: 4": "ACT (values-based projection); NCTSN Step 8 – Provide hope and guidance",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "a4a67686",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S025",
+  "suggestion_text": "Visualize What 'Stabilized' Looks Like in 72 Hours\\nInstead of “getting back to normal,” shift to imagining what a more stable version of you could look like within 3 days. This invites hope, not perfection.\\n👉 How: Ask: “If things felt 20% more stable in 3 days, what would be different?” Visualize that version: calmer breathing, more rest, less isolation\\n💡 Why it works: This builds future orientation and increases goal-directed thinking, which counters traumatic time-freeze."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e902"
+  },
+  "_record_hash": "6b4bcc41d862f3b962d2d04cb81dbdab",
+  "Unnamed: 4": "NCTSN Step 3, ACT present-moment focus, RAPID – Stabilization",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "e0d1e623",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S026",
+  "suggestion_text": "Use Anchoring Language to Stay in the Present Moment\\nAfter acute stress, your brain may shift into “reliving mode” without warning. This can feel like being pulled back into the traumatic event.\\n👉 Try this grounding sentence when the past invades the present: “Right now I am ___. I am in ___. It is __ o’clock. I see ___ and hear ___.”\\nSay it slowly. You can repeat it as often as needed.\\n🌱 Use it during moments of overwhelm, or just to reset mid-day.\\n🧠 Why it helps: Anchoring language engages the prefrontal cortex, reconnecting you to the present and reducing automatic threat responses."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e903"
+  },
+  "_record_hash": "ddcd052512ea80d789c316eac3793f33",
+  "Unnamed: 4": "ACT – Acceptance and Self-kindness; RAPID – Reflective validation",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "951386e6",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S027",
+  "suggestion_text": "Give Yourself Permission to Not “Be Productive”\\nIn early stress recovery, many people pressure themselves to “get back to normal.” But the body and brain are busy processing the event, even if you're just sitting still.\\n👉 Remind yourself: “I’m not lazy. I’m healing. Rest is work right now.”\\nWrite this down. Place it somewhere visible.\\n🌱 This reframes rest as resilience, not avoidance.\\n🧠 Why it helps: Reduces shame, supports parasympathetic regulation, and reinforces self-compassion."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e904"
+  },
+  "_record_hash": "6ff5550919dc7c2f3808a41107bc0cb8",
+  "Unnamed: 4": "NCTSN Step 2 & 3 – Calming techniques; trauma-informed sensory integration",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "dc6d33a5",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S028",
+  "suggestion_text": "Create a 'Calm Kit' With Objects That Engage the Senses\\nPhysical grounding is crucial in the first week after trauma. A portable “kit” gives your nervous system a lifeline.\\n👉 Include: A calming scent (lavender oil, favorite lotion); A smooth object (stone, coin, fabric); Something visual (photo, quote, artwork); Music or sounds that bring peace\\n🌱 Use it during moments of overwhelm, or just to reset mid-day.\\n🧠 Why it helps: Sensory input signals the amygdala that there is no current danger."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e905"
+  },
+  "_record_hash": "05d7f6d9c9d6070d089212248be53b3e",
+  "Unnamed: 4": "RAPID – Psychoeducation; NCTSN Step 4 – Normalize acute reactions",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "121317dd",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S029",
+  "suggestion_text": "Recognize That Reactions Are Normal, Even If They’re Intense\\nYou might cry suddenly, feel irritable, or go numb. These are not signs of “breaking down”—they are evidence that your system is trying to make sense of something overwhelming.\\n👉 Say aloud or write down: “My reactions make sense for what I went through. I don’t have to understand them right now.”\\n🌱 Keep a “reaction log” instead of a journal—just a note of what came up, without needing to explain it.\\n🧠 Why it helps: Normalizing stress reactions interrupts the spiral of fear about symptoms."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e906"
+  },
+  "_record_hash": "bd2650c230914c5323a660af43311cf3",
+  "Unnamed: 4": "Pharchi’s “Create Meaning”; ACT – Values clarification; NCTSN Step 6",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "819d166b",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S030",
+  "suggestion_text": "Engage in One Strength-Based Action Each Day\\nDuring crisis, we often lose sight of our strengths. This practice reconnects you with your unique abilities—even if they feel muted.\\n👉 Examples: If your strength is creativity: sketch what safety looks like; If it’s kindness: write a 2-line message to someone else; If it’s analysis: map what helped you cope today\\n🌱 Focus on actions that reconnect you to your identity.\\n🧠 Why it helps: Identity continuity is a powerful stabilizer in trauma recovery."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e907"
+  },
+  "_record_hash": "c978127e5dff5c91880f696d6d75ff9c",
+  "Unnamed: 4": "RAPID – Stabilization; ACT – Present-moment contact",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "cc1963ff",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S031",
+  "suggestion_text": "Ask: “When I breathe in, where do I feel it most?”\\nThis question helps you anchor attention to your body instead of racing thoughts. You’re not asking your brain to “calm down,” but to observe something real.\\n👉 Use this during moments of tightness, panic, or numbness.\\n🌱 Follow the breath with curiosity, not pressure.\\n🧠 Why it helps: Directing attention to physical sensation activates sensory pathways that interrupt hyperarousal."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e908"
+  },
+  "_record_hash": "1fefd53f6f5c24cc459a295e40d741d3",
+  "Unnamed: 4": "ACT – Acceptance; NCTSN Step 3 – Grounding strategies",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "3409d010",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S032",
+  "suggestion_text": "Set a 3-Minute Timer to Do Nothing\\nAcute stress often brings hyperactivity or avoidance. This technique gives your system space without pressure to fix anything.\\n👉 Sit or lie down. Set a timer for 3 minutes. Don’t try to think or not think. Just be.\\n🌱 No goal, no success/failure. Just a pause.\\n🧠 Why it helps: Short intentional rest interrupts the cycle of emotional overdrive."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e909"
+  },
+  "_record_hash": "f211c92f27915af6938c72b7c92ee8f9",
+  "Unnamed: 4": "CBT – Cognitive restructuring; NCTSN Step 5",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "e2b6d329",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S033",
+  "suggestion_text": "Ask Yourself: “What Do I Know For Sure Right Now?”\\nThis is a powerful tool for getting out of panic loops. It brings your mind back to fact rather than fear.\\n👉 Examples: “I’m in my room. I can hear the AC. It’s Thursday. I ate lunch.”\\n🌱 Say it out loud. Focus only on current, verifiable truths.\\n🧠 Why it helps: It deactivates threat projection and brings your attention back to stability."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e90a"
+  },
+  "_record_hash": "20b4062e5c8df92cc9dafd6544492a66",
+  "Unnamed: 4": "ACT – Self-as-context; RAPID – Providing guidance",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "db8be0f1",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S034",
+  "suggestion_text": "Write a Message From the Future You\\nVisualizing a future version of yourself that has healed—even a little—helps pull you toward hope.\\n👉 Write a short letter from your “3-months-from-now self.” What advice would they give? What do they know you’ll get through?\\n🌱 Keep it where you can see it.\\n🧠 Why it helps: This activates values, imagination, and forward orientation."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e90b"
+  },
+  "_record_hash": "1b444c8bf204dfa0359ae65fe78dcf76",
+  "Unnamed: 4": "ACT, RAPID, Pharchi",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "a32e089f",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S035",
+  "suggestion_text": "Use the “3 Circles” Exercise to Sort What You Carry\\nWhen everything feels heavy, draw 3 circles:\\n– Circle 1: Things I can control\\n– Circle 2: Things I can influence\\n– Circle 3: Things I cannot control or influence\\n👉 Move one item per day from circle 2 to circle 1 by taking small action.\\n🌱 This helps with decision-making and reduces overload.\\n🧠 Why it helps: Clarifies boundaries, restores energy, and supports self-efficacy."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e90c"
+  },
+  "_record_hash": "c6479fdb02690f9b95487cb672904d60",
+  "Unnamed: 4": "NCTSN Step 3 – Grounding; ACT – Present-moment attention",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "b675619b",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S036",
+  "suggestion_text": "Practice the “5-4-3-2-1” Sensory Countdown\\nWhen your thoughts feel chaotic or out of control, shifting attention to the five senses can ground you in the here and now.\\n👉 Name 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste.\\n🌱 No need to rush. Take time with each one.\\n🧠 Why it helps: This interrupts cognitive flooding and stimulates areas of the brain responsible for regulation and orientation."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e90d"
+  },
+  "_record_hash": "5662c818eb87662bd85ca4f6307abe5d",
+  "Unnamed: 4": "NCTSN Step 6; Pharchi “Consistency”; ACT – Committed action",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.145Z"
+  },
+  "cluster": "c2",
+  "id": "61a29875",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S037",
+  "suggestion_text": "Create a Mini-Routine for Morning or Evening\\nAfter acute stress, time may feel broken. Small routines can help you rebuild safety.\\n👉 Choose 3 steps: Example morning routine – brush teeth, open window, make tea.\\n👉 Repeat daily, even if you don’t feel like it.\\n🌱 Routines don’t fix everything, but they provide predictability.\\n🧠 Why it helps: Rituals reduce mental chaos and engage procedural memory, which is often preserved even in distress."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e90e"
+  },
+  "_record_hash": "405217d36689a651d94059de854e30eb",
+  "Unnamed: 4": "CBT planning tools; RAPID – Disposition & recovery; ACT – Committed action",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c2",
+  "id": "e74e8341",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S038",
+  "suggestion_text": "Use “If-Then” Planning to Feel Prepared\\nUncertainty is painful during crisis. If-Then planning restores a sense of readiness.\\n👉 Example: “If I feel panicky at work, then I will take a 2-minute walk outside.”\\n👉 Write 2–3 If-Then plans for moments you fear.\\n🌱 It’s not about control—it’s about confidence in your ability to respond.\\n🧠 Why it helps: Increases perceived self-efficacy and supports adaptive functioning."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e90f"
+  },
+  "_record_hash": "11fc91d772677ecbaceba9df06476f8b",
+  "Unnamed: 4": "ACT – Defusion & values; Pharchi – Meaning-making; RAPID – Stabilization through reorientation",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c2",
+  "id": "012517aa",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S039",
+  "suggestion_text": "Draw Two Columns: “What I Lost” and “What Remains”\\nAfter shock, your mind naturally focuses on what’s gone. It helps to also name what stayed.\\n👉 In one column, list losses: routine, safety, trust, etc. In the second column, list what remains: skills, people, parts of you.\\n🌱 Do not judge the length of either column. Both are valid.\\n🧠 Why it helps: This balances grief with strength and supports psychological integration."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e910"
+  },
+  "_record_hash": "78427d50ac80bc2a39cbe901d1182782",
+  "Unnamed: 4": "ACT – Self-as-context; Pharchi – Create Control & Meaning; RAPID – Empowerment",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c2",
+  "id": "feee2947",
+  "sub_category_id": "P005-2",
+  "suggestion_id": "S040",
+  "suggestion_text": "Assign a Role to Yourself in the Healing Process\\nRoles offer structure. Even in chaos, you can choose who you want to be now.\\n👉 Examples: “I am the witness,” “I am the one who steadies,” “I am the student of this moment.”\\n👉 Write or say: “My role right now is…”\\n🌱 It can be small but intentional.\\n🧠 Why it helps: Naming a role gives coherence, identity, and direction when those things feel shaken."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e911"
+  },
+  "_record_hash": "5da8d3ba607d6b89a2c500a254ebd280",
+  "Unnamed: 4": "CBT for PTSD; Polyvagal Theory; ACT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "5c401458",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S041",
+  "suggestion_text": "After trauma, the brain’s alarm system—especially the amygdala—can remain overactive. This can make it feel like danger is everywhere, even when you’re safe.\\n\\nPsychoeducation: When we’re under threat, the nervous system shifts into fight, flight, or freeze. After trauma, this system may become overly sensitive. Breathing techniques can signal safety to the brain and body.\\n\\nTry This: Sit quietly, place a hand on your belly, and breathe in slowly for 4 seconds, hold for 4 seconds, and exhale for 6 seconds. Repeat 3 times.\\n\\nExample: If you're startled easily or have trouble sleeping, this kind of breath can help shift your body into rest mode.\\n\\nWhy it helps: This activates the parasympathetic nervous system, quiets the amygdala, and grounds you in the present."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e912"
+  },
+  "_record_hash": "50e92cd4b2bf7af9d59a7b983432915a",
+  "Unnamed: 4": "ACT – Values and Strengths; Resilience Training Models",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "66037012",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S042",
+  "suggestion_text": "Even if trauma made you feel powerless, your survival is evidence of your strength. Many strengths stay hidden because we don’t name or claim them.\\n\\nPsychoeducation: Strength-based approaches in therapy focus on what helped you endure, not just what went wrong. This fosters empowerment and resilience.\\n\\nExercise: List 3 challenging times in your life. For each, ask: What got me through? Was it persistence, humor, my ability to plan, or the people I leaned on?\\n\\nExample: 'When I lost my job, I still showed up for my kids—that was responsibility and love.'\\n\\nWhy it helps: Naming strengths helps you reconnect with personal power and fosters a narrative of survival and agency."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e913"
+  },
+  "_record_hash": "6bcdf5f812348626561dd2b12b5c851f",
+  "Unnamed: 4": "Emotion Regulation Training; Somatic Experiencing; ACT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "b5306fbf",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S043",
+  "suggestion_text": "Trauma can leave emotions feeling overwhelming or completely shut down. Rebuilding emotional awareness helps with regulation.\\n\\nPsychoeducation: Emotional granularity is the skill of identifying subtle emotional states. This improves self-understanding and reduces impulsivity.\\n\\nTry This: At least once a day, pause and ask: What am I feeling? (Try using a feelings wheel if needed.) Where do I feel it in my body? What is this emotion asking from me?\\n\\nExample: 'I feel a tight chest and jaw—maybe it’s anger. I need to take a break from this conversation.'\\n\\nWhy it helps: Labeling emotions calms the brain, enhances self-awareness, and supports mindful responses."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e914"
+  },
+  "_record_hash": "37634e01166c20de9969723fcb97c08d",
+  "Unnamed: 4": "CBT for PTSD; ACT – Committed Action",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "f76ace08",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S044",
+  "suggestion_text": "Trauma recovery can feel like standing at the bottom of a mountain. The first step often feels the hardest—but it sets everything in motion.\\n\\nPsychoeducation: Behavioral activation (a CBT principle) teaches that even small actions can shift mood and restore hope.\\n\\nTry This: Choose one micro-action today—a shower, opening the window, messaging a friend. Let this be enough.\\n\\nExample: 'I didn’t clean the whole house, but I made my bed. That’s a win.'\\n\\nWhy it helps: Tiny steps reinforce agency, reduce avoidance, and reconnect you to life outside of trauma."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e915"
+  },
+  "_record_hash": "2c6e5e7dcf4655314bf933f2f0e7d1b5",
+  "Unnamed: 4": "Mindfulness-Based Stress Reduction (MBSR); Somatic Trauma Work",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "27807296",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S045",
+  "suggestion_text": "Trauma affects the body deeply. Sometimes your body remembers things before your mind does.\\n\\nPsychoeducation: Interoception is your awareness of internal body signals (like heartbeat, breathing, tension). This can be disrupted in PTSD. Rebuilding this awareness helps you better understand your emotional and physical needs.\\n\\nTry This: Do a 3-minute body scan from head to toe. Ask: What do I feel in my head? Neck? Chest? Stomach? Legs? Notice without judgment.\\n\\nExample: 'My stomach feels heavy—maybe I’ve been anxious all day and didn’t realize it.'\\n\\nWhy it helps: This builds self-connection, allows early detection of stress signals, and increases your capacity to care for yourself."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e916"
+  },
+  "_record_hash": "769f2b489237740dc4a00306e1f57bcb",
+  "Unnamed: 4": "SEE FAR CBT; PE (Prolonged Exposure); EMDR",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "78413b9e",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S046",
+  "suggestion_text": "Trauma can fracture your sense of time, making the past feel like it’s still happening. Reclaiming your timeline is one way to begin healing.\\n\\nPsychoeducation: Trauma often disrupts the continuity of autobiographical memory. When you re-place the event in time, you signal to the brain: 'This is over. I survived.'\\n\\nTry This: Write a short timeline of your life using 5–10 major events, including joyful and painful ones. Add the traumatic event in its correct place. Mark a line: 'That was then. This is now.'\\n\\nExample: If your trauma happened at age 17, you might add: 'Started college at 19. Got my first job at 21.'\\n\\nWhy it helps: This anchors the event in the past and strengthens your orientation to the present."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e917"
+  },
+  "_record_hash": "c937a1d6349de001fecf372867324e3d",
+  "Unnamed: 4": "ACT – Values; Logotherapy; Trauma Resilience Models",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "f08f95ff",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S047",
+  "suggestion_text": "After trauma, life can feel empty or meaningless. Finding or creating meaning is often a turning point in recovery.\\n\\nPsychoeducation: Viktor Frankl and others have shown that meaning-making is a central human drive, especially after suffering. It can emerge from values, service, creativity, or connection.\\n\\nTry This: Reflect on the question—What do I want to stand for despite what happened to me? You can write, draw, or speak your answer. Even a small act aligned with this can create momentum.\\n\\nExample: 'Even after the trauma, I still care about helping others—so I started volunteering again.'\\n\\nWhy it helps: It reconnects you with purpose and breaks the freeze of helplessness."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e918"
+  },
+  "_record_hash": "02daa7a5c08ac99dfe37936760d4efe6",
+  "Unnamed: 4": "PE; Trauma-Focused CBT; Narrative Exposure Therapy",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "d0c47793",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S048",
+  "suggestion_text": "When words feel overwhelming, creating a trauma narrative in steps can help you process safely.\\n\\nPsychoeducation: Writing in phases—starting with neutral facts—can allow the brain to integrate the memory without becoming overwhelmed.\\n\\nTry This: Step 1 – Write just the who, what, when, and where. Step 2 – Add physical reactions. Step 3 – Add emotions. Step 4 – Add what you wish you’d had or needed.\\n\\nExample: 'I was in my room when it happened. My heart was pounding. I felt trapped. I wish someone had knocked on my door.'\\n\\nWhy it helps: Stepwise exposure helps refile the memory as past, not current threat."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e919"
+  },
+  "_record_hash": "caed5d28e0cd7a703b89a524014160fe",
+  "Unnamed: 4": "ACT – Self-as-context; EMDR; Narrative Identity Theory",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "78727bac",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S049",
+  "suggestion_text": "Trauma can rob you of your identity. Rebuilding it is an act of self-reclamation.\\n\\nPsychoeducation: Identity disruption is common in PTSD. You may no longer recognize yourself—or feel defined by what happened.\\n\\nTry This: List roles or parts of yourself that existed before the trauma (e.g., friend, athlete, artist). Choose one to reconnect with this week. Ask: What did this part love? What made it feel alive?\\n\\nExample: 'Before it happened, I used to sing. I’ll try humming to a song I used to like.'\\n\\nWhy it helps: Reclaiming identity restores continuity and combats the “I am broken” narrative."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e91a"
+  },
+  "_record_hash": "f984f15a6f4e99d579390d65535097e2",
+  "Unnamed: 4": "Trauma Peer Models; ACT; Resilience Science",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "142a3734",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S050",
+  "suggestion_text": "One of the most powerful ways to heal is to contribute, even in small ways, to someone else’s healing.\\n\\nPsychoeducation: Peer support, storytelling, and mutual aid are all trauma-informed tools shown to reduce isolation and increase meaning.\\n\\nTry This: Share something that helped you—like a quote, technique, or song—with someone else who might need it. Even if it’s anonymous.\\n\\nExample: 'I sent my friend a breathing exercise that helped me. It felt good to pass it on.'\\n\\nWhy it helps: Giving reframes you as not just someone who was hurt, but someone who helps. This activates dignity, connection, and agency."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e91b"
+  },
+  "_record_hash": "749d550672bda8979c9241d9912eec21",
+  "Unnamed: 4": "Polyvagal Theory; ACT – Present Moment; Trauma-Informed CBT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "0ae99d6b",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S051",
+  "suggestion_text": "Sometimes your body reacts before your mind catches up. That racing heart, those tight shoulders, the feeling like something terrible is about to happen? It's your nervous system still doing its job—trying to protect you, even when the danger is long gone. Try saying to yourself: “This is my body trying to keep me safe. But right now, I am safe.”\\nOne helpful practice is to name what you’re feeling as it comes up: “This is fear,” or “This is tension in my chest.” That simple naming helps you step out of the storm and recognize that it’s a memory, not the present.\\nWhy it helps: It brings the brain and body back into sync, helping you feel more in control."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e91c"
+  },
+  "_record_hash": "5628697f060d574164aa89d99f1901dd",
+  "Unnamed: 4": "EMDR Safe Place; DBT Distress Tolerance",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "f41fc004",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S052",
+  "suggestion_text": "After trauma, finding even one thing that makes you feel safe can make a huge difference. It might be a person, a memory, a scent, or an object. That “anchor” can help you stay grounded during waves of distress.\\nTry this: Think of one thing—just one—that brings a tiny sense of calm. A soft blanket, a friend’s voice, a song. When you're overwhelmed, go to that anchor and let yourself settle there for a moment.\\nWhy it helps: Having a go-to comfort cue builds a sense of predictability and safety in your nervous system."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e91d"
+  },
+  "_record_hash": "27098b16d09450dccbe1ae2bfc21c912",
+  "Unnamed: 4": "Strength-Based CBT; ACT – Values Clarification",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "793669ed",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S053",
+  "suggestion_text": "You are stronger than you think—but not in the way people usually say. Strength doesn’t mean “being fine.” It means getting through. It means getting out of bed even when it’s hard. It means feeling afraid and still showing up.\\nTake a moment to list moments of strength you’ve shown—quiet ones. Then pick one and say it aloud: “I was strong when I __.”\\nWhy it helps: Naming your resilience reclaims your story from the trauma."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e91e"
+  },
+  "_record_hash": "5f3f84e4ae5922c0b722433a1fdd583f",
+  "Unnamed: 4": "Trauma-Informed Recovery Planning; CBT; Pharchi’s 6 C’s (Containment)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "cb4ee8bc",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S054",
+  "suggestion_text": "Feeling safe again is a process, and it starts by noticing what already helps. Think of moments or people that have made you feel just a little more okay. Try making three lists: (1) People I feel safe with, (2) Places I breathe easier in, (3) Things I do that help me settle.\\nKeep these visible—a safety map for your day-to-day.\\nWhy it helps: Trauma makes the world feel unsafe. Building a custom safety list gives you something real to hold onto."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e91f"
+  },
+  "_record_hash": "aa7115459ba335ed04e63adc3e58da77",
+  "Unnamed: 4": "ACT – Committed Action; Behavioral Activation",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "d5241faa",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S055",
+  "suggestion_text": "When everything feels too much, try starting small. Healing doesn’t have to be loud or fast. Sometimes it’s just sending a message. Making tea. Breathing on purpose.\\nWhat matters is that you’re choosing—taking a step, even a tiny one, toward life.\\nToday, pick one small thing that connects to who you are or what you care about. Then remind yourself: “I’m still moving.”\\nWhy it helps: Small actions lead to big shifts, and every time you act, you prove to yourself: I am not stuck."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e920"
+  },
+  "_record_hash": "0b5653c25dcd2ec72d428846f3f74b6c",
+  "Unnamed: 4": "ACT – Values and Self-as-Context; Narrative Therapy",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "ab29d2ef",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S056",
+  "suggestion_text": "Your story didn’t end with what happened. You’re still here—and every day you are shaping the next chapter. When trauma takes over, it can feel like time stopped. But you have the power to start a new timeline. One powerful way to do this is to write out a personal “healing timeline” starting from today. Include small but meaningful milestones you've already reached, like asking for help or talking about what happened. Then add hopes for the future—like reconnecting with someone you care about or feeling calm again. This practice can help you take back agency and see that healing is already underway."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e921"
+  },
+  "_record_hash": "e7474a9ffbb6837f3a90cfec2056d2a4",
+  "Unnamed: 4": "ACT – Committed Action; Viktor Frankl – Logotherapy",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "aafcb73e",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S057",
+  "suggestion_text": "Trauma often brings the question, “Why did this happen?” While that question may not have a clear answer, many people find strength by creating meaning in how they respond. This isn’t about justifying the trauma—it’s about reclaiming your power. You can start by completing the sentence: “Even though this happened, I will…” For example, “I will care more deeply,” or “I will protect others.” It’s about defining your direction, on your own terms. Finding meaning like this helps transform pain into purpose."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e922"
+  },
+  "_record_hash": "9aba2036a8faa433371e3f34b93e8ec4",
+  "Unnamed: 4": "Expressive Arts Therapy; Trauma-Informed Care",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "5eb45748",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S058",
+  "suggestion_text": "Not every feeling has words. Sometimes the pain is stored deep in the body, and it helps to express it through other channels. Creative activities like drawing, music, photography, or movement can allow your nervous system to release what it’s been holding. You might create a picture of what safety feels like, or a song that mirrors your emotions. These are ways to process trauma without needing to explain everything out loud. Creative expression helps you feel understood—even by yourself."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e923"
+  },
+  "_record_hash": "7c2588fa256b29a6b1955e5c7e0cff02",
+  "Unnamed: 4": "ACT – Self-as-Context; Strengths-Based Recovery",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "59b89ee8",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S059",
+  "suggestion_text": "Trauma can make you feel like you've lost yourself. You might ask, “Who am I now?” But even in pain, parts of you have stayed steady. One helpful exercise is to write a list called, “The parts of me that remain.” These might include things like, “I still notice kindness,” “I still love music,” or “I still keep going.” This list helps you reconnect with your identity and see that your core self is still there, waiting to be rebuilt."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e924"
+  },
+  "_record_hash": "720157eb9722a34a051159efb848b4a8",
+  "Unnamed: 4": "ProSocial Behavior in Trauma Recovery; ACT – Committed Action",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "2fc1fe21",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S060",
+  "suggestion_text": "Trauma often makes people feel disconnected or powerless. One powerful way to reconnect is through helping others—even in small, safe ways. You don’t have to be fully healed to offer support. You might text a friend who’s struggling, help with a task at home, or simply listen to someone. These moments remind you that you have something to offer. Helping others can rebuild your sense of connection, value, and strength."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e925"
+  },
+  "_record_hash": "70c3a580d169d227bed16866ca714101",
+  "Unnamed: 4": "Somatic Experiencing; Trauma-Informed CBT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "8a96dc71",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S061",
+  "suggestion_text": "Practice Feeling in Steps, Not All at Once. If you’ve been avoiding painful memories or feelings, it’s okay to go slow. You don’t need to face everything all at once. Try setting a timer for just 2–3 minutes to sit with one emotion—like sadness or fear—then shift to something grounding, like touching a textured object or focusing on your breath. Why it helps: This “pendulation” technique (moving between distress and safety) comes from somatic therapy and helps train your brain that you can feel emotions without being overwhelmed."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e926"
+  },
+  "_record_hash": "1b778842581a59b6fb44632d2631d3e6",
+  "Unnamed: 4": "ACT – Values Clarification; Resilience Psychology",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "15cd94ac",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S062",
+  "suggestion_text": "Use “What Now?” Instead of “Why Me?”. After trauma, it’s natural to ask “Why me?” But that question can trap you in guilt or confusion. Instead, try asking, “What now?” This reorients you toward possibility. What values do you still hold? What steps might move you toward healing, connection, or peace? You don’t need all the answers—just the next right step. Why it helps: Shifting to a forward-looking mindset increases resilience and creates a sense of momentum."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e927"
+  },
+  "_record_hash": "331b2a248739fb0516179beac0482dbe",
+  "Unnamed: 4": "SEE FAR CBT; Trauma-Informed Recovery Models",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "bd927369",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S063",
+  "suggestion_text": "Create a Ritual to Mark What You’ve Been Through. You might feel like what happened to you is invisible to others. One way to validate your experience is to create a private or shared ritual that acknowledges what you’ve lived through. Light a candle, write a letter, create a piece of art, or spend time in nature with intention. Let the ritual honor your strength and grief. Why it helps: Rituals give structure to loss and healing, and they help you reconnect with your own meaning-making process."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e928"
+  },
+  "_record_hash": "62bda933bb7c450d25b725f6cc17fff6",
+  "Unnamed: 4": "Polyvagal Theory; Mindfulness-Based Stress Reduction (MBSR)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "31e2c03e",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S064",
+  "suggestion_text": "Learn to Track Your Window of Tolerance. The “window of tolerance” is your nervous system’s range for handling stress. When you’re outside it, you may feel numb, dissociated, or hyper-alert. Start by noticing your cues—do you clench your jaw when overwhelmed? Do you zone out? Then make a personal plan for returning to the window: breathing, stretching, drinking water, or connecting with someone. Why it helps: This builds body awareness and helps prevent emotional spirals."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e929"
+  },
+  "_record_hash": "7851356dc74d03bf458042b244786ab3",
+  "Unnamed: 4": "ACT – Committed Action and Values; Strengths-Based Recovery",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "af7e78e5",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S065",
+  "suggestion_text": "Choose One Guiding Word for Your Healing. When the healing journey feels overwhelming, one simple grounding practice is to choose a “guiding word” that represents your direction. It might be “peace,” “strength,” “belonging,” or “clarity.” Write it down, place it somewhere visible, and return to it when you feel lost. Let it be your lighthouse in dark moments. Why it helps: This activates motivation and connects healing to something deeply personal and chosen."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e92a"
+  },
+  "_record_hash": "c6414bd4f0c54572c438fb4dcf4b67e7",
+  "Unnamed: 4": "Trauma-Informed Grounding; EMDR Preparation Phase",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "9fc460e2",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S066",
+  "suggestion_text": "Anchor Yourself to the Present with a Personal Object. When flashbacks or overwhelming thoughts pull you into the past, a small object can help bring you back. Choose something that feels safe and grounding—like a smooth stone, a photo, or a piece of fabric. Keep it with you and touch it when needed. Tell yourself, “This is now. I’m here. I’m safe.” Why it helps: This taps into sensory grounding and the brain’s ability to associate safety with concrete signals. It helps regulate the nervous system."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e92b"
+  },
+  "_record_hash": "ff49537380295323ca0feedba8f0f952",
+  "Unnamed: 4": "CBT for PTSD; Self-Regulation Skills",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "073a75b3",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S067",
+  "suggestion_text": "Make a “Triggers & Tools” Chart. When you start to understand your personal trauma triggers, you can begin to respond with choice instead of fear. Create two columns: (1) “Triggers” and (2) “Tools that Help.” For example, if loud noises are a trigger, tools might be noise-canceling headphones or deep breathing. Keep updating your list as you learn what helps. Why it helps: Builds a sense of control and mastery over symptoms while reinforcing personalized coping strategies."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e92c"
+  },
+  "_record_hash": "429a80a343b5fb21f5f7afd0fb8cd8e2",
+  "Unnamed: 4": "Somatic Experiencing; Polyvagal Theory",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "11257164",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S068",
+  "suggestion_text": "Reconnect with Safe Touch and Movement. Trauma often disrupts your relationship with your body. Gentle, intentional movement—like stretching, rocking, or swaying—can begin to rebuild trust. You can also try self-soothing touch: placing your hand over your heart, or wrapping yourself in a blanket. These are ways to send signals of safety to your brain. Why it helps: Reconnects the body and mind, helps regulate the vagus nerve, and fosters embodied healing."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e92d"
+  },
+  "_record_hash": "0adb0d887c3baefbdd8b218b3d393d4f",
+  "Unnamed: 4": "Narrative Therapy; Body-Based Trauma Work",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.146Z"
+  },
+  "cluster": "c3",
+  "id": "23631b44",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S069",
+  "suggestion_text": "Write the Story You Want Your Body to Tell. Sometimes our bodies keep the memory of trauma even when our minds try to move on. Try journaling from the perspective of your body: “Dear mind, here’s what I want you to know…” Then switch perspectives: “Dear body, here’s what I’ve been trying to protect you from.” This helps integrate memory, emotion, and body wisdom. Why it helps: Supports emotional processing, self-compassion, and integration between cognitive and somatic experience."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e92e"
+  },
+  "_record_hash": "c5c6b0c64d73ce6d6996614f770bfbcc",
+  "Unnamed: 4": "Environmental Psychology; PTSD Safety Planning",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c3",
+  "id": "abf8f791",
+  "sub_category_id": "P005-3",
+  "suggestion_id": "S070",
+  "suggestion_text": "Rebuild a Sense of Safety in Spaces You Use Often. Trauma can make once-familiar places feel unsafe. Choose one small space (like your bedroom, car, or desk) and intentionally turn it into a safe zone. Add soft textures, calming scents, comforting images, or affirmations. Let your nervous system learn, “This is my space. I am safe here.” Why it helps: Environmental control supports psychological safety and gives daily opportunities for nervous system repair."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e92f"
+  },
+  "_record_hash": "971c46f9a297ebf7c90c7db6cc61f69e",
+  "Unnamed: 4": "ACT, Mindfulness, Trauma Stabilization",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "96ebbfd7",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S071",
+  "suggestion_text": "Rebuild Emotional Safety with a Daily Grounding Ritual\\nComplex trauma can leave a person feeling unsafe in their own body or daily life, even when nothing threatening is happening. This is not your fault—it's a natural response to prolonged stress and emotional injury. One way to begin restoring a sense of safety is through consistent, calming routines.\\nTry this: Choose a predictable time each day (for example, just after waking or before bed). During this time, take three to five minutes to pause, breathe slowly, and notice your physical environment. Feel your feet on the ground. Pay attention to a color or object in the room. Say to yourself:\\n“I am here right now. I am safe enough in this moment.”\\nOver time, this simple act helps teach the nervous system that not every moment is dangerous. It's okay if this feels strange or difficult at first—reclaiming safety is a gradual process.\\nIf the sense of unsafety feels too overwhelming, please consider reaching out to a trauma-informed therapist who can help you strengthen this skill with support."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e930"
+  },
+  "_record_hash": "eb3290792df517cfdcacd08539c699bb",
+  "Unnamed: 4": "Narrative Therapy, Self-Compassion, Trauma Work",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "80eb93b5",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S072",
+  "suggestion_text": "Write the Letter You Needed and Deserved\\nMany people with complex trauma carry pain from things that were never said to them—words of comfort, protection, or validation that should have been spoken but never were. These silent wounds can shape self-worth and inner dialogue.\\nThis exercise invites you to reclaim some of that space. Find a quiet moment to write a letter from the caregiver, protector, or adult you needed.\\nWhat would they say to the younger you?\\nWhat would they say to the current you, navigating healing?\\nLet the words be kind, firm, or sorrowful—whatever feels honest and healing.\\nThis is a powerful self-compassion practice and a way to care for parts of yourself that were neglected or harmed.\\nIf painful emotions arise, know they are welcome—but you don’t have to hold them alone. A mental health professional can guide you through this process with care and safety."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e931"
+  },
+  "_record_hash": "a91e2fad0e7d93215725581c40dd376c",
+  "Unnamed: 4": "Trauma Stabilization, EMDR (Phase 1), Mindfulness",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "020aa93f",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S073",
+  "suggestion_text": "Notice When You “Disappear” and Begin to Reclaim Presence\\nDissociation is a common and understandable response to chronic trauma. It may show up as zoning out, emotional numbness, memory gaps, or a floating feeling—especially in stressful situations. Rather than seeing this as something “wrong,” it’s helpful to view dissociation as your brain’s way of protecting you from overwhelm.\\nBegin by gently noticing when you lose presence. Ask yourself:\\n– What situation was I in when I disconnected?\\n– What was I feeling just before?\\n– What helped bring me back?\\nYou might carry a small object—a stone, piece of fabric, or scent—that you can touch when you're feeling out of body. This helps ground your senses.\\nThis isn’t about forcing yourself to stay present in all moments, but about developing gentle awareness and self-compassion when it happens.\\nIf dissociation becomes distressing or interferes with daily life, therapy can offer safe ways to reconnect with your body and experience."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e932"
+  },
+  "_record_hash": "0af587ec950ca94d251ad3b2378e5248",
+  "Unnamed: 4": "CBT, Trauma-Informed Journaling, Psychoeducation",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "97161bb4",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S074",
+  "suggestion_text": "Track Triggers with Gentle Curiosity, Not Judgment\\nLiving with complex trauma often means that certain sounds, places, phrases, or body cues can trigger emotional flashbacks. These aren’t always obvious, and the reaction may feel out of proportion to what’s happening.\\nOne way to make sense of your inner world is by tracking your triggers over time.\\nUse a private journal to answer these questions when something intense happens:\\n– What just occurred, externally and internally?\\n– What feelings or thoughts showed up?\\n– What memory or meaning might be connected?\\n– What would have helped me feel safer or more supported in that moment?\\nThis kind of reflection turns triggers into teachers. It’s a way to understand what your body and brain are still carrying.\\nBut please remember: you are not alone in this. If these patterns are confusing or painful, a trauma-informed therapist can walk beside you as you build understanding and safety."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e933"
+  },
+  "_record_hash": "e0a5b94bcfa32cae149d4fe9b27f1710",
+  "Unnamed: 4": "ACT – Values, Identity Work; Self-Compassion; Trauma Theory",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "ea7a1e6e",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S075",
+  "suggestion_text": "Reconnect with Your Identity Through “Anchoring Statements”\\nWhen trauma is layered, ongoing, or tied to our early development, it can blur the sense of self. You may find yourself asking, “Who am I, really?” or shifting your personality to feel safe in different environments. This is a protective survival strategy—but it can also feel disorienting.\\nTry this practice: Write down three truths about yourself that remain consistent, regardless of how others treat you or what role you are in.\\nExamples:\\n– “I have always tried to protect others.”\\n– “I notice beauty, even in small things.”\\n– “I care deeply, even when I hide it.”\\nRepeat these truths aloud to yourself each morning. Place them somewhere visible. These anchoring statements help stabilize your identity and foster self-acceptance.\\nHealing the sense of self is deep work. If you feel lost in this journey, a mental health professional can help you reconnect with your most authentic self at a safe pace."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e934"
+  },
+  "_record_hash": "58bfe3d49be3e2d5dfd26688d1cd89b2",
+  "Unnamed: 4": "RAPID – Promote Safety, Psychoeducation, Somatic Awareness",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "73b64e23",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S076",
+  "suggestion_text": "Use a Daily \"Safety Check-In\" to Rebuild Trust in the Present. When someone has lived through complex trauma, the body and mind often stay on high alert—even when danger is no longer present. One way to help rebuild a sense of safety is to create a small daily ritual that gently reminds your system: “Right now, I’m safe enough.” At a regular time each day (morning, before sleep, or after a meal), pause and ask yourself: What tells me I am physically safe right now (a locked door, calm surroundings)? What tells me I am emotionally safe (no one criticizing me, I can speak freely)? What might help me feel safer in this moment, even a little? You can say these answers out loud or write them down. Over time, this helps your nervous system begin to separate past danger from present safety. If this feels hard or confusing, it’s not a failure—it’s a sign you might benefit from trauma-informed support to guide you safely."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e935"
+  },
+  "_record_hash": "6148337591db59674d33fc32a449300d",
+  "Unnamed: 4": "ACT – Values Clarification, Trauma-Informed Narrative Work",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "d78ec427",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S077",
+  "suggestion_text": "Create a “Who I Am” Journal to Anchor Your Identity. Complex trauma can blur or even erase a person’s sense of identity, especially when survival meant becoming who others needed. A powerful healing step is to reclaim who you are—on your own terms. Start a small journal and explore: What colors, music, or foods do I actually enjoy? What values matter to me—kindness, honesty, creativity? When have I felt like my most real self? This is not about having all the answers. It’s about slowly, safely reconnecting to the self that trauma tried to suppress. If this process feels too difficult or unclear, working with a therapist can help you make sense of it at your own pace."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e936"
+  },
+  "_record_hash": "d62e1ec748b3ac8c3bf2f91347557708",
+  "Unnamed: 4": "Relational-Cultural Therapy, Trauma Mapping, CBT for Interpersonal Patterns",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "7ba255c7",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S078",
+  "suggestion_text": "Make a Map of Relationships: Past and Present. When trauma involves relationships, especially over a long period of time, it can leave deep confusion about trust, love, and safety. One way to begin making sense of it is to map it out visually. Draw a circle and place the people from your past and present into it—those who hurt you, helped you, confused you. Use different symbols or colors if you like. Then reflect: What did I learn about connection from these people? Which beliefs or patterns do I want to keep—or let go of? This map becomes a way to reclaim choice and awareness in your current relationships. It may stir strong feelings, and if it does, a professional can help guide you in processing them safely."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e937"
+  },
+  "_record_hash": "12f829af982415f81ad581669ee900a9",
+  "Unnamed: 4": "Polyvagal Theory, Trauma Psychoeducation, ACT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "adecba7e",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S079",
+  "suggestion_text": "Understand Your Nervous System with the “Window of Tolerance.” If your emotions feel unpredictable—rushing in or shutting down—you’re not broken. That’s your nervous system doing its best to protect you. Learning about the “Window of Tolerance” can help. Imagine three zones: High (panic, anger, racing mind), Low (numbness, fatigue, disconnection), and Middle (calm, focused, present). Begin gently checking in with yourself during the day: Where am I right now? What nudges me closer to center? This is not about controlling your emotions—it’s about understanding them. Over time, this awareness can help you feel more stable and safe. A trauma-informed therapist can support you on this journey."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e938"
+  },
+  "_record_hash": "048ea24e70a6bfc5c475454ffdddcf05",
+  "Unnamed: 4": "Resilience Psychology, ACT – Committed Action, Self-Efficacy",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "53a7afd0",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S080",
+  "suggestion_text": "Plant One Small Act of Power Each Day. One of the most painful parts of complex trauma is the loss of agency—the sense that you had no voice or choice. Healing includes reclaiming that voice, even in small ways. Each day, ask yourself: What is one thing I can do today that shows I matter? It might be saying “no,” choosing your clothes with intention, writing a journal entry, or advocating for yourself or someone else. These acts may seem small, but they are powerful reminders that you still have strength, purpose, and direction. If this feels difficult, you don’t have to do it alone. A therapist can help you rediscover these moments of agency."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e939"
+  },
+  "_record_hash": "7e12245b3aa87c8e96c5a38ec09b65f4",
+  "Unnamed: 4": "Narrative Therapy, ACT – Self-as-Context, Strength-Based Reflection",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "b6e298ca",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S081",
+  "suggestion_text": "Reflect on Moments That Shaped You. Complex trauma can make it hard to understand how the past has influenced who you are today. Instead of diving into painful memories, try this: Think of three moments from your life—any age—that stand out to you. They don’t have to be traumatic. They might be moments when you made a decision, felt something strongly, or learned something about yourself. Write a few words or draw something for each one. Ask: What did this moment show me about myself? What strengths helped me get through it? This gentle reflection can help you feel more connected to your story in a way that honors your growth. If you want to go deeper, consider doing this with a therapist who can support the process."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e93a"
+  },
+  "_record_hash": "e99a579b57ee71e4789a25d33c3afbe4",
+  "Unnamed: 4": "CBT – Present Anchoring, Trauma Recovery Journaling",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "c398fb47",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S082",
+  "suggestion_text": "Build a “What’s Real Now” List to Anchor in the Present. Complex trauma can keep you reliving moments that no longer match your current life. When that happens, grounding in what’s real now can offer a lifeline. Each morning or evening, write down 3–5 facts that affirm your current safety or growth: I have a safe place to sleep. I set a boundary yesterday. I am learning who I am. This isn’t denial of the past—it’s a daily practice of reminding your brain and body that things are shifting. It trains awareness to include not just danger, but progress. If this feels hard to believe at first, that’s okay. Just the act of looking for truth in the present is part of healing."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e93b"
+  },
+  "_record_hash": "d180efe72124f36a2ee2e3374d0d12ad",
+  "Unnamed: 4": "Strength-Based Therapy, ACT – Values and Meaning, Expressive Arts",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "92a343b7",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S083",
+  "suggestion_text": "Design a “Resilience Roots” Poster. You are more than what happened to you. And yet, trauma can shrink our sense of self until all we see are the scars. Reclaim your wholeness by creating a “Resilience Roots” visual. Draw a tree: the roots represent your strengths, skills, and supportive people. The trunk is what keeps you going. The branches are hopes or goals. Even if it’s messy, it’s real. Look at this poster when you feel small or overwhelmed. You are built on more than pain. This practice not only boosts self-worth but also reminds you that growth is possible—even after long darkness."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e93c"
+  },
+  "_record_hash": "5c1657e9c00c19bd72345b002ca06b49",
+  "Unnamed: 4": "CBT – Cognitive Restructuring, ACT – Self-as-Context, Self-Compassion Research",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "cb0b91a4",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S084",
+  "suggestion_text": "Practice “Self-Talk Rewriting” with Compassion. Many trauma survivors live with internal voices shaped by judgment, fear, or others’ cruelty. These voices are not your truth—but they may feel real. Begin noticing one harsh thought a day (e.g., “I’m broken,” “No one will ever get me”). Then pause, and ask: If someone I loved felt this, what would I tell them? Write down that gentler response. Say it out loud if you can. Over time, this helps create new neural pathways that support self-compassion. And if the old voice feels louder some days, that’s normal. Be patient. You’re not erasing the past—you’re building a new way to relate to yourself."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e93d"
+  },
+  "_record_hash": "c7064c7b041df333798e1ad47dd22027",
+  "Unnamed: 4": "Relational-Cultural Theory, Case Management, Recovery-Oriented Systems of Care",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "175c54cd",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S085",
+  "suggestion_text": "Begin a “Resource and Ally Map.” Healing from complex trauma isn’t a solo journey. Even if people have let you down in the past, it’s possible to build a network of support. On a sheet of paper, write down names of people, services, or groups that offer even a small sense of safety or respect. This could include a friend, a trauma-informed therapist, a support group, or even a podcast or book that helps you feel less alone. Notice what’s missing too—and let that guide what you seek. Mapping your resources helps shift focus from isolation to connection. If this feels overwhelming, start with just one name. Healing relationships are built one safe connection at a time."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e93e"
+  },
+  "_record_hash": "7f0eb83fd9260fb3dcc4433974e1f4fe",
+  "Unnamed: 4": "Somatic Regulation, Polyvagal Theory, Sensorimotor Psychotherapy",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "af5a1330",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S086",
+  "suggestion_text": "Reclaim Your Nervous System’s Rhythm Through Gentle Movement. When we live through trauma, our body may lose its natural rhythm—stuck in tension or collapse. Begin noticing your energy levels during the day. Choose a gentle movement that meets your state: a slow walk when anxious, a stretch when frozen, dancing if you have extra energy. These are not workouts—they're ways to tell your body: I’m listening. Over time, you’re retraining your system to feel safe moving through states. If movement feels unsafe, talk with a trauma-informed therapist who can guide you carefully."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e93f"
+  },
+  "_record_hash": "6ad47d679ab56c1247b6550d798fbf75",
+  "Unnamed: 4": "Trauma-Informed Sensory Integration, Mindfulness-Based Relational Therapy",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "6d0454f4",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S087",
+  "suggestion_text": "Use Sensory Anchors to Create Safety in the Now. Trauma often disconnects us from our body or makes it feel like a threat. You can begin to reclaim it gently, through sensory safety. Choose one sense: sight, touch, smell. Ask yourself—what soothes me here? It might be a warm blanket, soft light, or lavender. Create a sensory corner in your space. Use it daily, especially after distress. This is not just comfort—it's rewiring your nervous system to pair the present with peace. For deeper somatic work, a therapist can support re-embodiment."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e940"
+  },
+  "_record_hash": "ee440fb600ca031a5ee17c323d26aa0d",
+  "Unnamed: 4": "Internal Family Systems (IFS), Self-Compassion Models, Trauma-Informed Care",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "9b64fd0e",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S088",
+  "suggestion_text": "Practice “Parts Mapping” to Understand Your Inner Conflicts. If you’ve ever said, “A part of me wants to hide, and another part wants to speak up,” you’re already doing parts work. Trauma often fragments us—each part holding pain, protection, or potential. Try drawing or listing the different “parts” of you that show up in stress. Give each a voice. What are they trying to do for you? This isn’t pathology—it’s self-awareness. Over time, this practice builds inner harmony and reduces shame. If it feels too confusing, parts-based therapy can help make sense of it all."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e941"
+  },
+  "_record_hash": "260745d5bc4864f2a4c6f14af5da691e",
+  "Unnamed: 4": "EMDR – Safe Place Protocol, SEE FAR CBT, Guided Imagery for Trauma",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "43063c9e",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S089",
+  "suggestion_text": "Use Imagery to Create a Safe Inner Place. Trauma can leave us feeling like there’s no safe place anywhere. Guided imagery offers a way to build one inside. Close your eyes and imagine a place—real or imaginary—where you feel calm, protected, and fully yourself. It could be a forest, a room, even a planet. Add sensory details. Practice going there mentally when distressed. This safe place can become your mental shelter during storms. If it’s hard to visualize, working with a therapist trained in EMDR or SEE FAR CBT can help create this space together."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e942"
+  },
+  "_record_hash": "289e6282f520a02c6edf16cbb6d97ba8",
+  "Unnamed: 4": "NVC (Nonviolent Communication), ACT – Values Clarification, Compassionate Inquiry",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "5500362a",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S090",
+  "suggestion_text": "Begin a “Needs Translation” Practice. Survivors of trauma often carry unmet needs—without words for them. When you feel agitated or shut down, ask gently: What is this part of me needing right now? Is it safety, comfort, clarity, connection? Even if no answer comes, the act of asking builds internal trust. Over time, this helps you make choices that nourish instead of just surviving. For help decoding deep needs, therapy can offer a safe container."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e943"
+  },
+  "_record_hash": "b23a7f1546d559a72d70f765789d0bbf",
+  "Unnamed: 4": "Attachment Theory, Trauma-Informed Relationship Mapping",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "26fcaff7",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S091",
+  "suggestion_text": "Build a “Safe People Map.” When relationships have been unpredictable or hurtful, it can be hard to know who feels safe now. Try mapping your current connections. Start with people who help you feel grounded—even if you don’t talk often. Then add people who offer support, even just in small ways. You’re looking for quality, not quantity. The act of mapping reminds you that safety is possible. If trust is hard, therapy can help explore why, and how to slowly rebuild it."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e944"
+  },
+  "_record_hash": "7d2d94a2c07ff2910fa51ea197ebca45",
+  "Unnamed: 4": "Daniel Siegel’s Window of Tolerance Model, Trauma Regulation",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "5d9b9acf",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S092",
+  "suggestion_text": "Practice the “Window of Tolerance” Check-In. Trauma can shrink or stretch your ability to handle stress. The “window of tolerance” is the zone where you feel alert but not overwhelmed. Each day, check in: Am I inside my window? Or outside—too anxious or too numb? Learning to notice (without judgment) helps you choose tools to return to balance. Over time, you’ll feel more in control. A trauma-informed therapist can help widen your window safely."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e945"
+  },
+  "_record_hash": "30562637d63740d4f9befb56cc0136f3",
+  "Unnamed: 4": "Trauma-Focused CBT, EMDR, Grounding and Reality Orientation",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "38995bf1",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S093",
+  "suggestion_text": "Use “Then vs. Now” to Reduce Emotional Flashbacks. Sometimes a present moment triggers old feelings. You may react with intensity that doesn’t match the situation. Pause and gently ask: Am I responding to now—or to something from back then? Grounding in the present moment (naming the date, where you are, who you're with) can shift your nervous system from reactivity to reality. Over time, this practice helps separate past from present. If flashbacks are frequent, therapy can provide safer processing."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e946"
+  },
+  "_record_hash": "5b726949ad614381365d9ad0101ab6ed",
+  "Unnamed: 4": "ACT – Values Clarification, Trauma Recovery Coaching",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "f716392e",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S094",
+  "suggestion_text": "Try “Values Journaling” When You Feel Stuck. Trauma can make it hard to know what you want—survival takes up all your energy. Once a week, set aside time to write about what matters to you. Not goals, but values: kindness, truth, creativity, safety, etc. Ask: Where have I lived this value, even a little? What’s one step I can take this week to express it again? This reconnects you to who you are underneath the pain. A therapist can help clarify values and translate them into healing actions."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e947"
+  },
+  "_record_hash": "e685dafd5c0552d1b9201391ce645f3d",
+  "Unnamed: 4": "Trauma-Informed CBT, Compassion-Focused Therapy, Self-Reflection Models",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "1ae8f373",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S095",
+  "suggestion_text": "Track Patterns Without Self-Blame. Survivors of trauma often repeat emotional patterns—not because they’re broken, but because the brain adapts to danger. Try tracking a recurring pattern (e.g., pulling away when someone gets close). Look at it with curiosity, not shame. What might this pattern have protected you from in the past? What would healing this pattern make possible? Insight grows slowly. Support from a compassionate professional can help break the cycle."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e948"
+  },
+  "_record_hash": "922624ed645cfae6458c2fdda7e4f72b",
+  "Unnamed: 4": "Inner Child Work, Narrative Therapy, Trauma-Informed Self-Compassion",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "befb052d",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S096",
+  "suggestion_text": "Use Gentle Time Travel to Reduce Self-Blame. Survivors of trauma often carry guilt or shame for things they had no control over. One way to shift this is to imagine your current self going back in time to speak to your younger self during a difficult moment. What would you say? What would you want that younger version of you to know? This can create emotional distance and compassion. If strong emotions come up, pause and return to the present. A therapist can help guide this process gently."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e949"
+  },
+  "_record_hash": "3984497081342a8e53a5a161de80ab62",
+  "Unnamed: 4": "Internal Family Systems (IFS), Compassionate Inquiry, Trauma-Informed Models",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "3dffbe15",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S097",
+  "suggestion_text": "Explore “Protective Parts” With Curiosity. If you’ve ever felt like a part of you is pushing people away or shutting down, that might be a protective part doing its best to keep you safe. Instead of trying to silence it, try thanking it. Ask: What are you trying to protect me from? What do you need? This dialogue helps reduce inner conflict and invites trust. If the part feels overwhelming, parts-based therapy (like IFS) can help create safe inner dialogue."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e94a"
+  },
+  "_record_hash": "4fa54e2b4f7b9a48a09cce6670b93842",
+  "Unnamed: 4": "Trauma-Informed Care, Polyvagal Theory, Emotional Regulation Models",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "a70c9c84",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S098",
+  "suggestion_text": "Recognize When “Numb” is a Safety Strategy. Sometimes feeling nothing is the brain’s way of protecting us from too much pain. Instead of pushing the numbness away, notice it gently. Ask: What might this numbness be keeping me safe from? What would I need to feel a little more present? Even naming the numbness is a brave step. If it persists or feels too hard to manage, consider speaking to a therapist who understands trauma responses."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e94b"
+  },
+  "_record_hash": "1cd41c6fd40971c47d44f18665dc2cce",
+  "Unnamed: 4": "ACT – Committed Action, Self-Efficacy, Trauma Recovery Coaching",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "179c48b5",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S099",
+  "suggestion_text": "Use “Small Wins” to Rebuild Trust in Yourself. Trauma can leave you feeling helpless or unsure of your own abilities. To rebuild that sense of agency, start with one small task a day that aligns with your values—like reaching out to someone, organizing something, or taking a walk. After each task, name it: “I did that.” Over time, this builds trust that you can make choices and move forward. If shame or doubt interferes, a therapist can help you reframe those thoughts."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e94c"
+  },
+  "_record_hash": "b665d31f7ef437f502ae15c6b6c8839d",
+  "Unnamed: 4": "CBT – Emotional Labeling, Mindfulness-Based Emotion Recognition, Trauma Regulation",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c4",
+  "id": "0813d93b",
+  "sub_category_id": "P005-4",
+  "suggestion_id": "S100",
+  "suggestion_text": "Practice Emotional Labeling to Increase Safety. When emotions feel overwhelming or confusing, it can help to slow down and simply name what you're feeling—without needing to fix it. Try saying: “This is sadness.” or “I feel overwhelmed.” Naming emotions activates the thinking part of your brain and helps soothe the alarm system. Over time, this builds emotional regulation. If naming emotions is hard, therapists can help guide you in learning to identify and work with them gently."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e94d"
+  },
+  "_record_hash": "a0ba85aa846866aa3c65d8d4e2caea14",
+  "Unnamed: 4": "Emotion regulation, Self-awareness, Psychoeducation",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.147Z"
+  },
+  "cluster": "c5",
+  "id": "43766c43",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S101",
+  "suggestion_text": "Try Naming One Emotion at a Time. Sometimes when we feel overwhelmed by memories or family stress, everything blends together. Start by asking yourself: “What am I feeling right now?”—even if the answer is just “confused” or “tired.” Naming emotions can help you take the first step in understanding what’s going on inside. If it starts to feel too intense, pause and take a deep breath. You don’t have to solve everything today. If you feel unsafe, please talk to a trusted adult or get support from a mental health professional."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e94e"
+  },
+  "_record_hash": "9a2ff334de7c32ee52006c42d770d807",
+  "Unnamed: 4": "Journaling, Trauma-informed, Psychoeducation",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "0b81ecee",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S102",
+  "suggestion_text": "Write Down One Memory That Still Bothers You — But Only What Feels Safe to Remember. Choose a memory that’s been lingering, and write just a sentence or two about what happened. You don’t need to go into deep detail. Then write one thing you wish had gone differently, or something you needed at the time. This small act of reflection can help you process your story in a gentle way. If it brings up hard emotions, stop and ground yourself. And if you feel unsafe, please reach out to a trusted adult or professional."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e94f"
+  },
+  "_record_hash": "de343d41b3c254e5b7148de8d4cd6bb3",
+  "Unnamed: 4": "Grounding, Self-soothing, Safety planning",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "9937f78c",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S103",
+  "suggestion_text": "Create a “Comfort List” of Safe People or Places. Think of three people, places, or objects that help you feel even a little bit calmer or safer. Write them down, draw them, or keep a picture on your phone. In moments of stress, look at this list as a reminder that safety and support are real and reachable. If you don’t feel like you have those supports right now, that’s okay—this is also a sign that it might be time to talk to someone who can help."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e950"
+  },
+  "_record_hash": "248afb4f69e9dace4b3744aa3afecdcf",
+  "Unnamed: 4": "Trauma recovery, Grounding, Self-compassion",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "dd38fea0",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S104",
+  "suggestion_text": "Practice Saying: “That Was Then. This Is Now.” When past experiences still affect how you react today, it can help to gently remind yourself that you’re no longer in the same situation. Practice saying, “That was then. This is now,” when you feel triggered. It can help you feel more in control and reduce fear. If you ever feel unsafe or overwhelmed, we encourage you to speak with a trusted adult or a mental health professional."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e951"
+  },
+  "_record_hash": "39d7a775177f6a16f9163c359cecca24",
+  "Unnamed: 4": "Grounding, Mindfulness, Distress tolerance",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "32fef33c",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S105",
+  "suggestion_text": "Use the “Five Senses” Technique to Feel Grounded. When emotions run high, try this: Notice 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste. This simple tool brings you back to the present moment and can calm the body quickly. It’s okay if it doesn’t work right away—practice helps. And if your feelings become too much to handle alone, talk to someone you trust or seek help from a professional."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e952"
+  },
+  "_record_hash": "10060171a3b257cc74741a63281ac449",
+  "Unnamed: 4": "Art Therapy; Trauma-Focused Cognitive Behavioral Therapy (TF-CBT); American Art Therapy Association",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "5cbe9c41",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S106",
+  "suggestion_text": "Make a Drawing of What Safety Looks Like to You. You don’t need to be good at drawing. Just grab a pen or pencil and sketch what “safe” would look like—maybe it’s a place, a person, a color, or even a shield. This can help you figure out what you need more of in your life. If it makes you emotional, that’s okay. Please remember, if you feel unsafe, talk to a trusted adult or reach out to professional support."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e953"
+  },
+  "_record_hash": "fef24a354ce47fcecdc727566d758f95",
+  "Unnamed: 4": "Mindfulness-Based Stress Reduction (MBSR); Trauma-Sensitive Mindfulness (Treleaven, 2018)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "d0d0668b",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S107",
+  "suggestion_text": "Practice a Breathing Technique You Can Use Anywhere. Try this: Inhale slowly for 4 counts, hold for 4, exhale for 4. Do it 3 times. It helps calm your nervous system. Breathing is something you always carry with you, and it can be a safe anchor during stress. If emotions still feel too big, it’s important to talk to someone you trust or get support from a professional."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e954"
+  },
+  "_record_hash": "65895fa07cf1e511a84399d0dd453a18",
+  "Unnamed: 4": "Music Therapy (American Music Therapy Association); Emotion Regulation Strategies (Gross, 2014)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "999e359c",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S108",
+  "suggestion_text": "Use Music to Create a Mood Shift. Build two playlists: one that matches your current mood (so you feel seen), and another that slowly moves you toward a calmer or safer place emotionally. Music can express what’s hard to say and help you regulate feelings. If you find yourself stuck in painful feelings, please connect with a safe adult or therapist."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e955"
+  },
+  "_record_hash": "59ba4ebfb2ed39f5fe3eb4fb86df97cd",
+  "Unnamed: 4": "ACT – Self-as-context; Narrative Therapy; Pennebaker, J. (Expressive Writing research)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "c3633034",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S109",
+  "suggestion_text": "Write a Letter to Your Younger Self. Begin with “You didn’t deserve what happened.” Write to your younger self with kindness, understanding, and encouragement. You don’t need to reread it or share it. The act of writing can help with self-compassion and healing. If this brings up too much pain, pause and ask for support. You don’t have to carry this alone."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e956"
+  },
+  "_record_hash": "a72e5889c1b5bd3f2aea779620fac3e9",
+  "Unnamed: 4": "Psychoeducation – Help-Seeking Behaviors; TF-CBT Engagement Techniques; NCTSN Guidelines",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "78af5089",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S110",
+  "suggestion_text": "Identify One Supportive Adult You Can Talk To. Think of a teacher, family member, counselor, or neighbor who feels safe. Practice what you might say to them: “Can I tell you something that’s been bothering me?” You deserve to feel heard. If you don’t feel ready now, that’s okay. Keep this as an option for later. Getting help early makes a difference."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e957"
+  },
+  "_record_hash": "ee5cc89f2ec68d757d0e22f8c972c6e3",
+  "Unnamed: 4": "TF-CBT (Cohen et al., 2006); Trauma-Informed Journaling (Center for Youth Wellness)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "7a89bd5d",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S111",
+  "suggestion_text": "Start a “Safe Space” Journal. Create a notebook that’s just for you. Use it to write or draw moments when you felt okay, supported, or less alone—even if they were small. This helps your brain notice safety and start building a sense of trust. If writing feels hard, you can just write one word or a doodle. Please remember, if you’re feeling unsafe now, talk to a trusted adult or seek professional help."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e958"
+  },
+  "_record_hash": "5ebf92d0ab1365b4f11baa430d64eeeb",
+  "Unnamed: 4": "PE – Psychoeducation; Emotion Regulation (Gross, 2014); TF-CBT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "0e0b6486",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S112",
+  "suggestion_text": "Use a “Stress Thermometer” to Track Your Feelings. Draw a thermometer with 0 at the bottom (calm) and 10 at the top (extremely upset). During the day, check in with yourself and mark where you are. This can help you notice what triggers your emotions and give you more control. If your “temperature” feels too high, it’s a good time to ask for help."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e959"
+  },
+  "_record_hash": "73510f6f3b9313a1d5483b4f78a70f9a",
+  "Unnamed: 4": "CBT – Coping Skills Training; Self-Soothing Techniques; DBT Skills Manual (Linehan, 2015)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "a6b3dacf",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S113",
+  "suggestion_text": "Make a List of Things That Help You Feel Calmer. Think about music, movement, certain people, pets, or nature. Keep this list nearby when you feel overwhelmed. Knowing what helps you is a strength. You’re not weak for needing support. If those calming tools stop working, please reach out to a therapist or safe adult."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e95a"
+  },
+  "_record_hash": "e5da9973492560ad29351fa0ec2cb3cd",
+  "Unnamed: 4": "ACT – Values Clarification; Trauma-Informed Art Therapy; NCTSN Youth Resilience Tools",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "049263d5",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S114",
+  "suggestion_text": "Explore Your Strengths with a “Tree of Me.” Draw or imagine a tree. The roots are your values, the trunk is what keeps you going, and the branches are your dreams. You’ve already survived a lot—this helps remind you that you’re more than what happened. If big feelings come up while doing this, pause and talk to someone you trust."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e95b"
+  },
+  "_record_hash": "3832964890006c6ce62044aa7d57c467",
+  "Unnamed: 4": "ACT – Self-as-Context; Emotion Regulation; Self-Compassion Research (Neff, 2011)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c5",
+  "id": "22a99ee3",
+  "sub_category_id": "P005-5",
+  "suggestion_id": "S115",
+  "suggestion_text": "Record a Voice Note to Your Future Self. Say something kind, encouraging, or hopeful, even if you don’t feel it yet. Play it back when you’re struggling. It can help you remember that healing is possible. You don’t need to do this alone. If your pain feels heavy, please get support from a counselor or trusted adult."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e95c"
+  },
+  "_record_hash": "b7714d5e8386cae3e6512cabb9918b47",
+  "Unnamed: 4": "Trauma-informed care; NCTSN grounding techniques; Kabat-Zinn, 2003",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "a5966b45",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S116",
+  "suggestion_text": "Ground Yourself With the 5-4-3-2-1 Method\\nAfter medical trauma, many people experience intense moments where their body feels like it’s reliving the stress all over again. One technique that can help bring you back into the present moment is called the 5-4-3-2-1 method. Here’s how it works:\\n– Look around and name 5 things you can see (e.g., your hands, a window, a lamp).\\n– Notice 4 things you can touch (e.g., your shirt, the chair, the floor).\\n– Focus on 3 things you can hear right now (e.g., distant traffic, birds, your own breath).\\n– Identify 2 things you can smell (or recall smells you like if none are present).\\n– Finally, identify 1 thing you can taste (or imagine a favorite flavor).\\nThis method gently brings your attention to your body and environment, helping you feel safer.\\nWhy it helps: Grounding interrupts dissociation and re-regulates the nervous system."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e95d"
+  },
+  "_record_hash": "408b3a89dafd0bf922387bad9adba88c",
+  "Unnamed: 4": "EMDR “safe place” protocol (Shapiro, 2001); trauma-focused CBT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "9034b6e7",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S117",
+  "suggestion_text": "Use Visualization to Create a Safe Inner Place\\nMedical trauma often leaves people feeling exposed or out of control. One way to calm the nervous system is to use guided imagery. Try imagining a place—real or imagined—where you feel completely safe. It might be a forest, your grandmother’s kitchen, a sunny beach, or even a cozy library. Picture the colors, the textures, the sounds. Let yourself stay there mentally for a few minutes. You can return to this place anytime you feel overwhelmed.\\nWhy it helps: Visualization offers an internal anchor and supports emotion regulation."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e95e"
+  },
+  "_record_hash": "df7d219bd9f41604ca789b8ba1c84fb7",
+  "Unnamed: 4": "CBT for empowerment; SAMHSA’s trauma-informed care principles, 2014",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "d97566cc",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S118",
+  "suggestion_text": "Reclaim Your Sense of Control With Small Choices\\nDuring hospitalization or treatment, many people feel like decisions are made for them. This can cause a lingering sense of helplessness. One way to rebuild your sense of agency is through small daily choices. Start with low-stakes decisions:\\n– Choose what to wear based on comfort and preference.\\n– Pick a meal or snack that makes you feel nourished.\\n– Decide whether you want to be alone or talk to someone.\\nThese may seem small, but they reinforce the message that your voice matters again.\\nWhy it helps: Builds autonomy and counters learned helplessness after trauma."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e95f"
+  },
+  "_record_hash": "26b8553a2f86b39501c704cf0b9b938a",
+  "Unnamed: 4": "Mindfulness-Based Stress Reduction (MBSR); trauma-informed somatic practices",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "942592b4",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S119",
+  "suggestion_text": "Breathe With Intention: The 4-2-6 Technique\\nYour breath is a powerful tool for calming the body. When you’re feeling triggered or anxious after medical trauma, try this simple pattern:\\n– Inhale through your nose for 4 seconds.\\n– Hold the breath for 2 seconds.\\n– Exhale slowly through your mouth for 6 seconds.\\nDo this for a few minutes while sitting comfortably. This signals to your body that it is safe now.\\nWhy it helps: Activates the vagus nerve and reduces the stress response."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e960"
+  },
+  "_record_hash": "832a762ba34631b95d975c2087cf39e9",
+  "Unnamed: 4": "Narrative therapy; Post-Traumatic Growth (Tedeschi & Calhoun, 2004); trauma-focused CBT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "cbd7236c",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S120",
+  "suggestion_text": "Reframe the Narrative: What Comes After Survival?\\nMedical trauma can leave people stuck in a cycle of fear, replaying what went wrong. But healing also includes writing the next chapter. Ask yourself:\\n– What helped me get through that difficult time?\\n– What parts of me showed strength, even if no one saw it?\\n– What do I want to carry forward—and what do I want to let go of?\\nYou could write a journal entry, record a voice note, or share it with someone you trust.\\nWhy it helps: Strengthens identity and supports post-traumatic growth."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e961"
+  },
+  "_record_hash": "4a448a3af273c154869a604eaf1271ba",
+  "Unnamed: 4": "Somatic Experiencing (Levine, 1997); Trauma-Informed CBT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "2af374f2",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S121",
+  "suggestion_text": "Sometimes your body remembers more than your mind. After medical trauma, even small things—like a smell, a tone of voice, or the flicker of fluorescent light—can bring up fear or tension. Begin gently tracking when you feel uncomfortable or anxious. Ask yourself: What just happened? Where do I feel this in my body? What thoughts came up? You can jot these down in a small notebook or an app. Over time, you may begin to recognize patterns and gently prepare for difficult moments. This helps increase body awareness and supports emotional regulation."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e962"
+  },
+  "_record_hash": "fe9de6e462b386ed6b71a6956871e76c",
+  "Unnamed: 4": "NCTSN Toolkit; Trauma-Informed Stabilization Treatment (TIST)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "fa8bae11",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S122",
+  "suggestion_text": "Create a simple grounding kit for moments when you feel overwhelmed. It might include a soft fabric, a calming scent like lavender or eucalyptus, a small snack, a comforting photo, or a handwritten note from someone who cares about you. You can also include a few index cards with grounding exercises like “5 things you can see, 4 you can touch…” Having something ready to help you reconnect in those intense moments gives a sense of control and safety."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e963"
+  },
+  "_record_hash": "7bb218a61a38f112c12ad62a176e981c",
+  "Unnamed: 4": "ACT (Hayes et al.); Psychoeducation in Trauma Therapy",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "cca30d1b",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S123",
+  "suggestion_text": "If your heart races or you feel panic in a place that’s technically safe, it doesn’t mean something is wrong with you. After trauma, the brain’s alarm system—the amygdala—can become hypersensitive. It reacts fast, even when there’s no current danger. Gently reminding yourself, “My body is remembering, but I am safe right now,” can help you stay present. Learning how this works can reduce fear and shame. Psychoeducation like this helps restore control."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e964"
+  },
+  "_record_hash": "ad200e3b89a0ba9dcce51396debd46ce",
+  "Unnamed: 4": "CBT; Trauma-Informed Occupational Therapy (Blanche, 2014)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "9a5ef1dd",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S124",
+  "suggestion_text": "Establishing even a simple daily routine can help rebuild a sense of safety after medical trauma. Try creating a basic plan that includes a morning ritual like stretching or tea, a consistent sleep and meal schedule, and time for creativity or quiet. Having predictable steps during your day gives your nervous system a way to settle. It doesn’t need to be perfect—just something you can return to."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e965"
+  },
+  "_record_hash": "020807d6f301ba4750fda638fa0d62bb",
+  "Unnamed: 4": "Compassion-Focused Therapy (Gilbert, 2009); ACT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "b8cef76c",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S125",
+  "suggestion_text": "When you feel triggered or overwhelmed, pause and ask yourself with kindness: What just happened? What might I have needed in that moment? What would I say to a friend who felt this way? This practice—called compassionate curiosity—builds emotional safety and softens the self-blame many survivors carry. Over time, it helps you respond to yourself with care instead of criticism."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e966"
+  },
+  "_record_hash": "a16495163c100ad8985bc6fb7c71befa",
+  "Unnamed: 4": "EMDR Safe Place Technique; NCTSN",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "ded71ed4",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S126",
+  "suggestion_text": "Visualization can help your body feel safe again. Imagine a place where you feel completely calm and protected—this might be a real location, like your grandmother’s kitchen, or a place you create in your mind. Use all your senses: What do you see, hear, feel, or smell there? Practicing this for just a few minutes a day helps create a “safe space” you can return to when stress hits. This technique is especially helpful before medical appointments or procedures."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e967"
+  },
+  "_record_hash": "ba85707c46477bd4231e00de02416e16",
+  "Unnamed: 4": "Trauma-Informed Care (SAMHSA); CBT Assertiveness Skills",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "417af79e",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S127",
+  "suggestion_text": "Medical trauma can leave you feeling like your voice didn’t matter. One healing step is to practice speaking up again—even in small ways. Start with making a short list of things you need or want from others, like “I need clear explanations,” or “Please don’t touch without asking.” Practicing these sentences aloud helps you reclaim control in interactions with medical staff or even daily conversations."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e968"
+  },
+  "_record_hash": "289dbee491b2b9cf1dcf0ec05f6f831a",
+  "Unnamed: 4": "Polyvagal Theory (Porges, 2011); Somatic Therapy",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "ff1ee518",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S128",
+  "suggestion_text": "Your body needs signals of safety. Try “Vagus Nerve resets” like humming softly, splashing cold water on your face, or slowly exhaling with a “voo” sound. These gentle actions help calm your nervous system by engaging the parasympathetic response. They don’t need to take long, and over time, they train your body to come out of a stress state more quickly."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e969"
+  },
+  "_record_hash": "be31fecb9a932efee00cc220778c5eeb",
+  "Unnamed: 4": "Mindfulness-Based Stress Reduction (Kabat-Zinn); ACT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "a97f085f",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S129",
+  "suggestion_text": "After medical trauma, it can be hard to trust your own body. Try a brief daily check-in: Sit quietly and notice how your body feels—without judgment. Ask, “What do I need right now?” Sometimes the answer is rest, movement, or simply to breathe. Building this body-awareness gently over time helps restore the connection between you and your physical self."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e96a"
+  },
+  "_record_hash": "0e62ae017a06504013cfcb2fd5d45489",
+  "Unnamed: 4": "Pennebaker Expressive Writing Model; ACT Values Clarification",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c6",
+  "id": "baf9b30f",
+  "sub_category_id": "P005-6",
+  "suggestion_id": "S130",
+  "suggestion_text": "Reclaiming a sense of meaning after medical trauma can help you move forward. Consider writing about what you’ve learned from this experience—not to minimize the pain, but to explore how it shaped your strengths, values, or sense of empathy. Ask yourself: “What do I want to carry forward?” and “What do I want to let go of?” Writing for even 10 minutes can help organize thoughts and foster resilience."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e96b"
+  },
+  "_record_hash": "fbfca091ee52d7dabbd1843a3d35a273",
+  "Unnamed: 4": "Grief journaling – Worden's Tasks of Mourning; Narrative Therapy",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c7",
+  "id": "766079b2",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S131",
+  "suggestion_text": "Create a Grief Journal with One Memory Per Page. Writing down memories of the person you've lost—one memory per page—can help you hold onto them while slowly processing the pain. You might write about a time they made you laugh, a phrase they always said, or how they made you feel safe. This keeps the relationship alive in your heart while helping you face your loss at your own pace. 🧠 Why it helps: Writing organizes overwhelming emotions and supports emotional expression. If it becomes too intense, take a break or talk to someone you trust."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e96c"
+  },
+  "_record_hash": "bf760239ed3731045f618f62a7c34dec",
+  "Unnamed: 4": "Continuing Bonds Theory – Klass, Silverman & Nickman",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.148Z"
+  },
+  "cluster": "c7",
+  "id": "3c6e33cb",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S132",
+  "suggestion_text": "Use the “Still Connected” Practice. Grieving doesn’t mean forgetting. Try writing a short letter to the person who passed away—maybe telling them about your day, something they’d be proud of, or what you miss. Some people write these in a notebook, others speak them aloud or save them as voice notes. 🧠 Why it helps: This creates a continued emotional connection and allows grief to transform instead of disappear. If it brings up pain that feels too strong, it’s okay to ask for help."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e96d"
+  },
+  "_record_hash": "0fe7c1be9d18d70ca1069905c7fc2ff6",
+  "Unnamed: 4": "Post-Traumatic Growth – Tedeschi & Calhoun",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "194e23f4",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S133",
+  "suggestion_text": "Make a “Then and Now” Strength Map. Divide a page into two columns. On one side, write down people, places, or actions that helped you feel strong *before* the loss. On the other, write what helps you *now*—even small things like music, journaling, or a pet. 🧠 Why it helps: This helps you see what’s still working, and reminds you that even if things changed, you still have tools to support you. If the right column feels empty, that’s a sign it might be time to ask for support."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e96e"
+  },
+  "_record_hash": "a40975fda4874b028a7c73723e8f2e9b",
+  "Unnamed: 4": "Trauma-Informed Grief Practices – NCTSN; Self-Compassion – Kristin Neff",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "b34ea5fb",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S134",
+  "suggestion_text": "Create a Safe Grieving Space. Pick a small space and time just for your grief—a cozy corner, a quiet walk, a candle at night. Let yourself feel whatever comes up, without needing to fix it. Maybe listen to music you shared, cry, or just sit with your memories. 🧠 Why it helps: Having a “container” for grief prevents emotions from becoming overwhelming all day long. If the emotions feel like too much, it's a strong sign you should talk with someone."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e96f"
+  },
+  "_record_hash": "9ba415603f9ca93458307b92aae03800",
+  "Unnamed: 4": "Grief Visualization – Dual Process Model; ACT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "a6472a18",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S135",
+  "suggestion_text": "Try Visualization: “Carrying Them With You.” Sit somewhere quiet, close your eyes, and imagine the person you lost walking beside you. Imagine their voice cheering you on as you go through something hard. Picture them giving you a smile or strength. 🧠 Why it helps: This allows you to move forward without feeling like you’re leaving them behind. It helps transform pain into comfort and strength. If the feelings become too intense, pause and share what came up with someone safe."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e970"
+  },
+  "_record_hash": "e4f452c70bf4a2b5d5da3e39cf3469e3",
+  "Unnamed: 4": "ACT (Defusion & Awareness), Trauma Journaling – Pennebaker, EMDR Stabilization",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "bf81079f",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S136",
+  "suggestion_text": "Use a “Grief Timeline” to Notice Shifts in How You’re Coping. Draw a simple line that represents the past month. Mark dates when your grief felt more intense, and moments (even small ones) that felt lighter. Note any events, memories, or actions that made a difference. 🧠 Why it helps: Grief can feel like you’re stuck in one endless emotion. This timeline shows that your emotions shift, even when it’s hard. Seeing that change is possible builds hope and gives a foundation for healing. This technique supports emotional tracking and is used in trauma-focused therapies."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e971"
+  },
+  "_record_hash": "5acab817865d868b0896a425a074818e",
+  "Unnamed: 4": "Mindfulness (Siegel), CBT Emotional Labeling, Trauma-Informed Stabilization",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "6eecf25b",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S137",
+  "suggestion_text": "Practice Naming What You’re Feeling in the Moment—Without Trying to Change It. Sit quietly, take a breath, and ask yourself: “What am I feeling right now?” It might be sadness, guilt, relief, numbness, or confusion—all of these are valid. Just notice them without judgment. 🧠 Why it helps: The act of labeling emotions helps calm the fear center of the brain and activates the thinking part of your brain (the prefrontal cortex). This is a core technique in both mindfulness and trauma-informed care. Simply noticing and naming what you feel can reduce emotional overwhelm."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e972"
+  },
+  "_record_hash": "3d966797a76af6a11927a23fa1ea23e8",
+  "Unnamed: 4": "Worden’s Tasks of Mourning, Meaning-Centered Therapy (Breitbart), CBT for Bereavement",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "c406445c",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S138",
+  "suggestion_text": "Remember These 3 Truths When You Feel Lost in Grief: 1) Love doesn’t end when a person is gone. 2) Your story didn’t stop when theirs did. 3) Living is not betrayal—it’s part of honoring them. Write these down and return to them when things feel heavy. 🧠 Why it helps: After a loss, it’s common to feel guilt for moving on, or like life has no meaning. This tool helps restructure distorted beliefs and restore purpose—key steps in healing after grief."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e973"
+  },
+  "_record_hash": "98d6baa0890161e00fd996b693179e57",
+  "Unnamed: 4": "ACT – Psychological Flexibility, Dual Process Model of Coping with Bereavement",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "245d0e42",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S139",
+  "suggestion_text": "Try a “Grief and Gratitude” Practice to Hold Both Pain and Growth. Each night, write down one thing you miss and one thing you’re grateful for. For example: “I miss my dad’s stories. I’m grateful he taught me to listen deeply.” These are not contradictions—they can live side by side. 🧠 Why it helps: Holding both grief and gratitude increases emotional flexibility, which is a protective factor against complicated grief. This practice helps your brain experience balance and hope, while still honoring your loss."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e974"
+  },
+  "_record_hash": "556c64e3526d49828f8725a2ab716df6",
+  "Unnamed: 4": "NCTSN Coping Toolbox, Trauma-Informed Stabilization, Self-Soothing Skills from DBT",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "0e520116",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S140",
+  "suggestion_text": "Build a “Grief Emergency Kit” You Can Use When a Wave Hits. Choose 3–5 things that calm or ground you—like a playlist of soft music, a comforting object, a letter from someone you trust, or a calming scent. Put them in a small box or digital folder. 🧠 Why it helps: During intense emotional moments, it’s hard to think clearly. Having a ready-made toolkit gives you access to safety and regulation without having to search. This strategy is used in trauma and grief work to reduce distress and increase agency."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e975"
+  },
+  "_record_hash": "62e04b3917bacc4017a4c9ecaf594db8",
+  "Unnamed: 4": "Mindfulness-Based Stress Reduction (MBSR); Siegel (2010)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "3be49cbe",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S141",
+  "suggestion_text": "Use Breath Awareness to Anchor Yourself When Grief Feels Overwhelming\\nGrief can flood the nervous system. When it does, gently bring your attention to your breath. Try breathing in for 4 seconds, hold for 4, and out for 6.\\n🧠 Why it helps: Slow, conscious breathing engages the parasympathetic nervous system, helping calm the body. It’s a core tool in trauma-informed mindfulness."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e976"
+  },
+  "_record_hash": "68dba674f1868adceef18922035cf1fd",
+  "Unnamed: 4": "EMDR – Safe Place Technique; Shapiro (2001)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "4375c7c9",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S142",
+  "suggestion_text": "Create a Safe Space Visualization When Emotions Feel Too Intense\\nClose your eyes and imagine a place where you feel safe, calm, and supported. Fill in the details—what it looks like, sounds like, smells like.\\n🧠 Why it helps: This technique is used in EMDR and trauma care to regulate the nervous system and create internal safety."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e977"
+  },
+  "_record_hash": "71a6743d97edee34807827098c270981",
+  "Unnamed: 4": "ACT – Emotional openness; Bonanno (2009)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "2bf2a90f",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S143",
+  "suggestion_text": "Allow Waves of Grief Instead of Suppressing Them\\nTry saying to yourself: “This is a wave. I can feel it and let it pass.”\\n🧠 Why it helps: Emotions from grief often come in waves. Suppressing them can lead to longer-term distress. Acceptance and Commitment Therapy teaches us to make room for hard feelings without being consumed by them."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e978"
+  },
+  "_record_hash": "a7b6000afa0788ed927bbe07a9bea625",
+  "Unnamed: 4": "Pennebaker (1997); Neimeyer (2006)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "c9652a1a",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S144",
+  "suggestion_text": "Write a Letter to the Person You Lost\\nYou can say whatever you need—what you miss, what you didn’t get to say, what you hope they knew.\\n🧠 Why it helps: Expressive writing allows emotional release and meaning-making. It’s often used in grief therapy to foster continuing bonds and emotional resolution."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e979"
+  },
+  "_record_hash": "aa206eecbd6e1907f9d3f6c7d5a7e7cd",
+  "Unnamed: 4": "NCTSN (2015); Hobfoll et al. (2007) – Resilience principles",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "c239b7a6",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S145",
+  "suggestion_text": "Identify and Use Supportive Resources Around You\\nMake a list: Who or what helps you feel supported, even slightly? Friends? Pets? Music? Nature?\\n🧠 Why it helps: Recognizing and using existing support builds resilience. Grief often narrows focus, so this step widens your view and reduces isolation."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e97a"
+  },
+  "_record_hash": "2829715bcdbcdd65c462af3a0971bfa0",
+  "Unnamed: 4": "Worden (2008); Bowlby & Parkes (1970); ACT – Acceptance",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "0f89ea7a",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S146",
+  "suggestion_text": "Understand That Missing Them Is a Sign of Love and Connection\\nMissing someone deeply after losing them is not a flaw—it's a reflection of your love.\\n🧠 Why it helps: Grief experts highlight that yearning is a normal, expected part of the process. Rather than trying to “move on,” we learn to carry love and loss together.\\nIf you feel stuck, know that grieving takes many forms. There is no single timeline."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e97b"
+  },
+  "_record_hash": "464e61b93d74d03bcc93011a85560a86",
+  "Unnamed: 4": "ACT – Acceptance and mindfulness; CBT – Emotional processing",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "8cffcac8",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S147",
+  "suggestion_text": "Make Space for Sadness Without Judgment\\nSadness is not something to avoid—it’s something to make space for. Try setting aside even 5 minutes a day just to notice and name what you’re feeling.\\n🧠 Why it helps: Giving grief a regular place reduces emotional suppression, and helps emotions pass rather than stay stuck. ACT and CBT approaches encourage gentle exposure to difficult feelings."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e97c"
+  },
+  "_record_hash": "37f2b59a687fd81fff12546172c79262",
+  "Unnamed: 4": "Kübler-Ross & Kessler (2005); Bonanno (2009)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "d93a50a4",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S148",
+  "suggestion_text": "Learn About the Stages of Grief—But Don’t Feel Pressured to Follow Them\\nYou may have heard of the 5 stages: denial, anger, bargaining, depression, and acceptance. These are **not** steps everyone goes through in order. They’re patterns that help describe common reactions.\\n🧠 Why it helps: Knowing that your experience doesn’t have to “look a certain way” can reduce shame and confusion. This helps normalize what you’re going through."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e97d"
+  },
+  "_record_hash": "4c3aa583b4ec45c9bf6988913f795024",
+  "Unnamed: 4": "Campion (2020); Neimeyer (2006)",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "87029697",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S149",
+  "suggestion_text": "Use “Continuing Bonds” to Stay Connected in a Healthy Way\\nStaying connected to someone you lost—by writing letters, keeping a photo, or continuing a tradition—can be healing.\\n🧠 Why it helps: This concept of “continuing bonds” is a healthy alternative to the idea of closure. It allows you to honor the person’s memory while still living your life."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e97e"
+  },
+  "_record_hash": "0ec7c2b2e5300f087a3bf1854d8663b8",
+  "Unnamed: 4": "Neff (2003); ACT – Self-compassion",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.149Z"
+  },
+  "cluster": "c7",
+  "id": "01141da3",
+  "sub_category_id": "P005-7",
+  "suggestion_id": "S150",
+  "suggestion_text": "Remind Yourself That There’s No Wrong Way to Grieve\\nGrief doesn’t follow a script. Some days you might laugh, others you might cry. That’s all okay. \\nTry to avoid judging yourself for how you’re feeling.\\n🧠 Why it helps: Self-compassion is critical in grief. Research shows that people who are kind to themselves during the grieving process are more likely to recover emotionally."
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e13e"
+  },
+  "_record_hash": "99914b932bd37a50b983c5e7c90ae93b",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.298Z"
+  },
+  "cluster": null,
+  "id": "baa2a03c",
+  "problem_id": null,
+  "resource_link": null,
+  "suggestion_id": null,
+  "suggestion_text": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f46f"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.937Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.937Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_001",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Do a 'Needs Inventory' check after a relationship conflict. Ask yourself: What was I truly needing—validation, safety, space, understanding? Identifying unmet needs can reduce the emotional intensity and guide clearer communication.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f470"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.937Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.937Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_002",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Practice the 'Four Horsemen Reversal': Identify if you’ve used one of the four negative conflict styles—criticism, contempt, defensiveness, or stonewalling—in your last argument. For example, if you said, \"You always ignore me,\" try rephrasing as, \"I felt lonely last night when I didn’t hear from you.\" Then, write out or rehearse each reversal: gentle start-up, appreciation, responsibility, and self-soothing. Doing this helps rewire automatic reactions and builds trust over time.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f471"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.939Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.939Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_003",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Do the 'Attachment Rewind': After a stressful interaction, journal or voice-record what deeper emotional memory it stirred. For instance, if your partner didn’t respond to a message, you might realize it triggered a childhood fear of being abandoned. Say: \"This reminded me of when I was left alone at school as a kid.\" Separating past hurt from present events helps reduce emotional overload and brings clarity.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f472"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.939Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.939Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_004",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Use a 'Repair Attempt' template: Send a short, gentle message like: \"I’m sorry about our fight. I didn’t mean to snap. I value you and want to reconnect.\" You can also write: \"Can we take 10 minutes to reset later today?\" Practicing small repair steps—even if they don’t solve the issue—reduces chronic stress and shows emotional maturity.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f473"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.941Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.941Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_005",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Try 'Mentalizing' to reduce reactive stress: When conflict arises, pause and silently ask, \"What are they feeling right now?\" or \"What might they be worried about?\" For example, if someone is avoiding eye contact, instead of assuming they’re angry, consider they might feel ashamed or overwhelmed. Curiosity interrupts blame and leads to calmer interactions.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f474"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.941Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.941Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_006",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Regulate before you relate: After a heated moment, take 3 minutes to sit alone, breathe deeply, and scan your body. For instance, inhale for 4 counts, exhale for 6. Stretch your shoulders or shake out your hands. Only then re-engage with the other person. When your nervous system is calm, your words come out softer and more intentional.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f475"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.942Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.942Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_007",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Draw a ‘Conflict Timeline’: On paper, mark when a conflict began, what triggered it (e.g., missed text), what thoughts you had (\"They don’t care\"), emotions felt (anger, shame), and where escalation occurred. Then, brainstorm 1–2 moments where you could have paused or exited differently. This tool helps build insight and options for next time.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f476"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.943Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.943Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_008",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Create a ‘Relationship Stress Plan’ ahead of time: List your personal stress signs (e.g., eye twitching, silence), helpful coping tools (walk, music, venting), and calming phrases (e.g., \"I need a moment to breathe\"). Share your plan with a partner or friend so they can support—not escalate—when tension rises.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f477"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.943Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.943Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_009",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Use a 'Stress Dialogue' journaling method: Write as two voices. One part expresses your stress: \"I’m so sick of not being heard!\" Another part responds gently: \"That sounds really hard. What do you need?\" This technique creates internal compassion and reduces the urge to explode outwardly.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f478"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.945Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.945Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_010",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Reframe conflict as a growth opportunity: After a disagreement, list 3 ways this might help your bond—e.g., learning better boundaries, becoming more honest, seeing triggers clearly. Even if you don’t feel positive now, imagining growth reduces your brain’s stress chemicals and opens possibility.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f479"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.945Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.945Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_011",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Practice co-regulation: Sit silently near a calm, safe person (even without talking). Focus on their breathing, posture, and tone. Match your breath to theirs. Let their regulation soothe your nervous system. This technique is especially powerful after arguments or emotional flooding.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f47a"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.946Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.946Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_012",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Try a 'Body Boundary Reset': After a stressful encounter, stretch arms wide, touch your shoulders, then gently hug yourself. You can whisper, \"I’m safe now\" or \"This is my space.\" Adding sensory movement calms the vagus nerve and restores self-protection after interpersonal stress.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f47b"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.947Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.947Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_013",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Use the 'Dropping the Anchor' technique during relational overwhelm. Stand or sit firmly, press your feet into the ground, and name five things you see, four you hear, three you feel physically. This grounds you when emotions spike during arguments, helping you stay present and connected. Practice it during or after a fight to keep the mind from spiraling.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f47c"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.947Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.947Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_014",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Try the 'Circle of Control and Influence' when you feel powerless in a relationship conflict. Write down your stressor in the center, then make two circles: one with things you can control (your words, tone, boundaries), and one with what you can’t (their reactions, their emotions). This visual helps reduce rumination and gives clarity on where to act and where to let go.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f47d"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.949Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.949Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_015",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Respond instead of react: When triggered in a relationship, pause and breathe before speaking. Ask yourself: \"What do I want from this moment—connection or being right?\" Then choose a softer tone or a question instead of a harsh comment. This practice rewires reactivity and builds trust over time.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f47e"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.949Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.949Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_STR_016",
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "suggestion_text": "Zoom out and take a 'Big Picture View' after conflict. Ask yourself: \"Will this still feel huge in a week, month, or year?\" Then write down three strengths in the relationship that remain intact. This reframing tool activates the rational brain, reduces emotional flooding, and restores perspective after relational tension.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f47f"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.949Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.949Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_001",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "When you feel like everyone is judging you or thinking something negative about you, try using a method called cognitive restructuring. The idea is to notice your anxious thoughts, write them down, and then challenge them gently with evidence. How to do it: (1) Write down the thought — e.g., “Everyone thinks I’m weird when I speak.” (2) Ask yourself: “What evidence do I have for and against this thought?” and “Is there another way to look at this?” (3) Replace it with something more balanced, like: “Some people may not even notice me, and others might appreciate what I say. I’m allowed to speak up.” This helps your brain start seeing social situations more clearly, instead of through an anxiety filter.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f480"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.950Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.950Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_002",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "Start practicing exposure to small social fears instead of avoiding them. Avoidance keeps the anxiety alive — but repeated, gentle practice can reduce it. Try this: (1) Make a “fear ladder” — a list of situations from least scary to most scary (e.g., sending a message to a classmate, asking a question in class, joining a group discussion). (2) Start with the least scary one and do it multiple times — not perfectly, just enough to stay in it. (3) After each attempt, reflect: “What happened? Was it as bad as I expected? Did I survive it?” Over time, your brain will learn: “I can handle this.”",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f481"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.950Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.950Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_003",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "Before entering a social situation, try “anchoring” yourself with mindfulness techniques. For example, take three deep breaths while feeling your feet on the floor or lightly press your fingertips together and focus on the sensation. This helps you shift your attention from worrying thoughts to the here and now. Imagine saying to yourself: “Right now I’m okay. I can handle this moment.”",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f482"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.952Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.952Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_004",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "Ask yourself: “What would I do right now if I were acting based on my values, not fear?” Social anxiety often makes us pull away from what we care about — like friendship, expression, or learning. Values-based action means choosing small behaviors that support what matters to you. Example: If you value connection, you might smile at someone or join a conversation — even if it's awkward. Practicing this shifts your focus from avoiding pain to moving toward purpose.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f483"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.952Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.952Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_005",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "Build your own “social fear ladder.” Start by listing social situations that make you anxious, from the least to most difficult. For example: (1) saying hi to a classmate, (2) making small talk with a neighbor, (3) speaking in front of a group. Pick the easiest one and practice it until it becomes less scary. Then move up the ladder. This gradual exposure helps reduce fear by showing your brain you can survive the discomfort.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f484"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.953Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.953Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_006",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "After every social situation, take a few minutes to write a short reflection: What went well? What surprised you? What didn’t go as badly as you expected? This helps train your brain to notice positive or neutral outcomes, not just the fear. For example, you might write: “I spoke in class. I felt shaky, but I didn’t mess up. Nobody laughed.” Repeating this builds evidence that challenges your automatic fears.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f485"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.953Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.953Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_007",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "Try using self-compassion when you're feeling socially anxious. Instead of judging yourself for being nervous, speak to yourself like you would a close friend: “It’s okay to feel anxious — I’m doing something brave.” You can place a hand on your heart or take a calming breath. These small acts of kindness reduce inner criticism and calm your nervous system.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f486"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.954Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.954Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_008",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "Use a technique called “box breathing” before entering stressful social situations. Inhale for 4 seconds, hold for 4, exhale for 4, hold for 4 — repeat 4 times. This lowers physical tension and brings focus. For example, try it right before entering a classroom or social event. Your body will feel more grounded and your brain more alert.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f487"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.955Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.955Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_009",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "Before a social event, try guided visualization. Close your eyes and imagine yourself walking into the space, breathing steadily, making eye contact, and feeling calm. Picture how you’d like to act and respond. This primes your brain for success. Athletes use this to boost performance — and it works for social skills too.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f488"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.956Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.956Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_010",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "Ask a trusted friend or sibling to join you during a challenging social moment. For example, going to a party, placing an order, or meeting new people. Their presence acts like a safety net while you build confidence. Over time, you may not need them there, but having support early on reduces fear and increases success.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f489"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.956Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.956Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_011",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "When you think someone is judging you, write down what actually happened. Did they laugh? Say something unkind? Or is that your anxious brain assuming the worst? This helps you learn to separate assumptions from facts. For example: “I thought they were laughing at me, but actually, they were laughing at something else.”",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f48a"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.957Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.957Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_ANX_012",
+  "sub_category_id": "ANX_01_01",
+  "cluster": "c1",
+  "suggestion_text": "Try joining a low-pressure group activity like theater, improv, or debate club. These settings normalize social awkwardness and give you repeated practice expressing yourself. It helps desensitize you to attention and builds the muscle of confidence. You don’t have to be perfect — just present.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f48b"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.958Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.958Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_001",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Identify one behavior that you’ve stopped doing since the incident—something that used to bring a sense of structure or reward (e.g., going to the gym, journaling, calling a friend). Break it into three small, manageable steps and schedule the first step this week. Example: Behavior: Cooking a basic meal again. Step 1: Write a grocery list. Step 2: Buy ingredients for one simple recipe. Step 3: Cook and eat that meal mindfully. Purpose: This helps combat avoidance, boost energy, and reintroduce positive reinforcement.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f48c"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.958Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.958Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_002",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Take a recurring stress-related thought (e.g., “I can’t deal with anything anymore”) and write it at the top of a page. Underneath, create two columns: (1) Evidence that supports this thought, and (2) Evidence that challenges it. Then reframe it into a more flexible thought (e.g., “I feel overwhelmed, but I’ve handled things before”). Purpose: Trains cognitive restructuring and challenges catastrophic interpretations common in adjustment disorder.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f48d"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.960Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.960Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_003",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Use the “Values Compass”: Identify one core value (e.g., stability, connection, growth). Ask: “Why does this matter to me?”, “How has this value been affected by the event?”, and “What’s one small act this week that moves me toward this value?” Example: If “connection” is the value, the action might be sending a check-in text to a friend. Purpose: This restores motivation and meaning after disruption and helps prioritize behavior aligned with identity.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f48e"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.961Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.961Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_004",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Write a values-based reflection letter to yourself about how you responded to the stressful incident and what personal strengths you used during that time. Be honest and specific. You might begin with: “At first, I felt frozen by everything. But despite that, I managed to…” or “One thing I did that surprised me was…” Identify the internal qualities that helped you (e.g., courage, empathy, responsibility, endurance). Don’t focus on “being perfect”—focus on your authentic efforts. Then, reflect on what matters most to you now and write about one small values-aligned action you’ll commit to doing this week. Purpose: This ACT-based exercise supports psychological flexibility, values re-engagement, and cognitive distancing from trauma-anchored identity.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f48f"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.961Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.961Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_005",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Use the “Stress Puzzle” method: Write down all aspects of your current adjustment challenge. Break them into two columns: “What I can influence” vs. “What I cannot.” Choose one actionable piece to focus on this week. Purpose: Reduces overwhelm by separating controllable vs. uncontrollable aspects and shifting focus to small wins.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f490"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.963Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.963Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_006",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Map your “Resilience Resources”: Draw three circles labeled: “People”, “Places”, and “Practices”. Fill each with stable, supportive resources you still have or can reconnect with. Then pick one to actively engage with this week (e.g., call a friend, return to journaling, walk a calming route). Purpose: Reinforces existing support systems and reminds the person that resources still exist, despite the disruption.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f491"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.964Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.964Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_007",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Track your “adjustment curve”: Note one emotional, one behavioral, and one thinking pattern that has shifted since the event. Use this to notice progress and identify areas still needing support. Ask: “What changed?”, “What improved?”, “What still needs attention?” Purpose: This helps break down the complexity of adjustment into observable, trackable parts, supporting cognitive processing and emotional labeling.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f492"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.965Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.965Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_008",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Practice the “One-Minute Reframe”: When facing an emotional wave, pause and ask, “What is this really about?” and “What matters most right now?” Then name one small action that honors what matters — not what the emotion demands. Purpose: Encourages values-based redirection and cognitive-emotional flexibility in real time.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f493"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.966Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.966Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_009",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Schedule a 20-minute “stability window” each day: Do a familiar, structured task that reminds you of competence and predictability (e.g., making a meal, cleaning, walking the same route). Purpose: Restores a sense of routine and control, useful during emotional chaos.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f494"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.966Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.966Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_010",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Identify one area in your life where you're avoiding something (e.g., conversations, paperwork, decisions). Break it into three smaller steps and do the first one today. Track how your avoidance changes over a week. Purpose: Addresses experiential avoidance and promotes action-based recovery.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f495"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.968Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.968Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_011",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Use the \"Personal Timeline\" technique: On a blank page, draw a horizontal timeline from “Before the Incident” to “Now.” Mark moments of strength, coping, support, or progress since the incident. Even small events like “got out of bed,” “texted a friend,” or “cried and let it out” count. Purpose: Reframes the current struggle as a dynamic adjustment process, not a static state of being stuck.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f496"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.968Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.968Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_012",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Build a \"micro-routine\": Choose three tiny actions to repeat each morning (e.g., open the window, drink a glass of water, stretch arms). Keep them easy and consistent. These rituals offer predictability and restore small moments of self-control when the larger world feels disrupted.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f497"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.968Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.968Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_013",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Do a “meaning scan”: Write down what has changed since the incident—not only in terms of difficulty but also in perspective or values. Then answer: “What matters to me now that didn’t before?” Purpose: Strengthens post-crisis growth by helping the person notice what they want to preserve, reclaim, or reinvent.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f498"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.969Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.969Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_014",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Use the “Three Lenses” technique when something triggers distress: (1) What am I feeling? (2) What am I needing right now? (3) What’s a small, values-aligned next step? Purpose: Trains emotion labeling, unmet need identification, and response flexibility. This helps move from reactivity to intentionality.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f499"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.969Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.969Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_TRA_015",
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "suggestion_text": "Visualize a “stability space”: Close your eyes and imagine a place (real or imagined) where you feel grounded and secure. Describe it in detail (sights, sounds, smells), then name one thing you could bring from that space into your current life (e.g., “peace,” “light,” “warmth”). Purpose: Builds psychological safety and anchors regulation without generic grounding.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49a"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.971Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.971Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_GEN_001",
+  "sub_category_id": "GEN_01_01",
+  "cluster": "",
+  "suggestion_text": "Try deep breathing exercises before exams.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49b"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.971Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.971Z"
+  },
+  "is_active": true,
+  "suggestion_id": "S_GEN_002",
+  "sub_category_id": "GEN_01_01",
+  "cluster": "",
+  "suggestion_text": "Use time management techniques.",
+  "resource_link": null,
+  "evidence_base": null,
+  "difficulty_level": null,
+  "estimated_duration": null,
+  "tags": null
+}]

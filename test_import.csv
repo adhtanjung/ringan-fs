@@ -1,0 +1,2 @@
+problem_id,problem_name,category,domain,description,severity_level,category_id,sub_category_id,is_active
+TEST001,Test Problem,Anxiety,anxiety,This is a test problem for import,3,ANX_TEST,ANX_TEST_01,true

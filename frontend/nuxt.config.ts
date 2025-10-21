@@ -10,6 +10,7 @@ export default defineNuxtConfig({
 		"shadcn-nuxt",
 		"@pinia/nuxt",
 		"@nuxtjs/i18n",
+		"@vueuse/motion/nuxt",
 	],
 	fonts: {
 		families: [
@@ -153,9 +154,9 @@ export default defineNuxtConfig({
 	nitro: {
 		devProxy: {
 			"/api": {
-				target: "http://127.0.0.1:8000/api",
+				target: "http://127.0.0.1:8000",
 				changeOrigin: true,
-				prependPath: false,
+				prependPath: true,
 			},
 		},
 	},

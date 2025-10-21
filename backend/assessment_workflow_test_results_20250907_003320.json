@@ -1,0 +1,135 @@
+{
+  "start_time": "2025-09-07T00:32:19.099531",
+  "tests": [
+    {
+      "test": "health_check",
+      "status": "passed",
+      "details": {
+        "status": "healthy",
+        "timestamp": "2024-01-01T00:00:00Z",
+        "services": {
+          "vector_database": {
+            "status": "healthy",
+            "collections": 5,
+            "url": "http://localhost:6333"
+          },
+          "embedding_service": {
+            "model_name": "all-MiniLM-L6-v2",
+            "vector_size": 384,
+            "loaded": true
+          },
+          "semantic_search": {
+            "status": "healthy",
+            "collections": {
+              "mental-health-problems": {
+                "error": "Failed to get collection info"
+              },
+              "mental-health-assessments": {
+                "error": "Failed to get collection info"
+              },
+              "mental-health-suggestions": {
+                "error": "Failed to get collection info"
+              },
+              "mental-health-feedback": {
+                "error": "Failed to get collection info"
+              },
+              "mental-health-training": {
+                "error": "Failed to get collection info"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "test": "semantic_search",
+      "status": "passed",
+      "details": {
+        "results_count": 3,
+        "query_time": 0.6035683155059814
+      }
+    },
+    {
+      "test": "assessment_start",
+      "status": "passed",
+      "details": {
+        "type": "assessment_question",
+        "session_id": "test_user_1757179963",
+        "question": {
+          "question_id": "",
+          "sub_category_id": "",
+          "batch_id": "",
+          "question_text": "What are the main symptoms of your stress?",
+          "response_type": "text",
+          "next_step": null,
+          "clusters": [],
+          "domain": "general",
+          "score": 0.59590256
+        },
+        "progress": {
+          "current_step": 1,
+          "total_estimated": 10,
+          "completed_questions": 0
+        },
+        "message": "What are the main symptoms of your stress?\n\nSilakan berikan jawaban Anda dengan bebas."
+      }
+    },
+    {
+      "test": "assessment_submit",
+      "status": "passed",
+      "details": {
+        "type": "assessment_complete",
+        "session_id": "test_user_1757179963",
+        "summary": "Assessment untuk stress telah selesai dengan 1 pertanyaan dijawab dalam 1 menit.",
+        "score": "5.0/10",
+        "analysis": "Berdasarkan jawaban Anda untuk stress, kami mengidentifikasi beberapa area yang memerlukan perhatian khusus.",
+        "insights": [
+          "Assessment diselesaikan dengan cepat, menunjukkan kemungkinan sudah memiliki pemahaman yang baik tentang kondisi diri."
+        ],
+        "recommendations": [
+          "Try 'Mentalizing' to reduce reactive stress: When conflict arises, pause and silently ask, \"What are they feeling right now?\" or \"What might they be worried about?\" For example, if someone is avoiding eye contact, instead of assuming they\u2019re angry, consider they might feel ashamed or overwhelmed. Curiosity interrupts blame and leads to calmer interactions.",
+          "Create a \u2018Relationship Stress Plan\u2019 ahead of time: List your personal stress signs (e.g., eye twitching, silence), helpful coping tools (walk, music, venting), and calming phrases (e.g., \"I need a moment to breathe\"). Share your plan with a partner or friend so they can support\u2014not escalate\u2014when tension rises.",
+          "Stress Management Strategies Based on your responses, here are some evidence-based strategies to help manage stress and build resilience..."
+        ],
+        "detailed_results": {
+          "total_questions": 1,
+          "problem_category": "stress",
+          "average_score": 5.0,
+          "completed_at": "2025-09-07T00:32:43.696860",
+          "duration_minutes": 1,
+          "scale_responses_count": 0,
+          "text_responses_count": 1
+        },
+        "message": "\ud83c\udfaf **Assessment Selesai**\n\nHasil assessment menunjukkan Anda mengalami beberapa tantangan yang perlu perhatian.\n\n**Kategori**: stress\n**Skor Rata-rata**: 5.0/10 (sedang)\n\nBerikut adalah beberapa rekomendasi yang dapat membantu Anda:"
+      }
+    },
+    {
+      "test": "assessment_status",
+      "status": "passed",
+      "details": null
+    },
+    {
+      "test": "chat_with_context",
+      "status": "passed",
+      "details": {
+        "message_length": 334,
+        "has_semantic_context": false,
+        "has_assessment_recommendations": false
+      }
+    },
+    {
+      "test": "chat_streaming",
+      "status": "passed",
+      "details": {
+        "chunks_received": 3
+      }
+    }
+  ],
+  "summary": {
+    "total_tests": 7,
+    "passed_tests": 7,
+    "failed_tests": 0,
+    "success_rate": 100.0
+  },
+  "end_time": "2025-09-07T00:33:20.990731"
+}

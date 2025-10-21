@@ -89,7 +89,6 @@ class AssessmentQuestionModel(BaseDataModel):
     options: Optional[List[str]] = Field(None, description="Multiple choice options")
     next_step: Optional[str] = Field(None, description="Next step logic")
     clusters: Optional[str] = Field(None, description="Associated clusters")
-    order_index: Optional[int] = Field(None, description="Question order in sequence")
 
     @model_validator(mode='after')
     def validate_response_type_fields(self):
@@ -177,6 +176,21 @@ class BulkOperationResult(BaseModel):
     warnings: List[str] = Field(default_factory=list)
     created_ids: List[str] = Field(default_factory=list)
     updated_ids: List[str] = Field(default_factory=list)
+
+
+class ProblemTypeModel(BaseDataModel):
+    """Master table for problem type categories"""
+    id: Optional[str] = Field(None, description="Auto-generated ID")
+    type_name: str = Field(..., description="Problem type name (e.g., Anxiety, Depression, Stress)")
+    description: Optional[str] = Field(None, description="Description of this problem type")
+
+
+class DomainTypeModel(BaseDataModel):
+    """Master table for domain types"""
+    id: Optional[str] = Field(None, description="Auto-generated ID")
+    domain_name: str = Field(..., description="Domain name (e.g., Stress, Anxiety, Trauma)")
+    domain_code: str = Field(..., description="Short code for domain (e.g., STR, ANX, TRA)")
+    description: Optional[str] = Field(None, description="Description of this domain")
 
 
 class ValidationResult(BaseModel):

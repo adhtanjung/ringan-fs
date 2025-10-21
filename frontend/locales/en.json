@@ -107,5 +107,68 @@
 		"switch": "Switch Language",
 		"english": "English",
 		"indonesian": "Bahasa Indonesia"
+	},
+	"quickReplies": {
+		"feeling": "I'm feeling anxious",
+		"help": "I need coping strategies",
+		"sleep": "I'm having trouble sleeping",
+		"assessment": "I'd like to do an assessment"
+	},
+	"chat": {
+		"title": "Mental Health Assistant",
+		"subtitle": "Online & Ready to Help",
+		"typing": "Typing...",
+		"welcome": {
+			"title": "Welcome to Your Safe Space",
+			"subtitle": "I'm here to listen and support you. How are you feeling today?",
+			"ai": "Hello! I'm here to support your mental health journey. How are you feeling today?"
+		},
+		"input": {
+			"placeholder": "Share what's on your mind..."
+		}
+	},
+	"settings": {
+		"title": "Settings",
+		"language": "Language",
+		"languageDesc": "Choose your preferred language",
+		"privacy": "Privacy",
+		"saveHistory": "Save conversation history",
+		"analytics": "Anonymous usage analytics",
+		"emergency": "Emergency Resources",
+		"crisisHotline": "Crisis Hotline"
+	},
+	"crisis": {
+		"title": "We're Here to Help",
+		"message": "It sounds like you might be going through a difficult time. You're not alone.",
+		"call": "Call Crisis Hotline",
+		"continue": "Continue Chat"
+	},
+	"assessment": {
+		"title": "Assessment Question",
+		"progress": "Assessment in Progress",
+		"cancel": "Cancel",
+		"question": "Question",
+		"total": "total",
+		"submit": "Submit Answer",
+		"skip": "Skip",
+		"scale": {
+			"low": "Low",
+			"high": "High",
+			"instruction": "Select a number from 1 (low) to 10 (high)"
+		},
+		"yes": "Yes",
+		"no": "No",
+		"text": {
+			"placeholder": "Please share your thoughts...",
+			"instruction": "Share as much or as little as you feel comfortable with"
+		}
+	},
+	"quickReplies": {
+		"feeling": "I'm feeling anxious",
+		"help": "I need coping strategies",
+		"sleep": "I'm having trouble sleeping",
+		"assessment": "I'd like to do an assessment",
+		"stress": "I'm feeling stressed",
+		"depression": "I think I might be depressed"
 	}
 }

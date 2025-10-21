@@ -1,0 +1,56 @@
+# Mental Health Chat Backend Environment Configuration
+
+# API Configuration
+API_V1_STR=/api/v1
+PROJECT_NAME=Mental Health Chat API
+DEBUG=True
+ENVIRONMENT=development
+
+# Security
+SECRET_KEY=your-super-secret-key-change-this-in-production-12345
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+# Database URLs (Docker Compose)
+MONGODB_URL=mongodb://localhost:27017/mental_health_db
+REDIS_URL=redis://localhost:6379
+
+# Vector Database (Qdrant)
+QDRANT_URL=http://localhost:6333
+QDRANT_API_KEY=
+QDRANT_COLLECTION_NAME=mental-health-vectors
+
+# Embedding Model
+EMBEDDING_MODEL=all-MiniLM-L6-v2
+
+# Ollama Configuration
+OLLAMA_BASE_URL=http://localhost:11434
+# The code snippet provided is a comment in Python. It starts with a hash symbol (#) which
+# indicates a single-line comment in Python. The comment mentions the word 'skip' and then
+# ends with another hash symbol. This comment does not have any functional impact on the
+# code and is used for documentation or explanation purposes.
+OLLAMA_MODEL=gemma3:4b
+OLLAMA_TEMPERATURE=0.7
+OLLAMA_MAX_TOKENS=2000
+
+# OpenAI (Fallback)
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-4
+OPENAI_TEMPERATURE=0.7
+OPENAI_MAX_TOKENS=2000
+
+# ElevenLabs (TTS)
+ELEVENLABS_API_KEY=
+ELEVENLABS_VOICE_ID=iWydkXKoiVtvdn4vLKp9
+ELEVENLABS_MODEL=eleven_flash_v2_5
+
+# Chat Configuration
+MAX_CONVERSATION_LENGTH=50
+SESSION_TIMEOUT_MINUTES=30
+
+# Emergency Contacts
+EMERGENCY_NUMBER=112
+CRISIS_HOTLINE=119 ext 8
+
+# CORS Origins
+ALLOWED_ORIGINS=["http://localhost:3000","http://localhost:3001","http://127.0.0.1:3000","http://127.0.0.1:3001","https://ringan-landing.vercel.app","https://ringan-landing-git-main.vercel.app"]

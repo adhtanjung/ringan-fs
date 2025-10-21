@@ -1,0 +1,680 @@
+[{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e97f"
+  },
+  "_record_hash": "5b84f59145d7ac209339c47556382589",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.178Z"
+  },
+  "action_id": "A01",
+  "description": "Continue coaching within the same problem module (e.g., suggest another tip, ask deeper follow-up).",
+  "id": "2c0cd2d3",
+  "label": "continue_same"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e980"
+  },
+  "_record_hash": "85ebb44ce1e045329a09a1d16e1285ad",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.178Z"
+  },
+  "action_id": "A02",
+  "description": "Return to the main list of problems so the user can choose a new issue.",
+  "id": "f1398786",
+  "label": "show_problem_menu"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e981"
+  },
+  "_record_hash": "2026fbb46f6c13cdc2431d6e32988329",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.178Z"
+  },
+  "action_id": "A03",
+  "description": "End the current coaching session (used when user is satisfied or at a logical stopping point).",
+  "id": "d466c90d",
+  "label": "end_session"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e982"
+  },
+  "_record_hash": "f0ae331318775b08e4a6103766feb26e",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.178Z"
+  },
+  "action_id": "A04",
+  "description": "Escalate the case (e.g., prompt referral to a therapist, or suggest professional help).",
+  "id": "526a3c18",
+  "label": "escalate"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e983"
+  },
+  "_record_hash": "35dfeccc9ffc9313fc67773221f461ae",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.178Z"
+  },
+  "action_id": "A05",
+  "description": "Schedule a future check-in (AI could send a reminder or start a session later).",
+  "id": "7ef7293c",
+  "label": "schedule_followup"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e984"
+  },
+  "_record_hash": "4003f0301fd75518ebe0332915a91ca1",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.178Z"
+  },
+  "action_id": "A06",
+  "description": "Recommend a related issue based on patterns (e.g., \"Would you like to talk about Sleep Issues?\").",
+  "id": "c637c9a8",
+  "label": "suggest_related_problem"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e985"
+  },
+  "_record_hash": "f4493bd687cf885d1746dab7ed84580e",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.178Z"
+  },
+  "action_id": "A07",
+  "description": "Suggest a deeper resource (video, document, or article). Good for those who didn’t find the tip helpful.",
+  "id": "87479a8c",
+  "label": "offer_resource"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c2558381f06f64e986"
+  },
+  "_record_hash": "ded8036a8940380cf8fca7635fff2203",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:54.178Z"
+  },
+  "action_id": "A08",
+  "description": "If the feedback is unclear, ask a clarifying question before proceeding.",
+  "id": "fd20e09b",
+  "label": "ask_clarification"
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a0"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.977Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.977Z"
+  },
+  "is_active": true,
+  "action_id": "A_001",
+  "action_type": "continue_same",
+  "action_name": "continue_same",
+  "description": "Continue coaching within the same problem module (e.g., suggest another tip, ask deeper follow-up).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a1"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.977Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.977Z"
+  },
+  "is_active": true,
+  "action_id": "A_002",
+  "action_type": "show_problem_menu",
+  "action_name": "show_problem_menu",
+  "description": "Return to the main list of problems so the user can choose a new issue.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a2"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.979Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.979Z"
+  },
+  "is_active": true,
+  "action_id": "A_003",
+  "action_type": "end_session",
+  "action_name": "end_session",
+  "description": "End the current coaching session (used when user is satisfied or at a logical stopping point).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a3"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.979Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.979Z"
+  },
+  "is_active": true,
+  "action_id": "A_004",
+  "action_type": "escalate",
+  "action_name": "escalate",
+  "description": "Escalate the case (e.g., prompt referral to a therapist, or suggest professional help).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a4"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.979Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.979Z"
+  },
+  "is_active": true,
+  "action_id": "A_005",
+  "action_type": "schedule_followup",
+  "action_name": "schedule_followup",
+  "description": "Schedule a future check-in (AI could send a reminder or start a session later).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a5"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.980Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.980Z"
+  },
+  "is_active": true,
+  "action_id": "A_006",
+  "action_type": "show_problem_menu",
+  "action_name": "suggest_related_problem",
+  "description": "Recommend a related issue based on patterns (e.g., \"Would you like to talk about Sleep Issues?\").",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a6"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.981Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.981Z"
+  },
+  "is_active": true,
+  "action_id": "A_007",
+  "action_type": "show_problem_menu",
+  "action_name": "offer_resource",
+  "description": "Suggest a deeper resource (video, document, or article). Good for those who didn’t find the tip helpful.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a7"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.981Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.981Z"
+  },
+  "is_active": true,
+  "action_id": "A_008",
+  "action_type": "continue_same",
+  "action_name": "ask_clarification",
+  "description": "If the feedback is unclear, ask a clarifying question before proceeding.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a8"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.981Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.981Z"
+  },
+  "is_active": true,
+  "action_id": "A_101",
+  "action_type": "continue_same",
+  "action_name": "continue_same",
+  "description": "Continue coaching within the same problem module (e.g., suggest another tip, ask deeper follow-up).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4a9"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.981Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.981Z"
+  },
+  "is_active": true,
+  "action_id": "A_102",
+  "action_type": "show_problem_menu",
+  "action_name": "show_problem_menu",
+  "description": "Return to the main list of problems so the user can choose a new issue.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4aa"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.983Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.983Z"
+  },
+  "is_active": true,
+  "action_id": "A_103",
+  "action_type": "end_session",
+  "action_name": "end_session",
+  "description": "End the current coaching session (used when user is satisfied or at a logical stopping point).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4ab"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.983Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.983Z"
+  },
+  "is_active": true,
+  "action_id": "A_104",
+  "action_type": "escalate",
+  "action_name": "escalate",
+  "description": "Escalate the case (e.g., prompt referral to a therapist, or suggest professional help).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4ac"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.983Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.983Z"
+  },
+  "is_active": true,
+  "action_id": "A_105",
+  "action_type": "schedule_followup",
+  "action_name": "schedule_followup",
+  "description": "Schedule a future check-in (AI could send a reminder or start a session later).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4ad"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.984Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.984Z"
+  },
+  "is_active": true,
+  "action_id": "A_106",
+  "action_type": "show_problem_menu",
+  "action_name": "suggest_related_problem",
+  "description": "Recommend a related issue based on patterns (e.g., \"Would you like to talk about Sleep Issues?\").",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4ae"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.985Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.985Z"
+  },
+  "is_active": true,
+  "action_id": "A_107",
+  "action_type": "show_problem_menu",
+  "action_name": "offer_resource",
+  "description": "Suggest a deeper resource (video, document, or article). Good for those who didn’t find the tip helpful.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4af"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.985Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.985Z"
+  },
+  "is_active": true,
+  "action_id": "A_108",
+  "action_type": "continue_same",
+  "action_name": "ask_clarification",
+  "description": "If the feedback is unclear, ask a clarifying question before proceeding.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b0"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.986Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.986Z"
+  },
+  "is_active": true,
+  "action_id": "A_201",
+  "action_type": "continue_same",
+  "action_name": "continue_same",
+  "description": "Continue coaching within the same problem module (e.g., suggest another tip, ask deeper follow-up).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b1"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.986Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.986Z"
+  },
+  "is_active": true,
+  "action_id": "A_202",
+  "action_type": "show_problem_menu",
+  "action_name": "show_problem_menu",
+  "description": "Return to the main list of problems so the user can choose a new issue.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b2"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.987Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.987Z"
+  },
+  "is_active": true,
+  "action_id": "A_203",
+  "action_type": "end_session",
+  "action_name": "end_session",
+  "description": "End the current coaching session (used when user is satisfied or at a logical stopping point).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b3"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.987Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.987Z"
+  },
+  "is_active": true,
+  "action_id": "A_204",
+  "action_type": "escalate",
+  "action_name": "escalate",
+  "description": "Escalate the case (e.g., prompt referral to a therapist, or suggest professional help).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b4"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.987Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.987Z"
+  },
+  "is_active": true,
+  "action_id": "A_205",
+  "action_type": "schedule_followup",
+  "action_name": "schedule_followup",
+  "description": "Schedule a future check-in (AI could send a reminder or start a session later).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b5"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.987Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.987Z"
+  },
+  "is_active": true,
+  "action_id": "A_206",
+  "action_type": "show_problem_menu",
+  "action_name": "suggest_related_problem",
+  "description": "Recommend a related issue based on patterns (e.g., \"Would you like to talk about Sleep Issues?\").",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b6"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.989Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.989Z"
+  },
+  "is_active": true,
+  "action_id": "A_207",
+  "action_type": "show_problem_menu",
+  "action_name": "offer_resource",
+  "description": "Suggest a deeper resource (video, document, or article). Good for those who didn’t find the tip helpful.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b7"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.989Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.989Z"
+  },
+  "is_active": true,
+  "action_id": "A_208",
+  "action_type": "continue_same",
+  "action_name": "ask_clarification",
+  "description": "If the feedback is unclear, ask a clarifying question before proceeding.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b8"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.989Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.989Z"
+  },
+  "is_active": true,
+  "action_id": "A_301",
+  "action_type": "continue_same",
+  "action_name": "continue_same",
+  "description": "Continue coaching within the same problem module (e.g., suggest another tip, ask deeper follow-up).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4b9"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.990Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.990Z"
+  },
+  "is_active": true,
+  "action_id": "A_302",
+  "action_type": "show_problem_menu",
+  "action_name": "show_problem_menu",
+  "description": "Return to the main list of problems so the user can choose a new issue.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4ba"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.990Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.990Z"
+  },
+  "is_active": true,
+  "action_id": "A_303",
+  "action_type": "end_session",
+  "action_name": "end_session",
+  "description": "End the current coaching session (used when user is satisfied or at a logical stopping point).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4bb"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.990Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.990Z"
+  },
+  "is_active": true,
+  "action_id": "A_304",
+  "action_type": "escalate",
+  "action_name": "escalate",
+  "description": "Escalate the case (e.g., prompt referral to a therapist, or suggest professional help).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4bc"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.992Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.992Z"
+  },
+  "is_active": true,
+  "action_id": "A_305",
+  "action_type": "schedule_followup",
+  "action_name": "schedule_followup",
+  "description": "Schedule a future check-in (AI could send a reminder or start a session later).",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4bd"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.992Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.992Z"
+  },
+  "is_active": true,
+  "action_id": "A_306",
+  "action_type": "show_problem_menu",
+  "action_name": "suggest_related_problem",
+  "description": "Recommend a related issue based on patterns (e.g., \"Would you like to talk about Sleep Issues?\").",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4be"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.992Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.992Z"
+  },
+  "is_active": true,
+  "action_id": "A_307",
+  "action_type": "show_problem_menu",
+  "action_name": "offer_resource",
+  "description": "Suggest a deeper resource (video, document, or article). Good for those who didn’t find the tip helpful.",
+  "parameters": null,
+  "conditions": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f4bf"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.994Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.994Z"
+  },
+  "is_active": true,
+  "action_id": "A_308",
+  "action_type": "continue_same",
+  "action_name": "ask_clarification",
+  "description": "If the feedback is unclear, ask a clarifying question before proceeding.",
+  "parameters": null,
+  "conditions": null
+}]

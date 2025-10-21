@@ -13,6 +13,7 @@ import re
 from app.models.dataset_models import (
     ProblemCategoryModel, AssessmentQuestionModel, TherapeuticSuggestionModel,
     FeedbackPromptModel, NextActionModel, FineTuningExampleModel,
+    ProblemTypeModel, DomainTypeModel,
     ValidationResult, ResponseType, Stage, NextActionType, UserIntent
 )
 from app.core.database import get_mongodb
@@ -80,12 +81,8 @@ class DatasetValidationService:
             # Basic model validation
             model = ProblemCategoryModel(**data)
 
-            # ID pattern validation
-            if not re.match(self._validation_rules['id_patterns']['category_id'], model.category_id):
-                field_errors['category_id'].append(f"Invalid category_id format: {model.category_id}")
-
-            if not re.match(self._validation_rules['id_patterns']['sub_category_id'], model.sub_category_id):
-                field_errors['sub_category_id'].append(f"Invalid sub_category_id format: {model.sub_category_id}")
+            # ID pattern validation disabled for Problem Categories
+            # Users can use any format for category_id and sub_category_id
 
             # Domain validation
             if model.domain not in self._validation_rules['valid_domains']:
@@ -337,6 +334,92 @@ class DatasetValidationService:
             field_errors=dict(field_errors)
         )
 
+    async def validate_problem_type(self, data: Dict[str, Any]) -> ValidationResult:
+        """Validate a problem type master table entry"""
+        errors = []
+        warnings = []
+        field_errors = defaultdict(list)
+
+        try:
+            # Basic model validation
+            model = ProblemTypeModel(**data)
+
+            # Type name validation
+            if not model.type_name or len(model.type_name.strip()) == 0:
+                field_errors['type_name'].append("Type name is required")
+            elif len(model.type_name) > 100:
+                field_errors['type_name'].append("Type name too long (max 100 characters)")
+
+            # Description validation
+            if model.description and len(model.description) > 500:
+                field_errors['description'].append("Description too long (max 500 characters)")
+
+            # Check for duplicate type_name
+            if self.db is not None:
+                existing = await self.db.problem_types.find_one({"type_name": model.type_name})
+                if existing and existing.get('id') != data.get('id'):
+                    errors.append(f"Duplicate type_name: {model.type_name}")
+
+        except Exception as e:
+            errors.append(f"Model validation failed: {str(e)}")
+
+        return ValidationResult(
+            is_valid=len(errors) == 0 and len(field_errors) == 0,
+            errors=errors,
+            warnings=warnings,
+            field_errors=dict(field_errors)
+        )
+
+    async def validate_domain_type(self, data: Dict[str, Any]) -> ValidationResult:
+        """Validate a domain type master table entry"""
+        errors = []
+        warnings = []
+        field_errors = defaultdict(list)
+
+        try:
+            # Basic model validation
+            model = DomainTypeModel(**data)
+
+            # Domain name validation
+            if not model.domain_name or len(model.domain_name.strip()) == 0:
+                field_errors['domain_name'].append("Domain name is required")
+            elif len(model.domain_name) > 100:
+                field_errors['domain_name'].append("Domain name too long (max 100 characters)")
+
+            # Domain code validation
+            if not model.domain_code or len(model.domain_code.strip()) == 0:
+                field_errors['domain_code'].append("Domain code is required")
+            elif len(model.domain_code) > 10:
+                field_errors['domain_code'].append("Domain code too long (max 10 characters)")
+            elif not re.match(r'^[A-Z0-9_]+$', model.domain_code):
+                field_errors['domain_code'].append("Domain code must contain only uppercase letters, numbers, and underscores")
+
+            # Description validation
+            if model.description and len(model.description) > 500:
+                field_errors['description'].append("Description too long (max 500 characters)")
+
+            # Check for duplicate domain_name
+            if self.db is not None:
+                existing = await self.db.domain_types.find_one({"domain_name": model.domain_name})
+                if existing and existing.get('id') != data.get('id'):
+                    errors.append(f"Duplicate domain_name: {model.domain_name}")
+
+            # Check for duplicate domain_code
+            if self.db is not None:
+                existing = await self.db.domain_types.find_one({"domain_code": model.domain_code})
+                if existing and existing.get('id') != data.get('id'):
+                    errors.append(f"Duplicate domain_code: {model.domain_code}")
+
+        except Exception as e:
+            errors.append(f"Model validation failed: {str(e)}")
+
+        return ValidationResult(
+            is_valid=len(errors) == 0 and len(field_errors) == 0,
+            errors=errors,
+            warnings=warnings,
+            field_errors=dict(field_errors)
+        )
+
     async def validate_bulk_data(self, data_type: str, data_list: List[Dict[str, Any]]) -> List[ValidationResult]:
         """Validate a list of data entries"""
         validation_methods = {
@@ -411,6 +494,45 @@ class DatasetValidationService:
             is_valid=len(errors) == 0,
             errors=errors,
             warnings=warnings
+        )
+
+    async def validate_bulk_data(self, data_type: str, items: List[Dict[str, Any]]) -> ValidationResult:
+        """Validate multiple items in bulk"""
+        all_errors = []
+        field_errors = defaultdict(list)
+
+        for i, item in enumerate(items):
+            try:
+                if data_type == 'problems':
+                    result = await self.validate_problem_category(item)
+                elif data_type == 'assessments':
+                    result = await self.validate_assessment_question(item)
+                elif data_type == 'suggestions':
+                    result = await self.validate_therapeutic_suggestion(item)
+                elif data_type == 'feedback_prompts':
+                    result = await self.validate_feedback_prompt(item)
+                elif data_type == 'next_actions':
+                    result = await self.validate_next_action(item)
+                elif data_type == 'training_examples':
+                    result = await self.validate_fine_tuning_example(item)
+                else:
+                    result = ValidationResult(
+                        is_valid=False,
+                        errors=[f"Unknown data type: {data_type}"]
+                    )
+
+                if not result.is_valid:
+                    for error in result.errors:
+                        all_errors.append(f"Item {i}: {error}")
+                    for field, errors in result.field_errors.items():
+                        field_errors[field].extend([f"Item {i}: {error}" for error in errors])
+            except Exception as e:
+                all_errors.append(f"Item {i}: {str(e)}")
+
+        return ValidationResult(
+            is_valid=len(all_errors) == 0,
+            errors=all_errors,
+            field_errors=dict(field_errors)
         )
 
 

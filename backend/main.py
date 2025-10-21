@@ -20,6 +20,7 @@ from app.services.vector_service import vector_service
 from app.services.embedding_service import embedding_service
 from app.services.semantic_search_service import semantic_search_service
 from app.services.dataset_management_service import dataset_management_service
+from app.services.import_export_service import import_export_service
 
 # Load environment variables
 load_dotenv()
@@ -64,6 +65,13 @@ async def lifespan(app: FastAPI):
         print("✅ Dataset management service initialized")
     except Exception as e:
         print(f"⚠️  Dataset management service initialization failed: {e}")
+
+    # Initialize import/export service
+    try:
+        await import_export_service.initialize()
+        print("✅ Import/Export service initialized")
+    except Exception as e:
+        print(f"⚠️  Import/Export service initialization failed: {e}")
 
     print("✅ Backend ready!")
 

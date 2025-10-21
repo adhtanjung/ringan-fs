@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">Tooltip Test</h2>
+
+        <!-- Test the CSS-based tooltip -->
+        <div class="group relative mb-4">
+            <div class="flex items-center justify-between text-xs text-gray-500 cursor-help hover:text-gray-700 transition-colors">
+                <span>Hover for details</span>
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-12 h-1 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-green-500 rounded-full transition-all duration-1000 ease-out" style="width: 85%"></div>
+                        </div>
+                        <span class="text-xs font-medium">85%</span>
+                    </div>
+                    <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">High</span>
+                </div>
+            </div>
+
+            <!-- Detailed Tooltip -->
+            <div class="absolute bottom-full left-0 mb-2 p-3 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50 min-w-48">
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-600">Sentiment:</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Positive</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-600">Emotion:</span>
+                        <span class="px-2 py-1 border border-purple-200 text-purple-600 text-xs rounded-full">Happy</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-600">Confidence:</span>
+                        <span class="font-medium text-green-600">85%</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-600">Crisis Risk:</span>
+                        <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">High</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-600">Is Crisis:</span>
+                        <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">Yes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-sm text-gray-600">Hover over the "Hover for details" text above to see the tooltip.</p>
+    </div>
+</body>
+</html>
