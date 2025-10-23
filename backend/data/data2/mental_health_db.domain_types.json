@@ -1,0 +1,115 @@
+[{
+  "_id": {
+    "$oid": "68f1ecf61d7f727d50ca126e"
+  },
+  "domain_name": "Stress",
+  "domain_code": "STR",
+  "description": "Stress-related problems and conditions",
+  "is_active": true,
+  "created_at": {
+    "$date": "2025-10-17T07:15:02.287Z"
+  },
+  "updated_at": {
+    "$date": "2025-10-17T07:15:02.287Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f1ecf61d7f727d50ca126f"
+  },
+  "domain_name": "Anxiety",
+  "domain_code": "ANX",
+  "description": "Anxiety-related problems and disorders",
+  "is_active": true,
+  "created_at": {
+    "$date": "2025-10-17T07:15:02.287Z"
+  },
+  "updated_at": {
+    "$date": "2025-10-17T07:15:02.287Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f1ecf61d7f727d50ca1270"
+  },
+  "domain_name": "Trauma",
+  "domain_code": "TRA",
+  "description": "Trauma-related problems and PTSD",
+  "is_active": true,
+  "created_at": {
+    "$date": "2025-10-17T07:15:02.287Z"
+  },
+  "updated_at": {
+    "$date": "2025-10-17T07:15:02.287Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f1ecf61d7f727d50ca1271"
+  },
+  "domain_name": "General",
+  "domain_code": "GEN",
+  "description": "General mental health concerns and wellness",
+  "is_active": true,
+  "created_at": {
+    "$date": "2025-10-17T07:15:02.287Z"
+  },
+  "updated_at": {
+    "$date": "2025-10-17T07:15:02.287Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f1f0b3cb9bcc5201a102a5"
+  },
+  "created_at": "2025-10-17T07:30:59.738895",
+  "updated_at": "2025-10-17T07:30:59.738902",
+  "is_active": true,
+  "domain_name": "Test Stress",
+  "domain_code": "TST",
+  "description": "Test stress domain for testing"
+},
+{
+  "_id": {
+    "$oid": "68f1f1dc2142b6963f3cb72d"
+  },
+  "created_at": "2025-10-17T07:35:56.741409",
+  "updated_at": "2025-10-17T07:35:56.741663",
+  "is_active": true,
+  "domain_name": "TEST",
+  "domain_code": "TST",
+  "description": "TST"
+},
+{
+  "_id": {
+    "$oid": "68f1f5b62142b6963f3cb72e"
+  },
+  "created_at": "2025-10-17T07:52:22.065449",
+  "updated_at": "2025-10-17T07:52:22.066452",
+  "is_active": true,
+  "domain_name": "TEST2",
+  "domain_code": "TEST2",
+  "description": null
+},
+{
+  "_id": {
+    "$oid": "68f5fc06c00e4c720234effc"
+  },
+  "created_at": "2025-10-20T09:08:22.583463",
+  "updated_at": "2025-10-20T09:08:22.583927",
+  "is_active": true,
+  "domain_name": "TESTT",
+  "domain_code": "TESTT",
+  "description": "TEST"
+},
+{
+  "_id": {
+    "$oid": "68f601fac00e4c720234effe"
+  },
+  "created_at": "2025-10-20T09:33:46.514424",
+  "updated_at": "2025-10-20T09:33:46.514744",
+  "is_active": true,
+  "domain_name": "test3",
+  "domain_code": "TST2",
+  "description": "TEST"
+}]

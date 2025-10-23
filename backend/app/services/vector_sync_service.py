@@ -135,66 +135,17 @@ class VectorSyncService:
                     embedding = await self.embedding_service.generate_embedding(text_content)
 
                     # Prepare vector data
-                    payload = {
-                        'text': text_content,
-                        'collection': mongo_collection,
-                        'document_id': str(doc['_id']),
-                        'domain': doc.get('domain', 'general'),
-                        'created_at': doc.get('created_at', datetime.utcnow().isoformat())
-                    }
-
-                    # Add collection-specific fields directly to payload (not nested in metadata)
-                    if mongo_collection == 'assessments':
-                        payload.update({
-                            'question_id': doc.get('question_id', ''),
-                            'sub_category_id': doc.get('sub_category_id', ''),
-                            'response_type': doc.get('response_type', 'text'),
-                            'clusters': doc.get('clusters', ''),
-                            'batch_id': doc.get('batch_id', ''),
-                            'next_step': doc.get('next_step', '')
-                        })
-
-                        # Add scale information if it's a scale question
-                        if doc.get('response_type') == 'scale':
-                            payload['scale_min'] = doc.get('scale_min', 1)
-                            payload['scale_max'] = doc.get('scale_max', 10)
-
-                    elif mongo_collection == 'problems':
-                        payload.update({
-                            'category': doc.get('category', ''),
-                            'sub_category_id': doc.get('sub_category_id', ''),
-                            'severity_level': doc.get('severity_level', '')
-                        })
-
-                    elif mongo_collection == 'suggestions':
-                        payload.update({
-                            'suggestion_id': doc.get('suggestion_id', ''),
-                            'sub_category_id': doc.get('sub_category_id', ''),
-                            'cluster': doc.get('cluster', ''),
-                            'priority': doc.get('priority', ''),
-                            'effectiveness_rating': doc.get('effectiveness_rating', 0)
-                        })
-
-                    elif mongo_collection == 'feedback_prompts':
-                        payload.update({
-                            'prompt_id': doc.get('prompt_id', ''),
-                            'sub_category_id': doc.get('sub_category_id', ''),
-                            'stage': doc.get('stage', ''),
-                            'prompt_type': doc.get('prompt_type', '')
-                        })
-
-                    elif mongo_collection == 'training_examples':
-                        payload.update({
-                            'example_id': doc.get('example_id', ''),
-                            'user_intent': doc.get('user_intent', ''),
-                            'quality_score': doc.get('quality_score', 0),
-                            'conversation_id': doc.get('conversation_id', '')
-                        })
-
                     vector_data = {
                         'id': self._objectid_to_uuid(doc['_id']),
                         'vector': embedding,
-                        'payload': payload
+                        'payload': {
+                            'text': text_content,
+                            'collection': mongo_collection,
+                            'document_id': str(doc['_id']),
+                            'domain': doc.get('domain', 'general'),
+                            'created_at': doc.get('created_at', datetime.utcnow().isoformat()),
+                            'metadata': self._extract_metadata(doc, mongo_collection)
+                        }
                     }
 
                     vectors_data.append(vector_data)
@@ -295,16 +246,8 @@ class VectorSyncService:
                 'question_id': doc.get('question_id', ''),
                 'sub_category_id': doc.get('sub_category_id', ''),
                 'response_type': doc.get('response_type', ''),
-                'clusters': doc.get('clusters', ''),
-                'batch_id': doc.get('batch_id', ''),
-                'next_step': doc.get('next_step', ''),
-                'domain': doc.get('domain', '')
+                'clusters': doc.get('clusters', '')
             })
-
-            # Add scale information if it's a scale question
-            if doc.get('response_type') == 'scale':
-                metadata['scale_min'] = doc.get('scale_min', 1)
-                metadata['scale_max'] = doc.get('scale_max', 10)
 
         elif collection_name == 'suggestions':
             metadata.update({

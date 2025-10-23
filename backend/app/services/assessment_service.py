@@ -45,13 +45,6 @@ class AssessmentService:
 
             logger.info(f"Assessment search response: success={search_response.success}, results_count={len(search_response.results) if search_response.success else 0}")
 
-            # Debug: Show what questions were found
-            if search_response.success and search_response.results:
-                print(f"🔍 Assessment questions found: {len(search_response.results)}")
-                for i, result in enumerate(search_response.results[:5]):  # Show first 5
-                    payload = result.payload
-                    print(f"🔍 Question {i+1}: type={payload.get('response_type', 'unknown')}, text='{payload.get('text', '')[:50]}...'")
-
             # If no results with specific category, try a broader search
             if not search_response.success or not search_response.results:
                 logger.info("No results found with specific category, trying broader search...")
@@ -87,7 +80,7 @@ class AssessmentService:
                     else:
                         question_id = f"q_{len(questions):04d}"
 
-                question_data = {
+                questions.append({
                     "question_id": question_id,
                     "sub_category_id": payload.get("sub_category_id", ""),
                     "batch_id": payload.get("batch_id", ""),
@@ -97,17 +90,7 @@ class AssessmentService:
                     "clusters": payload.get("clusters", []),
                     "domain": payload.get("domain", ""),
                     "score": result.score
-                }
-
-                # Add scale information if it's a scale question
-                if payload.get("response_type") == "scale":
-                    question_data["scale_min"] = payload.get("scale_min", 1)
-                    question_data["scale_max"] = payload.get("scale_max", 10)
-
-                questions.append(question_data)
-
-                # Debug: Show question details
-                print(f"🔍 Added question: {question_id}, type={question_data['response_type']}, text='{question_data['question_text'][:50]}...'")
+                })
 
             # Find the first question (usually has no previous reference or highest score)
             first_question = self._find_first_question(questions)
@@ -219,26 +202,18 @@ Tone: Apologetic, encouraging, supportive
             session["answered_questions"].append(current_question)
             session["progress"]["completed_questions"] += 1
 
-            # Check if we should complete assessment
+            # Check if we should complete assessment (limit for testing)
             completed_questions = session["progress"]["completed_questions"]
-            total_questions = len(session["all_questions"])
-
-            print(f"🔍 Assessment progress - completed: {completed_questions}, total: {total_questions}")
-
-            # Complete assessment if we've answered all questions or reached a reasonable limit
-            if completed_questions >= min(total_questions, 10):  # Complete after 10 questions or all available questions
-                print(f"🔍 Assessment completing - reached limit: {completed_questions}")
+            if completed_questions >= 3:  # Complete after 3 questions for faster testing
                 return await self._complete_assessment(client_id)
 
             # Find next question
             next_question = await self._find_next_question(session, current_question, response)
-            print(f"🔍 Assessment next question - found: {next_question is not None}")
 
             if next_question:
                 # Continue assessment
                 session["current_question"] = next_question
                 session["progress"]["current_step"] += 1
-                print(f"🔍 Assessment continuing with next question: {next_question.get('question_id', 'unknown')}")
 
                 return {
                     "type": "assessment_question",
@@ -249,7 +224,6 @@ Tone: Apologetic, encouraging, supportive
                 }
             else:
                 # Assessment complete
-                print(f"🔍 Assessment completing - no next question found")
                 return await self._complete_assessment(client_id)
 
         except Exception as e:
@@ -344,10 +318,13 @@ Tone: Apologetic, encouraging, supportive
         response_type = question.get("response_type", "text")
 
         if response_type == "scale":
+            scale_labels = question.get("scale_labels", {"1": "Not at all", "2": "A little", "3": "Quite a bit", "4": "Very much"})
             if user_language == Language.INDONESIAN:
-                return f"{question_text}\n\nSilakan berikan jawaban dalam skala 1-10 (1 = sangat rendah, 10 = sangat tinggi)"
+                labels_text = f"1 = {scale_labels.get('1', 'Tidak sama sekali')}, 2 = {scale_labels.get('2', 'Sedikit')}, 3 = {scale_labels.get('3', 'Cukup banyak')}, 4 = {scale_labels.get('4', 'Sangat banyak')}"
+                return f"{question_text}\n\nSilakan pilih jawaban (1-4):\n{labels_text}"
             else:
-                return f"{question_text}\n\nPlease provide your answer on a scale of 1-10 (1 = very low, 10 = very high)"
+                labels_text = f"1 = {scale_labels.get('1', 'Not at all')}, 2 = {scale_labels.get('2', 'A little')}, 3 = {scale_labels.get('3', 'Quite a bit')}, 4 = {scale_labels.get('4', 'Very much')}"
+                return f"{question_text}\n\nPlease choose your answer (1-4):\n{labels_text}"
         elif response_type == "yes_no":
             if user_language == Language.INDONESIAN:
                 return f"{question_text}\n\nSilakan jawab dengan 'ya' atau 'tidak'"
@@ -375,11 +352,7 @@ Tone: Apologetic, encouraging, supportive
             scale_responses = []
             text_responses = []
 
-            print(f"🔍 Assessment completion - processing {len(responses)} responses")
-
-            for question_id, response_data in responses.items():
-                print(f"🔍 Assessment completion - question {question_id}: type={response_data['response_type']}, response='{response_data['response']}'")
-
+            for response_data in responses.values():
                 if response_data["response_type"] == "scale":
                     try:
                         response_value = response_data["response"]
@@ -387,19 +360,15 @@ Tone: Apologetic, encouraging, supportive
                         if isinstance(response_value, str) and response_value.startswith('"') and response_value.endswith('"'):
                             response_value = response_value[1:-1]  # Remove surrounding quotes
                         scale_value = float(response_value)
-                        if 1 <= scale_value <= 10:
+                        if 1 <= scale_value <= 4:
                             scale_responses.append(scale_value)
-                            print(f"🔍 Assessment completion - added scale response: {scale_value}")
                     except (ValueError, TypeError) as e:
                         logger.warning(f"Could not convert response to float: {response_data['response']} - {str(e)}")
                         continue
                 else:
                     text_responses.append(response_data["response"])
-                    print(f"🔍 Assessment completion - added text response: '{response_data['response']}'")
 
-            print(f"🔍 Assessment completion - scale_responses: {scale_responses}, text_responses: {text_responses}")
-            average_score = sum(scale_responses) / len(scale_responses) if scale_responses else 5.0
-            print(f"🔍 Assessment completion - calculated average_score: {average_score}")
+            average_score = sum(scale_responses) / len(scale_responses) if scale_responses else 2.5
 
             # Generate detailed analysis
             analysis = self._generate_analysis(scale_responses, text_responses, problem_category)

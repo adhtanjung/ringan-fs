@@ -1,0 +1,1122 @@
+[{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e55c"
+  },
+  "_record_hash": "ee98982cd3bedf753df5100dda05a4cf",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.694Z"
+  },
+  "id": "01a153b0",
+  "next_action": "show_problem_menu",
+  "prompt_id": "F002",
+  "prompt_text": "Are you still experiencing stress regularly?",
+  "stage": "ongoing"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e55e"
+  },
+  "_record_hash": "f4c4bc8a14f81574cc80d40a9ed9fc3a",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.694Z"
+  },
+  "id": "b085de4d",
+  "next_action": "[yes]A01, [no] Continue coaching within the same problem module (e.g., suggest another tip, ask deeper follow-up).",
+  "prompt_id": "F001",
+  "prompt_text": "Did your stress level drop after you tried this technique?",
+  "stage": "post_suggestion"
+},
+{
+  "_id": {
+    "$oid": "68b7e9c1558381f06f64e587"
+  },
+  "_record_hash": "6be997cd36f66673480127f6318868dc",
+  "_import_timestamp": {
+    "$date": "2025-09-03T07:09:53.696Z"
+  },
+  "id": "41575cbe",
+  "next_action": null,
+  "prompt_id": null,
+  "prompt_text": "Were you able to apply any technique from the app in real-life scenarios? Yes, No",
+  "stage": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49c"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.974Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.974Z"
+  },
+  "is_active": true,
+  "prompt_id": "P_STR_001",
+  "stage": "post_suggestion",
+  "prompt_text": "Did the tip help reduce your anxiety?",
+  "next_action_id": "A_001",
+  "context": null,
+  "next_action": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49d"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.974Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.974Z"
+  },
+  "is_active": true,
+  "prompt_id": "P_STR_002",
+  "stage": "ongoing",
+  "prompt_text": "Are you still experiencing stress regularly?",
+  "next_action_id": "A_001",
+  "context": null,
+  "next_action": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49e"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.975Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.975Z"
+  },
+  "is_active": true,
+  "prompt_id": "P_GEN_001",
+  "stage": "post_suggestion",
+  "prompt_text": "Did the tip help reduce your anxiety?",
+  "next_action_id": "A_301",
+  "context": null,
+  "next_action": null
+},
+{
+  "_id": {
+    "$oid": "68b986be6054c490b883f49f"
+  },
+  "created_at": {
+    "$date": "2025-09-04T12:31:58.976Z"
+  },
+  "updated_at": {
+    "$date": "2025-09-04T12:31:58.976Z"
+  },
+  "is_active": true,
+  "prompt_id": "P_GEN_002",
+  "stage": "ongoing",
+  "prompt_text": "Are you still experiencing stress regularly?",
+  "next_action_id": "A_301",
+  "context": null,
+  "next_action": null
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c1a"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c4",
+  "prompt_id": "FP_GEN_01_01_c4_1",
+  "prompt_text": "How helpful was this relationships and social suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.378248",
+  "updated_at": "2025-09-06T10:44:32.378249"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c1b"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c4",
+  "prompt_id": "FP_GEN_01_01_c4_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.379047",
+  "updated_at": "2025-09-06T10:44:32.379049"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c1c"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c4",
+  "prompt_id": "FP_GEN_01_01_c4_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.379413",
+  "updated_at": "2025-09-06T10:44:32.379414"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c1d"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c2",
+  "prompt_id": "FP_GEN_01_01_c2_1",
+  "prompt_text": "How helpful was this trauma and recovery suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.379757",
+  "updated_at": "2025-09-06T10:44:32.379774"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c1e"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c2",
+  "prompt_id": "FP_GEN_01_01_c2_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.380412",
+  "updated_at": "2025-09-06T10:44:32.380417"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c1f"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c2",
+  "prompt_id": "FP_GEN_01_01_c2_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.380892",
+  "updated_at": "2025-09-06T10:44:32.380895"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c20"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c3",
+  "prompt_id": "FP_GEN_01_01_c3_1",
+  "prompt_text": "How helpful was this anxiety and coping suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.381337",
+  "updated_at": "2025-09-06T10:44:32.381337"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c21"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c3",
+  "prompt_id": "FP_GEN_01_01_c3_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.381745",
+  "updated_at": "2025-09-06T10:44:32.381746"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c22"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c3",
+  "prompt_id": "FP_GEN_01_01_c3_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.382065",
+  "updated_at": "2025-09-06T10:44:32.382067"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c23"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c1",
+  "prompt_id": "FP_GEN_01_01_c1_1",
+  "prompt_text": "How helpful was this stress and adaptation suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.382387",
+  "updated_at": "2025-09-06T10:44:32.382388"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c24"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c1",
+  "prompt_id": "FP_GEN_01_01_c1_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.382871",
+  "updated_at": "2025-09-06T10:44:32.382872"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c25"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "c1",
+  "prompt_id": "FP_GEN_01_01_c1_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.383308",
+  "updated_at": "2025-09-06T10:44:32.383309"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c26"
+  },
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "prompt_id": "FP_TRA_05_01_c1_1",
+  "prompt_text": "How helpful was this stress and adaptation suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.383620",
+  "updated_at": "2025-09-06T10:44:32.383621"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c27"
+  },
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "prompt_id": "FP_TRA_05_01_c1_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.383943",
+  "updated_at": "2025-09-06T10:44:32.383944"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c28"
+  },
+  "sub_category_id": "TRA_05_01",
+  "cluster": "c1",
+  "prompt_id": "FP_TRA_05_01_c1_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.384210",
+  "updated_at": "2025-09-06T10:44:32.384211"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c29"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "C3",
+  "prompt_id": "FP_GEN_01_01_C3_1",
+  "prompt_text": "How helpful was this anxiety and coping suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.384612",
+  "updated_at": "2025-09-06T10:44:32.384613"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c2a"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "C3",
+  "prompt_id": "FP_GEN_01_01_C3_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.384921",
+  "updated_at": "2025-09-06T10:44:32.384923"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c2b"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "C3",
+  "prompt_id": "FP_GEN_01_01_C3_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.385203",
+  "updated_at": "2025-09-06T10:44:32.385204"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c2c"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "general",
+  "prompt_id": "FP_GEN_01_01_general_1",
+  "prompt_text": "How helpful was this general mental health suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.385532",
+  "updated_at": "2025-09-06T10:44:32.385533"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c2d"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "general",
+  "prompt_id": "FP_GEN_01_01_general_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.385882",
+  "updated_at": "2025-09-06T10:44:32.385883"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c2e"
+  },
+  "sub_category_id": "GEN_01_01",
+  "cluster": "general",
+  "prompt_id": "FP_GEN_01_01_general_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.386243",
+  "updated_at": "2025-09-06T10:44:32.386244"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c2f"
+  },
+  "sub_category_id": "P004-7",
+  "cluster": "c7",
+  "prompt_id": "FP_P004-7_c7_1",
+  "prompt_text": "How helpful was this grief and loss suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.386660",
+  "updated_at": "2025-09-06T10:44:32.386661"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c30"
+  },
+  "sub_category_id": "P004-7",
+  "cluster": "c7",
+  "prompt_id": "FP_P004-7_c7_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.386988",
+  "updated_at": "2025-09-06T10:44:32.386988"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c31"
+  },
+  "sub_category_id": "P004-7",
+  "cluster": "c7",
+  "prompt_id": "FP_P004-7_c7_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.387294",
+  "updated_at": "2025-09-06T10:44:32.387295"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c32"
+  },
+  "sub_category_id": "P005-5",
+  "cluster": "c5",
+  "prompt_id": "FP_P005-5_c5_1",
+  "prompt_text": "How helpful was this childhood and development suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.388013",
+  "updated_at": "2025-09-06T10:44:32.388017"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c33"
+  },
+  "sub_category_id": "P005-5",
+  "cluster": "c5",
+  "prompt_id": "FP_P005-5_c5_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.388720",
+  "updated_at": "2025-09-06T10:44:32.388727"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c34"
+  },
+  "sub_category_id": "P005-5",
+  "cluster": "c5",
+  "prompt_id": "FP_P005-5_c5_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.389709",
+  "updated_at": "2025-09-06T10:44:32.389712"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c35"
+  },
+  "sub_category_id": "P005-1",
+  "cluster": "c1",
+  "prompt_id": "FP_P005-1_c1_1",
+  "prompt_text": "How helpful was this stress and adaptation suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.390192",
+  "updated_at": "2025-09-06T10:44:32.390193"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c36"
+  },
+  "sub_category_id": "P005-1",
+  "cluster": "c1",
+  "prompt_id": "FP_P005-1_c1_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.390547",
+  "updated_at": "2025-09-06T10:44:32.390548"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c37"
+  },
+  "sub_category_id": "P005-1",
+  "cluster": "c1",
+  "prompt_id": "FP_P005-1_c1_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.390907",
+  "updated_at": "2025-09-06T10:44:32.390908"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c38"
+  },
+  "sub_category_id": "P005-6",
+  "cluster": "c6",
+  "prompt_id": "FP_P005-6_c6_1",
+  "prompt_text": "How helpful was this medical and health suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.391402",
+  "updated_at": "2025-09-06T10:44:32.391403"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c39"
+  },
+  "sub_category_id": "P005-6",
+  "cluster": "c6",
+  "prompt_id": "FP_P005-6_c6_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.391675",
+  "updated_at": "2025-09-06T10:44:32.391676"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c3a"
+  },
+  "sub_category_id": "P005-6",
+  "cluster": "c6",
+  "prompt_id": "FP_P005-6_c6_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.391917",
+  "updated_at": "2025-09-06T10:44:32.391917"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c3b"
+  },
+  "sub_category_id": "P005-3",
+  "cluster": "c3",
+  "prompt_id": "FP_P005-3_c3_1",
+  "prompt_text": "How helpful was this anxiety and coping suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.392247",
+  "updated_at": "2025-09-06T10:44:32.392248"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c3c"
+  },
+  "sub_category_id": "P005-3",
+  "cluster": "c3",
+  "prompt_id": "FP_P005-3_c3_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.392529",
+  "updated_at": "2025-09-06T10:44:32.392530"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c3d"
+  },
+  "sub_category_id": "P005-3",
+  "cluster": "c3",
+  "prompt_id": "FP_P005-3_c3_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.392788",
+  "updated_at": "2025-09-06T10:44:32.392788"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c3e"
+  },
+  "sub_category_id": "P005-4",
+  "cluster": "c4",
+  "prompt_id": "FP_P005-4_c4_1",
+  "prompt_text": "How helpful was this relationships and social suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.393109",
+  "updated_at": "2025-09-06T10:44:32.393110"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c3f"
+  },
+  "sub_category_id": "P005-4",
+  "cluster": "c4",
+  "prompt_id": "FP_P005-4_c4_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.393523",
+  "updated_at": "2025-09-06T10:44:32.393524"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c40"
+  },
+  "sub_category_id": "P005-4",
+  "cluster": "c4",
+  "prompt_id": "FP_P005-4_c4_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.393800",
+  "updated_at": "2025-09-06T10:44:32.393801"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c41"
+  },
+  "sub_category_id": "P005-7",
+  "cluster": "c7",
+  "prompt_id": "FP_P005-7_c7_1",
+  "prompt_text": "How helpful was this grief and loss suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.394141",
+  "updated_at": "2025-09-06T10:44:32.394143"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c42"
+  },
+  "sub_category_id": "P005-7",
+  "cluster": "c7",
+  "prompt_id": "FP_P005-7_c7_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.394522",
+  "updated_at": "2025-09-06T10:44:32.394523"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c43"
+  },
+  "sub_category_id": "P005-7",
+  "cluster": "c7",
+  "prompt_id": "FP_P005-7_c7_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.394915",
+  "updated_at": "2025-09-06T10:44:32.394916"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c44"
+  },
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "prompt_id": "FP_STR_04_01_c1_1",
+  "prompt_text": "How helpful was this stress and adaptation suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.395213",
+  "updated_at": "2025-09-06T10:44:32.395214"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c45"
+  },
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "prompt_id": "FP_STR_04_01_c1_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.395456",
+  "updated_at": "2025-09-06T10:44:32.395457"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c46"
+  },
+  "sub_category_id": "STR_04_01",
+  "cluster": "c1",
+  "prompt_id": "FP_STR_04_01_c1_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.395735",
+  "updated_at": "2025-09-06T10:44:32.395736"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c47"
+  },
+  "sub_category_id": "P005-2",
+  "cluster": "c2",
+  "prompt_id": "FP_P005-2_c2_1",
+  "prompt_text": "How helpful was this trauma and recovery suggestion for you?",
+  "prompt_type": "effectiveness_rating",
+  "stage": "post_suggestion",
+  "expected_response_type": "scale",
+  "scale_min": 1,
+  "scale_max": 5,
+  "follow_up_questions": [
+    "What specific part was most helpful?",
+    "Is there anything you'd like to know more about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.396338",
+  "updated_at": "2025-09-06T10:44:32.396339"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c48"
+  },
+  "sub_category_id": "P005-2",
+  "cluster": "c2",
+  "prompt_id": "FP_P005-2_c2_2",
+  "prompt_text": "Would you like to try any of these strategies, or do you have questions about them?",
+  "prompt_type": "engagement_check",
+  "stage": "post_suggestion",
+  "expected_response_type": "yes_no",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "Which strategy interests you most?",
+    "What questions do you have?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.396617",
+  "updated_at": "2025-09-06T10:44:32.396618"
+},
+{
+  "_id": {
+    "$oid": "68bc1090df4d5f7e24a12c49"
+  },
+  "sub_category_id": "P005-2",
+  "cluster": "c2",
+  "prompt_id": "FP_P005-2_c2_3",
+  "prompt_text": "How are you feeling about implementing these suggestions?",
+  "prompt_type": "readiness_assessment",
+  "stage": "ongoing",
+  "expected_response_type": "text",
+  "scale_min": null,
+  "scale_max": null,
+  "follow_up_questions": [
+    "What support do you need to get started?",
+    "Are there any barriers you're concerned about?"
+  ],
+  "is_active": true,
+  "created_at": "2025-09-06T10:44:32.396868",
+  "updated_at": "2025-09-06T10:44:32.396868"
+}]

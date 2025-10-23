@@ -118,9 +118,16 @@ anxiety,Social Anxiety,SOC_ANX_001,SOC_ANX_001_001,Fear of Public Speaking,Inten
 
 ### Assessments
 ```csv
-question_id,sub_category_id,batch_id,question_text,response_type,scale_min,scale_max,options,next_step,clusters,is_active
-ASSESS_001,SOC_ANX_001_001,BATCH_001,How often do you avoid social situations?,scale,1,5,,If score > 3 show coping strategies,social_anxiety,true
+question_id,sub_category_id,batch_id,question_text,response_type,scale_min,scale_max,scale_label_1,scale_label_2,scale_label_3,scale_label_4,options,next_step,clusters,is_active
+ASSESS_001,SOC_ANX_001_001,BATCH_001,How often do you avoid social situations?,scale,1,4,Not at all,A little,Quite a bit,Very much,,If score > 3 show coping strategies,social_anxiety,true
 ```
+
+**Scale Questions (1-4 System)**:
+- All scale questions now use a standardized 1-4 range
+- `scale_min` must be 1, `scale_max` must be 4
+- `scale_label_1` through `scale_label_4` define the text labels for each scale value
+- Default labels: "Not at all", "A little", "Quite a bit", "Very much"
+- Labels can be customized for different languages or contexts
 
 ### Suggestions
 ```csv

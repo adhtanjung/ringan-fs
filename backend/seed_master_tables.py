@@ -17,46 +17,12 @@ from app.core.config import settings
 def seed_master_tables():
     """Seed the master tables with initial data"""
 
-    # Initial domain types
-    domain_types = [
-        {
-            "domain_name": "Stress",
-            "domain_code": "STR",
-            "description": "Stress-related problems and conditions",
-            "is_active": True,
-            "created_at": datetime.utcnow(),
-            "updated_at": datetime.utcnow()
-        },
-        {
-            "domain_name": "Anxiety",
-            "domain_code": "ANX",
-            "description": "Anxiety-related problems and disorders",
-            "is_active": True,
-            "created_at": datetime.utcnow(),
-            "updated_at": datetime.utcnow()
-        },
-        {
-            "domain_name": "Trauma",
-            "domain_code": "TRA",
-            "description": "Trauma-related problems and PTSD",
-            "is_active": True,
-            "created_at": datetime.utcnow(),
-            "updated_at": datetime.utcnow()
-        },
-        {
-            "domain_name": "General",
-            "domain_code": "GEN",
-            "description": "General mental health concerns and wellness",
-            "is_active": True,
-            "created_at": datetime.utcnow(),
-            "updated_at": datetime.utcnow()
-        }
-    ]
 
     # Initial problem types
     problem_types = [
         {
             "type_name": "Anxiety",
+            "category_id": "ANX_001",
             "description": "General anxiety disorders and anxiety-related conditions",
             "is_active": True,
             "created_at": datetime.utcnow(),
@@ -64,6 +30,7 @@ def seed_master_tables():
         },
         {
             "type_name": "Depression",
+            "category_id": "DEP_001",
             "description": "Depressive disorders and mood-related conditions",
             "is_active": True,
             "created_at": datetime.utcnow(),
@@ -71,6 +38,7 @@ def seed_master_tables():
         },
         {
             "type_name": "Stress",
+            "category_id": "STR_001",
             "description": "Stress-related conditions and work-life balance issues",
             "is_active": True,
             "created_at": datetime.utcnow(),
@@ -78,6 +46,7 @@ def seed_master_tables():
         },
         {
             "type_name": "Trauma",
+            "category_id": "TRA_001",
             "description": "Trauma and PTSD-related conditions",
             "is_active": True,
             "created_at": datetime.utcnow(),
@@ -85,6 +54,7 @@ def seed_master_tables():
         },
         {
             "type_name": "Relationship Issues",
+            "category_id": "REL_001",
             "description": "Relationship and interpersonal problems",
             "is_active": True,
             "created_at": datetime.utcnow(),
@@ -92,6 +62,7 @@ def seed_master_tables():
         },
         {
             "type_name": "Sleep Problems",
+            "category_id": "SLP_001",
             "description": "Sleep disorders and insomnia-related issues",
             "is_active": True,
             "created_at": datetime.utcnow(),
@@ -99,6 +70,7 @@ def seed_master_tables():
         },
         {
             "type_name": "Self-Esteem",
+            "category_id": "EST_001",
             "description": "Self-esteem and confidence-related issues",
             "is_active": True,
             "created_at": datetime.utcnow(),
@@ -106,6 +78,7 @@ def seed_master_tables():
         },
         {
             "type_name": "Grief and Loss",
+            "category_id": "GRF_001",
             "description": "Grief, loss, and bereavement-related issues",
             "is_active": True,
             "created_at": datetime.utcnow(),
@@ -120,18 +93,9 @@ def seed_master_tables():
         db = client.mental_health_db
 
         # Check if collections exist and clear them if they do
-        if 'domain_types' in db.list_collection_names():
-            print("🗑️  Clearing existing domain_types collection...")
-            db.domain_types.drop()
-
         if 'problem_types' in db.list_collection_names():
             print("🗑️  Clearing existing problem_types collection...")
             db.problem_types.drop()
-
-        # Insert domain types
-        print("📝 Inserting domain types...")
-        domain_result = db.domain_types.insert_many(domain_types)
-        print(f"✅ Inserted {len(domain_result.inserted_ids)} domain types")
 
         # Insert problem types
         print("📝 Inserting problem types...")
@@ -140,16 +104,10 @@ def seed_master_tables():
 
         # Verify the data
         print("\n📊 Verification:")
-        domain_count = db.domain_types.count_documents({})
         problem_count = db.problem_types.count_documents({})
-        print(f"   Domain Types: {domain_count}")
         print(f"   Problem Types: {problem_count}")
 
         # Show sample data
-        print("\n📋 Sample Domain Types:")
-        for domain in db.domain_types.find().limit(3):
-            print(f"   - {domain['domain_name']} ({domain['domain_code']})")
-
         print("\n📋 Sample Problem Types:")
         for problem in db.problem_types.find().limit(3):
             print(f"   - {problem['type_name']}")

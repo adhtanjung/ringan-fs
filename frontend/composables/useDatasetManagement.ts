@@ -6,22 +6,23 @@ export const columnConfigs = {
   problems: [
     { key: 'problem_name', label: 'Problem Name', type: 'text', description: 'Human-readable name of the mental health problem or condition' },
     { key: 'category', label: 'Category', type: 'badge', description: 'Primary classification of the mental health issue (e.g., Anxiety, Depression, Stress)' },
-    { key: 'domain', label: 'Domain', type: 'badge', description: 'Therapeutic domain or area of focus for this problem type' },
+    { key: 'category_id', label: 'Category ID', type: 'text', description: 'Category identifier from problem_types (via lookup)' },
+    { key: 'sub_category_id', label: 'Subcategory ID', type: 'text', description: 'Internal reference ID for more specific problem subcategories' },
     { key: 'description', label: 'Description', type: 'text', description: 'Detailed explanation of the problem, its symptoms, and characteristics' },
     { key: 'severity_level', label: 'Severity', type: 'badge', description: 'Numeric scale (1-5) indicating the typical severity level of this problem' },
-    { key: 'category_id', label: 'Category ID', type: 'text', description: 'Internal reference ID linking to the parent category classification' },
-    { key: 'sub_category_id', label: 'Subcategory ID', type: 'text', description: 'Internal reference ID for more specific problem subcategories' },
-    { key: 'is_active', label: 'Active', type: 'boolean', description: 'Whether this problem category is currently active and available for use' },
-    { key: 'created_at', label: 'Created', type: 'date', description: 'Timestamp when this problem category was first added to the system' },
-    { key: 'updated_at', label: 'Updated', type: 'date', description: 'Last modification timestamp for this problem category' }
+    { key: 'is_active', label: 'Active', type: 'boolean', description: 'Whether this problem category is currently active and available for use' }
   ],
   assessments: [
     { key: 'question_id', label: 'Question ID', type: 'text', description: 'Business identifier used to reference this question in the system' },
     { key: 'sub_category_id', label: 'Subcategory ID', type: 'text', description: 'Links this question to a specific mental health subcategory' },
     { key: 'question_text', label: 'Question', type: 'text', description: 'The actual question text presented to users during assessment' },
     { key: 'response_type', label: 'Response Type', type: 'badge', description: 'Type of response expected (multiple_choice, scale, text, etc.)' },
-    { key: 'scale_min', label: 'Scale Min', type: 'number', description: 'Minimum value for scale-based questions (e.g., 1 for 1-10 scale)' },
-    { key: 'scale_max', label: 'Scale Max', type: 'number', description: 'Maximum value for scale-based questions (e.g., 10 for 1-10 scale)' },
+    { key: 'scale_min', label: 'Scale Min', type: 'number', description: 'Minimum value for scale-based questions (fixed at 1)' },
+    { key: 'scale_max', label: 'Scale Max', type: 'number', description: 'Maximum value for scale-based questions (fixed at 4)' },
+    { key: 'scale_label_1', label: 'Scale Label 1', type: 'text', description: 'Label for scale value 1 (default: "Not at all")' },
+    { key: 'scale_label_2', label: 'Scale Label 2', type: 'text', description: 'Label for scale value 2 (default: "A little")' },
+    { key: 'scale_label_3', label: 'Scale Label 3', type: 'text', description: 'Label for scale value 3 (default: "Quite a bit")' },
+    { key: 'scale_label_4', label: 'Scale Label 4', type: 'text', description: 'Label for scale value 4 (default: "Very much")' },
     { key: 'options', label: 'Options', type: 'badge', description: 'Available answer choices for multiple choice questions' },
     { key: 'next_step', label: 'Next Step', type: 'text', description: 'Logic for determining the next question based on this response' },
     { key: 'clusters', label: 'Clusters', type: 'badge', description: 'Question groupings used for analysis and scoring purposes' },
@@ -67,7 +68,6 @@ export const columnConfigs = {
   ],
   'training_examples': [
     { key: 'example_id', label: 'Example ID', type: 'text', description: 'Business identifier used to reference this training example' },
-    { key: 'domain', label: 'Domain', type: 'badge', description: 'Mental health domain this example belongs to (anxiety, depression, etc.)' },
     { key: 'problem', label: 'Problem', type: 'text', description: 'Description of the mental health problem or situation' },
     { key: 'conversation_id', label: 'Conversation ID', type: 'text', description: 'Links this example to a specific conversation or session' },
     { key: 'user_intent', label: 'User Intent', type: 'badge', description: 'What the user was trying to achieve or express in this example' },
@@ -82,19 +82,12 @@ export const columnConfigs = {
   ],
   'problem_types': [
     { key: 'type_name', label: 'Type Name', type: 'text', description: 'Problem type category name' },
+    { key: 'category_id', label: 'Category ID', type: 'text', description: 'Unique category identifier' },
     { key: 'description', label: 'Description', type: 'text', description: 'Detailed description of this problem type' },
     { key: 'is_active', label: 'Active', type: 'boolean', description: 'Whether this type is currently active' },
     { key: 'created_at', label: 'Created', type: 'date', description: 'When this type was created' },
     { key: 'updated_at', label: 'Updated', type: 'date', description: 'Last modification timestamp' }
   ],
-  'domain_types': [
-    { key: 'domain_name', label: 'Domain Name', type: 'text', description: 'Domain name' },
-    { key: 'domain_code', label: 'Domain Code', type: 'text', description: 'Short code used in IDs (e.g., STR, ANX)' },
-    { key: 'description', label: 'Description', type: 'text', description: 'Detailed description of this domain' },
-    { key: 'is_active', label: 'Active', type: 'boolean', description: 'Whether this domain is currently active' },
-    { key: 'created_at', label: 'Created', type: 'date', description: 'When this domain was created' },
-    { key: 'updated_at', label: 'Updated', type: 'date', description: 'Last modification timestamp' }
-  ]
 }
 
 // Dataset type labels
@@ -106,7 +99,6 @@ export const datasetLabels = {
   next_actions: 'Next Actions',
   training_examples: 'Fine-tuning Examples',
   problem_types: 'Problem Types',
-  domain_types: 'Domain Types'
 }
 
 export function useDatasetManagement(dataType: string) {

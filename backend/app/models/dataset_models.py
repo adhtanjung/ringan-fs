@@ -60,19 +60,17 @@ class BaseDataModel(BaseModel):
 class ProblemCategoryModel(BaseDataModel):
     """Unified Problems model combining all domains"""
     id: Optional[str] = Field(None, description="Auto-generated ID")
-    domain: str = Field(..., description="Domain (stress, anxiety, trauma, general)")
-    category: str = Field(..., description="Main category name")
-    category_id: str = Field(..., description="Unique category identifier")
+    category: str = Field(..., description="References problem_types.type_name")
     sub_category_id: str = Field(..., description="Unique subcategory identifier")
     problem_name: str = Field(..., description="Specific problem name")
     description: str = Field(..., description="Detailed problem description")
     severity_level: Optional[int] = Field(None, ge=1, le=5, description="Severity level 1-5")
 
-    @field_validator('category_id', 'sub_category_id')
+    @field_validator('sub_category_id')
     @classmethod
-    def validate_ids(cls, v):
+    def validate_sub_category_id(cls, v):
         if not v or len(v.strip()) == 0:
-            raise ValueError("ID fields cannot be empty")
+            raise ValueError("sub_category_id cannot be empty")
         return v.strip()
 
 
@@ -86,6 +84,10 @@ class AssessmentQuestionModel(BaseDataModel):
     response_type: ResponseType = Field(..., description="Type of expected response")
     scale_min: Optional[int] = Field(None, description="Minimum scale value")
     scale_max: Optional[int] = Field(None, description="Maximum scale value")
+    scale_labels: Optional[Dict[str, str]] = Field(
+        default={"1": "Not at all", "2": "A little", "3": "Quite a bit", "4": "Very much"},
+        description="Labels for scale values"
+    )
     options: Optional[List[str]] = Field(None, description="Multiple choice options")
     next_step: Optional[str] = Field(None, description="Next step logic")
     clusters: Optional[str] = Field(None, description="Associated clusters")
@@ -95,6 +97,14 @@ class AssessmentQuestionModel(BaseDataModel):
         if self.response_type == ResponseType.SCALE:
             if self.scale_min is None or self.scale_max is None:
                 raise ValueError("Scale questions must have min and max values")
+            if self.scale_min != 1 or self.scale_max != 4:
+                raise ValueError("Scale questions must use 1-4 range")
+            if self.scale_labels is None:
+                raise ValueError("Scale questions must have scale_labels")
+            # Validate scale_labels has required keys
+            required_keys = {"1", "2", "3", "4"}
+            if not all(key in self.scale_labels for key in required_keys):
+                raise ValueError("scale_labels must contain keys '1', '2', '3', '4'")
         elif self.response_type == ResponseType.MULTIPLE_CHOICE:
             if not self.options:
                 raise ValueError("Multiple choice questions must have options")
@@ -143,7 +153,6 @@ class FineTuningExampleModel(BaseDataModel):
     """Enhanced Fine-tuning Examples with user_intent categorization"""
     id: Optional[str] = Field(None, description="Auto-generated ID")
     example_id: str = Field(..., description="Unique example identifier")
-    domain: str = Field(..., description="Domain (stress, anxiety, trauma, general)")
     problem: Optional[str] = Field(None, description="Associated problem")
     conversation_id: Optional[str] = Field(None, description="Conversation identifier")
     user_intent: UserIntent = Field(..., description="Categorized user intent")
@@ -156,7 +165,6 @@ class FineTuningExampleModel(BaseDataModel):
 
 class DatasetStatsModel(BaseModel):
     """Statistics for dataset overview"""
-    domain: str
     problems_count: int
     assessment_questions_count: int
     suggestions_count: int
@@ -182,15 +190,8 @@ class ProblemTypeModel(BaseDataModel):
     """Master table for problem type categories"""
     id: Optional[str] = Field(None, description="Auto-generated ID")
     type_name: str = Field(..., description="Problem type name (e.g., Anxiety, Depression, Stress)")
+    category_id: str = Field(..., description="Unique category identifier")
     description: Optional[str] = Field(None, description="Description of this problem type")
-
-
-class DomainTypeModel(BaseDataModel):
-    """Master table for domain types"""
-    id: Optional[str] = Field(None, description="Auto-generated ID")
-    domain_name: str = Field(..., description="Domain name (e.g., Stress, Anxiety, Trauma)")
-    domain_code: str = Field(..., description="Short code for domain (e.g., STR, ANX, TRA)")
-    description: Optional[str] = Field(None, description="Description of this domain")
 
 
 class ValidationResult(BaseModel):

@@ -16,7 +16,7 @@ from app.services.vector_sync_service import VectorSyncService
 from app.models.dataset_models import (
     ProblemCategoryModel, AssessmentQuestionModel, TherapeuticSuggestionModel,
     FeedbackPromptModel, NextActionModel, FineTuningExampleModel,
-    ProblemTypeModel, DomainTypeModel,
+    ProblemTypeModel,
     BulkOperationResult, DatasetStatsModel
 )
 # TEMPORARILY DISABLED: Admin authentication import
@@ -34,8 +34,7 @@ DATA_TYPES = {
     'feedback_prompts': FeedbackPromptModel,
     'next_actions': NextActionModel,
     'training_examples': FineTuningExampleModel,
-    'problem_types': ProblemTypeModel,
-    'domain_types': DomainTypeModel
+    'problem_types': ProblemTypeModel
 }
 
 
@@ -1064,140 +1063,7 @@ async def delete_problem_type(
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
-# CRUD Operations for Domain Types
-@router.post("/domain_types", response_model=Dict[str, Any])
-async def create_domain_type(
-    domain_type_data: DomainTypeModel
-    # TEMPORARILY DISABLED: Admin authentication dependency
-    # current_user: dict = Depends(get_current_admin_user)
-):
-    """Create a new domain type"""
-    try:
-        result = await dataset_management_service.create_item(
-            "domain_types",
-            domain_type_data.dict(exclude={'id', 'created_at', 'updated_at'})
-        )
-        return JSONResponse(
-            status_code=status.HTTP_201_CREATED,
-            content={"success": True, "data": result}
-        )
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
-    except Exception as e:
-        logger.error(f"Failed to create domain type: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error")
-
-
-@router.get("/domain_types")
-async def get_domain_types(
-    is_active: Optional[bool] = Query(None, description="Filter by active status"),
-    skip: int = Query(0, ge=0),
-    limit: int = Query(100, ge=1, le=1000),
-    sort_by: str = Query("domain_name"),
-    sort_order: int = Query(1)
-    # TEMPORARILY DISABLED: Admin authentication dependency
-    # current_user: dict = Depends(get_current_admin_user)
-):
-    """Get domain types with filtering and pagination"""
-    try:
-        filters = {}
-        if is_active is not None:
-            filters["is_active"] = is_active
-
-        result = await dataset_management_service.get_items(
-            "domain_types", filters, skip, limit, sort_by, sort_order
-        )
-        return {"success": True, "data": result}
-    except Exception as e:
-        logger.error(f"Failed to get domain types: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error")
-
-
-@router.get("/domain_types/{type_id}")
-async def get_domain_type(
-    type_id: str
-    # TEMPORARILY DISABLED: Admin authentication dependency
-    # current_user: dict = Depends(get_current_admin_user)
-):
-    """Get a specific domain type by ID"""
-    try:
-        result = await dataset_management_service.get_item("domain_types", type_id)
-        if not result:
-            raise HTTPException(status_code=404, detail="Domain type not found")
-        return {"success": True, "data": result}
-    except HTTPException:
-        raise
-    except ValueError as e:
-        if "Invalid ObjectId format" in str(e):
-            raise HTTPException(status_code=422, detail="Invalid ID format")
-        else:
-            raise HTTPException(status_code=400, detail=str(e))
-    except Exception as e:
-        logger.error(f"Failed to get domain type: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error")
-
-
-@router.put("/domain_types/{type_id}")
-async def update_domain_type(
-    type_id: str,
-    domain_type_data: Dict[str, Any]
-    # TEMPORARILY DISABLED: Admin authentication dependency
-    # current_user: dict = Depends(get_current_admin_user)
-):
-    """Update a domain type"""
-    try:
-        result = await dataset_management_service.update_item(
-            "domain_types", type_id, domain_type_data
-        )
-        return {"success": True, "data": result}
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
-    except Exception as e:
-        logger.error(f"Failed to update domain type: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error")
-
-
-@router.delete("/domain_types/{type_id}")
-async def delete_domain_type(
-    type_id: str
-    # TEMPORARILY DISABLED: Admin authentication dependency
-    # current_user: dict = Depends(get_current_admin_user)
-):
-    """Delete a domain type"""
-    try:
-        success = await dataset_management_service.delete_item("domain_types", type_id)
-        if not success:
-            raise HTTPException(status_code=404, detail="Domain type not found")
-        return {"success": True, "message": "Domain type deleted successfully"}
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Failed to delete domain type: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error")
-
-
 # Validation endpoints
-@router.get("/validate/domain_types/{domain_code}")
-async def validate_domain_code(
-    domain_code: str,
-    exclude_id: Optional[str] = Query(None, description="ID to exclude from validation (for editing)")
-    # TEMPORARILY DISABLED: Admin authentication dependency
-    # current_user: dict = Depends(get_current_admin_user)
-):
-    """Check if domain code already exists"""
-    try:
-        exists, existing_item = await dataset_management_service.check_domain_code_exists(domain_code, exclude_id)
-
-        return {
-            "success": True,
-            "data": {
-                "exists": exists,
-                "existing_item": existing_item
-            }
-        }
-    except Exception as e:
-        logger.error(f"Failed to validate domain code: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @router.get("/validate/problem_types/{type_name}")
@@ -1248,14 +1114,14 @@ async def validate_assessment_question_id(
 
 
 
-@router.get("/validate/problems/category_id/{category_id}")
+@router.get("/validate/problem_types/category_id/{category_id}")
 async def validate_category_id(
     category_id: str,
     exclude_id: Optional[str] = Query(None, description="ID to exclude from validation (for editing)")
     # TEMPORARILY DISABLED: Admin authentication dependency
     # current_user: dict = Depends(get_current_admin_user)
 ):
-    """Check if category_id already exists in problems collection"""
+    """Check if category_id already exists in problem_types collection"""
     try:
         exists, existing_item = await dataset_management_service.check_category_id_exists(category_id, exclude_id)
 
@@ -1268,6 +1134,28 @@ async def validate_category_id(
         }
     except Exception as e:
         logger.error(f"Failed to validate category_id: {str(e)}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/validate/problems/category/{category}")
+async def validate_problem_category(
+    category: str
+    # TEMPORARILY DISABLED: Admin authentication dependency
+    # current_user: dict = Depends(get_current_admin_user)
+):
+    """Check if category exists in problem_types collection (FK validation)"""
+    try:
+        exists, existing_item = await dataset_management_service.check_problem_type_exists(category)
+
+        return {
+            "success": True,
+            "data": {
+                "exists": exists,
+                "existing_item": existing_item
+            }
+        }
+    except Exception as e:
+        logger.error(f"Failed to validate problem category: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal server error")
 
 

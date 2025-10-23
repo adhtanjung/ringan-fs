@@ -17,7 +17,7 @@ from app.services.embedding_service import embedding_service
 from app.models.dataset_models import (
     ProblemCategoryModel, AssessmentQuestionModel, TherapeuticSuggestionModel,
     FeedbackPromptModel, NextActionModel, FineTuningExampleModel,
-    ProblemTypeModel, DomainTypeModel,
+    ProblemTypeModel,
     BulkOperationResult, ValidationResult, DatasetStatsModel
 )
 
@@ -36,8 +36,7 @@ class DatasetManagementService:
             'feedback_prompts': 'feedback_prompts',
             'next_actions': 'next_actions',
             'training_examples': 'training_examples',
-            'problem_types': 'problem_types',
-            'domain_types': 'domain_types'
+            'problem_types': 'problem_types'
         }
         self.model_classes = {
             'problems': ProblemCategoryModel,
@@ -46,8 +45,7 @@ class DatasetManagementService:
             'feedback_prompts': FeedbackPromptModel,
             'next_actions': NextActionModel,
             'training_examples': FineTuningExampleModel,
-            'problem_types': ProblemTypeModel,
-            'domain_types': DomainTypeModel
+            'problem_types': ProblemTypeModel
         }
 
     def _get_mock_data(self, data_type: str, skip: int = 0, limit: int = 100) -> Dict[str, Any]:
@@ -56,25 +54,21 @@ class DatasetManagementService:
             'problems': [
                 {
                     'id': '1',
-                    'category_id': 'STRESS_001',
                     'sub_category_id': 'WORK_STRESS_001',
-                    'domain': 'stress',
                     'category': 'Work Stress',
-                    'sub_category': 'Deadline Pressure',
-                    'problem_statement': 'Feeling overwhelmed by tight deadlines at work',
-                    'severity_level': 'moderate',
+                    'problem_name': 'Deadline Pressure',
+                    'description': 'Feeling overwhelmed by tight deadlines at work',
+                    'severity_level': 3,
                     'created_at': '2024-01-01T00:00:00Z',
                     'updated_at': '2024-01-01T00:00:00Z'
                 },
                 {
                     'id': '2',
-                    'category_id': 'ANXIETY_001',
                     'sub_category_id': 'SOCIAL_ANXIETY_001',
-                    'domain': 'anxiety',
                     'category': 'Social Anxiety',
-                    'sub_category': 'Public Speaking',
-                    'problem_statement': 'Fear of speaking in public or group settings',
-                    'severity_level': 'high',
+                    'problem_name': 'Public Speaking',
+                    'description': 'Fear of speaking in public or group settings',
+                    'severity_level': 4,
                     'created_at': '2024-01-01T00:00:00Z',
                     'updated_at': '2024-01-01T00:00:00Z'
                 }
@@ -138,7 +132,27 @@ class DatasetManagementService:
                     'created_at': '2024-01-01T00:00:00Z',
                     'updated_at': '2024-01-01T00:00:00Z'
                 }
-            ]
+            ],
+            'problem_types': [
+                {
+                    'id': '1',
+                    'type_name': 'Work Stress',
+                    'category_id': 'STR_001',
+                    'description': 'Stress-related conditions and work-life balance issues',
+                    'is_active': True,
+                    'created_at': '2024-01-01T00:00:00Z',
+                    'updated_at': '2024-01-01T00:00:00Z'
+                },
+                {
+                    'id': '2',
+                    'type_name': 'Social Anxiety',
+                    'category_id': 'ANX_001',
+                    'description': 'Anxiety related to social situations',
+                    'is_active': True,
+                    'created_at': '2024-01-01T00:00:00Z',
+                    'updated_at': '2024-01-01T00:00:00Z'
+                }
+            ],
         }
 
         items = mock_data.get(data_type, [])
@@ -188,9 +202,8 @@ class DatasetManagementService:
 
         try:
             # Problems collection indexes
-            await self.db.problems.create_index("category_id", unique=True)
             await self.db.problems.create_index("sub_category_id", unique=True)
-            await self.db.problems.create_index("domain")
+            await self.db.problems.create_index("category")  # For FK lookup to problem_types
 
             # Assessments collection indexes
             await self.db.assessments.create_index("question_id", unique=True)
@@ -209,8 +222,12 @@ class DatasetManagementService:
 
             # Training examples collection indexes
             await self.db.training_examples.create_index("example_id", unique=True)
-            await self.db.training_examples.create_index("domain")
             await self.db.training_examples.create_index("user_intent")
+
+            # Problem types collection indexes
+            await self.db.problem_types.create_index("type_name", unique=True)
+            await self.db.problem_types.create_index("category_id", unique=True)
+
 
             logger.info("✅ Database indexes created successfully")
         except Exception as e:
@@ -235,7 +252,6 @@ class DatasetManagementService:
             'next_actions': dataset_validation_service.validate_next_action,
             'training_examples': dataset_validation_service.validate_training_example,
             'problem_types': dataset_validation_service.validate_problem_type,
-            'domain_types': dataset_validation_service.validate_domain_type
         }
 
         validation_result = await validation_methods[data_type](data)
@@ -320,7 +336,37 @@ class DatasetManagementService:
             raise ValueError(f"Invalid ObjectId format: {item_id}")
 
         collection = getattr(self.db, self.collections[data_type])
-        item = await collection.find_one({"_id": object_id})
+
+        # Special handling for problems to include category_id via lookup
+        if data_type == "problems":
+            pipeline = [
+                {"$match": {"_id": object_id}},
+                {
+                    "$lookup": {
+                        "from": "problem_types",
+                        "localField": "category",
+                        "foreignField": "type_name",
+                        "as": "problem_type_info"
+                    }
+                },
+                {
+                    "$addFields": {
+                        "category_id": {
+                            "$arrayElemAt": ["$problem_type_info.category_id", 0]
+                        }
+                    }
+                },
+                {
+                    "$project": {
+                        "problem_type_info": 0  # Remove the joined array
+                    }
+                }
+            ]
+
+            result = await collection.aggregate(pipeline).to_list(length=1)
+            item = result[0] if result else None
+        else:
+            item = await collection.find_one({"_id": object_id})
 
         if item:
             item['id'] = str(item['_id'])
@@ -344,17 +390,63 @@ class DatasetManagementService:
         # Build query
         query = filters or {}
 
-        # Get total count
-        total = await collection.count_documents(query)
+        # Special handling for problems to include category_id via lookup
+        if data_type == "problems":
+            # Build aggregation pipeline
+            pipeline = [
+                {"$match": query},
+                {
+                    "$lookup": {
+                        "from": "problem_types",
+                        "localField": "category",
+                        "foreignField": "type_name",
+                        "as": "problem_type_info"
+                    }
+                },
+                {
+                    "$addFields": {
+                        "category_id": {
+                            "$arrayElemAt": ["$problem_type_info.category_id", 0]
+                        }
+                    }
+                },
+                {
+                    "$project": {
+                        "problem_type_info": 0  # Remove the joined array
+                    }
+                },
+                {"$sort": {sort_by: sort_order}},
+                {"$skip": skip},
+                {"$limit": limit}
+            ]
 
-        # Get items with pagination and sorting
-        cursor = collection.find(query).sort(sort_by, sort_order).skip(skip).limit(limit)
-        items = await cursor.to_list(length=limit)
+            # Get total count for pagination
+            count_pipeline = [
+                {"$match": query},
+                {"$count": "total"}
+            ]
+            count_result = await collection.aggregate(count_pipeline).to_list(length=1)
+            total = count_result[0]["total"] if count_result else 0
 
-        # Convert ObjectId to string
-        for item in items:
-            item['id'] = str(item['_id'])
-            del item['_id']
+            # Execute aggregation
+            items = await collection.aggregate(pipeline).to_list(length=limit)
+
+            # Convert ObjectId to string
+            for item in items:
+                item['id'] = str(item['_id'])
+                del item['_id']
+        else:
+            # Get total count
+            total = await collection.count_documents(query)
+
+            # Get items with pagination and sorting
+            cursor = collection.find(query).sort(sort_by, sort_order).skip(skip).limit(limit)
+            items = await cursor.to_list(length=limit)
+
+            # Convert ObjectId to string
+            for item in items:
+                item['id'] = str(item['_id'])
+                del item['_id']
 
         return {
             'items': items,
@@ -387,7 +479,6 @@ class DatasetManagementService:
             'next_actions': dataset_validation_service.validate_next_action,
             'training_examples': dataset_validation_service.validate_training_example,
             'problem_types': dataset_validation_service.validate_problem_type,
-            'domain_types': dataset_validation_service.validate_domain_type
         }
 
         validation_result = await validation_methods[data_type](updated_data)
@@ -540,42 +631,33 @@ class DatasetManagementService:
 
     async def get_dataset_stats(self) -> List[DatasetStatsModel]:
         """Get statistics for all datasets"""
-        stats = []
+        try:
+            problems_count = await self.db.problems.count_documents({})
+            assessments_count = await self.db.assessments.count_documents({})
+            suggestions_count = await self.db.suggestions.count_documents({})
+            feedback_prompts_count = await self.db.feedback_prompts.count_documents({})
+            next_actions_count = await self.db.next_actions.count_documents({})
+            training_examples_count = await self.db.training_examples.count_documents({})
 
-        for domain in ['stress', 'anxiety', 'trauma', 'general']:
-            try:
-                problems_count = await self.db.problems.count_documents({"domain": domain})
-                assessments_count = await self.db.assessments.count_documents({
-                    "sub_category_id": {"$regex": f"^{domain.upper()[:3]}"}
-                })
-                suggestions_count = await self.db.suggestions.count_documents({
-                    "sub_category_id": {"$regex": f"^{domain.upper()[:3]}"}
-                })
-                feedback_prompts_count = await self.db.feedback_prompts.count_documents({})
-                next_actions_count = await self.db.next_actions.count_documents({})
-                training_examples_count = await self.db.training_examples.count_documents({"domain": domain})
+            # Get last updated timestamp
+            last_updated_doc = await self.db.problems.find_one(
+                {},
+                sort=[("updated_at", -1)]
+            )
+            last_updated = last_updated_doc.get('updated_at', datetime.utcnow()) if last_updated_doc else datetime.utcnow()
 
-                # Get last updated timestamp
-                last_updated_doc = await self.db.problems.find_one(
-                    {"domain": domain},
-                    sort=[("updated_at", -1)]
-                )
-                last_updated = last_updated_doc.get('updated_at', datetime.utcnow()) if last_updated_doc else datetime.utcnow()
-
-                stats.append(DatasetStatsModel(
-                    domain=domain,
-                    problems_count=problems_count,
-                    assessment_questions_count=assessments_count,
-                    suggestions_count=suggestions_count,
-                    feedback_prompts_count=feedback_prompts_count,
-                    next_actions_count=next_actions_count,
-                    training_examples_count=training_examples_count,
-                    last_updated=last_updated
-                ))
-            except Exception as e:
-                logger.error(f"Failed to get stats for domain {domain}: {str(e)}")
-
-        return stats
+            return DatasetStatsModel(
+                problems_count=problems_count,
+                assessment_questions_count=assessments_count,
+                suggestions_count=suggestions_count,
+                feedback_prompts_count=feedback_prompts_count,
+                next_actions_count=next_actions_count,
+                training_examples_count=training_examples_count,
+                last_updated=last_updated
+            )
+        except Exception as e:
+            logger.error(f"Failed to get dataset stats: {str(e)}")
+            return None
 
     async def _sync_to_vector_db(self, data_type: str, item: Dict[str, Any], operation: str):
         """Sync changes to vector database"""
@@ -610,7 +692,6 @@ class DatasetManagementService:
                         'id': point_id,
                         'vector': embedding,
                         'payload': {
-                            'domain': item['domain'],
                             'category': item['category'],
                             'category_id': item['category_id'],
                             'sub_category_id': item['sub_category_id'],
@@ -646,7 +727,8 @@ class DatasetManagementService:
                     # Add scale information if it's a scale question
                     if item.get('response_type') == 'scale':
                         payload['scale_min'] = item.get('scale_min', 1)
-                        payload['scale_max'] = item.get('scale_max', 10)
+                        payload['scale_max'] = item.get('scale_max', 4)
+                        payload['scale_labels'] = item.get('scale_labels', {"1": "Not at all", "2": "A little", "3": "Quite a bit", "4": "Very much"})
 
                     point = {
                         'id': point_id,
@@ -686,33 +768,6 @@ class DatasetManagementService:
             logger.error(f"❌ Vector DB sync failed for {data_type} {operation}: {str(e)}")
             # Don't raise - vector sync failure shouldn't break the main operation
 
-    async def check_domain_code_exists(self, domain_code: str, exclude_id: Optional[str] = None) -> tuple[bool, Optional[dict]]:
-        """Check if domain code exists, optionally excluding a specific document (case-insensitive)"""
-        try:
-            if self.db is None:
-                await self._ensure_db_connection()
-
-            collection = self.db[self.collections['domain_types']]
-
-            # Build query to find domain_code (case-insensitive), optionally excluding a specific document
-            # Use case-insensitive regex with escaped special characters for flexibility
-            import re
-            escaped_domain_code = re.escape(domain_code)
-            query = {"domain_code": {"$regex": f"^{escaped_domain_code}$", "$options": "i"}}
-            if exclude_id:
-                query["_id"] = {"$ne": ObjectId(exclude_id)}
-
-            existing_item = await collection.find_one(query)
-
-            # Convert ObjectId to string for JSON serialization
-            if existing_item:
-                existing_item["_id"] = str(existing_item["_id"])
-
-            return existing_item is not None, existing_item
-
-        except Exception as e:
-            logger.error(f"Error checking domain code existence: {str(e)}")
-            raise
 
     async def check_problem_type_name_exists(self, type_name: str, exclude_id: Optional[str] = None) -> tuple[bool, Optional[dict]]:
         """Check if problem type name exists, optionally excluding a specific document (case-insensitive)"""
@@ -828,12 +883,12 @@ class DatasetManagementService:
             raise
 
     async def check_category_id_exists(self, category_id: str, exclude_id: Optional[str] = None) -> tuple[bool, Optional[dict]]:
-        """Check if category_id exists in problems collection (case-insensitive)"""
+        """Check if category_id exists in problem_types collection (case-insensitive)"""
         try:
             if self.db is None:
                 await self._ensure_db_connection()
 
-            collection = self.db[self.collections['problems']]
+            collection = self.db[self.collections['problem_types']]
 
             import re
             escaped_category_id = re.escape(category_id)
@@ -850,6 +905,29 @@ class DatasetManagementService:
 
         except Exception as e:
             logger.error(f"Error checking category_id existence: {str(e)}")
+            raise
+
+    async def check_problem_type_exists(self, type_name: str) -> tuple[bool, Optional[dict]]:
+        """Check if problem type exists by type_name (case-insensitive)"""
+        try:
+            if self.db is None:
+                await self._ensure_db_connection()
+
+            collection = self.db[self.collections['problem_types']]
+
+            import re
+            escaped_type_name = re.escape(type_name)
+            query = {"type_name": {"$regex": f"^{escaped_type_name}$", "$options": "i"}}
+
+            existing_item = await collection.find_one(query)
+
+            if existing_item:
+                existing_item["_id"] = str(existing_item["_id"])
+
+            return existing_item is not None, existing_item
+
+        except Exception as e:
+            logger.error(f"Error checking problem type existence: {str(e)}")
             raise
 
     async def check_sub_category_id_exists(self, sub_category_id: str, exclude_id: Optional[str] = None) -> tuple[bool, Optional[dict]]:

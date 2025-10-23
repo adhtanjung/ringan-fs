@@ -23,29 +23,35 @@
       </p>
     </div>
 
-    <!-- Response Type: Scale (1-10) -->
+    <!-- Response Type: Scale (1-4) -->
     <div v-if="question.response_type === 'scale'" class="space-y-3">
-      <div class="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400 mb-2">
-        <span>{{ $t('assessment.scale.low', 'Low') }}</span>
-        <span>{{ $t('assessment.scale.high', 'High') }}</span>
+      <div class="text-xs text-gray-600 dark:text-gray-400 mb-2">
+        {{ $t('assessment.scale.instruction', 'Pilih jawaban yang paling sesuai:') }}
       </div>
-      <div class="flex space-x-2">
+      <div class="grid grid-cols-1 gap-2">
         <button
-          v-for="value in 10"
+          v-for="(label, value) in getScaleLabels(question)"
           :key="value"
-          @click="selectScaleValue(value)"
+          @click="selectScaleValue(parseInt(value))"
           :class="[
-            'w-8 h-8 rounded-full border-2 text-xs font-medium transition-all',
-            selectedValue === value
-              ? 'border-blue-500 bg-blue-500 text-white'
+            'p-3 text-left rounded-xl border-2 transition-all',
+            selectedValue === parseInt(value)
+              ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30'
               : 'border-gray-300 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500'
           ]"
         >
-          {{ value }}
+          <div class="flex items-center space-x-3">
+            <div :class="[
+              'w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold',
+              selectedValue === parseInt(value)
+                ? 'border-blue-500 bg-blue-500 text-white'
+                : 'border-gray-400 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+            ]">
+              {{ value }}
+            </div>
+            <span class="text-sm font-medium text-gray-900 dark:text-white">{{ label }}</span>
+          </div>
         </button>
-      </div>
-      <div class="text-xs text-gray-500 dark:text-gray-400 text-center">
-        {{ $t('assessment.scale.instruction', 'Select a number from 1 (low) to 10 (high)') }}
       </div>
     </div>
 
@@ -175,6 +181,7 @@ interface AssessmentQuestion {
   response_options?: string[]
   subtitle?: string
   category?: string
+  scale_labels?: { [key: string]: string }
 }
 
 interface AssessmentProgress {
@@ -223,6 +230,20 @@ const selectMultipleChoice = (option: string) => {
 const selectYesNo = (value: boolean) => {
   selectedValue.value = value
 }
+
+const getScaleLabels = (question: AssessmentQuestion) => {
+  // Return scale labels from question or defaults
+  if (question && (question as any).scale_labels) {
+    return (question as any).scale_labels;
+  }
+  // Default labels
+  return {
+    "1": "Not at all",
+    "2": "A little",
+    "3": "Quite a bit",
+    "4": "Very much"
+  };
+};
 
 const handleTextInput = () => {
   // Text input is handled by v-model

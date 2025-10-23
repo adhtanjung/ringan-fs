@@ -15,6 +15,7 @@ import asyncio
 from app.models.dataset_models import (
     ProblemCategoryModel, AssessmentQuestionModel, TherapeuticSuggestionModel,
     FeedbackPromptModel, NextActionModel, FineTuningExampleModel,
+    ProblemTypeModel,
     ResponseType, Stage, NextActionType, UserIntent
 )
 from app.services.dataset_management_service import dataset_management_service
@@ -34,7 +35,8 @@ class ImportExportService:
             'suggestions': TherapeuticSuggestionModel,
             'feedback_prompts': FeedbackPromptModel,
             'next_actions': NextActionModel,
-            'training_examples': FineTuningExampleModel
+            'training_examples': FineTuningExampleModel,
+            'problem_types': ProblemTypeModel,
         }
 
     async def initialize(self):
@@ -71,9 +73,7 @@ class ImportExportService:
         templates = {
             'problems': [
                 {
-                    'domain': 'anxiety',
                     'category': 'Social Anxiety',
-                    'category_id': 'SOC_ANX_001',
                     'sub_category_id': 'SOC_ANX_001_001',
                     'problem_name': 'Fear of Public Speaking',
                     'description': 'Intense fear and anxiety when speaking in front of groups or audiences',
@@ -81,9 +81,7 @@ class ImportExportService:
                     'is_active': True
                 },
                 {
-                    'domain': 'stress',
                     'category': 'Work Stress',
-                    'category_id': 'WORK_STR_001',
                     'sub_category_id': 'WORK_STR_001_001',
                     'problem_name': 'Deadline Pressure',
                     'description': 'Overwhelming stress from tight deadlines and high workload expectations',
@@ -99,7 +97,8 @@ class ImportExportService:
                     'question_text': 'How often do you avoid social situations due to anxiety?',
                     'response_type': 'scale',
                     'scale_min': 1,
-                    'scale_max': 5,
+                    'scale_max': 4,
+                    'scale_labels': '{"1": "Not at all", "2": "A little", "3": "Quite a bit", "4": "Very much"}',
                     'options': None,
                     'next_step': 'end_assess',
                     'clusters': 'c1',
@@ -157,7 +156,6 @@ class ImportExportService:
             'training_examples': [
                 {
                     'example_id': 'TRAIN_001',
-                    'domain': 'anxiety',
                     'problem': 'Social anxiety in group settings',
                     'conversation_id': 'CONV_001',
                     'user_intent': 'seeking_help',
@@ -168,7 +166,21 @@ class ImportExportService:
                     'tags': '["social_anxiety", "workplace", "breathing_techniques"]',
                     'is_active': True
                 }
-            ]
+            ],
+            'problem_types': [
+                {
+                    'type_name': 'Social Anxiety',
+                    'category_id': 'SOC_ANX_001',
+                    'description': 'Anxiety related to social situations',
+                    'is_active': True
+                },
+                {
+                    'type_name': 'Work Stress',
+                    'category_id': 'WORK_STR_001',
+                    'description': 'Stress-related conditions and work-life balance issues',
+                    'is_active': True
+                }
+            ],
         }
 
         return templates.get(data_type, [])
@@ -235,9 +247,7 @@ class ImportExportService:
         """Get field instructions for templates"""
         instructions = {
             'problems': [
-                'domain: Mental health domain (anxiety, stress, trauma, general)',
-                'category: Main problem category name',
-                'category_id: Unique category identifier (e.g., SOC_ANX_001)',
+                'category: Main problem category name (must exist in problem_types)',
                 'sub_category_id: Unique subcategory identifier (e.g., SOC_ANX_001_001)',
                 'problem_name: Specific problem name',
                 'description: Detailed description of the problem',
@@ -250,8 +260,12 @@ class ImportExportService:
                 'batch_id: Question batch identifier',
                 'question_text: The assessment question text',
                 'response_type: Type of response (scale, multiple_choice, text, boolean)',
-                'scale_min: Minimum value for scale questions',
-                'scale_max: Maximum value for scale questions',
+                'scale_min: Minimum value for scale questions (must be 1)',
+                'scale_max: Maximum value for scale questions (must be 4)',
+                'scale_label_1: Label for scale value 1 (default: "Not at all")',
+                'scale_label_2: Label for scale value 2 (default: "A little")',
+                'scale_label_3: Label for scale value 3 (default: "Quite a bit")',
+                'scale_label_4: Label for scale value 4 (default: "Very much")',
                 'options: JSON array of options for multiple choice questions',
                 'next_step: Logic for next question based on response',
                 'clusters: Comma-separated cluster names',
@@ -288,7 +302,6 @@ class ImportExportService:
             ],
             'training_examples': [
                 'example_id: Unique example identifier (e.g., TRAIN_001)',
-                'domain: Mental health domain (anxiety, stress, trauma, general)',
                 'problem: Associated problem description',
                 'conversation_id: Conversation identifier',
                 'user_intent: User intent category (seeking_help, emotional_expression, etc.)',
@@ -298,7 +311,13 @@ class ImportExportService:
                 'quality_score: Quality rating (0.0-1.0)',
                 'tags: JSON array of categorization tags',
                 'is_active: Whether this example is active (true/false)'
-            ]
+            ],
+            'problem_types': [
+                'type_name: Problem type name (must be unique)',
+                'category_id: Unique category identifier (e.g., SOC_ANX_001)',
+                'description: Description of this problem type',
+                'is_active: Whether this type is active (true/false)'
+            ],
         }
 
         return instructions.get(data_type, [])
@@ -340,6 +359,16 @@ class ImportExportService:
                 # Handle numeric fields that might be NaN
                 elif key in ['scale_min', 'scale_max'] and pd.isna(value):
                     cleaned_record[key] = None
+                # Handle scale_labels field
+                elif key == 'scale_labels' and isinstance(value, str):
+                    try:
+                        # Try to parse as JSON
+                        cleaned_record[key] = json.loads(value)
+                    except (json.JSONDecodeError, ValueError):
+                        # If not valid JSON, use default
+                        cleaned_record[key] = {"1": "Not at all", "2": "A little", "3": "Quite a bit", "4": "Very much"}
+                elif key == 'scale_labels' and pd.isna(value):
+                    cleaned_record[key] = {"1": "Not at all", "2": "A little", "3": "Quite a bit", "4": "Very much"}
                 # Handle boolean fields
                 elif key == 'is_active':
                     if pd.isna(value):

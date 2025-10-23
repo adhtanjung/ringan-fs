@@ -13,7 +13,7 @@ import re
 from app.models.dataset_models import (
     ProblemCategoryModel, AssessmentQuestionModel, TherapeuticSuggestionModel,
     FeedbackPromptModel, NextActionModel, FineTuningExampleModel,
-    ProblemTypeModel, DomainTypeModel,
+    ProblemTypeModel,
     ValidationResult, ResponseType, Stage, NextActionType, UserIntent
 )
 from app.core.database import get_mongodb
@@ -52,12 +52,13 @@ class DatasetValidationService:
                 'example_id': r'^E_[A-Z]{2,4}_\d{3,4}$'  # e.g., E_STR_001
             },
             'required_fields': {
-                'problems': ['domain', 'category', 'category_id', 'sub_category_id', 'problem_name', 'description'],
+                'problems': ['domain', 'category', 'sub_category_id', 'problem_name', 'description'],
                 'assessments': ['question_id', 'sub_category_id', 'question_text', 'response_type'],
                 'suggestions': ['suggestion_id', 'sub_category_id', 'suggestion_text'],
                 'feedback_prompts': ['prompt_id', 'stage', 'prompt_text', 'next_action_id'],
                 'next_actions': ['action_id', 'action_type', 'action_name', 'description'],
-                'training_examples': ['example_id', 'domain', 'user_intent', 'prompt', 'completion']
+                'training_examples': ['example_id', 'domain', 'user_intent', 'prompt', 'completion'],
+                'problem_types': ['type_name', 'category_id']
             },
             'valid_domains': ['stress', 'anxiety', 'trauma', 'general'],
             'text_length_limits': {
@@ -76,6 +77,7 @@ class DatasetValidationService:
         errors = []
         warnings = []
         field_errors = defaultdict(list)
+        foreign_key_errors = []
 
         try:
             # Basic model validation
@@ -95,25 +97,30 @@ class DatasetValidationService:
             if len(model.description) > self._validation_rules['text_length_limits']['description']:
                 field_errors['description'].append("Description too long")
 
-            # Check for duplicate IDs if database is available
+            # Check for duplicate sub_category_id if database is available
             if self.db is not None:
-                existing = await self.db.problems.find_one({
-                    "$or": [
-                        {"category_id": model.category_id},
-                        {"sub_category_id": model.sub_category_id}
-                    ]
-                })
-                if existing and existing.get('id') != data.get('id'):
-                    errors.append(f"Duplicate category or sub-category ID found")
+                existing = await self.db.problems.find_one({"sub_category_id": model.sub_category_id})
+                if existing:
+                    # Get the ID from the existing document (could be _id or id)
+                    existing_id = existing.get('id') or str(existing.get('_id'))
+                    current_id = data.get('id')
+                    if existing_id != current_id:
+                        errors.append(f"Duplicate sub_category_id found: {model.sub_category_id}")
+
+                # Check foreign key: category must exist in problem_types
+                category_exists = await self.db.problem_types.find_one({"type_name": model.category})
+                if not category_exists:
+                    foreign_key_errors.append(f"Category '{model.category}' not found in problem_types")
 
         except Exception as e:
             errors.append(f"Model validation failed: {str(e)}")
 
         return ValidationResult(
-            is_valid=len(errors) == 0 and len(field_errors) == 0,
+            is_valid=len(errors) == 0 and len(field_errors) == 0 and len(foreign_key_errors) == 0,
             errors=errors,
             warnings=warnings,
-            field_errors=dict(field_errors)
+            field_errors=dict(field_errors),
+            foreign_key_errors=foreign_key_errors
         )
 
     async def validate_assessment_question(self, data: Dict[str, Any]) -> ValidationResult:
@@ -139,8 +146,15 @@ class DatasetValidationService:
             if model.response_type == ResponseType.SCALE:
                 if model.scale_min is None or model.scale_max is None:
                     field_errors['response_type'].append("Scale questions must have min and max values")
-                elif model.scale_min >= model.scale_max:
-                    field_errors['scale_min'].append("Scale min must be less than max")
+                elif model.scale_min != 1 or model.scale_max != 4:
+                    field_errors['scale_min'].append("Scale questions must use 1-4 range")
+                elif model.scale_labels is None:
+                    field_errors['scale_labels'].append("Scale questions must have scale_labels")
+                else:
+                    # Validate scale_labels has required keys
+                    required_keys = {"1", "2", "3", "4"}
+                    if not all(key in model.scale_labels for key in required_keys):
+                        field_errors['scale_labels'].append("scale_labels must contain keys '1', '2', '3', '4'")
 
             elif model.response_type == ResponseType.MULTIPLE_CHOICE:
                 if not model.options or len(model.options) < 2:
@@ -155,8 +169,11 @@ class DatasetValidationService:
 
                 # Check for duplicate question_id
                 existing = await self.db.assessments.find_one({"question_id": model.question_id})
-                if existing and existing.get('id') != data.get('id'):
-                    errors.append(f"Duplicate question_id: {model.question_id}")
+                if existing:
+                    existing_id = existing.get('id') or str(existing.get('_id'))
+                    current_id = data.get('id')
+                    if existing_id != current_id:
+                        errors.append(f"Duplicate question_id: {model.question_id}")
 
         except Exception as e:
             errors.append(f"Model validation failed: {str(e)}")
@@ -203,8 +220,11 @@ class DatasetValidationService:
 
                 # Check for duplicate suggestion_id
                 existing = await self.db.suggestions.find_one({"suggestion_id": model.suggestion_id})
-                if existing and existing.get('id') != data.get('id'):
-                    errors.append(f"Duplicate suggestion_id: {model.suggestion_id}")
+                if existing:
+                    existing_id = existing.get('id') or str(existing.get('_id'))
+                    current_id = data.get('id')
+                    if existing_id != current_id:
+                        errors.append(f"Duplicate suggestion_id: {model.suggestion_id}")
 
         except Exception as e:
             errors.append(f"Model validation failed: {str(e)}")
@@ -245,8 +265,11 @@ class DatasetValidationService:
 
                 # Check for duplicate prompt_id
                 existing = await self.db.feedback_prompts.find_one({"prompt_id": model.prompt_id})
-                if existing and existing.get('id') != data.get('id'):
-                    errors.append(f"Duplicate prompt_id: {model.prompt_id}")
+                if existing:
+                    existing_id = existing.get('id') or str(existing.get('_id'))
+                    current_id = data.get('id')
+                    if existing_id != current_id:
+                        errors.append(f"Duplicate prompt_id: {model.prompt_id}")
 
         except Exception as e:
             errors.append(f"Model validation failed: {str(e)}")
@@ -276,8 +299,11 @@ class DatasetValidationService:
             # Check for duplicate action_id
             if self.db is not None:
                 existing = await self.db.next_actions.find_one({"action_id": model.action_id})
-                if existing and existing.get('id') != data.get('id'):
-                    errors.append(f"Duplicate action_id: {model.action_id}")
+                if existing:
+                    existing_id = existing.get('id') or str(existing.get('_id'))
+                    current_id = data.get('id')
+                    if existing_id != current_id:
+                        errors.append(f"Duplicate action_id: {model.action_id}")
 
         except Exception as e:
             errors.append(f"Model validation failed: {str(e)}")
@@ -321,8 +347,11 @@ class DatasetValidationService:
             # Check for duplicate example_id
             if self.db is not None:
                 existing = await self.db.training_examples.find_one({"example_id": model.example_id})
-                if existing and existing.get('id') != data.get('id'):
-                    errors.append(f"Duplicate example_id: {model.example_id}")
+                if existing:
+                    existing_id = existing.get('id') or str(existing.get('_id'))
+                    current_id = data.get('id')
+                    if existing_id != current_id:
+                        errors.append(f"Duplicate example_id: {model.example_id}")
 
         except Exception as e:
             errors.append(f"Model validation failed: {str(e)}")
@@ -350,15 +379,31 @@ class DatasetValidationService:
             elif len(model.type_name) > 100:
                 field_errors['type_name'].append("Type name too long (max 100 characters)")
 
+            # Category ID validation
+            if not model.category_id or len(model.category_id.strip()) == 0:
+                field_errors['category_id'].append("Category ID is required")
+            elif len(model.category_id) > 50:
+                field_errors['category_id'].append("Category ID too long (max 50 characters)")
+
             # Description validation
             if model.description and len(model.description) > 500:
                 field_errors['description'].append("Description too long (max 500 characters)")
 
-            # Check for duplicate type_name
+            # Check for duplicate type_name and category_id
             if self.db is not None:
-                existing = await self.db.problem_types.find_one({"type_name": model.type_name})
-                if existing and existing.get('id') != data.get('id'):
-                    errors.append(f"Duplicate type_name: {model.type_name}")
+                existing_type = await self.db.problem_types.find_one({"type_name": model.type_name})
+                if existing_type:
+                    existing_id = existing_type.get('id') or str(existing_type.get('_id'))
+                    current_id = data.get('id')
+                    if existing_id != current_id:
+                        errors.append(f"Duplicate type_name: {model.type_name}")
+
+                existing_category_id = await self.db.problem_types.find_one({"category_id": model.category_id})
+                if existing_category_id:
+                    existing_id = existing_category_id.get('id') or str(existing_category_id.get('_id'))
+                    current_id = data.get('id')
+                    if existing_id != current_id:
+                        errors.append(f"Duplicate category_id: {model.category_id}")
 
         except Exception as e:
             errors.append(f"Model validation failed: {str(e)}")
@@ -370,55 +415,6 @@ class DatasetValidationService:
             field_errors=dict(field_errors)
         )
 
-    async def validate_domain_type(self, data: Dict[str, Any]) -> ValidationResult:
-        """Validate a domain type master table entry"""
-        errors = []
-        warnings = []
-        field_errors = defaultdict(list)
-
-        try:
-            # Basic model validation
-            model = DomainTypeModel(**data)
-
-            # Domain name validation
-            if not model.domain_name or len(model.domain_name.strip()) == 0:
-                field_errors['domain_name'].append("Domain name is required")
-            elif len(model.domain_name) > 100:
-                field_errors['domain_name'].append("Domain name too long (max 100 characters)")
-
-            # Domain code validation
-            if not model.domain_code or len(model.domain_code.strip()) == 0:
-                field_errors['domain_code'].append("Domain code is required")
-            elif len(model.domain_code) > 10:
-                field_errors['domain_code'].append("Domain code too long (max 10 characters)")
-            elif not re.match(r'^[A-Z0-9_]+$', model.domain_code):
-                field_errors['domain_code'].append("Domain code must contain only uppercase letters, numbers, and underscores")
-
-            # Description validation
-            if model.description and len(model.description) > 500:
-                field_errors['description'].append("Description too long (max 500 characters)")
-
-            # Check for duplicate domain_name
-            if self.db is not None:
-                existing = await self.db.domain_types.find_one({"domain_name": model.domain_name})
-                if existing and existing.get('id') != data.get('id'):
-                    errors.append(f"Duplicate domain_name: {model.domain_name}")
-
-            # Check for duplicate domain_code
-            if self.db is not None:
-                existing = await self.db.domain_types.find_one({"domain_code": model.domain_code})
-                if existing and existing.get('id') != data.get('id'):
-                    errors.append(f"Duplicate domain_code: {model.domain_code}")
-
-        except Exception as e:
-            errors.append(f"Model validation failed: {str(e)}")
-
-        return ValidationResult(
-            is_valid=len(errors) == 0 and len(field_errors) == 0,
-            errors=errors,
-            warnings=warnings,
-            field_errors=dict(field_errors)
-        )
 
     async def validate_bulk_data(self, data_type: str, data_list: List[Dict[str, Any]]) -> List[ValidationResult]:
         """Validate a list of data entries"""

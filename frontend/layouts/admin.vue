@@ -108,36 +108,6 @@
 						</CollapsibleTrigger>
 						<CollapsibleContent>
 							<div class="pl-9 space-y-1 mt-1">
-								<!-- Domain Types -->
-								<NuxtLink
-									to="/admin/domain-types"
-									class="nav-link group flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-									:class="
-										$route.path === '/admin/domain-types'
-											? 'bg-blue-50 text-blue-700'
-											: 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-									"
-								>
-									<svg
-										class="mr-3 h-4 w-4 flex-shrink-0"
-										:class="
-											$route.path === '/admin/domain-types'
-												? 'text-blue-600'
-												: 'text-gray-400 group-hover:text-gray-500'
-										"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
-											d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-										/>
-									</svg>
-									<span class="truncate">Domain Types</span>
-								</NuxtLink>
 								<!-- Problem Types -->
 								<NuxtLink
 									to="/admin/problem-types"
@@ -724,7 +694,6 @@ const pageTitle = computed(() => {
 		"/admin/next-actions": "Next Actions",
 		"/admin/training-examples": "Fine-tuning Examples",
 		"/admin/problem-types": "Problem Types",
-		"/admin/domain-types": "Domain Types",
 		"/admin/vector-db": "Vector Database Management",
 		"/admin/analytics": "Analytics & Reports",
 		"/admin/settings": "Settings",

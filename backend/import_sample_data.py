@@ -263,8 +263,8 @@ class SampleDataImporter:
 
         print("\n📊 Import Statistics:")
         for stat in stats:
-            total_items = (stat.problems_count + stat.assessment_questions_count + 
-                          stat.suggestions_count + stat.feedback_prompts_count + 
+            total_items = (stat.problems_count + stat.assessment_questions_count +
+                          stat.suggestions_count + stat.feedback_prompts_count +
                           stat.next_actions_count + stat.training_examples_count)
             print(f"  {stat.domain}: {total_items} items (Problems: {stat.problems_count}, Assessments: {stat.assessment_questions_count}, Suggestions: {stat.suggestions_count}, Feedback: {stat.feedback_prompts_count}, Actions: {stat.next_actions_count}, Training: {stat.training_examples_count})")
 

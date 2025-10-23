@@ -38,7 +38,6 @@ class ProblemCategory(BaseModel):
     category: str = Field(..., description="Main category name")
     problem_name: str = Field(..., description="Problem name")
     description: str = Field(..., description="Problem description")
-    domain: str = Field(..., description="Mental health domain (stress, anxiety, trauma, general)")
 
     class Config:
         schema_extra = {
@@ -47,8 +46,7 @@ class ProblemCategory(BaseModel):
                 "sub_category_id": "s001_01",
                 "category": "Relationship Stress",
                 "problem_name": "Communication Issues",
-                "description": "Difficulty in communicating effectively with partner",
-                "domain": "stress"
+                "description": "Difficulty in communicating effectively with partner"
             }
         }
 
@@ -62,9 +60,12 @@ class AssessmentQuestion(BaseModel):
     response_type: ResponseType = Field(..., description="Type of response expected")
     next_step: Optional[str] = Field(None, description="Next question identifier")
     clusters: Optional[List[str]] = Field(None, description="Related clusters")
-    domain: str = Field(..., description="Mental health domain")
     scale_min: Optional[int] = Field(None, description="Minimum value for scale questions")
     scale_max: Optional[int] = Field(None, description="Maximum value for scale questions")
+    scale_labels: Optional[Dict[str, str]] = Field(
+        default={"1": "Not at all", "2": "A little", "3": "Quite a bit", "4": "Very much"},
+        description="Labels for scale values"
+    )
     options: Optional[List[str]] = Field(None, description="Options for multiple choice questions")
 
     class Config:
@@ -76,8 +77,7 @@ class AssessmentQuestion(BaseModel):
                 "question_text": "Seberapa sering Anda mengalami kesulitan berkomunikasi dengan pasangan?",
                 "response_type": "scale",
                 "next_step": "q002",
-                "clusters": ["communication", "relationship"],
-                "domain": "stress"
+                "clusters": ["communication", "relationship"]
             }
         }
 
@@ -90,7 +90,6 @@ class TherapeuticSuggestion(BaseModel):
     suggestion_text: str = Field(..., description="Therapeutic suggestion text")
     resource_link: Optional[str] = Field(None, description="External resource link")
     evidence_based: bool = Field(True, description="Whether suggestion is evidence-based")
-    domain: str = Field(..., description="Mental health domain")
 
     class Config:
         schema_extra = {
@@ -100,8 +99,7 @@ class TherapeuticSuggestion(BaseModel):
                 "cluster": "communication",
                 "suggestion_text": "Coba teknik komunikasi aktif dengan mendengarkan tanpa interupsi",
                 "resource_link": "https://example.com/active-listening",
-                "evidence_based": True,
-                "domain": "stress"
+                "evidence_based": True
             }
         }
 
@@ -112,7 +110,6 @@ class FeedbackPrompt(BaseModel):
     stage: FeedbackStage = Field(..., description="Feedback stage")
     prompt_text: str = Field(..., description="Feedback prompt text")
     next_action: NextAction = Field(..., description="Next action after feedback")
-    domain: str = Field(..., description="Mental health domain")
 
     class Config:
         schema_extra = {
@@ -120,8 +117,7 @@ class FeedbackPrompt(BaseModel):
                 "prompt_id": "fp001",
                 "stage": "post_suggestion",
                 "prompt_text": "Apakah saran ini membantu? Bagaimana perasaan Anda sekarang?",
-                "next_action": "continue_same",
-                "domain": "stress"
+                "next_action": "continue_same"
             }
         }
 
@@ -133,7 +129,6 @@ class TrainingExample(BaseModel):
     conversation_id: str = Field(..., description="Conversation identifier")
     prompt: str = Field(..., description="User prompt")
     completion: str = Field(..., description="AI response")
-    domain: str = Field(..., description="Mental health domain")
     sub_category_id: Optional[str] = Field(None, description="Related sub-category")
 
     class Config:
@@ -144,7 +139,6 @@ class TrainingExample(BaseModel):
                 "conversation_id": "conv001",
                 "prompt": "Saya sulit berkomunikasi dengan pasangan saya",
                 "completion": "Saya mengerti perasaan Anda. Mari kita bahas lebih lanjut tentang kesulitan komunikasi ini.",
-                "domain": "stress",
                 "sub_category_id": "s001_01"
             }
         }
@@ -164,7 +158,6 @@ class VectorPoint(BaseModel):
                 "payload": {
                     "text": "Communication issues with partner",
                     "type": "problem",
-                    "domain": "stress"
                 }
             }
         }
@@ -184,7 +177,6 @@ class SearchResult(BaseModel):
                 "payload": {
                     "text": "Communication issues with partner",
                     "type": "problem",
-                    "domain": "stress"
                 }
             }
         }
@@ -201,7 +193,7 @@ class VectorizationRequest(BaseModel):
                 "text": "Communication issues with partner",
                 "metadata": {
                     "type": "problem",
-                    "domain": "stress",
+,
                     "category_id": "s001"
                 }
             }
@@ -243,7 +235,7 @@ class SearchRequest(BaseModel):
                 "collection": "mental-health-problems",
                 "limit": 5,
                 "score_threshold": 0.8,
-                "filters": {"domain": "stress"}
+                "filters": {}
             }
         }
 

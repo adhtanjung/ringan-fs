@@ -15,8 +15,12 @@ from app.services.embedding_service import embedding_service
 from app.services.data_cleaning_service import data_cleaning_service
 from app.services.dataset_management_service import dataset_management_service
 from app.core.database import get_mongodb
+from app.models.dataset_models import (
+    ProblemCategoryModel, AssessmentQuestionModel, TherapeuticSuggestionModel,
+    FeedbackPromptModel, FineTuningExampleModel
+)
 from app.models.vector_models import (
-    ProblemCategory, AssessmentQuestion, TherapeuticSuggestion,
+    AssessmentQuestion, TherapeuticSuggestion,
     FeedbackPrompt, TrainingExample
 )
 
@@ -290,49 +294,47 @@ class DataImportService:
 
         return f"A_{offset + 1:03d}"  # Default fallback
 
-    async def process_problems_sheet(self, df: pd.DataFrame, domain: str) -> List[ProblemCategory]:
-        """Process problems sheet and return ProblemCategory objects"""
+    async def process_problems_sheet(self, df: pd.DataFrame) -> List[ProblemCategoryModel]:
+        """Process problems sheet and return ProblemCategoryModel objects"""
         try:
             problems = []
 
             for _, row in df.iterrows():
                 try:
-                    # Transform IDs to match validation format
-                    original_category_id = str(row.get('category_id', ''))
-                    original_sub_category_id = str(row.get('sub_category_id', ''))
+                    # Remove category_id if present in import data (it's derived from problem_types)
+                    row_dict = row.to_dict()
+                    if 'category_id' in row_dict:
+                        logger.warning(f"Ignoring category_id in problems import (derived from problem_types)")
+                        del row_dict['category_id']
 
-                    # Transform category_id to match validation pattern (STR_01)
-                    transformed_category_id = self._transform_category_id(original_category_id, domain)
+                    # Use sub_category_id as-is
+                    original_sub_category_id = str(row_dict.get('sub_category_id', ''))
+                    transformed_sub_category_id = original_sub_category_id
 
-                    # Transform sub_category_id to match validation pattern (STR_001_01)
-                    transformed_sub_category_id = self._transform_sub_category_id(original_sub_category_id, domain)
+                    logger.info(f"🔄 Transforming sub_category_id: {original_sub_category_id} -> {transformed_sub_category_id}")
 
-                    logger.info(f"🔄 Transforming IDs: {original_category_id}/{original_sub_category_id} -> {transformed_category_id}")
-
-                    problem = ProblemCategory(
-                        category_id=transformed_category_id,
+                    problem = ProblemCategoryModel(
                         sub_category_id=transformed_sub_category_id,
-                        category=str(row.get('category', '')),
-                        problem_name=str(row.get('problem_name', '')),
-                        description=str(row.get('description', '')),
-                        domain=domain
+                        category=str(row_dict.get('category', '')),  # Must exist in problem_types
+                        problem_name=str(row_dict.get('problem_name', '')),
+                        description=str(row_dict.get('description', ''))
                     )
                     problems.append(problem)
                 except Exception as e:
                     logger.warning(f"Skipping invalid problem row: {e}")
                     continue
 
-            logger.info(f"✅ Processed {len(problems)} problems for {domain}")
+            logger.info(f"✅ Processed {len(problems)} problems")
             return problems
 
         except Exception as e:
-            logger.error(f"❌ Failed to process problems sheet for {domain}: {str(e)}")
+            logger.error(f"❌ Failed to process problems sheet: {str(e)}")
             return []
 
-    async def process_assessments_sheet(self, df: pd.DataFrame, domain: str) -> List[AssessmentQuestion]:
+    async def process_assessments_sheet(self, df: pd.DataFrame) -> List[AssessmentQuestion]:
         """Process assessments sheet and return AssessmentQuestion objects"""
-        print(f"🔄 PROCESS_ASSESSMENTS_SHEET CALLED for domain: {domain}")
-        logger.info(f"🔄 PROCESS_ASSESSMENTS_SHEET CALLED for domain: {domain}")
+        print(f"🔄 PROCESS_ASSESSMENTS_SHEET CALLED")
+        logger.info(f"🔄 PROCESS_ASSESSMENTS_SHEET CALLED")
         try:
             print(f"🔄 Importing ResponseType...")
             from app.models.vector_models import ResponseType
@@ -341,7 +343,7 @@ class DataImportService:
             questions = []
             print(f"🔄 DataFrame shape: {df.shape}")
             print(f"🔄 DataFrame columns: {list(df.columns)}")
-            logger.info(f"🔄 STARTING process_assessments_sheet for domain: {domain} with {len(df)} rows")
+            logger.info(f"🔄 STARTING process_assessments_sheet with {len(df)} rows")
             logger.info(f"DataFrame columns: {list(df.columns)}")
             logger.info(f"First few response_type values: {df['response_type'].head().tolist()}")
             print(f"🔄 Starting to process {len(df)} rows...")
@@ -384,41 +386,32 @@ class DataImportService:
                     scale_max = None
 
                     if response_type == ResponseType.SCALE:
-                        # Look for scale patterns in original response_type
-                        scale_match = re.search(r'\((\d+)[–-](\d+)\)', original_response_type)
-                        if scale_match:
-                            scale_min = int(scale_match.group(1))
-                            scale_max = int(scale_match.group(2))
-                            if idx < 5:
-                                print(f"🔄 Row {idx}: Found scale range {scale_min}-{scale_max} from '{original_response_type}'")
-                        elif 'scale_1_5' in original_response_type.lower():
-                            scale_min = 1
-                            scale_max = 5
-                            if idx < 5:
-                                print(f"🔄 Row {idx}: Using scale_1_5 range 1-5")
-                        elif 'likert' in original_response_type.lower():
-                            scale_min = 1
-                            scale_max = 5
-                            if idx < 5:
-                                print(f"🔄 Row {idx}: Using Likert scale range 1-5")
-                        else:
-                            # Default scale values
-                            scale_min = 1
-                            scale_max = 5
-                            if idx < 5:
-                                print(f"🔄 Row {idx}: Using default scale range 1-5")
+                        # Standardize to 1-4 scale
+                        scale_min = 1
+                        scale_max = 4
+
+                        # Parse scale labels from columns
+                        scale_labels = {
+                            "1": row.get('scale_label_1', 'Not at all'),
+                            "2": row.get('scale_label_2', 'A little'),
+                            "3": row.get('scale_label_3', 'Quite a bit'),
+                            "4": row.get('scale_label_4', 'Very much')
+                        }
+
+                        if idx < 5:
+                            print(f"🔄 Row {idx}: Using standardized 1-4 scale with labels: {scale_labels}")
 
                     # Debug logging for scale questions
                     if response_type == ResponseType.SCALE and idx < 5:
                         logger.info(f"Creating scale question {row.get('question_id')}: response_type_str='{response_type_cleaned}', scale_min={scale_min}, scale_max={scale_max}")
 
                     try:
-                        # Transform sub_category_id and question_id to expected format
+                        # Use IDs as-is
                         original_sub_category_id = str(row.get('sub_category_id', ''))
-                        transformed_sub_category_id = self._transform_sub_category_id(original_sub_category_id, domain)
+                        transformed_sub_category_id = original_sub_category_id
 
                         original_question_id = str(row.get('question_id', ''))
-                        transformed_question_id = self._transform_question_id(original_question_id, domain)
+                        transformed_question_id = original_question_id
 
                         question = AssessmentQuestion(
                             question_id=transformed_question_id,
@@ -428,9 +421,9 @@ class DataImportService:
                             response_type=response_type,
                             next_step=str(row.get('next_step', '')) if pd.notna(row.get('next_step')) else None,
                             clusters=str(row.get('clusters', '')).split(',') if pd.notna(row.get('clusters')) else None,
-                            domain=domain,
                             scale_min=scale_min,
-                            scale_max=scale_max
+                            scale_max=scale_max,
+                            scale_labels=scale_labels if response_type == ResponseType.SCALE else None
                         )
                         questions.append(question)
                     except Exception as question_error:
@@ -440,27 +433,27 @@ class DataImportService:
                     logger.warning(f"Skipping invalid assessment row: {e}")
                     continue
 
-            logger.info(f"✅ Processed {len(questions)} assessment questions for {domain}")
+            logger.info(f"✅ Processed {len(questions)} assessment questions")
             return questions
 
         except Exception as e:
-            logger.error(f"❌ Failed to process assessments sheet for {domain}: {str(e)}")
+            logger.error(f"❌ Failed to process assessments sheet: {str(e)}")
             return []
 
-    async def process_suggestions_sheet(self, df: pd.DataFrame, domain: str) -> List[TherapeuticSuggestion]:
+    async def process_suggestions_sheet(self, df: pd.DataFrame) -> List[TherapeuticSuggestion]:
         """Process suggestions sheet and return TherapeuticSuggestion objects"""
         try:
             suggestions = []
 
             for idx, row in df.iterrows():
                 try:
-                    # Transform sub_category_id to expected format
+                    # Use IDs as-is
                     original_sub_category_id = str(row.get('sub_category_id', ''))
-                    transformed_sub_category_id = self._transform_sub_category_id(original_sub_category_id, domain)
+                    transformed_sub_category_id = original_sub_category_id
 
-                    # Transform suggestion_id to expected format (S001 -> S_STR_001)
+                    # Use suggestion_id as-is
                     original_suggestion_id = str(row.get('suggestion_id', ''))
-                    transformed_suggestion_id = self._transform_suggestion_id(original_suggestion_id, domain)
+                    transformed_suggestion_id = original_suggestion_id
 
                     suggestion = TherapeuticSuggestion(
                         suggestion_id=transformed_suggestion_id,
@@ -468,19 +461,18 @@ class DataImportService:
                         cluster=str(row.get('cluster', '')),
                         suggestion_text=str(row.get('suggestion_text', '')),
                         resource_link=str(row.get('resource_link', '')) if pd.notna(row.get('resource_link')) else None,
-                        evidence_based=bool(row.get('evidence_based', True)),
-                        domain=domain
+                        evidence_based=bool(row.get('evidence_based', True))
                     )
                     suggestions.append(suggestion)
                 except Exception as e:
                     logger.warning(f"Skipping invalid suggestion row: {e}")
                     continue
 
-            logger.info(f"✅ Processed {len(suggestions)} therapeutic suggestions for {domain}")
+            logger.info(f"✅ Processed {len(suggestions)} therapeutic suggestions")
             return suggestions
 
         except Exception as e:
-            logger.error(f"❌ Failed to process suggestions sheet for {domain}: {str(e)}")
+            logger.error(f"❌ Failed to process suggestions sheet: {str(e)}")
             return []
 
     def _map_next_action_to_id(self, next_action_text: str) -> str:
@@ -506,16 +498,16 @@ class DataImportService:
             # Default fallback
             return 'continue_same'
 
-    async def process_feedback_sheet(self, df: pd.DataFrame, domain: str) -> List[FeedbackPrompt]:
+    async def process_feedback_sheet(self, df: pd.DataFrame) -> List[FeedbackPrompt]:
         """Process feedback sheet and return FeedbackPrompt objects"""
         try:
             prompts = []
 
             for idx, row in df.iterrows():
                 try:
-                    # Transform prompt_id to expected format (F001 -> P_STR_001)
+                    # Use prompt_id as-is
                     original_prompt_id = str(row.get('prompt_id', ''))
-                    transformed_prompt_id = self._transform_prompt_id(original_prompt_id, domain)
+                    transformed_prompt_id = original_prompt_id
 
                     # Map next_action text to action_id
                     next_action_text = str(row.get('next_action', ''))
@@ -533,14 +525,14 @@ class DataImportService:
                     logger.warning(f"Skipping invalid feedback row: {e}")
                     continue
 
-            logger.info(f"✅ Processed {len(prompts)} feedback prompts for {domain}")
+            logger.info(f"✅ Processed {len(prompts)} feedback prompts")
             return prompts
 
         except Exception as e:
-            logger.error(f"❌ Failed to process feedback sheet for {domain}: {str(e)}")
+            logger.error(f"❌ Failed to process feedback sheet: {str(e)}")
             return []
 
-    async def process_training_sheet(self, df: pd.DataFrame, domain: str) -> List[TrainingExample]:
+    async def process_training_sheet(self, df: pd.DataFrame) -> List[TrainingExample]:
         """Process training sheet and return TrainingExample objects"""
         try:
             examples = []
@@ -605,7 +597,6 @@ class DataImportService:
                         conversation_id=str(row.get('ConversationID', '')),
                         prompt=str(row.get('prompt', '')),
                         completion=str(row.get('completion', '')),
-                        domain=domain,
                         sub_category_id=transformed_sub_category_id
                     )
                     examples.append(example)
@@ -613,14 +604,14 @@ class DataImportService:
                     logger.warning(f"Skipping invalid training row: {e}")
                     continue
 
-            logger.info(f"✅ Processed {len(examples)} training examples for {domain}")
+            logger.info(f"✅ Processed {len(examples)} training examples")
             return examples
 
         except Exception as e:
-            logger.error(f"❌ Failed to process training sheet for {domain}: {str(e)}")
+            logger.error(f"❌ Failed to process training sheet: {str(e)}")
             return []
 
-    async def vectorize_and_store_problems(self, problems: List[ProblemCategory]) -> bool:
+    async def vectorize_and_store_problems(self, problems: List[ProblemCategoryModel]) -> bool:
         """Vectorize and store problems in Qdrant"""
         try:
             if not problems:
@@ -699,7 +690,7 @@ class DataImportService:
                 elif question.response_type == "scale":
                     # Default scale values if not provided
                     metadata["scale_min"] = 1
-                    metadata["scale_max"] = 10
+                    metadata["scale_max"] = 4
                 text_metadata_pairs.append({"text": question.question_text, "metadata": metadata})
 
             # Generate embeddings
@@ -1020,14 +1011,13 @@ class DataImportService:
             logger.error(f"❌ Failed to import all data: {str(e)}")
             return {"success": False, "error": str(e)}
 
-    async def store_problems_via_dataset_service(self, problems: List[ProblemCategory]) -> bool:
+    async def store_problems_via_dataset_service(self, problems: List[ProblemCategoryModel]) -> bool:
         """Store problems using dataset management service"""
         try:
             for problem in problems:
                 problem_data = {
                     "domain": problem.domain,
                     "category": problem.category,
-                    "category_id": problem.category_id,
                     "sub_category_id": problem.sub_category_id,
                     "problem_name": problem.problem_name,
                     "description": problem.description,
@@ -1074,6 +1064,7 @@ class DataImportService:
                     "clusters": clusters,
                     "scale_min": scale_min,
                     "scale_max": scale_max,
+                    "scale_labels": getattr(assessment, 'scale_labels', None),
                     "options": options
                 }
 

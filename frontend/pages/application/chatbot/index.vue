@@ -773,16 +773,21 @@
 								class="space-y-3"
 							>
 								<p class="text-xs sm:text-sm text-blue-700">
-									Pilih skala 1-10 (1 = sangat rendah, 10 = sangat tinggi)
+									Pilih jawaban yang paling sesuai:
 								</p>
-								<div class="grid grid-cols-5 sm:grid-cols-10 gap-2">
+								<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 									<button
-										v-for="scale in 10"
+										v-for="(label, scale) in getScaleLabels(lastMessage.assessmentData.question)"
 										:key="scale"
-										@click="submitAssessmentResponse(scale)"
-										class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-500 transition-colors text-sm font-medium"
+										@click="submitAssessmentResponse(parseInt(scale))"
+										class="p-3 text-left rounded-xl border-2 border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-500 transition-colors text-sm font-medium"
 									>
-										{{ scale }}
+										<div class="flex items-center space-x-3">
+											<div class="w-6 h-6 rounded-full border-2 border-blue-500 bg-blue-50 flex items-center justify-center text-xs font-bold">
+												{{ scale }}
+											</div>
+											<span>{{ label }}</span>
+										</div>
 									</button>
 								</div>
 							</div>
@@ -1532,6 +1537,20 @@ const getModeDescription = (mode) => {
 const switchLanguage = () => {
 	const newLocale = locale.value === 'id' ? 'en' : 'id';
 	setLocale(newLocale);
+};
+
+const getScaleLabels = (question) => {
+	// Return scale labels from question or defaults
+	if (question && question.scale_labels) {
+		return question.scale_labels;
+	}
+	// Default labels
+	return {
+		"1": "Not at all",
+		"2": "A little",
+		"3": "Quite a bit",
+		"4": "Very much"
+	};
 };
 
 const getEmotionEmoji = (emotion) => {
